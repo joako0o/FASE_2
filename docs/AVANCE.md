@@ -1,18 +1,48 @@
 # AVANCE — Proyecto D&H
 
 > Memoria del proyecto entre sesiones. Actualización obligatoria al cierre de cada sesión de trabajo (REGLAS.md, regla de cierre).
-> Última actualización: 2026-09-15 (sesión 5).
+> Última actualización: 2026-09-15 (sesión 6).
 
 ---
 
 ## Estado actual
 
-- **Fase vigente**: Fase 4 (Piloto de etiquetado) EN CURSO. Rondas 1 y 2 = tandas 1 y 2 de 4 completadas y validadas (198/300 intervenciones).
+- **Fase vigente**: Fase 4 (Piloto de etiquetado) EN CURSO. Rondas 1, 2 y 3 = tandas 1 a 3 de 4 completadas y validadas (283/300 intervenciones). Queda la tanda 4 (17 intervenciones).
 - **PR abierta**: [#1](https://github.com/joako0o/FASE_2/pull/1) — acumula todos los commits del proyecto.
 
-## Última sesión: 2026-09-15 (sesión 5)
+## Última sesión: 2026-09-15 (sesión 6)
 
 ### Completado en esta sesión
+
+1. **Ronda 3 del piloto etiquetada y validada** (tanda 3, 85 intervenciones, 19.858 palabras, 2011-12 a 2015-05, 37 reuniones): `data/etiquetas/etiquetas_piloto_r3.csv`. Distribución: 77 neutral, 0 hawkish, 8 dovish; 29 registros `es_relevante=0`; confianza 75 alta / 10 media. Cobertura exacta contra la tanda 3 verificada.
+   - Dovish (8): Larraín 2013-05-16 ("condiciones para comenzar un nuevo ciclo de reducción de la TPM"), Marshall 2013-06-13 (mantención con sesgo a la baja: "un recorte facilitará el necesario ajuste"), comunicado 2013-07-11 ("podría requerir de ajustes en la TPM en los próximos meses", confianza media — caso límite del eufemismo "ajustes"), comunicado 2014-01-16 ("podría ser necesario agregar un mayor estímulo monetario", sesgo explícito), Claro 2014-02-18 (voto -25 pb a 4,25 %), Arenas 2014-06-12 ("seguir aumentando el estímulo monetario... evitar costos cíclicos innecesarios"), Vergara 2014-08-14 (constancia del recorte unánime a 3,5 %), Arenas 2015-03-19 ("es fundamental que la política monetaria continúe contribuyendo a esta recuperación", confianza media — mantención avalada con énfasis acomodaticio).
+   - Hawkish: ninguno en esta tanda (rasgo de época: pausa de normalización y ciclo de recortes 2012-2015).
+2. **Incidencia de generación**: atajo en el generador temporal (filas flag-0 heredaron es_relevante=1); el validador 05 lo detectó inmediatamente (frase obligatoria si flag 1) y se corrigió. Refuerza el valor del control automático.
+3. **Cobertura y verbatim**: los 85 registros pasan íntegros el validador endurecido (dominios, coherencia prob/score/argmax, nota obligatoria si flag 0, frase verbatim de L0, largo ≤300).
+
+### Hallazgos analíticos de la ronda 3
+
+- La tanda cubre la pausa larga de 5 % (2012), la apertura al sesgo expansivo (2013) y el ciclo de recortes hasta 3 % (oct-2013 a mar-2014). **El piloto completa así el arco 2005-2015**: alzas 2005-2008, colapso y piso 2009-2010, normalización 2010-2011, recortes 2013-2014.
+- Casos límite acumulados para revisión al cierre del piloto: (a) comunicados con el eufemismo "ajustes" (5699:3, dovish media); (b) preocupación por inflación BAJA sin implicancia explícita de postura (Vergara 2013-01-17, neutral media, probs 0.20 dovish); (c) aval de mantención con retórica acomodaticia sin pedir cambios (Arenas 2015-03-19, dovish media); (d) la convención ya establecida "mantención + sesgo explícito se etiqueta según el sesgo".
+- Confirmado una vez más: el 80 % del habla es diagnóstico o logística; la postura se concentra en votos, sesgos comunicacionales y recomendaciones (staff/ministerio).
+
+### Próximos pasos (en orden)
+
+1. **Tanda 4** (17 intervenciones, 4.372 palabras, 2015): leer, etiquetar, validar → **piloto 300/300**.
+2. Al cierre del piloto: revisión de casos límite (lista acumulada rondas 1-3) + decisiones de codebook v3 si aplica + test-retest 30 (≥90 % de estabilidad).
+3. Infraestructura pendiente (no bloqueante): ejecutar `scripts/02...py` con internet (macro) + curado restante de `actores_metadata.csv`.
+
+### Bloqueos y pendientes
+
+- Sin bloqueos para etiquetar. Macro y metadata: pendientes no bloqueantes (manifiesto `data/L2/pendientes_manifest.csv`).
+
+---
+
+## Sesiones anteriores
+
+### 2026-09-15 (sesión 5)
+
+#### Completado en esta sesión
 
 1. **Ronda 2 del piloto etiquetada y validada** (tanda 2, 88 intervenciones, 19.490 palabras, 2009-07 a 2011-12, 28 reuniones): `data/etiquetas/etiquetas_piloto_r2.csv`. Distribución: 78 neutral, 5 hawkish, 5 dovish; 24 registros `es_relevante=0`; confianza 79 alta / 9 media. Cobertura exacta contra la tanda 2 verificada.
    - Hawkish: Marfán 2010-05-13 (mantención con "sesgo al alza explícito"), De Gregorio 2010-05-13 ("ventana de oportunidad" para normalizar, confianza media), Vergara 2010-06-15 (voto +50 pb a 1 %), Larraín 2011-05-12 (recomendación ministerial +25 pb), Herrera 2011-06-14 (recomendación del staff +25 pb a 5,25 %, R5-excepción).
@@ -21,27 +51,25 @@
 3. **Control de calidad retroactivo en ronda 1**: el validador endurecido detectó 23 frases de ronda 1 no verbatim (uso de elipsis "..." uniendo fragmentos y paráfrasis menores); todas fueron reemplazadas por citas textuales contiguas tras revisar cada texto original. Caso documentado: el corpus traía OCR con palabra cortada ("afecta ría") y la cita verbatim lo respetó. Ambas rondas pasan ahora íntegramente el validador endurecido.
 4. **Infraestructura sandbox**: pandas se pierde al reiniciar el contenedor (venv ~/.local no persiste en el snapshot); reinstalado con `pip install --user --break-system-packages -r requirements.txt` si aparece ModuleNotFoundError.
 
-### Hallazgos analíticos de la ronda 2
+#### Hallazgos analíticos de la ronda 2
 
 - La tanda 2 cubre el tramo 2009-2011: salida de la crisis, normalización (primer alza junio 2010) y ciclo al alza hasta 5,25 %, luego pausa con sesgo a la baja a fines de 2011. El piloto ya contiene un ciclo completo de endurecimiento con votos explícitos.
 - Confirma el patrón dominante: la postura vive en los **bloques de votación/justificación** y en las **recomendaciones ministeriales y del staff**; el resto es diagnóstico (R2).
 - Patrón registrado para revisión al cierre del piloto: **mantención + sesgo comunicacional explícito se etiqueta según el sesgo** (Marfán 2010-05-13 hawkish con voto a mantener; Claro 2011-10-13 dovish con voto a mantener), consistente con R4 (énfasis dominante) y con el precedente Marshall de la ronda 1.
 - Los votos de mantención sin sesgo articulado siguen siendo neutral (Larraín 2010-03-18 post-terremoto: endoso de mantención con shock transitorio).
 
-### Próximos pasos (en orden)
+#### Próximos pasos (en orden)
 
 1. **Tanda 3** (85 intervenciones, 19.858 palabras, 2011-2015): leer, etiquetar, validar, commit.
 2. Tanda 4 (17 intervenciones, remanente 2015) y cierre del piloto (300/300).
 3. Al cierre del piloto: revisión de casos límite (mantención + sesgo; votos silenciosos), codebook v3 si aplica, test-retest 30 (≥90 %).
 4. Infraestructura pendiente (no bloqueante): ejecutar `scripts/02...py` con internet; curado restante de `actores_metadata.csv`.
 
-### Bloqueos y pendientes
+#### Bloqueos y pendientes
 
 - Sin bloqueos para etiquetar. Macro y metadata: pendientes no bloqueantes (manifiesto).
 
 ---
-
-## Sesiones anteriores
 
 ### 2026-09-15 (sesión 4)
 
@@ -133,3 +161,4 @@
 - **2026-09-15 (sesión 3)**: codebook v2 aprobado; Fase 3 ejecutada (scripts 01–03, L0, muestra piloto 300, metadata parcial, manifiesto de pendientes).
 - **2026-09-15 (sesión 4)**: regla de tandas por presupuesto de palabras (script 04); ronda 1 del piloto etiquetada y validada (tanda 1 de 4, 110 intervenciones, `etiquetas_piloto_r1.csv`); validador obligatorio de corridas (script 05).
 - **2026-09-15 (sesión 5)**: ronda 2 etiquetada y validada (tanda 2, 88 intervenciones, `etiquetas_piloto_r2.csv`); validador endurecido con control verbatim R10; 23 frases de ronda 1 corregidas retroactivamente; piloto al 66 % (198/300).
+- **2026-09-15 (sesión 6)**: ronda 3 etiquetada y validada (tanda 3, 85 intervenciones, `etiquetas_piloto_r3.csv`; 77 neutral, 8 dovish, 0 hawkish); arco histórico 2005-2015 completo en el piloto; queda la tanda 4 (17); piloto al 94 % (283/300).
