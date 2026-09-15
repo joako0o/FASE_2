@@ -170,8 +170,8 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 
 - [x] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b
 - [x] **Fase 1** — Planificación y documentación inicial (este archivo, v2)
-- [ ] **Fase 2** — Codebook v2 emitido (2026-09-15, `docs/codebook_v2.md`) → **pendiente revisión final del investigador**
-- [ ] **Fase 3** — Preparación: EDA reproducible, capas L0/L2 (macro + metadata), limpieza de flags `Cotejar_PDF`, muestra piloto estratificada (n=300) con seed
+- [x] **Fase 2** — Codebook v2 APROBADO y congelado (2026-09-15, `docs/codebook_v2.md`)
+- [ ] **Fase 3** — Preparación: scripts 01–03 creados y ejecutados (L0 + muestra piloto n=300 con seed 20260915 listos). Pendiente: descarga macro (sandbox sin salida TLS; bootstrap progresivo con fetcher o ejecución local) y curado restante de metadata de actores
 - [ ] **Fase 4** — Piloto de etiquetado IA + revisión → codebook v2
 - [ ] **Fase 5** — Rondas de escalado + curva de aprendizaje (PR por ronda)
 - [ ] **Fase 6** — Gold humano a ciegas (n=300) + Cohen's κ
