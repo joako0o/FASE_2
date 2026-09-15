@@ -230,3 +230,25 @@ La Fase de validación del score contra dTPM ya tiene su insumo completo. El PR 
 - Tanda 4 del escalado (comienza con la votación de mayo-2005 y avanza jun–jul 2005).
 - Casos límite acumulados para revisión conjunta al cierre del gold; test-retest de 30; codebook v3 al final.
 - Al final: gold ciego del usuario (~300), kappa, fine-tune BETO.
+
+---
+
+## Sesión 8b (2026-09-15) — Decisión de alcance: training set ~1.000 y muestreo estratificado por fases
+
+**Decisión del investigador (consolidada como decisión 8 del PLAN)**
+
+El etiquetado en chat NO cubre el corpus completo: construye solo el training set de ~1.000 intervenciones para el fine-tune de BETO; el modelo etiqueta las ~8.600 restantes en la Fase 8. El universo de *scoring* sigue siendo las 9.725. Justificación: un fine-tune de 3 clases converge bien en ese rango y la clase minoritaria importa más que el total; el trabajo manual se acota al mínimo defendible.
+
+**Diseño del training set**
+
+- Ya etiquetado: 595 (piloto 300 estratificado por año×tópico×actor + tandas cronológicas 1-3 de 2005-fa alzas).
+- **Tanda 4** (pendiente, cronológica): 52 intervenciones; cierra 2005 (votación de mayo + jun-jul).
+- **Tandas 5-8 estratificadas** (`scripts/08_muestra_estrato_fases.py`): 378 intervenciones / 67.740 palabras, 9 fases del ciclo TPM derivadas de las transiciones reales en `data/L2/macro_por_reunion.csv` (42 por fase, seed 20260915): alza_fin 2006, mixto 2007, crisis_alza 2008, bajas 2009, alza_emergencia 2010, alza 2011, mantiene 2012-13, bajas 2013-14, quiebre 2015.
+- **Proyección total: 1.025** etiquetas de entrenamiento + gold ciego del usuario (~300, test puro, sin tocar).
+- Archivos: `data/muestras/estrato_fases.csv` y `estrato_fases_resumen.csv`.
+
+**Pendiente**
+
+- Tanda 4 (cierre 2005) en el próximo turno; luego tandas 5-8 estratificadas.
+- Después: curva de aprendizaje con modelos rápidos (TF-IDF/embeddings), kappa vs gold, fine-tune BETO y scoring del corpus.
+- Diferido: casos límite, test-retest 30, codebook v3, votos explícitos (Fase 10).

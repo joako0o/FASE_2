@@ -62,6 +62,7 @@ Todos los IDs siguen el patrón `RPM-AAAA-MM-DD:N:M` → la reunión es la unida
 | 5 | Entregables | Score por intervención → serie temporal + data de actores (§7) + contexto macro (§5) |
 | 6 | Operación | Etiquetado en este chat por rondas; **todo documentado + PR constante a GitHub** |
 | 7 | Esquema final | Arquitectura por capas (§5), armonizando las propuestas v0a/v0b de la Fase 0 |
+| 8 | Alcance del etiquetado chat (2026-09-15, decisión del investigador) | La IA **no** etiqueta las 9.725 a mano: el escalado en chat construye solo el **training set (~1.000 intervenciones)**, estratificado por fase de política monetaria; el **modelo fine-tuneado (BETO) etiqueta el resto del corpus** en la Fase 8. Universo de scoring sigue siendo las 9.725 (decisión 2); lo que se acota es el trabajo manual |
 
 ### Clases de postura (decisión del investigador, 2026-09-15; detalle en `docs/codebook_v2.md`)
 
@@ -85,7 +86,7 @@ Codebook v1 → Piloto IA (300) → revisión investigador → rondas IA (curva 
 
 1. **Codebook versionado** (`docs/codebook_vX.md`): definiciones + ≥3 ejemplos reales por clase + casos borde (escenario_internacional ≠ stance; ministros; textos institucionales; flags `Cotejar_PDF`).
 2. **Piloto (n=300)**: muestra estratificada año × tópico × actor (seed fija). Cada etiqueta incluye `label + confianza + frase_justificante textual`. El investigador revisa una submuestra → ajuste del rubro (codebook v2).
-3. **Rondas de escalado** (~150–300 por ronda): tras cada ronda se entrena un modelo rápido y se registra Macro-F1 → **curva de aprendizaje**; se detiene cuando la mejora marginal se estanque (justificación empírica del n final, defendible en tesis).
+3. **Rondas de escalado acotadas (decisión 8, §3)**: se etiqueta en chat hasta completar un training set de **~1.000 intervenciones**: (a) bloque cronológico inicial (cierre de 2005, fase de alzas 3→4,75% TPM, máxima densidad de cambios de decisión) y (b) bloque **estratificado por fase de política monetaria** 2006–2015 (alzas 2006, mantención 2007–08, alzas y bajas de crisis 2008–09, pausa 0,5% 2009–10, alzas 2010–11, mantención 2012–13, bajas 2013–14, quiebre 2015), con seed fija. Tras cada ronda se entrena un modelo rápido y se registra Macro-F1 → **curva de aprendizaje**; se detiene cuando se agote el presupuesto estratificado o la mejora marginal se estanque. **El resto del corpus (~8.600) lo etiqueta el modelo fine-tuneado en la Fase 8.**
 4. **Test-retest**: 30 IDs fijos re-etiquetados en cada ronda → consistencia interna (meta ≥ 90% de coincidencia).
 5. **Gold humano (n=300)**: el investigador etiqueta **a ciegas** (sin ver etiquetas de la IA) una muestra estratificada. Si κ < 0.7 → revisión del rubro y re-etiquetado; meta κ ≥ 0.7 (ideal ≥ 0.8).
 
@@ -173,7 +174,7 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 - [x] **Fase 2** — Codebook v2 APROBADO y congelado (2026-09-15, `docs/codebook_v2.md`)
 - [ ] **Fase 3** — Preparación: scripts 01–03 creados y ejecutados (L0 + muestra piloto n=300 con seed 20260915 listos). Pendiente: descarga macro (sandbox sin salida TLS; bootstrap progresivo con fetcher o ejecución local) y curado restante de metadata de actores
 - [ ] **Fase 4** — Piloto de etiquetado IA + revisión → codebook v2
-- [ ] **Fase 5** — Rondas de escalado + curva de aprendizaje (PR por ronda)
+- [ ] **Fase 5** — Rondas de escalado **acotado a training set ~1.000** (cronológico 2005 + estratificado por fases 2006–2015; decisión 8 §3) + curva de aprendizaje (PR por ronda)
 - [ ] **Fase 6** — Gold humano a ciegas (n=300) + Cohen's κ
 - [ ] **Fase 7** — Fine-tune BETO + evaluación final vs gold
 - [ ] **Fase 8** — Scoring de las 9.725 + serie temporal + validación vs ΔTPM
