@@ -16,6 +16,7 @@ from pathlib import Path
 RUTA_REPO = Path(__file__).resolve().parent.parent
 
 RUTA_EXCEL = RUTA_REPO / "consolidado_D&H.xlsx"
+RUTA_EXCEL_MACRO = RUTA_REPO / "consolidado_macro.xlsx"  # descarga local del usuario (mindicador/BCCh)
 
 RUTA_DATOS = RUTA_REPO / "data"
 RUTA_L0 = RUTA_DATOS / "L0"                 # corpus inmutable derivado del Excel

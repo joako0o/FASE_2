@@ -185,3 +185,25 @@
 - Casos límite acumulados para revisión conjunta al cierre del gold: los ya listados en sesión 6 más el balance de riesgos "sesgo al alza para la inflación" en presentaciones del staff (etiquetado neutral con tilt 0,20).
 - Tanda 2 del escalado (93 intervenciones, feb–abr 2005) queda lista para el próximo turno.
 - Al final: gold ciego del usuario (~300), kappa, fine-tune BETO.
+
+---
+
+## Sesión 7b (2026-09-15) — Llega el macro consolidado y recuperación del repo
+
+**Incidente y recuperación (sin pérdida de trabajo)**
+
+El repo de GitHub fue recreado y el usuario subió por web dos archivos (`consolidado_D&H.xlsx`, el corpus fuente de 9.725 intervenciones, y `consolidado_macro.xlsx`, la descarga macro ejecutada localmente). Eso dejó el historial remoto sin relación con el local y sin la rama de trabajo ni el PR #1. Todos los archivos de trabajo estaban intactos en el sandbox; se reconstruyó la rama `arena/01a0a3a0-fase-2` sobre el nuevo `main` y se re-subió todo en un solo commit.
+
+**Qué hizo el usuario**
+
+Ejecutó la descarga macro en su máquina y entregó `consolidado_macro.xlsx` con: TPM, IPC, IMACEC y dólar diarios/mensuales 2000-2025; desempleo mensual (desde 2010-03, límite del API); cobre mensual; `Macro_por_Reunion` con TPM, TPM_post, dTPM y policy_decision para **las 132 reuniones del corpus, sin faltantes**; `Actores_Metadata` (465 actores, historia larga) y catálogo de variables.
+
+**Qué se hizo en esta sesión**
+
+1. `scripts/07_macro_desde_excel.py`: materializa la capa L2 macro desde el libro, con cortes y asserts (una fila por reunión, cobertura total, dTPM coherente en signo con la decisión).
+2. Generados `data/L2/macro_por_reunion.csv` (132 reuniones: 80 mantiene / 35 sube / 17 baja) y `data/L2/macro_mensual.csv` (312 meses, 2000-2025).
+3. `data/L2/pendientes_manifest.csv` depurado: quedan solo eee_inflacion_1a, ipec, sit_pais_1a, pib, exportaciones, importaciones y el hueco desempleo 2005-2009.
+
+**Desbloqueo**
+
+La Fase de validación del score contra dTPM ya tiene su insumo completo. El PR de trabajo se reabre con todo el acumulado.
