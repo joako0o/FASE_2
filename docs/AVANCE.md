@@ -415,3 +415,11 @@ Existen dos estratos: `estrato_enriquecido.csv` (252 int, tandas 9-14, sesión 9
 2. r15-r17: tandas 11-13 (136 int / ~41,6k p.).
 3. Recibir gold etiquetado por el usuario → κ por clase y sub-estrato.
 4. Fase 6 (baselines; instalar scikit-learn), Fase 7 (BETO dos etapas), Fase 8 (scoring 9.725).
+
+### Sesión 11 (cont., ~20k palabras extra) — Tanda 10 del estrato_tanda9 (r14)
+
+**Tanda 10 etiquetada y validada** (`data/etiquetas/etiquetas_escalado_r14.csv`, ronda `escalado_t10_r14`): 56 intervenciones / 19.507 palabras. Relevantes: 37 neutral / 7 hawkish / 5 dovish + 14 flag-0 (las 12 micro-intervenciones logísticas habituales: fijación de fechas, tránsitos a votación, aprobaciones de comunicado, cierres; más 1 institucional de presupuesto). Validación completa: codebook v2, sin duplicados, conferencia literal 56/56, cobertura exacta `estrato_tanda9.csv[tanda==10]`.
+
+**Hallazgos**: sep-2007 Valdés (staff) recomienda +25 pb ("difícil argumentar opción diferente") → hawkish 0,95; ago-sep-2008 el clímax restrictivo: Marshall, Marfán y el Consejo votan +50 pb a 7,75 %/8,25 % con "trayectoria futura contempla ajustes adicionales" (3 x hawkish 0,95); feb-2008 De Gregorio pausa en ciclo de alzas por apreciación cambiaria → dovish relativo 0,65; abr-2010 De Gregorio mantiene 0,5 % pero anuncia "comenzar a normalizar en los meses venideros" → hawkish 0,70 (convención mantención con reafirmación de retiro); abr-2009 recortes de 50 pb de Marfán y Céspedes con sesgo de continuación → dovish 0,95/0,85; jul-2014 Vergara defiende "sesgo negativo" → dovish 0,70.
+
+**Training set: 1.216 etiquetas** (H=99, D=73, N=1.044). Restan tandas 11 (71 int), 12 (58) y 13 (7) = 136 intervenciones (~41,6k palabras) → r15-r17. Ventana de costo: completo el enriquecido quedaría ~1.352 etiquetas.
