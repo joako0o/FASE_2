@@ -1,0 +1,45 @@
+{
+  "n": 1352,
+  "accuracy": 0.7197,
+  "macro_f1": 0.3511,
+  "f1_por_clase": {
+    "hawkish": 0.1379,
+    "dovish": 0.0757,
+    "neutral": 0.8397
+  },
+  "macro_f1_piso_neutral": 0.306,
+  "matriz_confusion": {
+    "filas_reales": [
+      "hawkish",
+      "dovish",
+      "neutral"
+    ],
+    "columnas_pred": [
+      "hawkish",
+      "dovish",
+      "neutral"
+    ],
+    "valores": [
+      [
+        18,
+        6,
+        92
+      ],
+      [
+        11,
+        7,
+        71
+      ],
+      [
+        116,
+        83,
+        948
+      ]
+    ]
+  },
+  "modelo_a": "tfidf(1,2)+logreg balanced | es_relevante",
+  "modelo_b": "tfidf(1,2)+logreg balanced | hawkish/dovish/neutral",
+  "folds": 5,
+  "agrupacion": "meeting_id (fecha)",
+  "semilla": 20260915
+}

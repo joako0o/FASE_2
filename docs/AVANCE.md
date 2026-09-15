@@ -463,3 +463,30 @@ Con 1.352 etiquetas: F1 alza-2005 108, F2 mantención 335, F3 alza-2007 152, F4 
 - Riesgo conocido: confianza "media" concentra ~11% de las etiquetas; si el gold muestra que "media" es ruido, se elevará a "alta" iterando el codebook v2→v3.
 
 *Sesión 11 cerrada. Repositorio sincronizado (`git push origin arena/01a0a3a0-fase-2`).*
+
+---
+
+## Sesión 12: baseline TF-IDF (piso honesto) + r17 commiteado (2026-09-15)
+
+### Composición
+1. **Commit de cierre pendiente** `etiquetas_escalado_r17.csv` (tanda 13): había quedado sin commitear tras el cierre de sesión 11. Ya dentro del training set (1.352).
+2. **Baseline TF-IDF** (`scripts/15_baseline_tfidf.py`), metodo L1 `tfidf`: arquitectura de dos etapas (decisión 10) — A) `es_relevante` binario, B) stance 3-clases sobre relevantes. GroupKFold×5 por `meeting_id` (sin fuga entre intervenciones de la misma reunión), `class_weight="balanced"`, seed maestra 20260915. Artefactos: `data/L2/baseline_tfidf_oof.csv`, `data/L2/baseline_tfidf_metrics.json`.
+
+### Resultados (n=1.352, 133 reuniones)
+- accuracy 0,7197 | macroF1 **0,3511** (piso predecir-siempre-neutral: 0,3060)
+- por clase: hawkish F1=**0,138** (18/116), dovish F1=**0,076** (7/89), neutral F1=0,840 (948/1.147)
+- matriz: casi toda losa preterminada a neutral (92 hawkish y 71 dovish clasificados como neutral)
+
+### Diagnóstico que siguió (sin commitear, reproducible)
+1. El cuello de botella NO es la etapa A: `es_relevante` logra **96,3% accuracy** aislada.
+2. Stage B TF-IDF sobre relevantes: macroF1 ~0,31 (config word(1,3), min_df=2, balanced). Cifras mayores (~0,69) solo se observan ajustando el vocabulario TF-IDF sobre el dataset completo antes de los folds = **fuga de test**; descartadas.
+3. Variantes probadas con mejora marginal: limpieza de fórmulas de cortesía ("El Consejero señor X señala…"), unión word+char n-grams (3-5), umbrales por clase afinados en train-fold, descomposición 2-pasos (dir-vs-neutral + H-vs-D). Todas dentro del rango macroF1 0,31–0,37.
+4. **Esperado/falso amigo:** el paso B1 (H∪D vs neutral) da F1_direccional ≈ 0,20 — casi azar. La marca "stance" del codebook v2 depende de convenciones contextuales menús-de-opciones ("mantener" puede ser hawkish relativo en menú {mantener,bajar} o neutral en crisis) que un bag-of-words sin contexto de reunión no representa.
+
+### Implicación estratégica para Fase 8 (BETO)
+- El piso TF-IDF queda **fijado en macroF1 0,35**; BETO deberá superar +15 puntos para justificarse, con objetivo de trabajo macroF1 ≥ 0,55 y F1_dovish ≥ 0,35.
+- Prioridades BETO: (i) ventanas de contexto de reunión (meeting-level features o concat con decisión del día), (ii) focal loss o class_weight asimétrico para dovish, (iii) concat de `cargo/tópico` estructurados, (iv) data augmentation por paráfrasis SOLO de clases H/D.
+
+### Pendientes sin cambios
+- Gold ciego 306 con el usuario (instrumento intacto, zero respuestas aún).
+- `consolidado_macro` variables en `data/L2/pendientes_manifest.csv`.
