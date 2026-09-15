@@ -70,11 +70,34 @@ def validar(df: pd.DataFrame) -> dict:
     assert not sin_nota.any(), "nota obligatoria cuando es_relevante=0 (codebook §2.4)"
     sin_frase = (df["es_relevante"] == 1) & df["frase_justificante"].isna()
     assert not sin_frase.any(), "frase_justificante obligatoria cuando es_relevante=1 (R10)"
+    largas = df["frase_justificante"].dropna().str.len() > 300
+    assert not largas.any(), "frase_justificante excede 300 caracteres (R10)"
 
     # Cobertura contra L0
-    corpus = pd.read_csv(RUTA_L0 / "corpus.csv", usecols=["intervencion_id"])
+    corpus = pd.read_csv(RUTA_L0 / "corpus.csv", usecols=["intervencion_id", "texto"])
     faltantes = set(df["intervencion_id"]) - set(corpus["intervencion_id"])
     assert not faltantes, f"IDs no presentes en L0: {list(faltantes)[:5]}"
+
+    # Frase justificante verbatim: R10 exige cita textual de la intervencion,
+    # sin parafraseo. El corpus L0 conserva saltos de linea del acta original
+    # (quiebres tipograficos), por lo que la comparacion se hace sobre ambos
+    # lados con espacios en blanco normalizados: cualquier racha de whitespace
+    # colapsa a un espacio. Esto no relaja R10 (las palabras deben coincidir
+    # exactamente en orden), solo inmuniza contra quiebres de linea.
+    def norm(s: str) -> str:
+        return " ".join(s.split())
+
+    texto = corpus["texto"].map(norm)
+    texto.index = corpus["intervencion_id"]
+    no_verbatim = [
+        r.intervencion_id
+        for r in df.itertuples()
+        if r.es_relevante == 1
+        and isinstance(r.frase_justificante, str)
+        and r.frase_justificante.strip()
+        and norm(r.frase_justificante) not in texto.loc[r.intervencion_id]
+    ]
+    assert not no_verbatim, f"frase_justificante no verbatim en: {no_verbatim[:5]}"
 
     return {
         "filas": len(df),
