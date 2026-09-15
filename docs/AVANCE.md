@@ -423,3 +423,43 @@ Existen dos estratos: `estrato_enriquecido.csv` (252 int, tandas 9-14, sesión 9
 **Hallazgos**: sep-2007 Valdés (staff) recomienda +25 pb ("difícil argumentar opción diferente") → hawkish 0,95; ago-sep-2008 el clímax restrictivo: Marshall, Marfán y el Consejo votan +50 pb a 7,75 %/8,25 % con "trayectoria futura contempla ajustes adicionales" (3 x hawkish 0,95); feb-2008 De Gregorio pausa en ciclo de alzas por apreciación cambiaria → dovish relativo 0,65; abr-2010 De Gregorio mantiene 0,5 % pero anuncia "comenzar a normalizar en los meses venideros" → hawkish 0,70 (convención mantención con reafirmación de retiro); abr-2009 recortes de 50 pb de Marfán y Céspedes con sesgo de continuación → dovish 0,95/0,85; jul-2014 Vergara defiende "sesgo negativo" → dovish 0,70.
 
 **Training set: 1.216 etiquetas** (H=99, D=73, N=1.044). Restan tandas 11 (71 int), 12 (58) y 13 (7) = 136 intervenciones (~41,6k palabras) → r15-r17. Ventana de costo: completo el enriquecido quedaría ~1.352 etiquetas.
+
+---
+
+## Sesión 11 (cont.): tandas 11-13 del estrato — DECISIÓN 10 CUMPLIDA (2026-09-15)
+
+**Rondas r15-r17 completadas.** Las 3 tandas restantes del `estrato_tanda9` (136 int / 41,6k p.) quedaron etiquetadas y validadas:
+
+| Ronda | Tanda | Int. | Distribución | Notas texto-perdurable |
+|---|---|---|---|---|
+| `escalado_t11_r15` | 11 | 71 | 55 N / 8 H / 8 D (8 flag-0) | Ciclo 2008-2011 + 2014-2015; convención "mantener=única opción relevante" (García/Vial) = neutral; retiro explícito de sesgo al alza (De Gregorio sep-2011) = dovish relativo p_d=0,65 |
+| `escalado_t12_r16` | 12 | 58 | 41 N / 9 H / 8 D (10 flag-0) | Clímax de crisis 2009: Marshall/Velasco abr-2009 (-50pb) = D 0,95/0,85; Marfán abr-2013 "pedir gráfico" = neutral (peticiones de datos no son postura); cycle-ender Corbo oct-2007 (mantener + esperar) con balance al alza = hawkish relativo 0,55 media |
+| `escalado_t13_r17` | 13 | 7 | 6 N / 0 H / 0 D (1 flag-0) | Tanda residual corta; Soto deja constancia de expectativa de alza (market pricing, no postura propia) |
+
+**VALIDACIÓN IGUAL QUE RONDAS ANTERIORES:** código del conjunto: prob sum=1, frase ≤300, conferencia literal contra `escalado_tandas.csv` (normalización NFD+minúsculas+cosas), sin duplicados `intervencion_id` entre los 19 CSV de `data/etiquetas/`, codebook v2, asserts del generador.
+
+### Estado final del training set (DECISIÓN 10 cerrada)
+
+- **Archivos en `data/etiquetas/`:** 19 CSV (`base` r1-r4, `escalado` r5-r17, `enriquecido`, gold-r0 placeholder) = **1.352 etiquetas IA**.
+- Distribución: **H=116 (8,6%) / D=89 (6,6%) / N=1.147 (84,8%)**; H+D = **205 (15,2%)**; flag-0 = 269 (19,9% de las intervenciones, mayoría logística de sesión).
+- **Rendimiento del enriquecimiento por señal-TPM decisión 10:** +163 intervenciones H/D adicionales sobre las 42 originales del diseño previo (rondas 5-10 puras daban ~5% de prevalence). Las 250 etiquetas del estrato aportaron 110 H/D (44% de rendimiento), consistente con el ataque dirigido al cuello de botella.
+- El código generador del estrato (`scripts/10_muestra_enriquecida.py`, seed 20260917) quedó congelado; la muestra está **agotada** por diseño: usar el conjunto remanente de alto-TPM-churn requeriría duplicar tandas. Cualquier expansión futura del training set debe venir de otra fuente (p.ej., segundo estrato por confianza-baja del modelo BETO en Fase 8, active learning).
+
+### Cobertura de fases TPM (training)
+
+Con 1.352 etiquetas: F1 alza-2005 108, F2 mantención 335, F3 alza-2007 152, F4 piso-crisis 232, F5 normalización 116, F6 alza-2011 81, F7 mantención-2012 180, F8 baja-2013-14 118, F9 post-2014 30. Las fases 5-9 (era De Gregorio tardío / Vergara) tienen 6-30 etiquetas cada una; es el precio de haber seguido el plan "cronológico + estratificado" con recursos finitos. El fine-tuning compensará con **arquitectura de dos etapas** (Fase 6-8): etapa A clasifica `es_relevante`/PM-adjacency, etapa B (sobre relevantes) elige hawkish/dovish/neutral con `class_weight` inverso a frecuencia y semantic-matching de negaciones. Se documenta en `config.py` (`FASES_TPM` + `PATRON_DECISION`).
+
+### Hallazgos textuales perdurable (r15-r17)
+
+1. Un consejero evita votar "sesgo" explícito en el acta; la frase de state es "concordar con la recomendación de la Gerencia de División Estudios" (muy frecuente en 2012-2014). Mapeada a **neutral** salvo contexto de ruptura.
+2. Existe un micro-género propio: el Presidente De Gregorio/Vergara abriendo y cerrando sesiones ("ofrece la palabra", "ha resuelto que la Reunión de mayo se celebre el 14"). ~19,9% de las intervenciones son esto; Fase 8 las filtrará con el flag `es_relevante=0` ya etiquetado, no con heurística de longitud.
+3. Ministros de Hacienda 2010-2011 (Larraín) difieren del tono 2006-2009 (Velasco): Velasco argüía con posiciones propias (dovish 2009), Larraín reporta datos macro sin juicio de TPM (neutral best-effort).
+4. La frase spoiler "el mercado espera unánimemente una mantención" es constatación, no postura; nunca vale como justificante de etiqueta direccional.
+
+### Próximos pasos
+
+- **Pendiente usuario:** etiquetado gold ciego 306 (instrumento `data/muestras/gold_ciego_300.csv`, `docs/INSTRUCCIONES_GOLD_v2.md`). Sin esto no hay κ ni test-set para el fine-tune.
+- Tras recibir gold: script de conciliación (Cohen's κ, matriz de confusión por ronda), luego Fase 6-8 (BETO + 2 etapas) con los 1.352 training + 306 gold-test.
+- Riesgo conocido: confianza "media" concentra ~11% de las etiquetas; si el gold muestra que "media" es ruido, se elevará a "alta" iterando el codebook v2→v3.
+
+*Sesión 11 cerrada. Repositorio sincronizado (`git push origin arena/01a0a3a0-fase-2`).*
