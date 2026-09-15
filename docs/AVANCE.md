@@ -276,3 +276,24 @@ Hitos para los entregables actor-céntricos:
 - **dic-2007**: alza a 6,0 % por anclaje de expectativas (Marfán y De Gregorio, votos hawkish con justificación explícita). Jadresic "ante la duda abstente" (dovish).
 - **ago-2008**: Marfán vota +50 pb (única ronda de alzas de 50; hawkish). nov-2008: exposición de Soto ya describe desinflación acelerada (transición a la fase de bajas).
 - Acumulado training set: **741/1.025**. Quedan tandas 6 (120), 7 (110) y 8 (54).
+
+---
+
+## Sesión 8e (2026-09-15) — Tanda 6 estratificada: crisis 2008 (cierre), bajas 2009, alza de emergencia 2010
+
+**Tanda 6 etiquetada y validada** (`data/etiquetas/etiquetas_escalado_r10.csv`): 120 intervenciones / ~19,4 mil palabras de las fases 2008_crisis_alza (32 restantes), 2009_bajas (42), 2010_alza_emergencia (42) y 2011_alza (4 de 42). 109 neutral / 5 hawkish / 6 dovish; 17 `es_relevante=0`; 3 confianza media. Cobertura exacta contra `estrato_fases.csv[tanda==6]` (120/120).
+
+Contenido clave del periodo (útil para entregables actor-céntricos y validación vs TPM):
+
+- **mar-2008, disenso en plena crisis de inflación**: Marshall vota mantener 6,25 % descartando bajar pero posponiendo el alza por riesgo externo (dovish 0,70); Marfán vota mantener *manteniendo el sesgo al alza* y condiciona la subida a intervención cambiaria (hawkish media 0,55: "en ausencia de esta última, no corresponde elevar").
+- **abr-2008, fin del sesgo**: Velasco y Marfán votan mantener y eliminar el sesgo de alza por el escenario que se configuraba (dovish 0,65 ambos).
+- **sep-2008, última alza del ciclo (a 7,75 %)**: García (staff) descarta +75 pb y la recomendación efectiva es +50 (hawkish 0,80, escenario convergente suave a tasas 8,75–9,25 %); Desormeaux declara preferencia explícita por +75 pb aunque se suma a la mayoría (hawkish 0,90). Caso canónico de "posición respecto del menú de opciones".
+- **nov-2008, pausa pre-mega-baja**: De Gregorio vota mantener a la espera de que las noticias confirmen la caída de la inflación, con "política menos restrictiva de lo previsto" (dovish 0,75).
+- **feb-2009, baja récord**: Claro vota rebajar *solo* 200 pb (dovish 0,90; el Consejo bajó 250 pb). Velasco (Hacienda, abr-2009) registra el "update demoledor" de proyecciones (neutral media con sesgo dovish 0,35).
+- **ago-oct-2009, piso 0,5 % y FLAP**: opciones del staff entre mantener la instancia o ampliar estímulo (neutral: presentación de menú sin recomendación); De Gregorio vota mantener TPM 0,5 % + FLAP por riesgo de inflación bajo rango de tolerancia (dovish 0,80).
+- **oct-2010, alza +25 a 2,75 %**: De Gregorio vota subir 25 pb pese a declarar que, sin apreciación del peso ni menores registros de inflación, "la opción más adecuada hubiera sido subir la tasa en 50 puntos base" (hawkish 0,95 por voto efectivo; nota de calibre registrada como matiz de intensidad). Comunicado unánime hawkish 0,95.
+- **oct-2011**: Marfán duda que la desaceleración prevista sea solo ajuste de inventarios y prevé moderación del gasto (neutral media, sesgo dovish 0,30) — antecedente del quiebre de ciclo de fines de 2011.
+
+**Acumulado training set: 861/1.025** (84 %). Pendiente verificado contra el estrato: tanda 7 (110: 2011_alza resto 38, 2012_13_mantiene 42, 2013_14_bajas 30) y tanda 8 (54: 2013_14_bajas resto 12, 2015_quiebre 42) → cierre exacto en 1.025.
+
+**Nota operativa**: el sandbox se reinició entre sesiones y `pandas` desapareció del Python de sistema (PEP 668 bloquea el pip global). Se creó un entorno virtual en `/home/user/venvs/fase2` (pandas 3.0.5 + openpyxl); todos los scripts se ejecutan con `/home/user/venvs/fase2/bin/python`. `05_validar_etiquetas.py` quedó verificado compatible con pandas 3.0.5.
