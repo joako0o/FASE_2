@@ -362,3 +362,29 @@ Hitos del periodo 2011-2015 para los entregables:
 ### Bloqueos y pendientes
 
 - Sin cambios de fondo: scikit-learn pendiente de instalación; test-retest 30 y codebook v3 diferidos; votos explícitos en Fase 10.
+
+## Sesión 10 (2026-09-16) — Tanda 10 del enriquecido (2007_mixto cierre + 2008_crisis_alza)
+
+**Tanda 10 etiquetada y validada** (`data/etiquetas/etiquetas_r14_tanda10.csv`, ronda `enriquecido_t10_r14`): 36 intervenciones / 19.361 palabras. Relevantes: 20 neutral / 9 hawkish / 3 dovish + 4 flag-0 (2 confianza media). Cobertura exacta contra `estrato_enriquecido.csv[tanda==10]`, validación 05 OK, append-only verificado.
+
+### Convención nueva registrada
+
+- **Votar mantener cuando las opciones del staff son {disminuir 25, mantener} y el sesgo previo es a la baja = hawkish relativo** (0,65-0,70): espejo exacto de la convención de pausas dentro de ciclos de alzas. Casos: Desormeaux (ene-2007 y abr-2007) y Corbo (feb-2007) votan contra el recorte.
+
+### Hallazgos analíticos de la tanda 10
+
+- **feb-may 2007, la pausa dividida**: el Consejo se resquebraja — Velasco (MinHacienda) respalda con fuerza la baja (dovish 0,85, "abrumadores"), mientras Desormeaux y Corbo ganan la mantención por mayoría (hawkish 0,65-0,70). El staff deja ambas opciones sin inclinarse.
+- **ago-sep 2007, retorno duro a las alzas**: Velasco recomienda +25 moderado evitando sobrerreacción; el comunicado de sep-07 (+25 a 5,75%, hawkish 0,95) abre el ciclo que durará hasta jul-2008. Marfán vota la alza pero pide eliminar el sesgo.
+- **ene-mar 2008, el timing de la crisis**: el staff descarta mantener (García ene-08: incongruente con la meta, hawkish 0,85); en mar-08 la división es total — Claro insiste en subir a 6,50 % contra la mantención mayoritaria (hawkish 0,85), y Marfán negocia laredacción de la Minuta sobre la posible "intervención" cambiaria.
+- **jun-ago 2008, el pico inflacionario**: García descarta mantener (jun-08) y De Gregorio vota **+50 pb** en ago-08 con sesgo al alza (hawkish 0,95) — cúspide restrictiva del ciclo.
+- **nov-dic 2008, el quiebre hacia la crisis**: el staff ya solo justifica mantener a 8,25 % en plena crisis (had-hoc del trade-off), Marfán descarta ambas direcciones (TC desalineado) pero declara que "lo estándar apuntaría a bajas rápidas y bruscas de 50 pb o más" (dovish 0,60, anticipando el recorte de ene-09).
+
+### Estado del training set
+
+**1.102 etiquetas** (rondas `ia_ronda`, codebook v2): relevantes 879 = 728 neutral (82,8 %) / 87 hawkish (9,9 %) / 64 dovish (7,3 %); flag-0: 223. H+D puros: 151. Restan ~175 del estrato enriquecido (tandas 11-14).
+
+### Próximos pasos
+
+1. Tandas 11-14 del enriquecido (~175 int).
+2. Recibir gold etiquetado por el usuario → κ por clase y sub-estrato.
+3. Fase 6 (baselines; instalar scikit-learn), Fase 7 (BETO dos etapas), Fase 8 (scoring 9.725).
