@@ -167,7 +167,7 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 
 ## 9. Roadmap
 
-- [ ] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b ✅ hecha
+- [x] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b
 - [x] **Fase 1** — Planificación y documentación inicial (este archivo, v2)
 - [ ] **Fase 2** — Codebook v1 emitido (2026-09-15, `docs/codebook_v1.md`) → **pendiente revisión del investigador** + confirmar disponibilidad de PDFs fuente
 - [ ] **Fase 3** — Preparación: EDA reproducible, capas L0/L2 (macro + metadata), limpieza de flags `Cotejar_PDF`, muestra piloto estratificada (n=300) con seed
