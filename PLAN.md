@@ -2,7 +2,7 @@
 **Actas de las Reuniones de Política Monetaria (RPM) del Banco Central de Chile, 2005–2015**
 
 > Documento maestro de planificación. Estado: **planificación v2, ejecución pendiente de luz verde.**
-> Última actualización: 2026-09-15 (v4: set completo de variables macro restaurado por decisión del investigador; nuevos `docs/REGLAS.md` y `docs/AVANCE.md`; codebook v1 emitido pendiente de revisión; regla de estilo: lenguaje profesional, sin emojis).
+> Última actualización: 2026-09-15 (v5: postura en 3 clases H/D/N + flag binario `es_relevante` con `nota`; `nombre_pdf`/`num_pagina` eliminados del esquema (los PDFs no se integran al flujo; el Excel ya contiene el contenido íntegro); codebook v2 emitido).
 
 ---
 
@@ -24,7 +24,7 @@ Antes de orientar el proyecto se trabajó en la consolidación del corpus y en i
 
 La v0b gana por linaje documental (`nombre_pdf`, `num_pagina`, `doc_regime`), decisión de política junto al texto (`policy_decision`) y flag de confianza. La v0a aporta el contexto macro y la comparación multi-método. **Ambas se armonizan en la arquitectura por capas de la §5.**
 
-Actualizaciones: ~~`es_herencia`~~ **eliminada** (columna obsoleta según el investigador). Pendiente: disponibilidad de los PDFs fuente (para `nombre_pdf`/`num_pagina`).
+Actualizaciones al 2026-09-15: ~~`es_herencia`~~ eliminada (obsoleta); ~~`nombre_pdf`/`num_pagina`~~ eliminados (los PDFs existen pero no se integran al flujo; el Excel ya contiene el contenido íntegro de las actas; el linaje queda a nivel `meeting_id`); clase `irrelevante` reemplazada por flag binario `es_relevante` + `nota`.
 
 ## 2. Datos
 
@@ -63,14 +63,15 @@ Todos los IDs siguen el patrón `RPM-AAAA-MM-DD:N:M` → la reunión es la unida
 | 6 | Operación | Etiquetado en este chat por rondas; **todo documentado + PR constante a GitHub** |
 | 7 | Esquema final | Arquitectura por capas (§5), armonizando las propuestas v0a/v0b de la Fase 0 |
 
-### Clases propuestas (pendiente de validación en el codebook)
+### Clases de postura (decisión del investigador, 2026-09-15; detalle en `docs/codebook_v2.md`)
 
 | Clase | Definición operativa |
 |---|---|
 | `hawkish` | Postura de política monetaria más contractiva: subir TPM o sesgo de alza; preocupación dominante por inflación/expectativas |
 | `dovish` | Postura más expansiva: bajar TPM o sesgo de baja; preocupación dominante por actividad/empleo |
-| `neutral` | Diagnóstico descriptivo sin inclinación, o argumentos en ambos sentidos balanceados |
-| `irrelevante` | Logística de sesión, formalidades, contenido no evaluable (propuesta sujeta a veto del investigador) |
+| `neutral` | Diagnóstico descriptivo sin inclinación, argumentos balanceados, o contenido no relacionado con postura de política monetaria |
+
+**Variables ortogonales obligatorias en cada etiqueta**: `es_relevante` (binaria; 1 por defecto; 0 = formalidad, logística o contenido sin valor monetario) y `nota` (motivo breve, obligatoria cuando `es_relevante=0`). La clase `irrelevante` **no** forma parte de la variable de postura: la relevancia es una propiedad del registro, no una postura. Coherente con Shah et al. 2023 (FOMC, 3 clases); WCB (2025) usa 4ª clase por trabajar con frases crudas scrapeadas, mientras este corpus ya viene curado (los registros formales son pocos y concentrados: `apertura_cierre` del Consejo y del Presidente).
 
 ## 4. Protocolo de etiquetado
 
@@ -91,7 +92,7 @@ Codebook v1 → Piloto IA (300) → revisión investigador → rondas IA (curva 
 ### 4.2 Formatos de registro
 
 - **Etiquetas en formato largo** (append-only), `data/etiquetas/etiquetas_ronda_XX.csv`:
-  `intervencion_id, metodo, etiqueta, prob_hawkish, prob_dovish, prob_neutral, score, frase_justificante, confianza, ronda, version_codebook, fecha, etiquetador`
+  `intervencion_id, metodo, etiqueta, prob_hawkish, prob_dovish, prob_neutral, score, frase_justificante, confianza, es_relevante, nota, ronda, version_codebook, fecha, etiquetador`
   donde `metodo ∈ {ia_ronda, humano_gold, tfidf, embeddings, beto_ft, llm_zeroshot}`. Formato largo (no columnas por método como en v0a): agregar métodos no rompe el esquema y habilita comparaciones limpias.
 - Las frases justificantes quedan como activo de explicabilidad (y material para el scrollytelling).
 
@@ -106,7 +107,7 @@ Codebook v1 → Piloto IA (300) → revisión investigador → rondas IA (curva 
 | **L2** | `actores_metadata` | `actor, inicio_mandato, fin_mandato, nominado_por, cargo_max, background, educacion` |
 | **L3** | `master` (vista) | Esquema v0b materializado: intervención + etiqueta final + score + macro + provenance. Lista para análisis |
 
-**Campos v0b resueltos así:** `speech_id=intervencion_id` · `main_topic/topic_vector` ← modelado temático complementario a los 13 tópicos oficiales (§8.2) · `keywords_flags` ← keywords + flags derivados · `confidence_flag` ← confianza de etiquetado · `policy_decision` + `TPM` ← capa macro · `doc_regime` = "acta" para 2005–2015 (queda definido para una eventual extensión con minutas) · ~~`es_herencia`~~ ← **eliminada** (obsoleta) · `nombre_pdf`/`num_pagina` ← solo si existen los PDFs fuente.
+**Campos v0b resueltos así:** `speech_id=intervencion_id` · `main_topic/topic_vector` ← modelado temático complementario a los 13 tópicos oficiales (§8.2) · `keywords_flags` ← keywords + flags derivados · `confidence_flag` ← confianza de etiquetado · `policy_decision` + `TPM` ← capa macro · `doc_regime` = "acta" para 2005–2015 (queda definido para una eventual extensión con minutas) · ~~`es_herencia`~~ ← eliminada (obsoleta) · ~~`nombre_pdf`/`num_pagina`~~ ← eliminados (el Excel ya contiene el contenido íntegro; linaje a nivel `meeting_id`).
 
 ## 6. Validación externa
 
@@ -169,7 +170,7 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 
 - [x] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b
 - [x] **Fase 1** — Planificación y documentación inicial (este archivo, v2)
-- [ ] **Fase 2** — Codebook v1 emitido (2026-09-15, `docs/codebook_v1.md`) → **pendiente revisión del investigador** + confirmar disponibilidad de PDFs fuente
+- [ ] **Fase 2** — Codebook v2 emitido (2026-09-15, `docs/codebook_v2.md`) → **pendiente revisión final del investigador**
 - [ ] **Fase 3** — Preparación: EDA reproducible, capas L0/L2 (macro + metadata), limpieza de flags `Cotejar_PDF`, muestra piloto estratificada (n=300) con seed
 - [ ] **Fase 4** — Piloto de etiquetado IA + revisión → codebook v2
 - [ ] **Fase 5** — Rondas de escalado + curva de aprendizaje (PR por ronda)

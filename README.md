@@ -6,5 +6,5 @@ Proyecto D&H: score **hawkish/dovish por intervención** en las Actas de las Reu
 - Plan metodológico: [`PLAN.md`](PLAN.md)
 - Reglas de trabajo: [`docs/REGLAS.md`](docs/REGLAS.md)
 - Estado y continuidad entre sesiones: [`docs/AVANCE.md`](docs/AVANCE.md)
-- Codebook de etiquetado vigente: [`docs/codebook_v1.md`](docs/codebook_v1.md)
+- Codebook de etiquetado vigente: [`docs/codebook_v2.md`](docs/codebook_v2.md)
 - Flujo de trabajo: rondas con PRs desde `arena/01a0a3a0-fase-2`
