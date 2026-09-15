@@ -207,3 +207,26 @@ Ejecutó la descarga macro en su máquina y entregó `consolidado_macro.xlsx` co
 **Desbloqueo**
 
 La Fase de validación del score contra dTPM ya tiene su insumo completo. El PR de trabajo se reabre con todo el acumulado.
+
+---
+
+## Sesión 8 (2026-09-15) — Escalado: tandas 2 y 3 etiquetadas y validadas
+
+**Qué se hizo**
+
+1. **Tanda 2 escalada** (`data/etiquetas/etiquetas_escalado_r6.csv`): 93 intervenciones, feb–abr 2005. 89 neutral / 3 hawkish / 1 dovish; 12 `es_relevante=0`; 7 confianza media. Incluye la respuesta completa del Consejo a la crisis energética (gas/petróleo) y la subida de marzo. Caso actor-céntrico: Eyzaguirre (Hacienda) nuevamente dovish — "estamos mucho más en tinieblas" — continuidad del patrón iniciado con Marcel en la tanda 1.
+2. **Tanda 3 escalada** (`data/etiquetas/etiquetas_escalado_r7.csv`): 103 intervenciones (19.953 palabras), sesiones RPM 76 (07-abr: **alza unánime a 3,0 %**) y 77 (12-may: diagnóstico y opciones; la votación de mayo cae en la tanda 4). 94 neutral / 7 hawkish / 2 dovish; 17 `es_relevante=0`; 2 confianza media.
+   - Hawkish de abril: los 5 votos de consejeros +25 pb, el acuerdo/comunicado (`2005-04-07:219:2`) y las opciones del staff con recomendación explícita de 25 pb (`214:4`).
+   - Dovish: la Ministra Wagner (`215:1`, prefería mantener aunque "podemos vivir" con el alza) y Eyzaguirre en mayo (`262:1`, 378 palabras contra "una estrategia tan marcadamente front low").
+   - Tandas 1–3 van 295 intervenciones del escalado; escalado + piloto = 595/9.725 (6,1 % del corpus).
+
+**Aprendizajes operativos**
+
+- Trampas de verbatim del validador ya documentadas: el acta contiene typos propios que deben copiarse tal cual (`sucesa`, `Rabio García`, `instancia monetaria`) y toda frase que empiece en mayúscula de oración debe coincidir exactamente; recortar subcadenas a media oración.
+- Convención de tandas: una sesión larga puede partirse entre tandas (los votos de mayo 2005 abren la tanda 4); la cobertura se valida contra `escalado_tandas.csv`, no contra la sesión completa.
+
+**Pendiente**
+
+- Tanda 4 del escalado (comienza con la votación de mayo-2005 y avanza jun–jul 2005).
+- Casos límite acumulados para revisión conjunta al cierre del gold; test-retest de 30; codebook v3 al final.
+- Al final: gold ciego del usuario (~300), kappa, fine-tune BETO.
