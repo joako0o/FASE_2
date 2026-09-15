@@ -263,3 +263,16 @@ Contenido clave:
 - **12-may (sesión 77), alza unánime a 3,25 %**: 5 votos +25 pb hawkish; comunicado hawkish. Matiz: Carrasco abogó por pausa (dovish) y Schmidt-Hebbel declaró que el alza "domina inambiguamente" (hawkish explícito). Eyzaguirre sigue escéptico (tasa neutral, expectativas ancladas).
 - **09-jun (sesión 79), mantención unánime**: los 5 consejeros votan mantener por razones tácticas (evitar señal de tercera alza consecutiva) → 5 votos dovish del propio Consejo; comunicado mantención + reafirmación de retiro pausado = hawkish media (convención ya establecida). Eyzaguirre de nuevo dovish (duda de la tendencia del IPCX1).
 - Acumulado training set: **647 etiquetas**. Quedan las tandas 5-8 estratificadas (378) para completar ~1.025.
+
+---
+
+## Sesión 8d (2026-09-15) — Tanda 5 estratificada: alza fin 2006, mixto 2007, crisis 2008 (inicio)
+
+**Tanda 5 etiquetada y validada** (`data/etiquetas/etiquetas_escalado_r9.csv`): 94 intervenciones / ~19,7 mil palabras de las fases 2006_alza_fin (42), 2007_mixto (42) y 2008_crisis_alza (10). 82 neutral / 7 hawkish / 5 dovish; 24 `es_relevante=0`; 5 confianza media.
+
+Hitos para los entregables actor-céntricos:
+- **jul-2006**: reunión partida (De Gregorio ya venía recomendando pausa en mayo → dovish; Desormeaux y Corbo votan +25 pb → hawkish). Velasco: "normalización más corta o más lenta" (dovish).
+- **ene-2007**: la única baja del periodo (a 5,0 %): García la recomienda explícitamente (dovish). mar-2007: Desormeaux vota mantener *contra* la opción de bajar por riesgo inflacionario → hawkish media (posición relativa al menú de opciones).
+- **dic-2007**: alza a 6,0 % por anclaje de expectativas (Marfán y De Gregorio, votos hawkish con justificación explícita). Jadresic "ante la duda abstente" (dovish).
+- **ago-2008**: Marfán vota +50 pb (única ronda de alzas de 50; hawkish). nov-2008: exposición de Soto ya describe desinflación acelerada (transición a la fase de bajas).
+- Acumulado training set: **741/1.025**. Quedan tandas 6 (120), 7 (110) y 8 (54).
