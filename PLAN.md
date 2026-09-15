@@ -1,8 +1,8 @@
 # PLAN — Proyecto D&H: Score Hawkish/Dovish por Intervención
 **Actas de las Reuniones de Política Monetaria (RPM) del Banco Central de Chile, 2005–2015**
 
-> Documento maestro de planificación. Estado: **planificación cerrada, ejecución pendiente de luz verde.**
-> Última actualización: 2026-09-15.
+> Documento maestro de planificación. Estado: **planificación v2, ejecución pendiente de luz verde.**
+> Última actualización: 2026-09-15 (v2: integra esquemas de la Fase 0 histórica, análisis de convergencia, evolución semántica y arquitectura de datos por capas).
 
 ---
 
@@ -11,9 +11,20 @@
 Construir un **score de postura de política monetaria (hawkish ↔ dovish) por intervención** sobre las 9.725 intervenciones del corpus, y a partir de él:
 
 1. **Serie de tiempo agregada** del stance del Consejo (mensual, 2005–2015), validada contra la decisión real de TPM.
-2. **Perfiles por actor**: trayectoria de postura, especialista temático (radar estilo FIFA), vocabulario distintivo, matriz de votos e índice de disenso.
+2. **Perfiles por actor**: trayectoria de postura (estructural vs coyuntural), especialista temático (radar estilo FIFA), vocabulario distintivo, matriz de votos, convergencia intra-reunión, disenso y red de afinidad.
 
 Estos productos serán insumo de un *scrollytelling* y un paper (fuera del alcance de este plan por ahora).
+
+### Fase 0 histórica (previa a este repo)
+
+Antes de orientar el proyecto se trabajó en la consolidación del corpus y en ideas de esquema final de datos. Se evaluaron dos propuestas de columnas:
+
+- **v0a**: `speech_id, tpm, inflación, desempleo, imacec, ipec, sit país a 1 año, eee inflación a 1 año, word_count, hawk_dove_label, hawk_dove_score, razonamiento, participant_id, speech_id_fallback, prob_dovish, prob_hawkish, prob_neutral, hawk_dove_score_tfidf, hawk_dove_label_tfidf, hawk_dove_score_embeddings, hawk_dove_label_embeddings`
+- **v0b (preferida)**: `meeting_id, nombre_pdf, num_pagina, year, participant, es_herencia, text, main_topic, topic_vector, keywords_flags, confidence_flag, policy_decision, doc_regime, speech_id, TPM`
+
+La v0b gana por linaje documental (`nombre_pdf`, `num_pagina`, `doc_regime`), decisión de política junto al texto (`policy_decision`) y flag de confianza. La v0a aporta el contexto macro y la comparación multi-método. **Ambas se armonizan en la arquitectura por capas de la §5.**
+
+Pendiente de confirmación con el investigador: significado exacto de `es_herencia` y disponibilidad de los PDFs fuente (para `nombre_pdf`/`num_pagina`).
 
 ## 2. Datos
 
@@ -31,7 +42,7 @@ Estos productos serán insumo de un *scrollytelling* y un paper (fuera del alcan
 | Flags de calidad | 312 registros con `Cotejar_PDF` (revisar antes de muestrear; 45 con texto dañado) |
 
 Columnas: `Fecha, ID, ID_Intervencion, Actor, Cargo, Tópico, Keywords, Texto, Cotejar_PDF`.
-Todos los IDs siguen el patrón `RPM-AAAA-MM-DD:N:M` → la reunión es la unidad natural de agrupación.
+Todos los IDs siguen el patrón `RPM-AAAA-MM-DD:N:M` → la reunión es la unidad natural de agrupación; la `N` es secuencial y reconstruye el **orden de habla** dentro de la sesión (base de la métrica de convergencia, §7).
 
 ### 2.2 Contexto documental (clave para defender la ventana de estudio)
 
@@ -48,8 +59,9 @@ Todos los IDs siguen el patrón `RPM-AAAA-MM-DD:N:M` → la reunión es la unida
 | 2 | Universo de etiquetado | **Las 9.725** (todos los tópicos y actores) |
 | 3 | Flujo de etiquetado | **IA primero, en rondas → validación humana al final (a ciegas)** |
 | 4 | Modelo | **Fine-tune de modelo en español** (BETO / RoBERTa-es / alternativas) |
-| 5 | Entregables | Score por intervención → serie temporal + data de actores (§7) |
+| 5 | Entregables | Score por intervención → serie temporal + data de actores (§7) + contexto macro (§5) |
 | 6 | Operación | Etiquetado en este chat por rondas; **todo documentado + PR constante a GitHub** |
+| 7 | Esquema final | Arquitectura por capas (§5), armonizando las propuestas v0a/v0b de la Fase 0 |
 
 ### Clases propuestas (pendiente de validación en el codebook)
 
@@ -76,25 +88,25 @@ Codebook v1 → Piloto IA (300) → revisión investigador → rondas IA (curva 
 4. **Test-retest**: 30 IDs fijos re-etiquetados en cada ronda → consistencia interna (meta ≥ 90% de coincidencia).
 5. **Gold humano (n=300)**: el investigador etiqueta **a ciegas** (sin ver etiquetas de la IA) una muestra estratificada. Si κ < 0.7 → revisión del rubro y re-etiquetado; meta κ ≥ 0.7 (ideal ≥ 0.8).
 
-### 4.2 Formato de registro (append-only)
+### 4.2 Formatos de registro
 
-`data/etiquetas/etiquetas_ronda_XX.csv` con columnas:
+- **Etiquetas en formato largo** (append-only), `data/etiquetas/etiquetas_ronda_XX.csv`:
+  `intervencion_id, metodo, etiqueta, prob_hawkish, prob_dovish, prob_neutral, score, frase_justificante, confianza, ronda, version_codebook, fecha, etiquetador`
+  donde `metodo ∈ {ia_ronda, humano_gold, tfidf, embeddings, beto_ft, llm_zeroshot}`. Formato largo (no columnas por método como en v0a): agregar métodos no rompe el esquema y habilita comparaciones limpias.
+- Las frases justificantes quedan como activo de explicabilidad (y material para el scrollytelling).
 
-`ID_Intervencion, etiqueta, confianza, frase_justificante, ronda, version_codebook, fecha, etiquetador`
+## 5. Arquitectura de datos por capas (esquema objetivo)
 
-Las frases justificantes quedan como activo de explicabilidad (y material para el scrollytelling).
+| Capa | Tabla | Contenido |
+|---|---|---|
+| **L0** | `corpus` | Inmutable, desde el Excel: `intervencion_id, meeting_id, fecha, actor, cargo, topico, keywords, texto, flag_cotejo` |
+| **L1** | `etiquetas` | Largo (§4.2): una fila por intervención × método |
+| **L2** | `votos` | `meeting_id, actor, opcion (sube/mantiene/baja), magnitud_pb, fuente_textual, confianza` — extracción desde `decision_tpm`/`opciones_tpm` y párrafo de acuerdo |
+| **L2** | `macro` | `meeting_id, TPM, dTPM, policy_decision, ipc, desempleo, imacec, ipec, sit_pais_1a, eee_inflacion_1a` (fuentes: mindicador, BDE, Adimark según disponibilidad) |
+| **L2** | `actores_metadata` | `actor, inicio_mandato, fin_mandato, nominado_por, cargo_max, background, educacion` |
+| **L3** | `master` (vista) | Esquema v0b materializado: intervención + etiqueta final + score + macro + provenance. Lista para análisis |
 
-## 5. Modelamiento
-
-| Componente | Diseño |
-|---|---|
-| Modelo base | `dccuchile/bert-base-spanish-wwm-cased` (BETO); alternativas: `PlanTL-GOB-ES/roberta-base-bne`, `xlm-roberta-base` |
-| Split | **Por reunión completa** (group split 70/15/15, estratificado por año) para evitar leakage entre intervenciones de la misma sesión; holdout temporal opcional (test = 2013–2015) como robustez |
-| Entrenamiento | Fine-tune sobre etiquetas IA aceptadas; validación contra gold humano |
-| Métricas | Macro-F1 (principal), accuracy, matriz de confusión, κ humano-modelo |
-| **Score** | `s_i = P(hawkish) − P(dovish) ∈ [−1, +1]` por intervención (clasificador calibrado) |
-| Agregación | Media/mediana por reunión → serie mensual; ponderadores (largo de texto, cargo) como análisis de sensibilidad |
-| Benchmarks opcionales | LLM zero-shot en submuestra; modelo WCB-Chile sobre texto traducido (referencia externa, con cautelas de dominio) |
+**Campos v0b resueltos así:** `speech_id=intervencion_id` · `main_topic/topic_vector` ← modelado temático complementario a los 13 tópicos oficiales (§8.2) · `keywords_flags` ← keywords + flags derivados · `confidence_flag` ← confianza de etiquetado · `policy_decision` + `TPM` ← capa macro · `doc_regime` = "acta" para 2005–2015 (queda definido para una eventual extensión con minutas) · `es_herencia` ← **pendiente de definición** · `nombre_pdf`/`num_pagina` ← solo si existen los PDFs fuente.
 
 ## 6. Validación externa
 
@@ -102,40 +114,53 @@ Las frases justificantes quedan como activo de explicabilidad (y material para e
 - Prueba de utilidad económica: correlación del índice de stance agregado con **ΔTPM** contemporáneo y lead/lag; eventos foco: crisis 2008–09 (bajas agresivas), normalización 2010–11, ciclo de bajas 2013–14.
 - **Matriz de votos extraída del propio texto** (§7) como ground truth de comportamiento por actor.
 
-## 7. Entregables de data por actor
+## 7. Entregables de data por actor (y por reunión)
 
 | Archivo | Contenido | Uso previsto |
 |---|---|---|
-| `actores/perfil_topico_actor.csv` | Distribución normalizada de tópicos por actor (ejes de radar: internacional, financiero, inflación/precios, actividad/demanda, laboral, fiscal, decisión-TPM) | **Radar FIFA** por actor |
-| `actores/vocabulario_distintivo_actor.csv` | Palabras más distintivas por actor (log-odds con prior Dirichlet informativa, Monroe et al. 2008) | Etiquetas de ejes, nube/lista de palabras |
-| `actores/scores_intervencion.csv` | `s_i` + probabilidades por intervención con actor | Series individuales |
-| `actores/matriz_votos.csv` | Por reunión × actor con voto: opción declarada (sube/mantiene/baja + magnitud), fuente textual, confianza. Extraído de intervenciones `decision_tpm`/`opciones_tpm` y del párrafo de acuerdo | Comportamiento de voto; **GT de validación** |
-| `actores/disenso_actor.csv` | Distancia entre stance del actor y consenso de la reunión | Ranking de disenso, coaliciones |
-| `actores/actores_metadata.csv` | Inicio/fin de mandato, nominado por, máximo cargo, background (academia/público/privado), educación | Perfiles, controles |
+| `actores/perfil_topico_actor.csv` | Distribución normalizada por actor en 7 ejes (internacional, financiero, inflación/precios, actividad/demanda, laboral, fiscal, decisión-TPM) | **Radar FIFA** por actor |
+| `actores/vocabulario_distintivo_actor.csv` | Palabras más distintivas por actor (log-odds con prior Dirichlet informativa, Monroe et al. 2008) | Etiquetas de ejes, listas de palabras |
+| `actores/scores_intervencion.csv` | `s_i = P(hawkish) − P(dovish) ∈ [−1,1]` + probabilidades por intervención con actor | Series individuales |
+| `actores/serie_stance_actor.csv` | Rolling 12m por actor vs media total; descomposición `s_it = α_i + β_i·ciclo_t + ε` | **Hawk estructural (α) vs coyuntural (β)** |
+| `actores/matriz_votos.csv` | Por reunión × actor con voto: opción declarada (+ magnitud), fuente, confianza. **Única base de votos individualizados 2005–2015 que existe** | Comportamiento de voto; GT de validación |
+| `actores/convergencia_actor.csv` | Por reunión: brecha inicial (`s_primera − decisión`), brecha final (`s_última − decisión`), convergencia = \|inicial\| − \|final\|; promedio por actor | ¿Quién converge al consenso y quién marca posición? |
+| `actores/red_afinidad.csv` | Matriz actor × actor de coincidencia (votos exactos o correlación de scores) | **Red de afinidad**: coaliciones, posición del Presidente |
+| `actores/disenso_actor.csv` | Distancia entre stance del actor y consenso de la reunión | Ranking de disenso |
+| `actores/actores_metadata.csv` | Mandatos, nominación, background, educación | Perfiles, controles |
 | `actores/tpm_real.csv` | TPM efectiva por reunión | Validación externa |
 
-**Análisis adicionales propuestos (opcionales):** coaliciones (quién coincide con quién → red), pivotes en turning points (quién gira primero de postura), stance estructural vs coyuntural por actor, volumen/timing de partición (apertura vs decisión), % forward-looking e incertidumbre por actor.
+### 7.1 Convergencia intra-reunión (definición)
+
+Por actor con voto en la reunión *t*: `s_primera` = score de su primera intervención con stance; `s_última` = última intervención pre-decisión; `d_t` = decisión final. `convergencia_it = |s_primera − d_t| − |s_última − d_t|`. Promedio por actor → índice de convergencia/persuasión. El orden de habla se reconstruye con la `N` secuencial del `ID_Intervencion`.
+
+### 7.2 Evolución semántica en el tiempo (entregable de data)
+
+- `semantica/mix_topico_anio.csv`: participación de cada tópico por año (gráfico base: área apilada / heatmap).
+- `semantica/palabras_distintivas_era.csv`: fightin' words por período (bursts de vocabulario: "subprime", "normalización"…).
+- `semantica/deriva_anio.csv`: centroide de embeddings por año + distancia coseno año-a-año (trayectoria 2D para gráfico de impacto).
+- Recomendación scrolly: mix + palabras como base narrativa; deriva como gráfico central.
 
 ## 8. Flujo de trabajo en GitHub
 
 - Rama de trabajo: `arena/01a0a3a0-fase-2` (PRs frecuentes hacia `main`).
-- **Un PR por unidad de progreso**: docs, codebook, cada ronda de etiquetado, cada entregable de actores.
+- **Un PR por unidad de progreso**: docs, codebook, cada ronda de etiquetado, cada entregable.
 - Datos etiquetados en CSV append-only bajo `data/etiquetas/`; codebook y decisiones bajo `docs/`.
 - Muestras con seed fija y registrada (reproducibilidad).
 - No commitear artefactos grandes (checkpoints de modelos van fuera de git o con LFS si hiciera falta).
 
 ## 9. Roadmap
 
-- [x] **Fase 0** — Planificación y documentación inicial (este archivo)
-- [ ] **Fase 1** — Codebook v1 (propuesta IA → revisión investigador)
-- [ ] **Fase 2** — Preparación: EDA reproducible, limpieza de flags `Cotejar_PDF`, muestra piloto estratificada (n=300) con seed
-- [ ] **Fase 3** — Piloto de etiquetado IA + revisión → codebook v2
-- [ ] **Fase 4** — Rondas de escalado + curva de aprendizaje (PR por ronda)
-- [ ] **Fase 5** — Gold humano a ciegas (n=300) + Cohen's κ
-- [ ] **Fase 6** — Fine-tune BETO + evaluación final vs gold
-- [ ] **Fase 7** — Scoring de las 9.725 + serie temporal + validación vs ΔTPM
-- [ ] **Fase 8** — Entregables de actores (radar, vocab, votos, disenso, metadata)
-- [ ] **Fase 9 (fuera de alcance por ahora)** — Scrollytelling + paper
+- [ ] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b ✅ hecha
+- [x] **Fase 1** — Planificación y documentación inicial (este archivo, v2)
+- [ ] **Fase 2** — Codebook v1 (propuesta IA → revisión investigador) + resolver pendientes (`es_herencia`, PDFs)
+- [ ] **Fase 3** — Preparación: EDA reproducible, capas L0/L2 (macro + metadata), limpieza de flags `Cotejar_PDF`, muestra piloto estratificada (n=300) con seed
+- [ ] **Fase 4** — Piloto de etiquetado IA + revisión → codebook v2
+- [ ] **Fase 5** — Rondas de escalado + curva de aprendizaje (PR por ronda)
+- [ ] **Fase 6** — Gold humano a ciegas (n=300) + Cohen's κ
+- [ ] **Fase 7** — Fine-tune BETO + evaluación final vs gold
+- [ ] **Fase 8** — Scoring de las 9.725 + serie temporal + validación vs ΔTPM
+- [ ] **Fase 9** — Entregables de actores (radar, vocab, votos, convergencia, afinidad, disenso) + evolución semántica
+- [ ] **Fase 10 (fuera de alcance por ahora)** — Scrollytelling + paper
 
 ## 10. Referencias
 
