@@ -252,3 +252,14 @@ El etiquetado en chat NO cubre el corpus completo: construye solo el training se
 - Tanda 4 (cierre 2005) en el próximo turno; luego tandas 5-8 estratificadas.
 - Después: curva de aprendizaje con modelos rápidos (TF-IDF/embeddings), kappa vs gold, fine-tune BETO y scoring del corpus.
 - Diferido: casos límite, test-retest 30, codebook v3, votos explícitos (Fase 10).
+
+---
+
+## Sesión 8c (2026-09-15) — Tanda 4: cierre cronológico de 2005
+
+**Tanda 4 etiquetada y validada** (`data/etiquetas/etiquetas_escalado_r8.csv`): 52 intervenciones, 16.167 palabras (mayo-jul 2005). 34 neutral / 10 hawkish / 8 dovish; 12 `es_relevante=0`; 4 confianza media.
+
+Contenido clave:
+- **12-may (sesión 77), alza unánime a 3,25 %**: 5 votos +25 pb hawkish; comunicado hawkish. Matiz: Carrasco abogó por pausa (dovish) y Schmidt-Hebbel declaró que el alza "domina inambiguamente" (hawkish explícito). Eyzaguirre sigue escéptico (tasa neutral, expectativas ancladas).
+- **09-jun (sesión 79), mantención unánime**: los 5 consejeros votan mantener por razones tácticas (evitar señal de tercera alza consecutiva) → 5 votos dovish del propio Consejo; comunicado mantención + reafirmación de retiro pausado = hawkish media (convención ya establecida). Eyzaguirre de nuevo dovish (duda de la tendencia del IPCX1).
+- Acumulado training set: **647 etiquetas**. Quedan las tandas 5-8 estratificadas (378) para completar ~1.025.
