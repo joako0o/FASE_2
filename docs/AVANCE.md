@@ -297,3 +297,34 @@ Contenido clave del periodo (útil para entregables actor-céntricos y validaci�
 **Acumulado training set: 861/1.025** (84 %). Pendiente verificado contra el estrato: tanda 7 (110: 2011_alza resto 38, 2012_13_mantiene 42, 2013_14_bajas 30) y tanda 8 (54: 2013_14_bajas resto 12, 2015_quiebre 42) → cierre exacto en 1.025.
 
 **Nota operativa**: el sandbox se reinició entre sesiones y `pandas` desapareció del Python de sistema (PEP 668 bloquea el pip global). Se creó un entorno virtual en `/home/user/venvs/fase2` (pandas 3.0.5 + openpyxl); todos los scripts se ejecutan con `/home/user/venvs/fase2/bin/python`. `05_validar_etiquetas.py` quedó verificado compatible con pandas 3.0.5.
+
+---
+
+## Sesión 8f (2026-09-15) — Tandas 7 y 8: cierre del training set en 1.025 etiquetas
+
+**Tanda 7 etiquetada y validada** (`data/etiquetas/etiquetas_escalado_r11.csv`): 110 intervenciones / ~19,7 mil palabras (2011_alza resto 38, 2012_13_mantiene 42, 2013_14_bajas 30). 101 neutral / 8 dovish / 1 hawkish; 14 `es_relevante=0`; 6 confianza media. Cobertura exacta contra `estrato_fases.csv[tanda==7]`.
+
+**Tanda 8 etiquetada y validada** (`data/etiquetas/etiquetas_escalado_r12.csv`): 54 intervenciones / ~8,8 mil palabras (cierre 2013_14_bajas, 12; 2015_quiebre, 42). 50 neutral / 2 hawkish / 2 dovish; 14 `es_relevante=0`; 1 confianza media. Cobertura exacta contra `estrato_fases.csv[tanda==8]` y control global: `estrato_fases` 378/378, sin duplicados entre archivos.
+
+**TRAINING SET COMPLETO: 1.025/1.025** (piloto r1-r4: 300; escalado tandas 1-8: 725). Se cierra la Fase de etiquetado IA por rondas de chat prevista en la decisión 8 del PLAN.
+
+Hitos del periodo 2011-2015 para los entregables:
+
+- **jun-2011**: Marshall vota +25 pb a 5,25 % con sesgo matizado (hawkish 0,95; último tramo del ciclo de alzas post-emergencia).
+- **sep-2011, pausa del ciclo**: Marshall vota mantener (dovish 0,75) con monitoreo cercano del frente externo; Marcel (Marfán) en oct-11 ya dudaba del ajuste por inventarios (sesgo dovish 0,30) → anticipa el quiebre hacia la mantención larga.
+- **2012-13, mantención en 5 %**: opciones del staff (Herrera) descartan *ambas* direcciones (subir por dudas externas, bajar por riesgos inflacionarios) → recomendaciones de mantener = neutral pura; señales hawkish latentes: Marfán (recalentamiento construcción/comercio, feb y ago-2012), Vergara (cuenta corriente/TCR, sep-2012) y Vial (mar-2013: "habría que plantearse con bastante más urgencia una política que la sustituya").
+- **oct-2013, retorno a las bajas**: Vial vota -25 pb a 4,75 % (dovish 0,90); acuerdo unánime consistente. nov-2013: Marfán adelanta la segunda baja por la revisión de Cuentas Nacionales (dovish 0,90).
+- **feb-ago 2014, ciclo de recortes**: Vergara deja de ser Consejero y preside los recortes: "la opción de bajar la TPM se impone claramente sobre la de mantenerla" (dovish 0,90); Claro vota -25 pb a 3,5 % en ago-14 (dovish 0,95) aunque pide no sobredimensionar el dato de inflación (hawkish-latente, media).
+- **dic-2014, pausa en 3 %**: Vergara vota mantener con sesgo neutral, descartando explícitamente ambas direcciones (neutral pura).
+- **ago-2015**: de Ramón (staff) argumenta que subir la tasa "es confusa y se justificaría únicamente en un contexto de desanclaje, que hoy no está presente" (neutral media, sesgo dovish 0,35) — dos meses antes del inicio de las alzas.
+- **oct-2015, primera alza del quiebre (a 3,25 %)**: acuerdo hawkish 0,95 ("la trayectoria futura de la TPM contempla ajustes adicionales").
+- **dic-2015**: García vota +25 pb a 3,5 % con sesgo neutral (hawkish 0,95, decisión "finamente balanceada"); el Ministro Micco declara que "la política monetaria tiene amplio espacio para mantenerse acomodativa" (dovish 0,85) el día después de la primera alza de la Fed en casi una década.
+
+**Distribución global del training set** (1.025 etiquetas `ia_ronda`, codebook v2): ver `scripts/05_validar_etiquetas.py` por archivo; el consolidado queda para la Fase 6 (baselines y curva de aprendizaje).
+
+**Pendiente (secuencia de cierre del PLAN)**
+
+- Gold ciego del usuario (~300, test puro) → kappa Cohen IA vs humano.
+- Fase 6: baselines TF-IDF/embeddings con split por tiempo; curva de aprendizaje.
+- Fase 7: fine-tune BETO sobre las 1.025; Fase 8: scoring del corpus completo (9.725); validación vs ΔTPM.
+- Diferido: casos límite acumulados, test-retest 30, codebook v3, votos explícitos (Fase 10).
