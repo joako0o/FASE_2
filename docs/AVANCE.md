@@ -162,3 +162,26 @@
 - **2026-09-15 (sesión 4)**: regla de tandas por presupuesto de palabras (script 04); ronda 1 del piloto etiquetada y validada (tanda 1 de 4, 110 intervenciones, `etiquetas_piloto_r1.csv`); validador obligatorio de corridas (script 05).
 - **2026-09-15 (sesión 5)**: ronda 2 etiquetada y validada (tanda 2, 88 intervenciones, `etiquetas_piloto_r2.csv`); validador endurecido con control verbatim R10; 23 frases de ronda 1 corregidas retroactivamente; piloto al 66 % (198/300).
 - **2026-09-15 (sesión 6)**: ronda 3 etiquetada y validada (tanda 3, 85 intervenciones, `etiquetas_piloto_r3.csv`; 77 neutral, 8 dovish, 0 hawkish); arco histórico 2005-2015 completo en el piloto; queda la tanda 4 (17); piloto al 94 % (283/300).
+
+---
+
+## Sesión 7 (2026-09-15) — Piloto completo 300/300 + inicio del escalado
+
+**Qué se hizo**
+
+1. **Ronda 4 — el piloto quedó completo**: 17 intervenciones de 2015 (jun–dic), archivo `data/etiquetas/etiquetas_piloto_r4.csv`. Incluye el sesgo al alza del comunicado de sep-2015 y la primera alza del ciclo (dic-2015, recomendación formal de la Gerencia). Cifras del piloto completo: **300 etiquetas únicas, cobertura exacta** contra `piloto_300.csv`; 266 neutral / 20 dovish / 14 hawkish; 84 no relevantes (28%).
+2. **`scripts/06_tandas_escalado.py`**: arma el universo de Fase 5 (corpus L0 sano menos el piloto): 9.374 intervenciones, 1,96 M palabras, en **101 tandas cronológicas de 20.000 palabras** (`data/muestras/escalado_tandas.csv` + resumen).
+3. **Escalado tanda 1 etiquetada**: 99 intervenciones (ene–feb 2005: sesión del IPoM de enero y RPM de febrero, ambas con alza de 25 pb), archivo `data/etiquetas/etiquetas_escalado_r5.csv`. Distribución: 78 neutral / 20 hawkish / 1 dovish; 19 no relevantes; 90 alta / 9 media confianza.
+
+**Aprendizajes de la tanda 1**
+
+- El formato de actas 2005 es más verboso que el de 2015: los votos son intervenciones largas (300–700 palabras) que mezclan diagnóstico y voto; la frase justificante se toma de la oración explícita del voto.
+- La Gerencia de División Estudios presenta "Opciones de Política Monetaria" con recomendación explícita: eso se captura como hawkish/dovish (convención ya usada en el piloto con la recomendación de dic-2015).
+- El Ministro de Hacienda (sin voto) sí registra postura: Mario Marcel en feb-2005 fue la única intervención dovish de la tanda ("la normalización podría ir a un ritmo más lento").
+- Tramos puramente logísticos de las actas antiguas (suspensión/reanudación, fijación de fecha, apertura de votación) son el grueso del flag `es_relevante=0` (19 casos).
+
+**Pendiente**
+
+- Casos límite acumulados para revisión conjunta al cierre del gold: los ya listados en sesión 6 más el balance de riesgos "sesgo al alza para la inflación" en presentaciones del staff (etiquetado neutral con tilt 0,20).
+- Tanda 2 del escalado (93 intervenciones, feb–abr 2005) queda lista para el próximo turno.
+- Al final: gold ciego del usuario (~300), kappa, fine-tune BETO.
