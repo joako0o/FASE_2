@@ -2,7 +2,7 @@
 **Actas de las Reuniones de Política Monetaria (RPM) del Banco Central de Chile, 2005–2015**
 
 > Documento maestro de planificación. Estado: **planificación v2, ejecución pendiente de luz verde.**
-> Última actualización: 2026-09-15 (v3: voto solo explícito diferido a Fase 10, `es_herencia` eliminada, macro reducida al núcleo TPM, comparación humano-máquina de tópicos/keywords, red de afinidad explicada simple).
+> Última actualización: 2026-09-15 (v4: set completo de variables macro restaurado por decisión del investigador; nuevos `docs/REGLAS.md` y `docs/AVANCE.md`; codebook v1 emitido pendiente de revisión; regla de estilo: lenguaje profesional, sin emojis).
 
 ---
 
@@ -102,7 +102,7 @@ Codebook v1 → Piloto IA (300) → revisión investigador → rondas IA (curva 
 | **L0** | `corpus` | Inmutable, desde el Excel: `intervencion_id, meeting_id, fecha, actor, cargo, topico, keywords, texto, flag_cotejo` |
 | **L1** | `etiquetas` | Largo (§4.2): una fila por intervención × método |
 | **L2** | `votos` | `meeting_id, actor, opcion (sube/mantiene/baja), magnitud_pb, fuente_textual, confianza` — **solo declaraciones explícitas** del actor; extracción diferida a Fase 10 (no alimenta el modelo) |
-| **L2** | `macro` | **Núcleo**: `meeting_id, TPM, dTPM, policy_decision` (validación externa, obligatorio) + `ipc, imacec` (recomendados: componen la variable de ciclo de la descomposición estructural/coyuntural, §7). Opcionales diferidas: `desempleo, ipec, sit_pais_1a, eee_inflacion_1a` (mindicador/BDE/Adimark, solo si se necesitan) |
+| **L2** | `macro` | Set completo (decisión del investigador, 2026-09-15): `meeting_id, TPM, dTPM, policy_decision, ipc, desempleo, imacec, ipec, sit_pais_1a, eee_inflacion_1a` (fuentes: mindicador, BDE, Adimark). Roles: `TPM, dTPM, policy_decision` → validación externa (obligatorios); `ipc, imacec` → variable de ciclo para la descomposición estructural-coyuntural (§7); el resto → contexto y análisis de robustez |
 | **L2** | `actores_metadata` | `actor, inicio_mandato, fin_mandato, nominado_por, cargo_max, background, educacion` |
 | **L3** | `master` (vista) | Esquema v0b materializado: intervención + etiqueta final + score + macro + provenance. Lista para análisis |
 
@@ -158,6 +158,8 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 ## 8. Flujo de trabajo en GitHub
 
 - Rama de trabajo: `arena/01a0a3a0-fase-2` (PRs frecuentes hacia `main`).
+- Reglas de trabajo permanentes: `docs/REGLAS.md` (incluye estilo: lenguaje profesional, sin emojis).
+- Memoria entre sesiones: `docs/AVANCE.md` (actualización obligatoria al cierre de cada sesión).
 - **Un PR por unidad de progreso**: docs, codebook, cada ronda de etiquetado, cada entregable.
 - Datos etiquetados en CSV append-only bajo `data/etiquetas/`; codebook y decisiones bajo `docs/`.
 - Muestras con seed fija y registrada (reproducibilidad).
@@ -167,7 +169,7 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 
 - [ ] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b ✅ hecha
 - [x] **Fase 1** — Planificación y documentación inicial (este archivo, v2)
-- [ ] **Fase 2** — Codebook v1 (propuesta IA → revisión investigador) + resolver pendientes (`es_herencia`, PDFs)
+- [ ] **Fase 2** — Codebook v1 emitido (2026-09-15, `docs/codebook_v1.md`) → **pendiente revisión del investigador** + confirmar disponibilidad de PDFs fuente
 - [ ] **Fase 3** — Preparación: EDA reproducible, capas L0/L2 (macro + metadata), limpieza de flags `Cotejar_PDF`, muestra piloto estratificada (n=300) con seed
 - [ ] **Fase 4** — Piloto de etiquetado IA + revisión → codebook v2
 - [ ] **Fase 5** — Rondas de escalado + curva de aprendizaje (PR por ronda)
