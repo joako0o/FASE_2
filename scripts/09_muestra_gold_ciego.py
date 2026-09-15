@@ -35,7 +35,6 @@
 # =============================================================================
 
 import glob
-import re
 
 import pandas as pd
 
@@ -44,23 +43,11 @@ import config as C
 SEMILLA = 20260916
 CUOTA_FASE = 34                 # 9 fases * 34 = 306 intervenciones
 FRACCION_DECISION = 2 / 3       # 23 con señal + 11 generales por fase
-PATRON_DECISION = re.compile(
-    r"\b(vota[rc]?|votó|votar|acuerda|acordó|acuerdo|subir|bajar|rebajar|recortar|"
-    r"mantener|alza|baja|recorte|opción|opciones|comunicado|sesgo)\b", re.IGNORECASE)
 
-# mismas fases que scripts/08_muestra_estrato_fases.py (no se repite lógica:
-# se redeclaran para mantener a este script autocontenido)
-FASES = [
-    ("2006_alza_fin",        "2005-07-13", "2006-12-31"),
-    ("2007_mixto",           "2007-01-01", "2007-12-31"),
-    ("2008_crisis_alza",     "2008-01-01", "2008-12-31"),
-    ("2009_bajas",           "2009-01-01", "2009-12-31"),
-    ("2010_alza_emergencia", "2010-01-01", "2010-12-31"),
-    ("2011_alza",            "2011-01-01", "2011-12-31"),
-    ("2012_13_mantiene",     "2012-01-01", "2013-09-30"),
-    ("2013_14_bajas",        "2013-10-01", "2014-12-31"),
-    ("2015_quiebre",         "2015-01-01", "2015-12-31"),
-]
+# fases del gold: las mismas del training set (config.FASES_TPM); se excluye
+# 2005_alzas porque el training set ya cubre 2005 con el piloto y las tandas
+# cronologicas 1 a 4, y su residuo no etiquetado es minimo (50 intervenciones)
+FASES = [f for f in C.FASES_TPM if f[0] != "2005_alzas"]
 
 COLUMNAS = ["orden", "intervencion_id", "fecha_reunion", "actor", "cargo",
             "texto", "etiqueta", "confianza", "es_relevante", "nota",
@@ -75,7 +62,7 @@ def main() -> None:
     ya = pd.concat([pd.read_csv(f, usecols=["intervencion_id"])
                     for f in glob.glob(str(C.RUTA_ETIQUETAS / "etiquetas_*.csv"))])
     libre = uni[~uni.intervencion_id.isin(ya.intervencion_id)].copy()
-    libre["senal_decision"] = libre.texto.str.contains(PATRON_DECISION)
+    libre["senal_decision"] = libre.texto.str.contains(C.PATRON_DECISION, case=False)
 
     partes = []
     n_dec = round(CUOTA_FASE * FRACCION_DECISION)   # 23

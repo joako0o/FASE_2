@@ -328,3 +328,37 @@ Hitos del periodo 2011-2015 para los entregables:
 - Fase 6: baselines TF-IDF/embeddings con split por tiempo; curva de aprendizaje.
 - Fase 7: fine-tune BETO sobre las 1.025; Fase 8: scoring del corpus completo (9.725); validación vs ΔTPM.
 - Diferido: casos límite acumulados, test-retest 30, codebook v3, votos explícitos (Fase 10).
+
+## Sesión 9 (2026-09-16) — Gold ciego (decisión 9) y mitigación del desbalance (decisión 10)
+
+### Completado en esta sesión
+
+1. **Gold ciego cerrado y commiteado** (decisión 9 del PLAN): `scripts/09_muestra_gold_ciego.py` (seed 20260916) extrae **306 intervenciones** test-puro, con exclusión dura vía assert contra todo `data/etiquetas/`. Estratificación: 34 por cada una de las 9 fases TPM posteriores a jul-2005 (las 50 intervenciones del residuo jul-2005 quedan fuera y documentadas) × sub-estrato de señal de decisión (2/3 del marco con vocabulario de decisión vía `PATRON_DECISION`, para que κ pueda medir clases minoritarias). Instrumento: `data/muestras/gold_ciego_300.csv` (306 int / 99.660 palabras) + `_resumen.csv`. Las mismas 306 serán el test set del fine-tune (Fases 7/8). Instrucciones para el usuario: `docs/INSTRUCCIONES_GOLD.md`.
+2. **Diagnóstico del desbalance** del training set base (1.025): 88 % neutral (903/69/53); sin flag-0, 85/8,5/6,5 % sobre 812 relevantes; solo 122 H+D puros. Concluido que es en parte real (el corpus es mayoritariamente descriptivo; hawks=0 en bajas es sustantivo) con dos problemas genuinos: 213 flag-0 asentados como clase y F1 inestable de minoritarias.
+3. **Decisión 10 (mitigación doble)**: ante "haz lo más recomendable" se ejecutan ambas: (a) segunda ola enriquecida (`scripts/10_muestra_enriquecida.py`, seed 20260917) de 252 intervenciones en tandas 9-14 (~109 mil palabras): pool A = Consejo con señal de decisión (tope 20/fase) + pool B = Gerente de Div. Estudios con señal; exclusión dura contra etiquetadas y gold; (b) modelo en dos etapas para Fases 7/8 (A filtra sin-stance; B clasifica H/D/N). Registrado en PLAN.md §3.
+4. **Refactor config.py como fuente única**: `FASES_TPM`, `PATRON_DECISION` (regex no-capturante), `CARGOS_CONSEJO`, `CARGOS_OPCIONES`; script 09 refactorizado a importarlos y re-verificado reproducible (diff vacío sobre el CSV del gold).
+5. **Tanda 9 etiquetada (`data/etiquetas/etiquetas_r13_tanda09.csv`, ronda `enriquecido_t09_r13`)**: 41 intervenciones / 19.734 palabras (2006_alza_fin + inicio 2007_mixto). Relevantes: 18 neutral / 9 hawkish / 8 dovish (42 % H+D vs ~9 % en el estrato general — el enriquecimiento funciona como diseñado) + 6 flag-0; 3 confianza media. Validaciones: cobertura exacta contra el corte oficial `tanda==9`, frases verbatim contra el corpus (con normalización de espacios por saltos de línea del acta), sin duplicados, archivos previos intactos (append-only por hash), y pasa `scripts/05_validar_etiquetas.py`. Script `13_ronda_tanda09.py` idempotente y en formato L1 canónico (PLAN §4.2).
+6. **Incidencia documentada**: una primera extracción de lectura en un directorio efímero se perdió y resultó no corresponder al corte oficial del archivo (170/171 de sus ítems no estaban en la muestra: contenía material ya etiquetado y no-muestra). Se descartó íntegramente **antes** de etiquetar y se re-extrajo/verificó por (id, palabras) contra `estrato_enriquecido.csv`. Sin impacto en la capa L1.
+
+### Estado del training set tras la tanda 9
+
+**1.066 etiquetas** (`ia_ronda`, codebook v2): relevantes 847 = 708 neutral (83,6 %) / 78 hawkish (9,2 %) / 61 dovish (7,2 %); flag-0: 219. H+D puros: 139 (era 122). Restan ~210 del estrato enriquecido (tandas 10-14) — tras ellas el training set proyectado ronda **~1.280 con ~16-18 % H+D**.
+
+### Hallazgos analíticos de la tanda 9 (SEP-2005 a DIC-2007)
+
+- **sep-2005-nov-2005**: staff (Valdés) recomienda +25 cuatro veces seguidas ("difícil justificar otra opción"); Marfán y Corbo votan la quinta alza por desanclaje (hawkish 0,90).
+- **dic-2005, primera pausa**: De Gregorio vota mantener tras 5 alzas (dovish 0,70) — pausa a la espera de información, riesgo de sobrepasar.
+- **mayo-jun-2006**: Desormeaux y Marfán votan pausa: dos alzas seguidas romperían la "normalización pausada" y cálculo de error de tipo 2 (dovish 0,70-0,75).
+- **jul-2006, alza a 5,25 % y fin del ciclo**: acuerdo hawkish 0,85 con matiz de pausas "menos frecuentes"; desde sep-2006 el staff solo justifica mantención (dovish 0,70-0,75) y Velasco pide cambiar el sesgo del comunicado (oct-2006).
+- **2007_mixto**: opciones del staff sin recomendación (abr: -25 vs mantener → neutral pura); **ago-2007** Marfán/Consejo: alza +25 a 5,5 % por shock alimentario (hawkish 0,85-0,95) aunque Marfán propone eliminar el sesgo comunicacional; **dic-2007** (Magendzo ya de Gerente subrogante): opciones sin inclinación con sesgo neutro — preludio del fin del ciclo de alzas.
+
+### Próximos pasos (en orden)
+
+1. Entregar `docs/INSTRUCCIONES_GOLD.md` al usuario y recibir el gold etiquetado → κ por clase y sub-estrato.
+2. Tandas 10-14 del enriquecido (unas ~210 intervenciones; ~1-2 tandas por turno de trabajo).
+3. Fase 6 (baselines TF-IDF/embeddings, split por tiempo): instalar scikit-learn en el venv (pendiente).
+4. Fase 7 (fine-tune BETO, modelo de dos etapas, class_weight='balanced') → Fase 8 (scoring 9.725) → validación vs ΔTPM.
+
+### Bloqueos y pendientes
+
+- Sin cambios de fondo: scikit-learn pendiente de instalación; test-retest 30 y codebook v3 diferidos; votos explícitos en Fase 10.
