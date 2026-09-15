@@ -44,6 +44,10 @@ N_PILOTO = 300          # tamano de la muestra piloto de etiquetado
 N_TEST_RETEST = 30      # submuestra fija re-etiquetada en cada ronda (estabilidad)
 MIN_POR_ESTRATO = 2     # minimo de intervenciones por estrato en la muestra piloto
 
+# Regla de tandas: cada ronda de etiquetado en chat se rige por presupuesto de
+# palabras (carga real de lectura), no por numero fijo de intervenciones.
+PRESUPUESTO_PALABRAS_TANDA = 20000
+
 # -----------------------------------------------------------------------------
 # Fuente de datos macroeconomicos
 # -----------------------------------------------------------------------------
