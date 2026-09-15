@@ -388,3 +388,30 @@ Hitos del periodo 2011-2015 para los entregables:
 1. Tandas 11-14 del enriquecido (~175 int).
 2. Recibir gold etiquetado por el usuario → κ por clase y sub-estrato.
 3. Fase 6 (baselines; instalar scikit-learn), Fase 7 (BETO dos etapas), Fase 8 (scoring 9.725).
+
+## Sesión 11 (2026-09-15) — Tanda 9 del estrato_tanda9 + reconciliación de plan enriquecido
+
+**Tanda 9 etiquetada y validada** (`data/etiquetas/etiquetas_escalado_r13.csv`, ronda `escalado_t09_r13`): 58 intervenciones / 19.996 palabras sobre `estrato_tanda9.csv[tanda==9]`. Relevantes: 44 neutral / 5 hawkish / 4 dovish + 13 flag-0. Validación 05 OK: codebook v2, sin duplicados, conferencia literal de frase_justificante 58/58 (2 corregidas tras detección de paráfrasis), cobertura exacta de la tanda.
+
+### Reconciliación de estratos de enriquecimiento (IMPORTANTE)
+
+Existen dos estratos: `estrato_enriquecido.csv` (252 int, tandas 9-14, sesión 9a/10: tetiquetadas tandas 9 y 10 = 77 filas, rondas `enriquecido_t09_r13`/`enriquecido_t10_r14`) y `estrato_tanda9.csv` (250 int, tandas 9-13, seed 20260917, cuotas stance-signal 150/62/38, decision 10 final). El segundo **reemplaza** al primero para el trabajo pendiente: se dibujó excluyendo gold + todas las etiquetas existentes (por eso las 77 etiquetas `enriquecido_*` quedan intactas y sin duplicados en el training set). Las tandas 11-14 del `estrato_enriquecido` (~175 int) quedan **obsoletas/abandonadas**: 11 de esas intervenciones vuelven a entrar por `estrato_tanda9` (solape verificado: 11 ids, ninguno ya etiquetado), el resto simplemente no se muestrea.
+
+### Estado del training set
+
+**1.160 etiquetas** (codebook v2, `ia_ronda`): 1.000 neutral / 92 hawkish / 68 dovish (H+D puros: 160; flag-0 incluidas en el conteo por clase). Pendiente de `estrato_tanda9`: 192 intervenciones en 4 tandas → r14 = tanda 10 (56 int / 19.507 p.), r15 = tanda 11 (71 / 19.726), r16 = tanda 12 (58 / 19.848), r17 = tanda 13 (7 / 2.064). Total tras enriquecido: ~1.352.
+
+### Hallazgos de la tanda 9
+
+- Acuerdos/comunicados con señal explícita: voto +25 pb (feb-2011 x2, jun-2011) → hawkish 0,95; ago-2011 mantención de 5,25 % sin sesgo forward en fase de alzas → dovish relativo 0,60 (convención pausa); oct-2009 De Gregorio "mantención prolongada + no convencionales" contra retiro anticipado → dovish 0,75.
+- Nov-2014 García: "única opción razonable es mantener 3,0 % (votación con implicancias)" → neutral (sesgo ya a la baja desde oct-14).
+- Feb-2014 staff recomienda "mantener un sesgo explícito a la baja en el párrafo final del Comunicado" → dovish 0,60.
+- Mar-2006 comunicado: mantiene 4,75 % pero "incrementos futuros siguen siendo necesarios" → hawkish 0,55 (mantención con reafirmación explícita de retiro).
+- Oct-2013 menú staff {mantener 5 % vs recortar 4,75 %} sin recomendación → neutral pura; dic-2013 Herrera recomienda mantener 4,5 % descartando tercer recorte sucesivo por "señal de urgencia" → ligeramente hawkish respecto al menú pero dentro de neutral (ya etiquetado neutral por menú balanceado con recomendación de mantener sin descarte agresivo).
+
+### Próximos pasos
+
+1. r14: tanda 10 de `estrato_tanda9` (56 int / 19.507 p.).
+2. r15-r17: tandas 11-13 (136 int / ~41,6k p.).
+3. Recibir gold etiquetado por el usuario → κ por clase y sub-estrato.
+4. Fase 6 (baselines; instalar scikit-learn), Fase 7 (BETO dos etapas), Fase 8 (scoring 9.725).
