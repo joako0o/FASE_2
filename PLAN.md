@@ -417,3 +417,18 @@ Sonda de primera cita literal fijada antes de coeficientes: B coincide con la re
 3. *Deciphering Fedspeak: Quantifying Dissent Among Hawks and Doves*. Findings of EMNLP 2023 (GPT-4 como clasificador).
 4. Monroe, B., Colaresi, M., Quinn, K. (2008). *Fightin' Words: Lexical Feature Selection and Evaluation for Identifying the Content of Political Conflict*. Political Analysis. (vocabulario distintivo).
 5. Acuerdo BCCh N°2763-01-260115 (2026): difusión de actas con rezago de 10 años; esquema de publicación vigente.
+
+
+### 9.19 Preparación verificable del ensayo BETO y salida a Colab
+
+El usuario autorizó continuar y consultar trabajos/web. Investigación dirigida de Bundesbank/MILA, Bernoth/DIW, BERT para documentos largos y documentación oficial BETO; alcance y límites de lectura en [protocolo](docs/INVESTIGACION_Y_PROTOCOLO_BETO_V1.md). No importar datasets ni adoptar métricas externas. Texto completo, no citas seleccionadas ni solo los primeros 512 tokens; la agregación simple propuesta todavía puede diluir la conclusión.
+
+Intentos reales de HF, descarga histórica de autores y wheels CPU: TLS EOF. GitHub API/PyPI accesibles; 2 CPU, ~4 GB RAM, sin NVIDIA. Metadatos HF leídos por navegador, no pesos descargados al cómputo. Vocabulario histórico de autores distinto al checkpoint HF: rechazado, fuera de Git. Instalados transformers/tokenizers para controles, no torch ni encoder.
+
+Scripts 38/39: paquete de **1.352 textos / 1.997.823 caracteres**, mismos cinco train/validación purgados, **793 filas de control**, referencias corregidas v2/A fijos. BETO cased con revisión/hash fijados; ventanas completas de 510+2 y solapamiento 64, media de logits por documento, CE ponderada train-only, acumulación 8 con último grupo real. Tres épocas predefinidas, sin escoger con validación. Prueba real de dos textos de train con forward/backward y actualización de encoder/cabeza antes de cinco folds; nueva instancia inicial por fold. Detener ante OOM/hash/NaN, no truncar silenciosamente.
+
+**78 pruebas aprobadas, 0 omitidas**: 14 nuevas sin encoder y 64 de etapas 31–37. Reproducción exacta de los cinco archivos del paquete, incluido manifest; **313 archivos anteriores intactos**. El comparador se comprobó con fixtures sintéticas temporales idénticas al control, no predicciones BETO. Verificación en `data/auditoria/preparacion_beto_v1/`. No respuestas de 306 abiertas, cambios de etiquetas ni reentrenamiento TF-IDF en esta preparación.
+
+[Notebook](notebooks/BETO_comparacion_v1.ipynb) y [guía](docs/GUIA_EJECUTAR_BETO_COLAB_V1.md): código desde commit fijo, entorno aislado, pesos públicos verificados, recuperación de folds completos mediante ZIP; no reanudación a mitad de fold. El usuario debe iniciar una GPU gratuita disponible; no hay cuenta/servicio de pago configurado ni Colab ejecutado por este agente. Pesos/paquetes/resultados/dependencias fuera de Git.
+
+**Pendiente real:** descarga de pesos, prueba GPU y comparación BETO. Menos H↔D sin aumentar H/D→N, F1 H/D +0,02 y ≥3/5 folds favorables, guardas macro/recall; cinco ambiguos conocidos desglosados, criterio principal sobre 793. No declarar mejora, generalización, adopción o entrenamiento global antes de ejecutar y revisar. Mantener PR #4, sin nuevas anotaciones ni otra búsqueda de n-gramas.

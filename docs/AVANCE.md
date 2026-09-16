@@ -1,8 +1,20 @@
 # AVANCE — Proyecto D&H
 
-Última actualización: **diagnóstico de diez inversiones H/D completado: 40.937 caracteres íntegros, contribuciones exactas y 793 predicciones reproducidas. No se cambiaron referencias ni se ejecutó un candidato nuevo.**
+Última actualización: **entrada y runner BETO preparados, 78 pruebas sin encoder/regresiones aprobadas, notebook Colab con código fijado. No hay pesos, prueba GPU ni entrenamiento BETO ejecutado.**
 
-## Estado activo: diagnóstico H/D y siguiente comparación contextual
+## Estado activo: comparación BETO preparada, ejecución GPU pendiente
+
+- Autorización: «ok adelante y si necesitas investiga otros tabajos o por la web». Investigación primaria dirigida, no exhaustiva/reproducida, en [protocolo BETO](INVESTIGACION_Y_PROTOCOLO_BETO_V1.md). No datasets externos nuevos ni cambios al codebook/referencia v2.
+- Sigue bloqueo HTTPS TLS EOF para pesos/config HF, archivo histórico de autores y ruedas CPU PyTorch. GitHub API/PyPI sí funcionan. 2 CPU/~4 GB, sin NVIDIA; transformers/tokenizers instalados, **torch no instalado**. El vocabulario histórico obtenido por GitHub no coincide con el checkpoint: rechazado, no sustituido.
+- Scripts 38/39 y `requirements-beto.txt`: paquete **1.352 textos completos / 1.997.823 caracteres**, cinco folds originales purgados y **793 predicciones de control**. Filtro A, referencia corregida v2, etiquetas originales y 12 ambiguas intactos. Citas/notas fuera del input. Cinco inversiones ambiguas de 37 marcadas aparte, sin quitar casos del criterio principal.
+- Candidato: BETO cased/hash oficial, cobertura 510+2/solapamiento 64, media de logits documental, pérdida balanced train-only, acumulación 8/tamaño real del último grupo, tres épocas sin elegir con validación. Requiere prueba GPU real previa en dos documentos train y descarta esa instancia antes de cada fold.
+- **78 pruebas aprobadas, 0 omitidas**; 14 nuevas + 64 regresiones seleccionadas de 31–37. Paquete reproducido exactamente (cinco archivos) y **313 archivos anteriores intactos**. Comparador probado con fixtures temporales sintéticas; tokenizador de juguete y pérdida NumPy no prueban el encoder. Registro `data/auditoria/preparacion_beto_v1/verificacion.json`.
+- [Guía para el investigador](GUIA_EJECUTAR_BETO_COLAB_V1.md) y [notebook](../notebooks/BETO_comparacion_v1.ipynb): revisión del código fijada, instalación aislada, prueba técnica obligatoria, cinco folds y ZIP de respaldo. No guardado de pesos ni reanudación de un fold parcial. No se inició Colab ni se contrataron recursos.
+- **Acción siguiente concreta:** usuario abre Colab, activa GPU gratuita si disponible y ejecuta las celdas en orden. Si falla, traer error; si termina, traer ZIP para comparación. No más anotaciones ni reaceptación de correcciones. Ninguna métrica BETO, mejora semántica o sustitución de modelo declarada.
+- Cambios en la misma rama `arena/01a0a81b-fase-2` y PR #4; pesos y salidas masivas ignorados. Scripts/datos/documentos anteriores congelados, salvo navegación/bitácora.
+
+
+## Historial: diagnóstico H/D y diseño contextual
 
 - Usuario autorizó («pk adeñamte») revisar las diez inversiones más claras, apartar cinco ambiguas y diseñar la comparación contextual. [Síntesis para el investigador](LECTURA_DIAGNOSTICO_INVERSIONES_HD_V1.md) y [detalle técnico](DIAGNOSTICO_INVERSIONES_HD_V1.md).
 - Selección exhaustiva de 15 H↔D de `seis_mas_trece`/referencia v2: diez seleccionadas (9 referencias respaldadas + De Ramón 6965 N→D aceptada), cinco ambiguas excluidas (671, 215, 867, 1019, 621). Las quince siguen siendo errores numéricos contra la referencia actual, no quince errores semánticos probados.
