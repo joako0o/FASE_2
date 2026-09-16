@@ -7,22 +7,25 @@ training set de 1.025.
 
 ## Archivo
 
-`data/muestras/gold_ciego_300_limpio.csv` — una fila por intervención, en
-orden aleatorio (no por fecha ni actor). Puedes abrirlo en Excel/LibreOffice.
+**`data/muestras/gold_ciego_300.xlsx`** — ábrelo directo en Excel/LibreOffice.
+Hoja `etiquetar`: 306 filas en orden aleatorio (no por fecha ni actor), con
+las 5 columnas a llenar resaltadas en amarillo y desplegables para
+`etiqueta`, `confianza` y `es_relevante`. Hoja `LEEME`: guía mínima.
+Devuelve este mismo `.xlsx` llenado (acepta guardados a medias).
 
-> **¿Por qué el "limpio"?** El canónico `gold_ciego_300.csv` es UTF-8 válido,
-> pero en Excel en español se ve sucio: sin BOM las tildes salen mojibake,
-> el separador coma no coincide con el punto y coma que espera Excel, y 13
-> textos conservan saltos de línea internos que quiebran las filas. La copia
-> limpia corrige todo eso (UTF-8 con BOM, separador `;`, filas de una sola
-> línea) sin alterar una sola palabra: se regenera con
-> `python scripts/preparar_gold_limpio.py`. Al terminar, reintegra tus 5
+> **¿Por qué no el `.csv` canónico?** `gold_ciego_300.csv` es UTF-8 válido
+> con separador coma, pero Excel en español lo abre como ANSI con `;`: las
+> tildes salen mojibake, todo cae en una columna y 13 textos con saltos de
+> línea internos quiebran las filas. Por eso el instrumento de trabajo es
+> el `.xlsx` (se regenera con `python scripts/preparar_gold_xlsx.py`).
+> Alternativa CSV si lo prefieres: `gold_ciego_300_limpio.csv` (UTF-8 con
+> BOM, separador `;`, filas de una sola línea; se regenera con
+> `python scripts/preparar_gold_limpio.py`). Al terminar, reintegra tus 5
 > columnas al formato canónico con
-> `python scripts/fusionar_gold_llenado.py data/muestras/gold_ciego_300_limpio.csv`
-> (valida dominios, nota obligatoria con `es_relevante=0` y frase verbatim).
-> Si Excel te obliga a guardar en otro formato, guarda como "CSV UTF-8";
-> el script de fusión también acepta separador coma y cp1252 como último
-> recurso. El canónico nunca se edita a mano.
+> `python scripts/fusionar_gold_llenado.py data/muestras/gold_ciego_300.xlsx`
+> (el script también acepta el `.csv` limpio llenado; valida dominios,
+> nota obligatoria con `es_relevante=0` y frase verbatim).
+> El canónico nunca se edita a mano.
 
 ## Columnas que debes llenar (una por fila)
 

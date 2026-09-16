@@ -3,9 +3,11 @@
 # Reintegra el etiquetado humano del gold ciego al formato canónico.
 #
 # CONTEXTO
-# El etiquetador trabaja sobre gold_ciego_300_limpio.csv (copia Excel-amable:
-# UTF-8 con BOM, separador ';', filas de una línea; ver
-# preparar_gold_limpio.py). Al terminar — o para revisar avances por lote —
+# El etiquetador trabaja sobre gold_ciego_300.xlsx (libro Excel con
+# desplegables; ver preparar_gold_xlsx.py) o, alternativamente, sobre
+# gold_ciego_300_limpio.csv (copia Excel-amable: UTF-8 con BOM, separador
+# ';', filas de una línea; ver preparar_gold_limpio.py). Al terminar — o
+# para revisar avances por lote —
 # este script toma ese archivo YA LLENADO y vuelve a dejar las 5 columnas de
 # etiquetado dentro de una copia del canónico (coma, sin BOM, texto original
 # con sus saltos de línea), lista para concatenar a capa L1 y correr el kappa.
@@ -48,9 +50,44 @@ def norm(s: str) -> str:
     return " ".join(s.split())
 
 
+def leer_xlsx(ruta: Path):
+    """Lee el .xlsx llenado (hoja 'etiquetar') devolviendo cabecera + filas
+    de strings, igual que leer_tabla. Normaliza números de Excel (orden,
+    es_relevante) a su forma canónica en texto."""
+    try:
+        from openpyxl import load_workbook
+    except ImportError:
+        raise AssertionError(
+            "para leer .xlsx instala openpyxl (pip install -r requirements.txt)")
+    wb = load_workbook(ruta, read_only=True, data_only=True)
+    if "etiquetar" not in wb.sheetnames:
+        raise AssertionError("el .xlsx no trae la hoja 'etiquetar'")
+    filas = list(wb["etiquetar"].iter_rows(values_only=True))
+
+    def txt(v):
+        if v is None:
+            return ""
+        if isinstance(v, bool):
+            return "1" if v else "0"
+        if isinstance(v, (int, float)) and float(v).is_integer():
+            return str(int(v))
+        return str(v)
+
+    cab = [txt(c).strip() for c in filas[0]]
+    datos = [[txt(c) for c in fila] for fila in filas[1:]]
+    datos = [f for f in datos if any(c.strip() for c in f)]
+    ancho = len(cab)
+    assert all(len(f) == ancho for f in datos), \
+        "el .xlsx trae filas con distinto número de columnas"
+    return cab, datos, "xlsx"
+
+
 def leer_tabla(ruta: Path):
-    """Lee el archivo llenado tolerando BOM, ';' o ',', y cp1252 como último
-    recurso (Excel antiguo guarda ANSI si no se elige 'CSV UTF-8')."""
+    """Lee el archivo llenado (.xlsx o .csv) tolerando BOM, ';' o ',', y
+    cp1252 como último recurso (Excel antiguo guarda ANSI si no se elige
+    'CSV UTF-8'). Devuelve (cabecera, filas, etiqueta_formato)."""
+    if ruta.suffix.lower() in (".xlsx", ".xlsm"):
+        return leer_xlsx(ruta)
     crudo = ruta.read_bytes()
     for enc in ("utf-8-sig", "cp1252"):
         try:
