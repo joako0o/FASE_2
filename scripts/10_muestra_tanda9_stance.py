@@ -22,7 +22,7 @@
 #     (mantiene diversidad de ejemplos neutrales y evita que el modelo aprenda
 #     que "vocabulario de decisión == clase minoritaria").
 #   El patrón de decisión es el mismo regex documentado de
-#   09_muestra_gold_ciego.py (redeclarado para autocontención).
+#   09_muestra_gold_ciego.py (centralizado en config.py).
 # - Tandas: orden aleatorio por sub-estrato y troceo por presupuesto de
 #   palabras (config.PRESUPUESTO_PALABRAS_TANDA) continuando la numeración: la
 #   numeración de tandas 1-4 cronológicas y 5-8 estratificadas ya está cerrada;
@@ -36,33 +36,23 @@ import glob
 import re
 
 import pandas as pd
+from utilidades import exigir_salidas_nuevas, asignar_tandas
 
 import config as C
 
-SEMILLA = 20260917
+SEMILLA = C.SEED_MAESTRA + 2
 TANDA_INICIAL = 9
 CUOTAS = {"autoridad_señal": 150, "staff_señal": 62, "resto_sin_señal": 38}
-PATRON_DECISION = re.compile(
-    r"\b(vota[rc]?|votó|votar|acuerda|acordó|acuerdo|subir|bajar|rebajar|recortar|"
-    r"mantener|alza|baja|recorte|opción|opciones|comunicado|sesgo)\b", re.IGNORECASE)
+PATRON_DECISION = re.compile(C.PATRON_DECISION, re.IGNORECASE)
 MASCARA_AUTORIDAD = re.compile(r"Consejero|Presidente|Vicepresidente")
 
 # mismas fases que 08_muestra_estrato_fases.py + tramo inicial 2005
-FASES = [
-    ("2005_alzas",           "2005-01-01", "2005-07-12"),
-    ("2006_alza_fin",        "2005-07-13", "2006-12-31"),
-    ("2007_mixto",           "2007-01-01", "2007-12-31"),
-    ("2008_crisis_alza",     "2008-01-01", "2008-12-31"),
-    ("2009_bajas",           "2009-01-01", "2009-12-31"),
-    ("2010_alza_emergencia", "2010-01-01", "2010-12-31"),
-    ("2011_alza",            "2011-01-01", "2011-12-31"),
-    ("2012_13_mantiene",     "2012-01-01", "2013-09-30"),
-    ("2013_14_bajas",        "2013-10-01", "2014-12-31"),
-    ("2015_quiebre",         "2015-01-01", "2015-12-31"),
-]
+FASES = C.FASES_TPM
 
 
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(C.RUTA_MUESTRAS / "estrato_tanda9.csv", C.RUTA_MUESTRAS / "estrato_tanda9_resumen.csv")
     uni = pd.read_csv(C.RUTA_MUESTRAS / "escalado_tandas.csv", parse_dates=["fecha"])
 
     ya = pd.concat([pd.read_csv(f, usecols=["intervencion_id"])
@@ -99,17 +89,12 @@ def main() -> None:
     cobertura = muestra.groupby("fase").size()
     # 2005 ya está densamente cubierto por el piloto y las tandas 1-4; se exige
     # cobertura mínima solo en las fases 2006 en adelante
-    control = cobertura.drop("2005_alzas", errors="ignore")
+    control = cobertura.reindex([f[0] for f in FASES if f[0] != "2005_alzas"], fill_value=0)
     assert (control >= 10).all(), f"fases con menos de 10 ítems: {cobertura}"
 
     muestra = muestra.sample(frac=1, random_state=SEMILLA + 1).reset_index(drop=True)
-    tandas, tanda, acum = [], TANDA_INICIAL, 0
-    for palabras in muestra.largo_palabras:
-        if acum + palabras > C.PRESUPUESTO_PALABRAS_TANDA and acum > 0:
-            tanda, acum = tanda + 1, 0
-        tandas.append(tanda)
-        acum += palabras
-    muestra["tanda"] = tandas
+    muestra["tanda"] = asignar_tandas(muestra.largo_palabras, C.PRESUPUESTO_PALABRAS_TANDA, TANDA_INICIAL)
+    tanda = int(muestra.tanda.max())
 
     muestra.to_csv(C.RUTA_MUESTRAS / "estrato_tanda9.csv", index=False)
     resumen = (muestra.groupby(["tanda", "subestrato"], as_index=False)

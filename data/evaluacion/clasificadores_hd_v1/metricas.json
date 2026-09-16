@@ -1,0 +1,128 @@
+{
+  "mejor_observado": "B0_limpia",
+  "elegibles": [],
+  "ancla_identica": true,
+  "clases": [
+    "hawkish",
+    "dovish",
+    "neutral"
+  ],
+  "n_validacion": 793,
+  "n_exclusiones_por_fold": [
+    16,
+    15,
+    15,
+    10,
+    11
+  ],
+  "n_validacion_con_copias_antes": 34,
+  "n_copias_despues": 0,
+  "matrices": {
+    "B0_limpia": [
+      [
+        54,
+        7,
+        8
+      ],
+      [
+        10,
+        36,
+        3
+      ],
+      [
+        12,
+        20,
+        643
+      ]
+    ],
+    "B1_svm": [
+      [
+        53,
+        5,
+        11
+      ],
+      [
+        7,
+        21,
+        21
+      ],
+      [
+        10,
+        7,
+        658
+      ]
+    ],
+    "B2_lr_mixta": [
+      [
+        54,
+        7,
+        8
+      ],
+      [
+        14,
+        32,
+        3
+      ],
+      [
+        14,
+        21,
+        640
+      ]
+    ],
+    "B3_svm_mixta": [
+      [
+        55,
+        4,
+        10
+      ],
+      [
+        10,
+        22,
+        17
+      ],
+      [
+        12,
+        6,
+        657
+      ]
+    ],
+    "B4_jerarquica": [
+      [
+        53,
+        10,
+        6
+      ],
+      [
+        11,
+        35,
+        3
+      ],
+      [
+        15,
+        25,
+        635
+      ]
+    ],
+    "H0_historica": [
+      [
+        54,
+        7,
+        8
+      ],
+      [
+        10,
+        36,
+        3
+      ],
+      [
+        13,
+        21,
+        641
+      ]
+    ]
+  },
+  "beto_ejecutado": false,
+  "gold_abierto_o_predicho": false,
+  "datos_externos_usados": false,
+  "refit_final_o_reemplazo": false
+}

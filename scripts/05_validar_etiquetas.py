@@ -24,6 +24,7 @@ import sys
 import pandas as pd
 
 from config import RUTA_L0
+from utilidades import ETIQUETAS, CONFIANZAS, errores_anotacion
 
 COLUMNAS = [
     "intervencion_id", "metodo", "etiqueta",
@@ -31,14 +32,13 @@ COLUMNAS = [
     "frase_justificante", "confianza", "es_relevante", "nota",
     "ronda", "version_codebook", "fecha", "etiquetador",
 ]
-ETIQUETAS = {"hawkish", "dovish", "neutral"}
-CONFIANZAS = {"alta", "media", "baja"}
 METODOS = {"ia_ronda", "humano_gold", "tfidf", "embeddings", "beto_ft", "llm_zeroshot"}
 TOLERANCIA_SUMA_PROB = 1e-6
 
 
 def validar(df: pd.DataFrame) -> dict:
     """Bateria de controles; levanta AssertionError con detalle al primer fallo."""
+    assert not df.empty, "archivo de etiquetas vacío"
     assert list(df.columns) == COLUMNAS, f"columnas distintas del formato: {list(df.columns)}"
     assert df["intervencion_id"].is_unique, "intervencion_id duplicado en la corrida"
 
@@ -46,6 +46,7 @@ def validar(df: pd.DataFrame) -> dict:
     # campos de los esperados, que pandas rellena silenciosamente con NaN).
     for col in ["intervencion_id", "metodo", "ronda", "version_codebook", "fecha", "etiquetador", "confianza", "es_relevante"]:
         assert df[col].notna().all(), f"nulos en columna estructural: {col}"
+        assert df[col].astype(str).str.strip().ne("").all(), f"vacíos en columna estructural: {col}"
 
     # Dominios de valores controlados
     assert set(df["etiqueta"]) <= ETIQUETAS, f"etiquetas fuera de dominio: {set(df['etiqueta']) - ETIQUETAS}"
@@ -65,39 +66,20 @@ def validar(df: pd.DataFrame) -> dict:
         f"etiqueta != argmax de probabilidades en: {df.loc[argmax != df['etiqueta'], 'intervencion_id'].tolist()}"
     )
 
-    # Reglas del codebook v2
-    sin_nota = (df["es_relevante"] == 0) & df["nota"].isna()
-    assert not sin_nota.any(), "nota obligatoria cuando es_relevante=0 (codebook §2.4)"
-    sin_frase = (df["es_relevante"] == 1) & df["frase_justificante"].isna()
-    assert not sin_frase.any(), "frase_justificante obligatoria cuando es_relevante=1 (R10)"
-    largas = df["frase_justificante"].dropna().str.len() > 300
-    assert not largas.any(), "frase_justificante excede 300 caracteres (R10)"
-
-    # Cobertura contra L0
+    # Reglas del codebook y cobertura contra L0: una sola validación de citas
+    # compartida con el importador gold, incluso para citas opcionales en flag 0.
     corpus = pd.read_csv(RUTA_L0 / "corpus.csv", usecols=["intervencion_id", "texto"])
-    faltantes = set(df["intervencion_id"]) - set(corpus["intervencion_id"])
+    assert corpus.intervencion_id.is_unique, "IDs duplicados en L0"
+    faltantes = set(df.intervencion_id) - set(corpus.intervencion_id)
     assert not faltantes, f"IDs no presentes en L0: {list(faltantes)[:5]}"
-
-    # Frase justificante verbatim: R10 exige cita textual de la intervencion,
-    # sin parafraseo. El corpus L0 conserva saltos de linea del acta original
-    # (quiebres tipograficos), por lo que la comparacion se hace sobre ambos
-    # lados con espacios en blanco normalizados: cualquier racha de whitespace
-    # colapsa a un espacio. Esto no relaja R10 (las palabras deben coincidir
-    # exactamente en orden), solo inmuniza contra quiebres de linea.
-    def norm(s: str) -> str:
-        return " ".join(s.split())
-
-    texto = corpus["texto"].map(norm)
-    texto.index = corpus["intervencion_id"]
-    no_verbatim = [
-        r.intervencion_id
-        for r in df.itertuples()
-        if r.es_relevante == 1
-        and isinstance(r.frase_justificante, str)
-        and r.frase_justificante.strip()
-        and norm(r.frase_justificante) not in texto.loc[r.intervencion_id]
-    ]
-    assert not no_verbatim, f"frase_justificante no verbatim en: {no_verbatim[:5]}"
+    textos = corpus.set_index("intervencion_id").texto
+    errores = []
+    for fila in df.fillna("").itertuples():
+        problemas = errores_anotacion(fila.etiqueta, fila.confianza, fila.es_relevante,
+                                      fila.nota, fila.frase_justificante,
+                                      textos.loc[fila.intervencion_id])
+        errores.extend(f"{fila.intervencion_id}: {p}" for p in problemas)
+    assert not errores, "; ".join(errores[:10])
 
     return {
         "filas": len(df),

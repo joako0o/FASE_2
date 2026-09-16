@@ -1,0 +1,6 @@
+{
+  "ngram_max_b": 4,
+  "macro_f1_media": 0.7802822203547717,
+  "regla": "Mayor media no redondeada; empate exacto favorece menor longitud",
+  "solo_seleccion_interna": true
+}

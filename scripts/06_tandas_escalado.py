@@ -18,6 +18,7 @@ Ejecucion:  python scripts/06_tandas_escalado.py
 """
 
 import pandas as pd
+from utilidades import exigir_salidas_nuevas, asignar_tandas
 
 from config import (
     PRESUPUESTO_PALABRAS_TANDA,
@@ -42,17 +43,10 @@ def construir_universo() -> pd.DataFrame:
     return universo
 
 
-def asignar_tandas(universo: pd.DataFrame) -> pd.DataFrame:
+def empaquetar_universo(universo: pd.DataFrame) -> pd.DataFrame:
     """Empaqueta cronologicamente en tandas de PRESUPUESTO_PALABRAS_TANDA palabras."""
-    tandas = []
-    tanda, palabras = 1, 0
-    for largo in universo["largo_palabras"]:
-        if palabras + largo > PRESUPUESTO_PALABRAS_TANDA and palabras > 0:
-            tanda, palabras = tanda + 1, 0
-        tandas.append(tanda)
-        palabras += largo
     universo = universo.copy()
-    universo["tanda"] = tandas
+    universo["tanda"] = asignar_tandas(universo.largo_palabras, PRESUPUESTO_PALABRAS_TANDA)
     resumen = (
         universo.groupby("tanda")
         .agg(n_intervenciones=("intervencion_id", "count"),
@@ -61,15 +55,17 @@ def asignar_tandas(universo: pd.DataFrame) -> pd.DataFrame:
              fecha_max=("fecha", "max"))
         .reset_index()
     )
-    assert (resumen["n_palabras"] <= PRESUPUESTO_PALABRAS_TANDA).sum() >= len(resumen) - 1, (
-        "solo la ultima tanda puede quedar bajo presupuesto"
-    )
+    # Cada tanda excedida solo puede contener un texto indivisible.
+    excedidas = resumen[resumen.n_palabras > PRESUPUESTO_PALABRAS_TANDA]
+    assert excedidas.n_intervenciones.eq(1).all(), "tanda múltiple excede presupuesto"
     return universo, resumen
 
 
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(RUTA_MUESTRAS / "escalado_tandas.csv", RUTA_MUESTRAS / "escalado_tandas_resumen.csv")
     universo = construir_universo()
-    universo, resumen = asignar_tandas(universo)
+    universo, resumen = empaquetar_universo(universo)
     universo.to_csv(RUTA_MUESTRAS / "escalado_tandas.csv", index=False)
     resumen.to_csv(RUTA_MUESTRAS / "escalado_tandas_resumen.csv", index=False)
     print(f"universo escalado: {len(universo)} intervenciones, "

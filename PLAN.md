@@ -1,8 +1,8 @@
 # PLAN — Proyecto D&H: Score Hawkish/Dovish por Intervención
 **Actas de las Reuniones de Política Monetaria (RPM) del Banco Central de Chile, 2005–2015**
 
-> Documento maestro de planificación. Estado: **planificación v2, ejecución pendiente de luz verde.**
-> Última actualización: 2026-09-15 (v5: postura en 3 clases H/D/N + flag binario `es_relevante` con `nota`; `nombre_pdf`/`num_pagina` eliminados del esquema (los PDFs no se integran al flujo; el Excel ya contiene el contenido íntegro); codebook v2 emitido).
+> Documento maestro de planificación. Estado: **TF-IDF evaluado; n-gramas e influencias diagnosticados; investigación externa e híbrido mínimo v1 completados sin mejora media; BETO y scoring completo pendientes.**
+> Última actualización: 2026-09-16. Codebook v2 vigente; los cambios de evaluación se registran en §9.1–9.6.
 
 ---
 
@@ -173,37 +173,228 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 - Muestras con seed fija y registrada (reproducibilidad).
 - No commitear artefactos grandes (checkpoints de modelos van fuera de git o con LFS si hiciera falta).
 
-## 9. Roadmap
+## 9. Roadmap (actualizado 2026-09-16)
 
-- [x] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b
-- [x] **Fase 1** — Planificación y documentación inicial (este archivo, v2)
-- [x] **Fase 2** — Codebook v2 APROBADO y congelado (2026-09-15, `docs/codebook_v2.md`)
-- [x] **Fase 3** — Preparación: scripts 01–03 creados y ejecutados (L0 + muestra piloto n=300 con seed 20260915 listos). Macro: TPM/IPC/IMACEC/USD/cobre integrados por vía local del investigador (datos en `data/L2/macro_por_reunion.csv`); pendientes listados en `data/L2/pendientes_manifest.csv` (eee_inflacion_1a, ipec, sit_pais_1a, pib, expo/impo, hueco desempleo 2005-09)
-- [x] **Fase 4** — Piloto de etiquetado IA completado (rondas r1-r4, 300 int) → codebook v2 aprobado y congelado
-- [x] **Fase 5** — Rondas de escalado cerradas (2026-09-15): training set final **1.352 etiquetas IA** (19 CSV append-only en `data/etiquetas/`; H=116 / D=89 / N=1.147; flag-0=269). Incluye estrato enriquecido decisión 10 (250 int) agotado por diseño. Curva de aprendizaje: pendiente (se hará junto al fine-tune con folds temporales)
-- [ ] **Fase 6** — Gold humano a ciegas (n=306) + Cohen's κ — **BLOQUEADO: esperando etiquetado del investigador** (`data/muestras/gold_ciego_300.csv` + `docs/INSTRUCCIONES_GOLD.md`; hoy 0/306). Por su parte, baseline TF-IDF dos etapas ya corrido: macroF1=0,3511 (`scripts/15`, `data/L2/baseline_tfidf_*`), piso de comparación para BETO
-- [ ] **Fase 7** — Fine-tune BETO dos etapas (decisión 10) + evaluación final vs gold (306 como test puro)
-- [ ] **Fase 8** — Scoring de las 9.725 + serie temporal + validación vs ΔTPM. Sanity-check preliminar ya corrido con etiquetas IA: serie s(=PH−PD) por reunión → spearman(s,ΔTPM)=0,664 (`scripts/16`, `data/L2/serie_stance_reunion.csv`)
-- [ ] **Fase 9** — Entregables de actores (radar, vocab, convergencia, afinidad, disenso) + evolución semántica + comparación humano-máquina de tópicos/keywords
-- [ ] **Fase 10** — Extracción de **votos explícitos** por actor y de la decisión del Consejo en cada acta (diferida al final: no se usa en el modelo)
-- [ ] **Fase 11 (fuera de alcance por ahora)** — Scrollytelling + paper
+- [x] **Fase 0 histórica** — Consolidación del corpus y esquemas v0a/v0b.
+- [x] **Fase 1** — Planificación y documentación.
+- [x] **Fase 2** — Codebook v2 aprobado y congelado; convenciones del entrenamiento preservadas en `docs/CONVENCIONES_ETIQUETADO.md`.
+- [x] **Fase 3** — L0, metadata inicial, marco piloto y macro local. Auditados contra fuentes; completar campos pendientes según `data/L2/pendientes_manifest.csv`.
+- [x] **Fase 4** — Piloto IA 300/300 completado.
+- [x] **Fase 5** — Training cerrado: 19 CSV, 1.352 etiquetas IA (H=116, D=89, N=1.147; relevancia 0=269). Cobertura exacta de tandas verificada. Curva de aprendizaje y test-retest 30 aún pendientes.
+- [ ] **Fase 6** — **Evaluación TF-IDF vs humano completada; cierre documental pendiente.** Selección sobre 1.352 IA: 12 candidatos, cinco folds por reunión; elegido unigramas/min_df=3/C=2, media CV 0,7264. Reajuste con 1.352 y test humano 306: accuracy 0,8497, macro-F1 0,6775, κ 0,6458. Persisten 86 citas pendientes; no se forzó importación gold. Este κ es modelo–humano, no IA-chat–humano (control opcional). Ver `docs/EVALUACION_TFIDF_GOLD.md`.
+- [ ] **Fase 7** — Experimento BETO dos etapas. Revisar metas con el baseline correcto; seleccionar hiperparámetros sin usar el test final.
+- [ ] **Fase 8** — Scoring completo y validación de serie. Hay 8.373 IDs sin etiqueta IA (8.016 sanos fuera de training/gold). Sanidad descriptiva existente: Spearman 0,6639 vs ΔTPM en 131 reuniones con etiquetas relevantes.
+- [ ] **Fase 9** — Entregables de actores, vocabulario, convergencia, afinidad y disenso; evolución semántica y comparación de tópicos/keywords.
+- [ ] **Fase 10** — Extracción de votos explícitos y decisión del Consejo, diferida; no convertirla sin acuerdo en variable de entrada del clasificador.
+- [ ] **Fase 11** — Scrollytelling + paper (fuera de alcance actual).
 
-### 9.1 Punto de retoma (handoff 2026-09-15)
+### 9.1 Punto de retoma
 
-**Hecho y congelado:**
-- Corpus L0 (9.725 int) + capa L2 (actores, macro por reunión en `data/L2/`) — no re-generar.
-- Training set IA: `data/etiquetas/*.csv` (19 CSV, 1.352, append-only, todos validados con `scripts/05`). Codebook v2 congelado.
-- Gold ciego 306: marco muestreado y disjunto; **faltan solo las respuestas del investigador** en la columna `etiqueta` de `data/muestras/gold_ciego_300.csv`.
-- Baseline TF-IDF (piso 0,3511 macroF1) y sanity-check agregado vs ΔTPM (spearman 0,664).
+**Fuentes inmutables:** los dos consolidados Excel, L0, 19 corridas de etiquetas, marco gold canónico, libro devuelto y codebook v2. Los generadores rechazan sobrescrituras. La auditoría reconstruye selecciones históricas en temporales con las exclusiones de cada etapa, no con el training final.
 
-**Hacer a continuación, en orden:**
-1. Cuando llegue el gold: script κ (chat vs humano sobre las 306; métricas por clase y reporte de sesgo de sub-estratos ya documentado §decisión 9).
-2. Fase 7: fine-tune BETO dos etapas (A: `es_relevante`; B: stance 3-clases sobre relevantes) con `class_weight='balanced'`; test exclusivamente en las 306 gold. Objetivo de trabajo: macroF1 ≥ 0,55, F1_dovish ≥ 0,35 (el piso bag-of-words es 0,35).
-3. Fase 8: scoring de las ~8.600 restantes y serie mensual s (construir primero la serie por reunión replicando `scripts/16` con etiquetas del modelo).
+**Corrección técnica que cambia la interpretación del baseline:** el 0,3511 publicado anteriormente comparaba predicciones con filas equivocadas. No usarlo como piso ni como evidencia de incapacidad bag-of-words; se retiraron de la retoma las metas BETO derivadas de él. Los artefactos actuales registran hashes y `version_evaluacion=oof_por_indice_v2`.
 
-**Convenciones de etiquetado vigentes (fuente de verdad):** `docs/codebook_v2.md` + secciones "Convenciones" de los encabezados de `scripts/13/14` y de `docs/AVANCE.md` (sesiones 9-12). Reglas operativas: `docs/REGLAS.md`.
+**Decisión de evaluación acordada (2026-09-16):** separar entrenamiento, validación y test por función, no forzar 80/10/10 sobre cantidades ya fijadas. Dentro de las 1.352 IA se usa GroupKFold(5), ~80 % train/~20 % validación en cada vuelta. El gold humano de 306 no participa en selección. Se elige la mayor media de macro-F1 de validación, se reajusta con las 1.352 y se evalúa una sola configuración humana. Las citas son un requisito documental separado de la evaluación de clases completas. Una segunda anotación IA-chat no es prerrequisito para evaluar TF-IDF.
 
-**Notas de infraestructura sandbox:** el venv vive fuera del repo (`~/venvs/fase2`); si desaparece: `python3 -m venv ~/venvs/fase2 && ~/venvs/fase2/bin/pip install -r requirements.txt`. Si `.git` vuelve al commit base tras un reinicio (archivos como untracked): `git fetch origin arena/01a0a3a0-fase-2 && git reset --hard $(git rev-parse FETCH_HEAD)` — el trabajo commiteado se restaura; lo untracked nuevo sobrevive.
+**Resultado congelado:** `data/evaluacion/tfidf_gold_v1/` contiene protocolo previo, candidatos, folds, elección, predicciones y métricas. Scripts 18 y 19 se ejecutan en procesos separados; el 18 no abre el Excel humano. Reproducción completa verificada sin cambiar parámetros tras conocer el test. El mejor CV es una cifra de selección, no una prueba independiente.
+
+**Hacer a continuación:**
+1. Corregir las 86 citas en una nueva versión sin alterar etiquetas; conservar original, fecha confirmada y procedimiento humano con revisión posterior IA sin cambios declarados. No afirmar protocolo completamente ciego.
+2. Decidir siguiente experimento/scoring. Para BETO, ajustar solo dentro de training/validación y definir la evaluación antes de ejecutar. Las dos etapas son relevancia y postura; no eliminar todo diagnóstico económico como irrelevante.
+3. El gold comparte 115 reuniones y 12 textos con training; sensibilidad sin textos repetidos ya reportada (macro-F1 0,6859). **Los resultados humanos ya son conocidos**: si guían cambios, reservar otra evaluación independiente; no presentar una nueva evaluación en estos 306 como test intacto.
+4. Mantener el análisis IA-chat/humano como control adicional si se necesita evaluar el proceso de anotación, distinto de la prueba del clasificador ya realizada.
+
+**Documentos de continuidad:** `docs/AVANCE.md` (estado conciso), `docs/EVALUACION_TFIDF_GOLD.md` (examen humano), `docs/REVISION_2026-09-16.md` (auditoría), `docs/CONVENCIONES_ETIQUETADO.md` (decisiones históricas preservadas), `docs/REGLAS.md` (operación).
+
+**Infraestructura:** Python 3.11, `python3 -m venv ~/venvs/fase2` y `~/venvs/fase2/bin/pip install -r requirements.txt`. Pruebas: `python -m unittest discover -s tests -v`; auditoría: `python scripts/17_auditar_estado_gold.py --reproducir-baseline`. No hay servicio web ni GPU necesarios para estos controles. Trabajar solo en la rama de sesión `arena/01a0a81b-fase-2`; no restaurar ramas anteriores con `reset --hard`.
+
+### 9.2 Experimento léxico autorizado y completado (2026-09-16)
+
+**Solicitud:** extraer expresiones de 1–4 palabras frecuentes en el corpus, revisar su dirección en contexto y comparar TF-IDF solo frente a características de diccionario. No convertir frases aisladas en etiquetas automáticas de intervenciones.
+
+**Separación para construir características:** GroupShuffleSplit por reunión, 40 % para descubrimiento, semilla maestra +20: 559 intervenciones/52 reuniones. La reserva de 793/80 reuniones aporta cinco folds GroupKFold; descubrimiento se añade solo al entrenamiento de cada fold. Evita que la revisión vea sus propios ejemplos de validación. No es evaluación final nueva: la selección previa del baseline ya usó las 1.352 IA y el resultado humano agregado ya se conocía.
+
+**Protocolo previo:** umbral ≥5 intervenciones y ≥3 reuniones; 6 candidatos por longitud y criterio (frecuencia/asociación H/D), más 6 monetarios por dirección, deduplicados. Catálogo de descubrimiento de 9.247; 73 candidatos revisados por el agente IA con 219 extractos. Diccionario congelado: 3 restrictivos, 2 expansivos, 36 contextuales y 32 sin dirección. Señales binarias afirmadas/negadas, negación izquierda de tres tokens y coincidencia más larga. No resuelve atribución, menús ni negación posterior; `recorte` también puede referirse a otros objetos.
+
+**Comparación prefijada:** A fija en unigramas; B cruza unigramas o n-gramas 1–4 con/sin cuatro indicadores léxicos. min_df=3, C=2 y balanced, sin búsqueda extra. Todos los vocabularios y modelos se ajustan dentro de train. Media macro-F1: 0,7500 / 0,7562 / **0,7803** / 0,7124, respectivamente. Ampliar n-gramas resulta más prometedor; el diccionario no aporta una mejora consistente. No se reemplazó TF-IDF v1 ni se volvió a predecir el test humano.
+
+**Catálogo total posterior:** 23.252 n-gramas de las 1.352 IA, únicamente descriptivo, generado después de congelar/evaluar; no se usó para modificar esta versión. Los no revisados quedan explícitamente marcados. Reextracción y comparación repetidas en temporales con resultados idénticos. Ver [informe léxico](docs/LEXICO_NGRAMAS.md) y `data/evaluacion/lexico_ngramas_v1/reproducibilidad.json`.
+
+**Control de solape textual:** aunque las reuniones de train/validación son disjuntas, 34/793 filas validadas tienen texto idéntico a algún texto de su train (normalización de espacios). Se declara en `integridad_cierre.json`; no se retocó la partición tras evaluar. Una confirmación estricta con textos inéditos debe controlar también estas duplicaciones.
+
+**Siguiente decisión:** no adoptar por máximo observado sin discutir confirmación. Si este experimento o el catálogo completo guían nuevas características, registrar una nueva versión y no presentar la reserva o los 306 humanos conocidos como un test intacto. Las citas gold pendientes son un trabajo documental separado, no un prerrequisito para esta comparación IA.
+
+### 9.3 Búsqueda de longitud autorizada y completada (2026-09-16)
+
+**Alcance acordado:** comparar `(1,1)` a `(1,6)` sin diccionario, manteniendo A en unigramas, min_df=3, C=2 y los mismos cinco folds del experimento léxico. No es una nueva optimización conjunta de hiperparámetros. Se congela un protocolo nuevo antes de entrenar y se conserva intacta la versión anterior. Selección por mayor media macro-F1 no redondeada; empate exacto: menor longitud. Detener esta búsqueda en seis alternativas.
+
+**Resultados medios en orden n=1…6:** 0,7500 / 0,7617 / 0,7673 / **0,7803** / 0,7730 / 0,7753. Se selecciona `(1,4)` como candidato interno. Diferencia con unigramas +0,0303 (mejora en 4/5 folds); con el segundo, `(1,6)`, solo +0,0050. La dispersión y cinco folds no permiten proclamar superioridad estadística. Vocabulario B medio: 36.702 frente a 42.846 de `(1,6)`.
+
+**Controles:** vocabularios/IDF/clasificadores ajustados solo dentro de train; A compartida entre las seis B de cada fold. Límites 1 y 4 reproducen exactamente las predicciones anteriores. Reejecución completa idéntica; métricas por clase, matrices, dispersión y vocabularios guardados en `data/evaluacion/longitud_ngramas_v1/`. Ver [informe](docs/LONGITUD_NGRAMAS.md).
+
+**Interpretación:** mejor límite observado entre los seis, no óptimo universal. Es selección interna adaptativa sobre una reserva ya consultada; persisten 34 textos repetidos con train. No se vuelve a usar el test humano, no se construye léxico nuevo, no se reajusta con las 1.352 ni se reemplaza el modelo vigente. Antes de adopción/scoring se debe acordar confirmación; una evaluación independiente necesita otro conjunto y control del solape textual. No se prolonga esta búsqueda tras ver los resultados.
+
+### 9.4 Diagnóstico de influencias autorizado y completado (2026-09-16)
+
+**Objeto:** explicar el candidato (1,4) en cinco folds IA ya seleccionados, sin nuevas longitudes, etiquetas o modelos híbridos. Coeficientes globales contrastivos: clase B frente al promedio de otras y H−D; margen binario en A. Aporte local TF-IDF × diferencia de pesos, incluyendo intercepto y residuo; verifica exactamente los márgenes. No interpretación causal ni probabilidades calibradas. B queda marcada como inactiva si A fuerza neutral.
+
+**Resultados:** 793 predicciones idénticas a la selección; 62 errores de postura, de los cuales 17 H↔D. Revisión del agente IA de los 17 casos completos, más seis aciertos y cuatro errores con neutral (fragmentos para aciertos largos). No se cambian etiquetas ni se reabre gold. Unión de top 25: 261 pares término–contraste / 199 términos, sin cambios de signo donde aparecen; 12 pares ausentes en algún fold. Los folds comparten training y esa estabilidad no prueba significado ni generalización.
+
+**Hipótesis para un híbrido:** vincular acción/objeto, apoyo/rechazo, actor y horizonte; distinguir mantener con sesgo o frente a un menú, y reducir estímulo frente a reducir TPM. Revisar normalización numérica: `5,25%` deja `25`, y magnitudes como `25 puntos base` favorecen H aunque no definan dirección. Separar diagnóstico general de recomendación, preservando sesgo futuro. Evaluar normalización y enmascaramiento de nombres como ablaciones separadas. Un modelo de texto completo y una vista contextual de decisión podrían combinarse y derivar contradicciones a revisión; no implementar reglas deterministas a partir de estos errores.
+
+**Siguiente decisión pendiente:** autorizar y prefijar una comparación acotada del híbrido, todavía no entrenado. Los ejemplos inspeccionados pasan a desarrollo; una confirmación independiente requiere otra evaluación y control de duplicaciones. No cambiar el codebook ni presentar nuevamente los 306 humanos conocidos como test intacto. Ver [informe de influencias](docs/INFLUENCIAS_NGRAMAS.md), tablas, revisión y manifiestos en `data/evaluacion/influencias_ngramas_v1/`.
+
+### 9.5 Investigación externa previa al híbrido (2026-09-16)
+
+**Pedido autorizado:** revisar en profundidad trabajos y foros antes de implementar. Revisión dirigida completada en [INVESTIGACION_HIBRIDO.md](docs/INVESTIGACION_HIBRIDO.md), con 20 fuentes y alcance de lectura/versiones registrado. No es revisión sistemática exhaustiva ni reproducción de resultados externos.
+
+**Conclusión:** aprender dirección desde palabras aisladas no resuelve objeto, respaldo, negación, emisor ni temporalidad. Los trabajos justifican comparar representaciones contextualizadas, no dictar una mejora local ni invertir H/D por una negación. La tokenización numérica es un problema verificable y debe aislarse del aporte del contexto. WCB trabaja con documentos disponibles en inglés; su guía de Chile contiene inconsistencias en la tabla 98 del HTML v2. Esto exige aclaración antes de importar, no demuestra inversión global de las etiquetas externas.
+
+**Recomendación pendiente de autorización, no nuevo diseño ejecutado:** primera comparación de cuatro B: referencia (1,4), representación numérica corregida, vista contextual y combinación de ambas. A y parámetros base fijos; sin más búsqueda de longitudes, diccionarios direccionales ni reemplazo de modelo. Prefijar extracción, escalado, pruebas conductuales y criterio de selección antes de entrenar. Pasado y futuro cuentan conforme a R7; conservar condiciones, texto completo y atribución dentro de la intervención. Neutral no equivale a abstención.
+
+**Evaluación:** los 793 y sus errores son desarrollo conocido. Ajustes, combinadores o calibración deben quedar dentro de train; una confirmación futura necesita control prefijado de reuniones y duplicados, otra evaluación y autorización. No reabrir los 306 humanos, modificar el codebook, reajustar las 1.352 ni puntuar el corpus en esta unidad. Transformer/LLM serían una comparación posterior autorizada, no una búsqueda abierta.
+
+**Cierre documental:** no se entrenaron modelos ni se ejecutaron tests de ajuste. Se conservan los resultados y controles experimentales anteriores; se verifican integridad de archivos y enlaces del nuevo informe.
+
+### 9.6 Cuatro representaciones del híbrido: autorizadas y comparadas (2026-09-16)
+
+**Autorización posterior a la investigación:** «vamos con tu recomendación». [Protocolo previo](docs/PROTOCOLO_HIBRIDO_V1.md), módulo `representaciones_contextuales.py` y evaluador `24_evaluar_hibrido_contextual.py`. Preparación sin ajuste registra hashes; la ejecución exige protocolo intacto. No se modificaron scripts previos.
+
+**Diseño ejecutado:** B0 texto completo (1,4); B1 tokenizador con decimales/dígitos aislados/%; B2 texto completo + ventanas candidatas de decisión y una frase vecina a cada lado; B3 ambas modificaciones. A compartida fija; C=2/min_df=3; cuatro variantes y cinco folds históricos. Vista contextual no cruza huecos ni intervenciones, no impone etiquetas por palabras y conserva pasado/condiciones. Es una selección léxica de contexto, **no resolución semántica completa** de emisor, objeto, negación o preferencia. Bloques L2 de peso 1 sin renormalización global.
+
+**Resultado:** macro-F1 medio B0/B1/B2/B3 = **0,780282 / 0,779266 / 0,776352 / 0,776365**. Ninguna modificación gana en media ni cumple las tolerancias prácticas prefijadas. Errores totales = **62/61/62/63**, H↔D = **17/18/17/16**. B1 reduce un error total, pero no mejora la métrica principal; B3 mejora ligeramente el macro-F1 conjunto, pero no el promedio por fold que decide. No cambiar de métrica después del resultado.
+
+**Diagnóstico:** contexto en 345/793 intervenciones, 41,0 % de caracteres totales; ocho textos con formatos numéricos ambiguos. La batería prefijada de 14 ejemplos inventados da 25/70 aciertos por variante (cinco folds, no observaciones independientes); la invariancia por pares no garantiza corrección. Estos tests no son estimación representativa del corpus. No se retocó el modelo para pasarlos.
+
+**Cierre:** no adoptar el híbrido v1 ni ampliar la rejilla. Conservar B0 (1,4) como referencia, no confundirlo con el modelo unigramas guardado del examen anterior, que permanece intacto. Cualquier extractor semántico/transformer es otra propuesta, no queda ejecutado por esta ronda. Confirmación futura separada con control de reuniones y duplicados; 793 reutilizados y 34 copias siguen siendo desarrollo. Sin abrir/predicir 306 humanos ni reajuste final/scoring completo.
+
+**Verificación:** B0 reproduce exactamente las predicciones de (1,4). Repetición completa en temporal: nueve CSV, métricas e informe idénticos; 91 pruebas superadas y una antigua omitida para no reabrir referencias humanas. 136 archivos previos intactos, incluidas fuentes/etiquetas/modelo; cinco CSV del examen anterior verificados solo por hash. [Informe](docs/EVALUACION_HIBRIDO_V1.md) y artefactos en `data/evaluacion/hibrido_contextual_v1/`.
+
+### 9.7 Piloto WCB Chile: autorizado, ejecutado y cerrado (2026-09-16)
+
+**Autorización:** «ok si puedes probarla bien mientras pensare otra forma». Se verificó acceso público, licencia, idioma y esquema antes de probar. Alcance comunicado y protocolo congelado antes de los resultados: [PROTOCOLO_WCB_PILOTO_V1.md](docs/PROTOCOLO_WCB_PILOTO_V1.md).
+
+**Adquisición y traducción:** primeros 100 train de la semilla 5768, no 700 ni 1.000; captura de columnas desde la respuesta completa de API mediante herramienta web (la descarga directa por Python falló por TLS). Traducción al español del agente, no texto oficial alineado, no ciega ni revisión humana. Datos originales y traducción bajo CC BY-NC-SA 4.0 con atribución, separados en `data/externos/wcb_chile_piloto_v1/`. No se inspeccionó val/test externo ni se auditó el solape completo entre las tres semillas. No equiparar traducción guardada con traducción validada independientemente.
+
+**Diseño:** mismo train/validación IA histórico, A unigramas compartida, B (1,4)/C2/min_df3. Base, +99 inglés, +99 español. Se excluye únicamente la frase irrelevant de B sin mapearla a neutral ni entrenar A con externos. Se preservan H/D/N de origen, incluso donde no equivalen a nuestro criterio. Peso externo individual 1; balanced cambia con los nuevos conteos. Sin búsqueda adicional ni actualización del codebook. Texto externo reciente en evaluación retrospectiva, no predicción temporal sin información futura.
+
+**Resultado:** media macro-F1 **0,780282 / 0,728468 / 0,725897**. Español pierde **0,054385**, gana 1/5 folds y eleva errores **62 → 74** (4 corregidos/16 nuevos). Inglés también empeora (69 errores). No cumple criterio de confirmación. **No adoptar esta importación**, sin concluir que todo el corpus WCB sea inútil. Las diferencias de tarea/unidad, la traducción no oficial y el pequeño tamaño limitan cualquier generalización.
+
+**Cierre:** script 25 y once tests nuevos, B0 idéntica, A compartida, cuatro CSV + auditoría/métricas/informe reproducidos. **102 tests superados y uno omitido** para no abrir referencias humanas. **160 archivos previos intactos**, sin cambio del modelo ni anotaciones canónicas; sin acceder/predicir 306 humanos, refit final o scoring completo. [Informe](docs/EVALUACION_WCB_PILOTO_V1.md); artefactos en `data/evaluacion/wcb_chile_piloto_v1/`. Quedan conocidas las 34 repeticiones IA históricas; no confirmación independiente.
+
+### 9.8 Ronda H/D con control de copias: autorizada y cerrada (2026-09-16)
+
+**Autorización:** «has todas las pruebas que quieras pero manten todo limpio», después de discutir recursos financieros españoles y la debilidad H/D del examen humano conocido. Se fijó una ronda acotada, sin utilizar las 306 respuestas para ajustar.
+
+**Bloqueo contextual:** no hay checkpoint BETO local o GPU; dos CPU/~3,8 GiB RAM. La petición de configuración a HF falló con TLS EOF. Se consultó README oficial y no se obtuvo ningún peso. BETO y entrenamiento auxiliar financiero **no ejecutados**, no clasificados como experimentos que perdieron. Sin instalación de paquetes grandes o scripts de entrenamiento sin probar.
+
+**Diseño:** [protocolo previo](docs/PROTOCOLO_CLASIFICADORES_HD_V1.md), script 26 y 14 tests. Cinco candidatos B con A compartida: LR palabras, SVM palabras, LR mixta, SVM mixta y LR jerárquica neutral/direccional→H/D. C fijos 2/1, palabras 1–4; char_wb 3–5/50.000 máximo y L2 global para mixtas. Sin externos, calibración o ajuste de umbrales. Ancla histórica separada. Principal: media por fold del F1 H/D, calculado sobre todas las clases para penalizar falsas alarmas sobre neutral.
+
+**Nueva higiene de evaluación:** conservar las mismas 793 validaciones; retirar de cada train sus copias normalizadas sin mirar etiquetas de validación. Exclusiones por fold 16/15/15/10/11, train final 1178/1178/1178/1183/1183. Afecta a parte de los 559 originalmente fijos. Cero copias exactas normalizadas train/val; siguen presentes limitaciones de desarrollo reutilizado, repetición interna y similitud semántica. No modificar L0, etiquetas ni resultados previos.
+
+**Resultado:** F1 H/D medio **0,691477 / 0,628481 / 0,649631 / 0,641184 / 0,647029**. Macro-F1 H/D/N medio **0,783501 / 0,740357 / 0,754841 / 0,749707 / 0,752287**. Ninguna alternativa supera B0 limpia ni cumple los umbrales previos. La SVM mixta mejora accuracy global a 0,9256 (59 errores), pero recall D cae a 0,4490: no seleccionarla por ese indicador. Referencia limpia: 60 errores y 90/118 H/D IA correctos; retirar copias solo corrigió dos neutrales frente al ancla, no mejoró recall H/D. No se midió una mejora humana.
+
+**Cierre y limpieza:** nueve CSV, métricas e informe idénticos al repetir en temporal eliminado. **116 tests aprobados y uno omitido** por acceso al gold; **177 archivos previos intactos**. Nuevos: un evaluador, un archivo de tests, protocolo, informe y artefactos de reproducción. Sin nuevos datasets, checkpoints, dependencias o modelos persistidos. No se entrenó con las 1.352 completas ni se puntuó el corpus. [Informe](docs/EVALUACION_CLASIFICADORES_HD_V1.md).
+
+**Siguiente:** no extender esta rejilla tras sus resultados. BETO necesita adquisición de pesos y recursos adecuados; su comparación queda pendiente bajo la autorización amplia, no fingir ejecución. Cualquier futura confirmación necesita una referencia humana nueva y reservada.
+
+### 9.9 Revisión humana acotada de entrenamiento: preparación histórica (devolución en §9.11)
+
+**Autorización:** «ok hazlo», después de proponer revisar 10 H/10 D/10 N antes de BETO. Esta fase no inventa decisiones humanas ni mide acuerdo todavía. [Protocolo](docs/PROTOCOLO_REVISION_ENTRENAMIENTO_30_V1.md).
+
+**Selección reproducible:** grupo de 559 de descubrimiento. Excluir los 306 IDs humanos (solo marco), sus copias por texto L0 y copias de las 793 validaciones. Deduplicar pool por normalización espacios/minúsculas/acentos; quedan 541 (47 H/40 D/454 N). Rangos SHA256 con semilla 20260916 para elegir 10 de cada etiqueta IA y otro rango para mezclar orden. 30 casos/15 reuniones, sin priorizar errores/longitud/confianza. Textos íntegros (81.439 caracteres), 195–6.760 por caso. No estimación poblacional ni nuevo test independiente.
+
+**Interfaz y custodia:** script 27 + plantilla HTML + once tests; formulario con códigos, texto completo y metadatos, sin clave IA ni feedback. H/D/N, duda no entrenable, relevancia, cita y nota según guía. Registrar ayuda y acceso previo a etiquetas sin afirmar ciego estricto. Guardado local, exportación y recuperación JSON de la misma muestra; no respuestas guardadas por servidor. Clave reservada fuera de carpeta pública, pero accesible al dueño del repositorio. No abrirla antes de decidir.
+
+**Verificación:** generación repetida con clave y HTML idénticos. **127 tests pasados y uno omitido** por lectura humana; interfaz probada en DOM simulado jsdom 26.1.0, no inspección visual. HTTP protege las rutas del padre con 404. **195 archivos anteriores intactos**. Sin nuevo Excel, modelo, dataset externo, corrección o entrenamiento BETO. jsdom solo en caché de tests fuera del repo.
+
+**Paso pendiente al cerrar la preparación (ya devuelto, ver §9.11):** el investigador completa [formulario](data/auditoria/revision_entrenamiento_30_v1/formulario/index.html), descarga y adjunta JSON. Preservar primera devolución antes de comparar, no sobrescribir anotaciones antiguas ni convertir desacuerdos automáticamente en errores IA. BETO permanece pendiente de adquisición de pesos; no se preparó una nueva comparación supervisada antes de resolver esta revisión.
+
+### 9.10 Revisión mediante XLSX: cambio de interfaz autorizado
+
+El investigador informó que el formulario no guardó su avance y solicitó descargar un Excel ordenado para rellenarlo. Se mantiene la misma muestra de 30, sin selección nueva, etiquetas IA visibles u ocultas ni respuestas inventadas. [Libro](data/auditoria/revision_entrenamiento_30_v1/revision_entrenamiento_30.xlsx).
+
+Cuatro hojas: Inicio, Respuestas, Textos y Guía. Decisiones C–F vacías/editables en amarillo, desplegables, cita ≤300, motivo, enlaces internos y estado de campos (no evaluación de corrección ni literalidad). Texto completo dividido en bloques para visualización; 81.439 caracteres reconstruidos idénticamente. Guardar copia local y devolver XLSX; no depende del almacenamiento del navegador.
+
+Script 29 añade enlace HTTP de descarga y servidor de dos rutas públicas, sin exponer la clave o archivos archivados. Generadores 27/28 y muestras intactos; interfaz/manifiesto anterior archivados explícitamente, manifiesto activo v1.2. XLSX entregado también como archivo en chat.
+
+18 pruebas específicas pasaron; descarga attachment con bytes idénticos, enlaces/validaciones/protecciones y reproducción semántica comprobados. 208 archivos previos protegidos sin cambios. Sin ejecución en Excel real ni suite ML completa (checkpoint histórico ausente del entorno restaurado); sin modelos, etiquetas corregidas o nueva evaluación humana. Estado al entregar: pendiente recibir el libro rellenado; devolución posterior en §9.11.
+
+### 9.11 Devolución de los 30: recibida y comparada, adjudicación pendiente
+
+El investigador devolvió `30 anotaciones humanas.xlsx` mediante enlace a GitHub. Se descargó del commit fijado `2667e7d7eaa16ba9dcc67d4288515f31b0500456`, se verificó el blob y se preservó intacto con recibo/hash. La hoja simplificada tiene las 30 posturas; ID y texto completo corresponden a la muestra: 29 textos exactos y R03 igual tras normalizar espacios. No se infiere fecha de anotación del recibo.
+
+**Resultado:** 24/30 acuerdos. Filas IA / columnas humano, H,D,N: `[[10,0,0],[0,5,5],[1,0,9]]`. Cinco D de IA son N humanos y un N de IA es H humano. Son dos anotaciones de entrenamiento, no predicciones ni un nuevo test. No extrapolar a todo el corpus porque la muestra tiene diez por clase IA.
+
+**Interpretación separada:** leídos los seis textos completos. Aclarar mantener hoy frente a trayectoria futura, crítica al ritmo de alzas y menú frente a preferencia; R1/R7 y la neutralidad conservadora R9 requieren discusión en esos casos. [Lectura cualitativa](docs/LECTURA_DISCREPANCIAS_REVISION_30.md), atribuida al agente después de recibir/abrir la comparación, no adjudicación independiente. Ninguna decisión ni codebook cambiado.
+
+**Documentación:** 18 citas literales de hasta 300 caracteres y 12 marcadores de ausencia; relevancia y procedencia de revisión no declaradas. Se comparan posturas sin rellenar esos campos con IA. No importación canónica, no correcciones automáticas, no reentrenamiento y ningún acceso nuevo a las 306 respuestas.
+
+**Verificación:** script 30 valida la identidad antes de unir la clave privada. Nueve pruebas aprobadas; reproducción exacta de tres CSV, resumen e informe en temporal, 216 archivos previos intactos y siete citas adicionales del análisis verificadas. [Informe numérico](docs/REVISION_HUMANA_ENTRENAMIENTO_30_V1.md). Mantener entregas originales y resultados de experimentos congelados. No hace falta repetir las 30 anotaciones; acordar criterio/adjudicación antes de cambiar etiquetas o avanzar a desarrollo BETO, aún sin pesos.
+
+**Continuación autorizada:** el investigador aclaró que el futuro también expresa postura y pidió seis propuestas concretas, no cambios automáticos. [Propuesta pendiente de confirmación](docs/PROPUESTA_SEIS_DISCREPANCIAS_30_V1.md): R01 H / R03 N / R08 D / R12 H / R17 D / R21 D. Siete extractos verificados, originales intactos, sin alterar v2 ni métricas originales. Son lecturas del agente después de ver ambas anotaciones; R03/R12 ambiguos. Basta discutir/confirmar por chat; no repetir el Excel ni dar por adjudicadas las etiquetas.
+
+**Aceptación posterior: revisión de los seis cerrada.** El investigador respondió «acepto todas». [Adjudicación aprobada](docs/ADJUDICACION_SEIS_DISCREPANCIAS_30_V1.md): las seis etiquetas se registraron en una capa separada, con referencia exacta a la propuesta, mensaje de confirmación y hashes. Originales, comparación 24/30 y v2 intactos. No son etiquetas humanas independientes: hubo propuesta/explicación IA y aceptación posterior. No se requiere otro Excel ni otra confirmación de estos seis casos. Siguiente: preparación del experimento de modelo; BETO sigue pendiente de pesos, sin importación canónica o entrenamiento realizado en esta adjudicación.
+
+### 9.12 Referencia con adjudicaciones: ejecutada; BETO aún bloqueado
+
+El investigador pidió continuar. [Protocolo previo](docs/PROTOCOLO_MODELO_ADJUDICADO_V1.md) congelado antes del fit. Script 31 aplica en memoria las seis adjudicaciones aceptadas, solo tres cambios respecto de IA (R01/R03/R12), sin cambiar las corridas canónicas ni imputar relevancia humana. Los seis casos permanecen fuera de validación, en todos los train purgados de las mismas cinco particiones.
+
+Dos condiciones de la misma LR TF-IDF sin nuevos hiperparámetros: original y adjudicada. La original reproduce las 793 predicciones A/B/finales de B0 limpia de 26. Parámetros, textos, validación, A y vocabularios/IDF constantes; cambia supervisión de B y sus pesos balanced derivados de train.
+
+**Resultado contra IA reutilizada:** F1 H/D medio **0,691477 → 0,648822**, macro-F1 **0,783501 → 0,754311**, errores **60 → 66**. Nueve predicciones finales distintas, un error corregido y siete nuevos; mejora en 1/5 folds. No revertir decisiones aceptadas por esta caída ni presentarla como medición de calidad humana. [Informe reproducible](docs/EVALUACION_MODELO_ADJUDICADO_V1.md).
+
+10 tests nuevos + 9 de recepción aprobados; cuatro CSV, métricas e informe reproducidos exactamente en temporal; 233 archivos previos intactos. No respuestas antiguas, refit final, scoring global o modelo persistido. Venv reconstruida con requirements; no instalación transformer grande.
+
+**Bloqueo y siguiente paso:** chequeo HTTPS config/API BETO falla TLS EOF; sin GPU detectada. No ejecutar más búsquedas léxicas ni pedir anotaciones otra vez. Obtener pesos de revisión/hash verificables en un entorno con acceso, preferiblemente GPU. El protocolo define entrenamiento por intervención con cobertura completa por segmentos; es diseño previo, no runner implementado/probado. BETO debe compararse con TF-IDF adjudicado bajo las mismas etiquetas/particiones y confirmar solo después con referencia humana realmente nueva si pasa los umbrales.
+
+### 9.13 Revisión de etiquetas de los errores: primera tanda completada
+
+A petición del investigador se inspeccionaron los siete casos que pasan de coincidir con IA a diferir tras el cambio de tres etiquetas. Lectura de textos completos y anotaciones IA, posterior a conocer predicciones: diagnóstico del agente, no nuevo anotador ciego. [Informe](docs/REVISION_ERRORES_NUEVOS_ADJUDICADA_V1.md).
+
+**Resultado cualitativo:** cuatro referencias D respaldadas (recomendación de bajar o rechazo/cambio explícito de trayectoria alcista) y tres casos ambiguos. No se concluye que los siete estén mal anotados. En dos se contraponen pausa táctica y normalización; en otro es necesario aclarar dirección y, posiblemente, cotejar la fuente. Ninguna nueva corrección aceptada/aplicada, ningún reentrenamiento ni sustitución de métricas originales.
+
+Script 32 reconstruye la selección e inventario de 66; lecturas del agente separadas en JSON. Ocho tests, diez extractos propios literales y reproducción de tres archivos más informe; 245 archivos previos intactos. **59 casos restantes pendientes**, no revisión completa de los 66. Mantener las 793 como desarrollo conocido; no ajustar/reanotar sus errores y después presentarlas como evaluación independiente. Las 306 respuestas antiguas no se abren.
+
+### 9.14 Segunda tanda de errores: todos los intercambios H/D revisados
+
+El usuario pidió seguir. Se leyeron los 16 intercambios directos H↔D pendientes, 65.147 caracteres completos, con sus anotaciones IA originales. Selección reproducible desde el inventario de la primera tanda, sin volver a revisar sus siete casos. [Informe](docs/REVISION_INTERCAMBIOS_HD_TANDA_2_V1.md).
+
+Juicios del agente: 10 referencias respaldadas, tres cuestionables y tres ambiguas. Propuestas pendientes (confianza media): Corbo mayo-2006 D→H, De Gregorio febrero-2008 D→H y comunicado agosto-2011 D→N. No aprobación humana nueva, corrección canónica ni reinterpretación de la aceptación de las seis adjudicaciones anteriores. En los casos ambiguos no se asigna una nueva etiqueta definitiva.
+
+Cobertura acumulada: 23 de 66, incluidos los 20 intercambios H/D. Quedan 43 discrepancias de neutralidad. Acumulado de lecturas: 14 referencias respaldadas, tres cuestionables y seis ambiguas; no proporciones representativas de errores del corpus. No cambiar etiquetas de validación para mejorar métricas ni presentar las 793 como test intacto.
+
+Script 33 y lecturas JSON separados; 25 citas adicionales verificadas. Ocho pruebas de cada tanda aprobadas, reproducción exacta de inventario acumulado, casos, resumen e informe. 254 archivos previos intactos; scripts/resultados anteriores congelados. No entrenamiento ni apertura del examen de 306.
+
+### 9.15 Tercera tanda: ampliar cobertura de neutralidad
+
+El investigador pidió abarcar lo más posible. Para maximizar el número de intervenciones leídas íntegramente en esta tanda se informó y aplicó orden ascendente por longitud original, desempate por ID, a los 43 pendientes. Se revisaron 30 textos completos (72.911 caracteres); quedan 13 largos, 105.621 caracteres. Selección por presupuesto, no muestra aleatoria ni estimación representativa.
+
+[Informe](docs/REVISION_NEUTRALIDAD_TANDA_3_V1.md): 19 referencias respaldadas, cinco cuestionables y seis ambiguas. Nuevas propuestas pendientes: N→H en Valdés enero-2005, Ovalle marzo-2005, Corbo mayo-2007 y García enero-2005; N→D en De Ramón agosto-2015. No se cambia validación hacia las predicciones: esta última propuesta contradice también H del modelo. Ocho propuestas cuestionables acumuladas sin aceptación humana nueva.
+
+Cobertura acumulada: **53/66; 33 respaldadas, 8 cuestionables, 12 ambiguas**. Los 20 intercambios directos H/D ya estaban cubiertos; la revisión restante es neutralidad. Se verificó A=1 y final=B en los 30 nuevos: no es fallo de filtrado de relevancia. No se explican causalmente coeficientes ni se entrena otra variante.
+
+Script 34, lecturas manuales en JSON y validadores congelados reutilizados. 35 extractos propios literales; 24 pruebas entre las tres tandas aprobadas; reproducción exacta de cuatro archivos más informe; 263 archivos anteriores intactos. No etiquetas canónicas, métricas o modelos modificados ni respuestas del examen de 306 leídas. Continuar por los 13 pendientes explícitos; no interpretar los campos de propuesta del agente como decisiones humanas finales.
+
+### 9.16 Cierre de la revisión de los 66 desacuerdos
+
+Se leyeron íntegros los 13 textos restantes (105.621 caracteres), sin omitir casos ni cambiar la selección congelada. Última tanda: 8 referencias neutrales respaldadas y 5 cuestionables. Nuevas propuestas: Naudon junio-2015 N→D por prolongación del estímulo, Valdés marzo-2005 N→H por respaldo a continuar normalización, Marfán junio-2013 N→D por preferencia futura por reducción de tasas, García diciembre-2008 N→D por respaldo explícito a la conveniencia del relajamiento y García agosto-2009 N→D por defensa del estímulo y la tasa mínima prolongada. Confianza alta en Marfán y García diciembre; media en las otras tres. Ninguna aceptada/aplicada todavía.
+
+[Informe de cierre](docs/REVISION_ERRORES_CIERRE_66_V1.md): **66/66; 41 respaldadas, 13 cuestionables y 12 ambiguas**. No queda lectura pendiente en esta lista; sí adjudicación de propuestas y resolución de ambigüedades. Las 13 propuestas acumuladas no heredan aceptación de las seis adjudicaciones Rxx. Las 12 ambiguas mantienen propuesta nula. Se conserva separada la referencia IA y la opinión del agente, posterior a conocer predicciones. No reetiquetar la validación para demostrar una mejora artificial.
+
+Script 35, 13 lecturas manuales y resultados nuevos en `tanda_4_largos_v1/`; `revision_consolidada.csv` reúne las 66 opiniones sin reescribir las anteriores y apunta a los textos íntegros. 22 extractos nuevos verificados; A=1 y final=B en los 13. 34 pruebas específicas aprobadas, cinco archivos de datos e informe reproducidos exactamente y 273 archivos previos intactos. No entrenamiento, nuevas métricas, etiquetas canónicas modificadas, cambios a v2 o apertura de respuestas de 306. Siguiente decisión: adjudicar propuestas concretas y tratar las dudas por separado; no repetir las 30 anotaciones ni la aceptación anterior.
+
+### 9.17 Correcciones aceptadas y ejecución local del modelo
+
+El investigador pidió «corrige las referencias, e ittenta mandar el modelo en tu entorno» y luego «sigue». Las 13 propuestas concretas del cierre pasan de pendientes a **aceptadas**, con registro separado por ID/hash/procedencia. Los 12 ambiguos no se alteran. Las seis decisiones anteriores siguen vigentes: 19 aceptaciones, 16 cambios efectivos frente a IA. Las citas/confianza son del agente; no adjudicación ciega independiente.
+
+La vista activa para el nuevo experimento es `data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv`: 1.352 IDs, relevancia IA y referencias original/con seis/con seis más trece. No sobrescribe corridas históricas ni cambia automáticamente sus cargadores. Script 36 preparado antes del fit, con mismos cinco folds purgados/parámetros/puerta A/vocabularios/IDF. El control reproduce exactamente la variante adjudicada de 31.
+
+[Informe](docs/EVALUACION_REFERENCIAS_CORREGIDAS_V2.md): comparación 2×2. F1 H/D medio del control contra IA **0,648822**, contra referencias corregidas **0,711084**; este incremento de **0,062262** no cambia el modelo. Reentrenado contra IA **0,684035**, contra corregidas **0,747060**. Comparando ambas supervisiones contra la misma referencia corregida: **+0,035976**, mejora en 4/5 folds, errores **55→51**, 9 predicciones distintas, 6 errores corregidos y 2 nuevos. Sigue siendo desarrollo reutilizado después de revisar desacuerdos, no evidencia independiente de generalización. No refit final ni scoring del corpus.
+
+Diez ajustes por fold ejecutados aquí y reproducidos en rutas temporales. **56 pruebas específicas aprobadas, 0 omitidas**, cinco archivos de datos e informe idénticos; protocolo igual salvo fecha y 284 archivos previos intactos. Los manifiestos temporales cambian por sus fechas/hash del protocolo. No apertura de respuestas de 306. [Protocolo previo](docs/PROTOCOLO_REFERENCIAS_CORREGIDAS_V2.md).
+
+BETO: nuevo intento oficial API/config con urllib y curl; TLS EOF y SSL_ERROR_SYSCALL (35), respectivamente. Dos CPU, sin nvidia-smi; sin pesos descargados ni entrenamiento BETO. Registro técnico en `adjudicacion_cierre_66_v1/beto_disponibilidad.json`. No desactivar TLS ni presentar diseño como ejecución. El siguiente bloqueo es acceso a pesos/recursos para BETO; no pedir reaceptar estas 13 ni las seis anteriores.
 
 ## 10. Referencias
 

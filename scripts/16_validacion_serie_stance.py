@@ -25,24 +25,21 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import config
 import pandas as pd
+import numpy as np
+from utilidades import cargar_entrenamiento
 from scipy.stats import pearsonr, spearmanr
 
 MAPA_CLASE = {"sube": "hawkish", "baja": "dovish", "mantiene": "neutral"}
-CLASES = ["hawkish", "dovish", "neutral"]
 # Umbral de la regla descriptiva |s| > th -> direccional. Seleccionado sobre
 # estas mismas 131 reuniones para maximizar precision direccional (sesgo
 # optimista declarado en el JSON); sirve como referencia, no como inferencia.
 UMBRALES_S = [0.00, 0.05, 0.10]
-MAPA_INVERSO = {"hawkish": "sube", "dovish": "baja", "neutral": "mantiene"}
 
 
 def main():
     # Etiquetas IA relevantes
-    etq = pd.concat(
-        [pd.read_csv(f, dtype=str, keep_default_na=False)
-         for f in sorted(config.RUTA_ETIQUETAS.glob("etiquetas_*.csv"))],
-        ignore_index=True)
-    etq = etq[etq["metodo"] == "ia_ronda"].copy()
+    etq = cargar_entrenamiento()
+    etq["es_relevante"] = etq.es_relevante.astype(str)
     etq["meeting_id"] = etq["intervencion_id"].str.extract(r"(RPM-\d{4}-\d{2}-\d{2})")
     for c in ["prob_hawkish", "prob_dovish", "prob_neutral", "score"]:
         etq[c] = etq[c].astype(float)
@@ -64,7 +61,13 @@ def main():
     macro = pd.read_csv(config.RUTA_L2 / "macro_por_reunion.csv",
                         dtype=str, keep_default_na=False)
     macro["dTPM"] = macro["dTPM"].astype(float)
-    d = s.merge(macro[["meeting_id", "dTPM", "policy_decision"]], on="meeting_id")
+    assert macro.meeting_id.is_unique, "macro con reuniones duplicadas"
+    assert set(macro.policy_decision) <= set(MAPA_CLASE)
+    assert np.isfinite(macro.dTPM).all()
+    d = s.merge(macro[["meeting_id", "dTPM", "policy_decision"]], on="meeting_id",
+                how="left", validate="one_to_one", indicator=True)
+    assert d["_merge"].eq("both").all(), "reuniones con etiquetas sin macro"
+    d = d.drop(columns="_merge")
 
     # Concordancia direccional (clase dominante vs decision)
     d["concuerda"] = d["clase_dominante"] == d["policy_decision"].map(MAPA_CLASE)

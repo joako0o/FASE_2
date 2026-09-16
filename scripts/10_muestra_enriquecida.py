@@ -42,10 +42,11 @@
 import glob
 
 import pandas as pd
+from utilidades import exigir_salidas_nuevas, asignar_tandas
 
 import config as C
 
-SEMILLA = 20260917
+SEMILLA = C.SEED_MAESTRA + 2
 CUOTA_FASE = 28            # 9 fases * 28 = 252 intervenciones
 MAX_POOL_A = 20            # tope Consejo por fase (equilibrio A/B ~ 70/30)
 TANDA_INICIAL = 9
@@ -54,6 +55,8 @@ FASES = [f for f in C.FASES_TPM if f[0] != "2005_alzas"]
 
 
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(C.RUTA_MUESTRAS / "estrato_enriquecido.csv", C.RUTA_MUESTRAS / "estrato_enriquecido_resumen.csv")
     uni = pd.read_csv(C.RUTA_MUESTRAS / "escalado_tandas.csv", parse_dates=["fecha"])
 
     # exclusiones duras: etiquetadas (cualquier ronda) + gold ciego (test puro)
@@ -93,13 +96,8 @@ def main() -> None:
     muestra = (muestra.sample(frac=1, random_state=SEMILLA + 1)
                       .assign(orden_f=lambda d: d.fase.map(orden_fase))
                       .sort_values("orden_f", kind="stable"))
-    tandas, tanda, acum = [], TANDA_INICIAL, 0
-    for palabras in muestra.largo_palabras:
-        if acum + palabras > C.PRESUPUESTO_PALABRAS_TANDA and acum > 0:
-            tanda, acum = tanda + 1, 0
-        tandas.append(tanda)
-        acum += palabras
-    muestra["tanda"] = tandas
+    muestra["tanda"] = asignar_tandas(muestra.largo_palabras, C.PRESUPUESTO_PALABRAS_TANDA, TANDA_INICIAL)
+    tanda = int(muestra.tanda.max())
 
     out = muestra.drop(columns=["orden_f"])
     out.to_csv(C.RUTA_MUESTRAS / "estrato_enriquecido.csv", index=False)

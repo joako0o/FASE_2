@@ -1,0 +1,40 @@
+{
+  "fecha_utc": "2026-09-16T04:01:45.761802+00:00",
+  "metodo": "Reextracción script 20 en temporal, copia de revisión congelada v1, evaluación script 21 sin cambiar parámetros. Temporales eliminados al finalizar.",
+  "csv_extraccion_identicos": {
+    "candidatos_revision.csv": "00aaf32ebe7e0f1fb4263d68d9b095611292f13a34dbdd5929d11d5a2679ae00",
+    "catalogo_descubrimiento.csv": "d2135d6b748464c3b0f3937293a8fd9dde73670049dc0c04eaeafb24bc2cedf7",
+    "contextos_revision.csv": "cdf6ce501ac58e61c3718443da966dc9f915c50c3223aa69188c00e79cad51c9",
+    "particion.csv": "308a5b7538fa70a4e759c6d6b1bdda0439ff95295b1b0f02663dee14ec64b589"
+  },
+  "csv_evaluacion_identicos": {
+    "catalogo_revisado.csv": "63b517ae8f39c0d6cecfb74eb3b96545679131d696d6457f207306ffae8c7e6c",
+    "catalogo_training_completo.csv": "f4417b6f4068342057770e14d02fb6cf5653aa9bae5c6f77c557ea940cd2dc3d",
+    "comparacion_variantes.csv": "31a90503a226a42c8668d2feabece4182e93637d18e11b2ba17149f6d80d6a01",
+    "predicciones_validacion.csv": "0022f15b07e588f4c650e97fcf4ee294efb034091a5c5c5cfa513d48c45f0ec6",
+    "resultados_folds.csv": "d05b6cbdd85d0b1a5f0a7cdfa64b49b8239a1b119d40b95f87508d5b3b069ee0"
+  },
+  "secciones_metricas_identicas": [
+    "n_descubrimiento",
+    "reuniones_descubrimiento",
+    "n_validacion",
+    "n_catalogo_descubrimiento",
+    "n_catalogo_completo",
+    "revision",
+    "comparacion",
+    "diferencias_pareadas",
+    "clases_matrices",
+    "matrices_confusion",
+    "cobertura_senales_validacion",
+    "gold_leido_o_predicho",
+    "modelo_vigente_reemplazado"
+  ],
+  "sha256_informe_generado_identico": "d6dcefccda306511bbfb4436297aee18bc738403c9677f49e05b399b165f28b9",
+  "pruebas_ejecutadas_incluyendo_omitidas": 64,
+  "pruebas_superadas": 63,
+  "pruebas_omitidas": {
+    "test_seleccion_y_test.ExamenCongelado.test_recalculo_independiente_metricas_guardadas": "Evitar reabrir las 306 respuestas guardadas; ya superada en el experimento anterior."
+  },
+  "diccionario_reajustado": false,
+  "gold_humano_reabierto_o_predicho": false
+}

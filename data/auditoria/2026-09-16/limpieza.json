@@ -1,0 +1,68 @@
+{
+  "fecha": "2026-09-16",
+  "base_git": "957200f74b61c0527d57c333dd360b3587d0a7e8",
+  "eliminados": [
+    {
+      "ruta": "data/muestras/gold_ciego_300.xlsx",
+      "bytes": 227356,
+      "sha256": "206251161839765a206734f36efb2be99361eeb0451242316df27cb7fb6830a4",
+      "motivo": "Plantilla vacía entregada al anotador; reemplazada por gold_ciego_300_listo.xlsx."
+    },
+    {
+      "ruta": "data/muestras/gold_ciego_300_limpio.csv",
+      "bytes": 664529,
+      "sha256": "c5ceb920898c87e0362c42bd72f954efda6bd78d034305b5256f6ded08a7d351",
+      "motivo": "Duplicado para Excel de la plantilla canónica; ya se recibió el libro lleno."
+    },
+    {
+      "ruta": "scripts/preparar_gold_xlsx.py",
+      "bytes": 10117,
+      "sha256": "0ecbd7611bb18192204842503ea1575fc5510286e479cfb3592f85066ad1967a",
+      "motivo": "Generador de plantilla de entrega terminada; no es necesario para importar ni evaluar."
+    },
+    {
+      "ruta": "scripts/preparar_gold_limpio.py",
+      "bytes": 3788,
+      "sha256": "8f80c85e2c7fce3cc7cf21ea1eb95ef132adfc2e7b557203089b8421da6a7cf0",
+      "motivo": "Generador de CSV alternativo de entrega terminada; lectura CSV sigue en importador."
+    },
+    {
+      "ruta": "scripts/13_ronda_tanda09.py",
+      "bytes": 14570,
+      "sha256": "8a220d3ecba1a325daddd4f8ee230ef2f3b45b169cb9d3a52a8246c50b100b09",
+      "motivo": "Duplica 41 anotaciones persistidas en etiquetas_r13_tanda09.csv. Convenciones preservadas en docs/CONVENCIONES_ETIQUETADO.md."
+    },
+    {
+      "ruta": "scripts/14_ronda_tanda10.py",
+      "bytes": 13714,
+      "sha256": "66ba65642329624ec34863b376146d12eb9c4dd16021625c0b8db0e28f3244e2",
+      "motivo": "Duplica 36 anotaciones persistidas en etiquetas_r14_tanda10.csv. Convenciones preservadas en docs/CONVENCIONES_ETIQUETADO.md."
+    },
+    {
+      "ruta": "docs/codebook_v1.md",
+      "bytes": 7985,
+      "sha256": "ea57fbbf8a669515e6da72ab0807d87e0bce6fa2dfe6c55bcde1f57884213527",
+      "motivo": "Borrador de cuatro clases nunca usado para etiquetar; v2 permanece congelado, v1 recuperable en Git."
+    },
+    {
+      "ruta": "scripts/02_capa_l2_macro_y_actores.py",
+      "bytes": 10892,
+      "sha256": "7877b2b61d9ebbdcb9c6c8a226d494fc92d84212ec1348ac19356b05898bdfa5",
+      "motivo": "Descarga macro alternativa obsoleta que podía sobreescribir L2/manifest curados. Función de metadata conservada en 02_metadata_actores.py; macro vigente en 07."
+    }
+  ],
+  "bytes_eliminados": 952951,
+  "fuentes_preservadas": [
+    "consolidado_D&H.xlsx",
+    "consolidado_macro.xlsx",
+    "gold_ciego_300_listo.xlsx",
+    "data/L0/corpus.csv",
+    "data/etiquetas/*.csv",
+    "data/muestras/gold_ciego_300.csv",
+    "docs/codebook_v2.md"
+  ],
+  "documentos_condensados": {
+    "docs/AVANCE.md": "Estados de sesiones intermedias retirados del documento activo; historial recuperable en Git y convenciones en documento específico.",
+    "PLAN.md": "Roadmap/handoff actualizados; eliminadas metas basadas en macroF1 erróneo y recetas de ramas antiguas."
+  }
+}

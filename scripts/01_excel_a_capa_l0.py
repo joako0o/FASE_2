@@ -20,6 +20,7 @@ Salida:     data/L0/corpus.csv, data/L0/eda_*.csv
 import re
 
 import pandas as pd
+from utilidades import exigir_salidas_nuevas
 
 from config import (
     HOJA_TRANSCRIPCION,
@@ -120,6 +121,8 @@ def validar(df: pd.DataFrame) -> None:
 
 
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(RUTA_L0 / "corpus.csv", RUTA_L0 / "eda_intervenciones_por_anio.csv", RUTA_L0 / "eda_intervenciones_por_topico.csv", RUTA_L0 / "eda_top_actores.csv")
     # ---- 1. Carga del consolidado original (solo lectura, nunca se modifica) ----
     RUTA_L0.mkdir(parents=True, exist_ok=True)
     df = pd.read_excel(RUTA_EXCEL, sheet_name=HOJA_TRANSCRIPCION)
