@@ -10,3 +10,5 @@ requirements.txt -text
 # Lock adicional del ensayo GPU; también entra en manifiestos SHA256.
 requirements-beto.txt -text
 notebooks/** -text
+requirements-preparacion.txt -text
+entrega/** -text

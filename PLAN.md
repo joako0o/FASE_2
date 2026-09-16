@@ -1,4 +1,6 @@
 # PLAN — Proyecto D&H: Score Hawkish/Dovish por Intervención
+
+> Para ejecutar o trasladar ahora: [EMPEZAR_AQUI.md](EMPEZAR_AQUI.md). Para otra sesión: [CONTINUIDAD](docs/CONTINUIDAD.md). Este documento conserva el plan y la cronología; no es una receta para ejecutar todos los scripts.
 **Actas de las Reuniones de Política Monetaria (RPM) del Banco Central de Chile, 2005–2015**
 
 > Documento maestro de planificación. Estado: **TF-IDF evaluado; n-gramas e influencias diagnosticados; investigación externa e híbrido mínimo v1 completados sin mejora media; BETO y scoring completo pendientes.**
@@ -432,3 +434,17 @@ Scripts 38/39: paquete de **1.352 textos / 1.997.823 caracteres**, mismos cinco 
 [Notebook](notebooks/BETO_comparacion_v1.ipynb) y [guía](docs/GUIA_EJECUTAR_BETO_COLAB_V1.md): código desde commit fijo, entorno aislado, pesos públicos verificados, recuperación de folds completos mediante ZIP; no reanudación a mitad de fold. El usuario debe iniciar una GPU gratuita disponible; no hay cuenta/servicio de pago configurado ni Colab ejecutado por este agente. Pesos/paquetes/resultados/dependencias fuera de Git.
 
 **Pendiente real:** descarga de pesos, prueba GPU y comparación BETO. Menos H↔D sin aumentar H/D→N, F1 H/D +0,02 y ≥3/5 folds favorables, guardas macro/recall; cinco ambiguos conocidos desglosados, criterio principal sobre 793. No declarar mejora, generalización, adopción o entrenamiento global antes de ejecutar y revisar. Mantener PR #4, sin nuevas anotaciones ni otra búsqueda de n-gramas.
+
+### 9.20 Organización para traslado y nueva sesión
+
+El investigador solicita limpieza, código/datos identificados para otro PC y continuidad antes de cambiar de sesión. **Punto de entrada actual: [EMPEZAR_AQUI.md](EMPEZAR_AQUI.md)**; para agentes, [CONTINUIDAD](docs/CONTINUIDAD.md). No requiere volver a ejecutar las etapas numeradas desde 01 ni completar formularios antiguos.
+
+Se conserva la estructura `scripts/`, `data/`, `docs/`: no renombrar rutas sujetas a hashes. README/AVANCE pasan a ser breves, con índices por carpeta; el detalle histórico se consulta en este plan y los informes congelados. Se retiran caches regenerables y recetas duplicadas de la portada; se conservan corpus, etiquetas originales, devoluciones y resultados necesarios para procedencia/reproducción. Los blancos obsoletos ya fueron eliminados en la limpieza inicial.
+
+Gestor 40: instalación `.venv` en el PC destino (Python 3.11 recomendado), requisitos CPU separados de los GPU, preparación que verifica si ya existe, pruebas limitadas a módulos seguros y delegación a 38/39 sin cambiar el protocolo. Entrenamiento con respaldo por grupo, sin prometer recuperación de optimizador a mitad de fold. Exportación ZIP por inventario explícito, sin `.git`, entornos, pesos, caches o archivos personales no declarados; sí datos originales, referencia v2 y paquete listo. El ZIP lleva manifiesto de bytes verificable con biblioteca estándar y no requiere Git en el PC destino.
+
+No se cierran/fusionan PR automáticamente. Descargar un ZIP desde GitHub no requiere cerrar el PR; integrar a `main` requiere Merge, no simplemente Close. La próxima sesión debe revisar qué rama/base recibe y seguir las restricciones del nuevo entorno, no cambiar a la rama anterior de manera automática.
+
+La organización no aporta métricas nuevas ni ejecución BETO: pesos, prueba real GPU y comparación siguen pendientes. No más anotaciones, cambios de referencias/folds/A, datasets externos, refit final o scoring global. Evidencia de limpieza/instalación/portabilidad y límites en `data/auditoria/entrega_portable_v1/`.
+
+Cierre verificado de 9.20: **90 pruebas aprobadas, 0 omitidas**, instalación limpia desde ZIP sin Git en ruta con espacios, paquete idéntico y reexportación comprobada; **330 archivos anteriores protegidos intactos**. Retirados 29 caches (631.950 bytes). Solo Linux/Python 3.11, sin encoder/GPU ni ejecución Windows/macOS/Colab.
