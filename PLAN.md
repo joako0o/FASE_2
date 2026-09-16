@@ -396,6 +396,20 @@ Diez ajustes por fold ejecutados aquí y reproducidos en rutas temporales. **56 
 
 BETO: nuevo intento oficial API/config con urllib y curl; TLS EOF y SSL_ERROR_SYSCALL (35), respectivamente. Dos CPU, sin nvidia-smi; sin pesos descargados ni entrenamiento BETO. Registro técnico en `adjudicacion_cierre_66_v1/beto_disponibilidad.json`. No desactivar TLS ni presentar diseño como ejecución. El siguiente bloqueo es acceso a pesos/recursos para BETO; no pedir reaceptar estas 13 ni las seis anteriores.
 
+### 9.18 Diagnóstico de las diez inversiones H/D más claras
+
+El usuario expresó preocupación por invertir D y H y autorizó el diagnóstico propuesto. Sobre las predicciones corregidas de 36 se separan 15 inversiones: diez con referencia más clara (nueve respaldadas y una corrección aceptada) y cinco ambiguas. No adjudicar estas últimas ni tratar las quince como errores semánticos indiscutibles. Relectura completa de 40.937 caracteres, sin truncar fuentes.
+
+Script 37 reconstruye cinco modelos con supervisión seis_mas_trece, sin buscar parámetros; reproduce las 793 predicciones A/B/finales. Las diez inversiones tienen A=1. Descomposición exacta del margen predicción−referencia en intercepto y aportes TF-IDF, con 8.558 features activos exportados, seis mayores por signo y residuo. No confundir coeficiente con contribución ni contribución con efecto causal de borrar texto.
+
+[Lectura final](docs/LECTURA_DIAGNOSTICO_INVERSIONES_HD_V1.md) e [informe técnico](docs/DIAGNOSTICO_INVERSIONES_HD_V1.md): señales correctas como reducir la tasa/subir sí aportan a la referencia, pero pueden ser superadas. Reducir estímulo y una condición negada de subir requieren resolver objeto y postura. En dos alzas, la suma textual favorece ligeramente H, pero el intercepto aprendido lleva a D. No toda explicación se reduce a palabras dominantes, longitud o política fiscal.
+
+Sonda de primera cita literal fijada antes de coeficientes: B coincide con la referencia completa en 4/10, da N en cuatro y conserva inversión en dos. Citas elegidas manualmente con conocimiento de referencia; no son extractor ni score independiente. Algunas pierden contexto legítimamente necesario (duración del estímulo en De Gregorio 2009), por lo que N en esos fragmentos no se cuenta como error semántico nuevo.
+
+[Protocolo](docs/PROTOCOLO_DIAGNOSTICO_INVERSIONES_HD_V1.md): comparación posterior de B contextual con misma referencia/folds/A, texto íntegro y sin citas oracle. Mantener umbrales previos F1 H/D/macro/recall y exigir menos inversiones sin aumentar H/D→N, con denominadores fijos. BETO no ejecutado; acceso a pesos sigue bloqueado según 36. Estos diez casos son diagnóstico conocido, no test ni ejemplos extra de entrenamiento.
+
+64 pruebas específicas aprobadas sin omisiones, replay exacto de seis datos e informe técnico; protocolo igual salvo UTC; 298 archivos anteriores intactos. Registro `data/auditoria/inversiones_hd_v1/verificacion.json`, con hash separado de la síntesis manual posterior. Sin etiquetas, métricas históricas o checkpoints modificados y sin apertura de respuestas de 306. Actualización en la misma rama y PR #4.
+
 ## 10. Referencias
 
 1. Shah, A. et al. (2025). *Words That Unite The World: A Unified Framework for Deciphering Central Bank Communications Globally*. NeurIPS 2025 (Datasets & Benchmarks). Repo: `gtfintechlab/WorldCentralBanks`; dataset Chile: `gtfintechlab/central_bank_of_chile` (1.000 frases, 2018–2024, EN).

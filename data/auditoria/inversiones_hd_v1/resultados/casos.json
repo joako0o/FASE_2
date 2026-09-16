@@ -1,0 +1,1765 @@
+[
+  {
+    "intervencion_id": "RPM-2009-10-13:2758:1",
+    "actor": "José De Gregorio Rebeco",
+    "fecha": "2009-10-13",
+    "fold": 2,
+    "etiqueta_ia_original": "dovish",
+    "etiqueta_corregida_v2": "dovish",
+    "pred_a": 1,
+    "pred": "hawkish",
+    "texto_completo": "El señor Presidente subraya la importancia transmitir que la evolución de la economía es coherente con el escenario base del IPoM. Al proseguir con su exposición, el Presidente,señor José De Gregorio, advierte que tanto la evolución de los precios de activos como el contexto internacional, sugerirían que habría riesgos relevantes de que la inflación permanezca baja más allá de lo deseable. Sostiene que esto podría tener consecuencias negativas sobre la evolución de las expectativas inflacionarias y la efectividad de la política monetaria cuando la TPM ya ha alcanzado su nivel mínimo. A pesar de las positivas señales de la economía mundial, en términos que se habría entrado en una fase de recuperación, hace presente que aún existen indicadores de fragilidad, en particular debido a que parte importante del aumento de la demanda está ocurriendo por la vía de un aumento de los inventarios, como también al hecho que aún debiera continuar un periodo de desapalancamiento y estrechez de demanda, mientras que la capacidad de mantener y profundizar, en caso de ser necesario, los estímulos monetarios y fiscales, está limitada. Añade que un deterioro de la recuperación mundial, que ya se contempla, será pausado, y podría tener repercusiones adversas sobre las perspectivas de actividad e inflación. Con todo, manifiesta que un tema que se deberá resolver en los meses venideros es la forma en la cual se deberán ir deshaciendo las facilidades excepcionales de liquidez implementadas unos meses atrás y cuyo propósito ha sido fortalecer el compromiso de mantener la tasa de interés baja por varios trimestres. No obstante, enfatiza en que se debe evitar dar una señal de que la evolución de la economía está siendo distinta de lo proyectado en el IPoM. Por lo anterior, el Presidente, señor José De Gregorio, vota por mantener la TPM en 0,5% y las medidas de política monetaria excepcionales adoptadas en julio. Finalmente, sugiere que al preparar la Minuta se mencionen los temas de las FLAP y las medidas no convencionales, solo como una materia que será objeto de revisión en el futuro, pero que se excluyan las consideraciones de índole estratégico y comunicacionales.",
+    "sha256_texto": "c0e423f046cd974d56a3ad27e8ae42d3cc11c29dfd7c579d0fbec41c665658a5",
+    "revision_previa": {
+      "caso_revision": "H10",
+      "fecha": "2009-10-13",
+      "actor": "José De Gregorio Rebeco",
+      "etiqueta_ia": "dovish",
+      "pred_adjudicada": "hawkish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "dovish",
+      "confianza_revision": "media",
+      "sha256_texto": "c0e423f046cd974d56a3ad27e8ae42d3cc11c29dfd7c579d0fbec41c665658a5",
+      "lectura": "Respalda mantener la tasa mínima y las medidas excepcionales, con preocupación por inflación demasiado baja. La posible salida futura de facilidades de liquidez se deja como materia de revisión y no constituye una recomendación explícita de alza de TPM. D es coherente con el compromiso de sostener el estímulo.",
+      "limite_y_accion": "La salida de instrumentos extraordinarios merece atención, pero no se equipara automáticamente a subir la TPM. No inferir D únicamente del número 0,5. Conservar D con confianza media.",
+      "citas_agente": "[\"mantener la tasa de interés baja por varios trimestres.\", \"vota por mantener la TPM en 0,5% y las medidas de política monetaria excepcionales adoptadas en julio.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2009-10-13:2758:1",
+      "citas": [
+        "vota por mantener la TPM en 0,5% y las medidas de política monetaria excepcionales adoptadas en julio.",
+        "cuyo propósito ha sido fortalecer el compromiso de mantener la tasa de interés baja por varios trimestres"
+      ],
+      "fenomenos": [
+        "compromiso_de_estimulo",
+        "salida_futura_no_adoptada"
+      ],
+      "lectura": "D por sostener tasa mínima y medidas excepcionales. La retirada futura de facilidades queda como tema de revisión, no como una decisión de elevar ahora la TPM. El riesgo de inflación demasiado baja refuerza la acomodación.",
+      "hipotesis_a_contrastar": "El vocabulario de recuperación y de una salida futura podría contrapesar el compromiso expansivo; verificar cuáles términos aportan realmente al margen H−D.",
+      "limite": "No confundir instrumentos de liquidez con una variación de TPM. La frase sobre un deterioro de la recuperación presenta redacción extraña y se conserva, sin reconstruirla."
+    },
+    "scores_b": {
+      "dovish": -0.1209549129249321,
+      "hawkish": 0.27450158574370476,
+      "neutral": -0.1535466728184769
+    },
+    "descomposicion": {
+      "intercepto": -0.09197147487475776,
+      "suma_aportes": 0.48742797354339507,
+      "margen": 0.3954564986686373,
+      "residuo_no_mostrado": 0.4922604072419469,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "la evolucion",
+          "tfidf": 0.0646770574684871,
+          "coef_contraste": 0.5114884763294327,
+          "aporte": 0.03308156957802763,
+          "df_train_hawkish": 39,
+          "df_train_dovish": 21,
+          "df_train_neutral": 81
+        },
+        {
+          "termino": "un aumento",
+          "tfidf": 0.02851692794317898,
+          "coef_contraste": 1.1227356478607033,
+          "aporte": 0.03201697156928205,
+          "df_train_hawkish": 43,
+          "df_train_dovish": 10,
+          "df_train_neutral": 68
+        },
+        {
+          "termino": "tener",
+          "tfidf": 0.04657086619316957,
+          "coef_contraste": 0.6820939604002368,
+          "aporte": 0.03176570656096853,
+          "df_train_hawkish": 37,
+          "df_train_dovish": 13,
+          "df_train_neutral": 85
+        },
+        {
+          "termino": "un aumento de",
+          "tfidf": 0.033823058384666316,
+          "coef_contraste": 0.8823304095770061,
+          "aporte": 0.029843112957689624,
+          "df_train_hawkish": 30,
+          "df_train_dovish": 7,
+          "df_train_neutral": 31
+        },
+        {
+          "termino": "pausado",
+          "tfidf": 0.04291009833561573,
+          "coef_contraste": 0.6950555200586765,
+          "aporte": 0.029824900714430343,
+          "df_train_hawkish": 16,
+          "df_train_dovish": 4,
+          "df_train_neutral": 5
+        },
+        {
+          "termino": "la evolucion de",
+          "tfidf": 0.073842430216832,
+          "coef_contraste": 0.3741221150302291,
+          "aporte": 0.027626086171693282,
+          "df_train_hawkish": 30,
+          "df_train_dovish": 16,
+          "df_train_neutral": 47
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "mantener",
+          "tfidf": 0.052685687756208216,
+          "coef_contraste": -0.834138305642629,
+          "aporte": -0.04394715031658013,
+          "df_train_hawkish": 51,
+          "df_train_dovish": 49,
+          "df_train_neutral": 75
+        },
+        {
+          "termino": "baja",
+          "tfidf": 0.0390606920987403,
+          "coef_contraste": -0.9037822298588225,
+          "aporte": -0.0353023594048284,
+          "df_train_hawkish": 24,
+          "df_train_dovish": 39,
+          "df_train_neutral": 155
+        },
+        {
+          "termino": "mantener la",
+          "tfidf": 0.04577968149050311,
+          "coef_contraste": -0.7226583499805405,
+          "aporte": -0.03308306908856167,
+          "df_train_hawkish": 42,
+          "df_train_dovish": 41,
+          "df_train_neutral": 59
+        },
+        {
+          "termino": "cual se",
+          "tfidf": 0.04291009833561573,
+          "coef_contraste": -0.6698526774843843,
+          "aporte": -0.02874344426123042,
+          "df_train_hawkish": 1,
+          "df_train_dovish": 10,
+          "df_train_neutral": 14
+        },
+        {
+          "termino": "mantener la tasa",
+          "tfidf": 0.02931317330269219,
+          "coef_contraste": -0.8302712467269066,
+          "aporte": -0.024337884943548115,
+          "df_train_hawkish": 30,
+          "df_train_dovish": 34,
+          "df_train_neutral": 47
+        },
+        {
+          "termino": "por varios",
+          "tfidf": 0.04803124792386713,
+          "coef_contraste": -0.49086530654513816,
+          "aporte": -0.02357687323589457,
+          "df_train_hawkish": 1,
+          "df_train_dovish": 8,
+          "df_train_neutral": 5
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "vota por mantener la TPM en 0,5% y las medidas de política monetaria excepcionales adoptadas en julio.",
+      "solo_b": true,
+      "pred_b": "neutral",
+      "scores_b": {
+        "dovish": -0.08798455536151073,
+        "hawkish": -0.5582340591783905,
+        "neutral": 0.6462186145401991
+      },
+      "coincide_referencia": false
+    }
+  },
+  {
+    "intervencion_id": "RPM-2011-08-18:4272:1",
+    "actor": "Felipe Larraín Bascuñán",
+    "fecha": "2011-08-18",
+    "fold": 3,
+    "etiqueta_ia_original": "dovish",
+    "etiqueta_corregida_v2": "dovish",
+    "pred_a": 1,
+    "pred": "hawkish",
+    "texto_completo": "El señor Felipe Larraín plantea que el escenario económico se ha vuelto menos benigno desde la Reunión de Política Monetaria de julio pasado. Respecto del escenario internacional, especifica que Estados Unidos ha generado fuertes turbulencias en el mercado, producto de la debilidad de su economía y de la rebaja de la clasificación crediticia desde AAA a AA+ por parte de Standard & Poor’s, y porque a pesar de que se elevó el techo de la deuda, existen serias dudas respecto de la intensidad y plazos de ejecución del ajuste fiscal anunciado por dicho país. En este contexto, destaca que la Reserva Federal ha optado por una mayor agresividad, afirmando en la última reunión que la tasa de política monetaria se mantendría en sus niveles actuales al menos hasta mediados de 2013. Con respecto a Europa, indica que las tensiones financieras en algunas economías altamente endeudadas siguen presentes y han generado algún grado de contagio sobre otras economías que hasta ahora no presentaban problemas, debido a la elevada conexión interregional del sistema financiero. De esta forma, comenta que se ha pasado de un escenario en que el problema fiscal se circunscribía a economías de la periferia europea a otro en que las economías del centro de Europa empiezan a mostrar signos de alto riesgo. Hace presente que esto se ha traducido en que los CDS a 5 años han subido fuertemente en Francia y Alemania, pasando de niveles promedio de 41 y 79 puntos base en junio, respectivamente, a 79 y 153 puntos base en la actualidad. El Ministro de Hacienda subraya que debido a la fragilidad de la situación, el Banco Central Europeo decidió comprar bonos soberanos a Italia y España, mediante intervenciones en el mercado secundario. Por último, menciona que en China, la cifra de inflación de julio en doce meses se ubicó en 6,5%, su mayor nivel desde junio de 2008, pero que las caídas observadas en los precios de los commodities han alejado por el momento el riesgo de nuevas alzas en la tasa rectora. Por otra parte, resalta que el crecimiento económico se mantiene sólido, alcanzando un 9,6% en el primer semestre. En consecuencia, el señor Ministro de Hacienda estima que este es un escenario en que se han intensificado las turbulencias en la economía internacional y emergen mayores riesgos de una desaceleración mundial, y donde el elemento de mayor riesgo es la Zona Euro y, en menor medida, Estados Unidos. Sostiene que este escenario, en el corto plazo, se ha traducido en una notoria disminución de los precios de los commodities, en especial del petróleo. Por otro lado, plantea que el escenario interno muestra que la actividad económica exhibe aún un elevado dinamismo. De hecho, precisa que el crecimiento de 8,4% en el primer semestre revela un mayor dinamismo que lo delineado por los analistas y el mercado en general. Sin perjuicio de ello, advierte que los datos de demanda agregada muestran desaceleraciones importantes, tanto en el consumo como en la inversión. Al respecto, indica que las cuentas nacionales publicadas durante la presente jornada muestran que el consumo privado se desacelera desde una tasa de variación anual de más de 13% en el primer trimestre de este año a un 9,6% en este segundo trimestre, esperándose que esta tendencia se mantenga para ir convergiendo cerca del crecimiento de tendencia de la economía a fines de año. Hace presente, además, que algo similar se observa en el caso de las importaciones de bienes y servicios, que se desaceleran en un ritmo de 21,2% en el primer trimestre a cerca del 15% en el segundo. Asimismo, comenta que los índices de expectativas, que entregan cierta información acerca del comportamiento futuro del consumo privado, muestran también moderación. De hecho, precisa que el IPEC ha disminuido durante 2011, ubicándose en 36,6 puntos en julio, lo que implica una importante disminución desde los 44,7 puntos de enero, en tanto que el subíndice de expectativas de consumo de artículos para el hogar se ubicó en 55,1 puntos en julio, lo que contrasta con los 62,8 puntos de enero. El señor Felipe Larraín manifiesta que todo ello se ha traducido en que las presiones inflacionarias siguen bajo control y, más aún, que las expectativas de inflación se han ido moderando significativamente, acercándose rápidamente al centro del rango meta del Banco Central. Sobre el particular, especifica que en julio se registró una cifra de inflación de 0,1% mensual y de 2,9% en doce meses, lo que implica una importante moderación desde la cifra de 3,4% de julio. Añade que el IPCX registró un aumento mensual de 0,2%, mientras que el IPCX1 mostró un 0,1%, con lo que las mediciones de doce meses se ubican en 1,9 y 1,4%, respectivamente. Por otra parte, menciona que las expectativas de inflación para el año 2011 se han ajustado a la baja. Informa que, de acuerdo con la Encuesta de Expectativas Económicas de agosto, la inflación esperada para 2011 se ubica en 3,6%, inferior al 4% de la encuesta de julio, y que para el año 2012, las expectativas ubican la cifra en 3%, inferior al 3,3% del mes previo. De igual forma, comenta que las expectativas de inflación medidas a través de las compensaciones inflacionarias muestran importantes reducciones. En efecto, precisa que las tasas de mercado de los BCP y BCU a 2 años arrojan en la actualidad un valor de 2,66%, siendo inferior al 3,1% promedio de julio, y bastante menor a los niveles de 4,6% de comienzos de marzo. Como elemento adicional en el análisis, el señor Ministro de Hacienda reitera el compromiso de su Ministerio de normalizar la política fiscal y, de esta forma, contribuir a frenar las presiones inflacionarias. Expresa que, recientemente, ha reafirmado el compromiso de esa Secretaría de Estado de converger a un déficit estructural de 1% del PIB en el año 2014, pero además ha indicado que una de las metas es que el crecimiento del gasto público sea menor al del PIB. Enfatiza que estos criterios forman una carta de navegación que lleva a la normalización de la política fiscal. Agrega que tal como se indicó en la Reunión anterior, las proyecciones del Ministerio tienen como escenario central que el gasto fiscal crezca 4,6% en el año 2011, inferior al 5,5% proyectado en el Informe de Finanzas Públicas de octubre del año 2010. Además, recuerda que la relación gasto público a PIB, medida a precios corrientes, que se ubicó en 24,8% en el año 2009, pasó a 23,5% en el año 2010, proyectándose, por el momento, que disminuya a 22,5% en el presente año. Puntualiza que durante el primer trimestre de 2011, dicha razón se ubicó en solo 19,8% y que en el segundo pasó a 20,6%. De esta forma, expresa que el Ministerio de Hacienda no solo ha indicado su intención de normalizar la política fiscal, sino que está exhibiendo claramente en los datos que esto se está cumpliendo. El señor Felipe Larraín señala que a juicio de esa cartera, la tasa rectora debiera mantenerse en el nivel actual, manteniendo una pausa en el proceso de normalización de la política monetaria y validando, de esta manera, las expectativas del mercado. Sostiene que en un contexto de moderación del panorama inflacionario externo y fuerte disminución de las expectativas inflacionarias internas, se evita una potencial desaceleración futura de la economía. Más aún, hace presente que el escenario internacional sugiere hoy una desaceleración en el crecimiento mundial, consistente con que las tasas de política monetaria en los países desarrollados se mantengan bajas por un período prolongado, lo que entrega un nuevo argumento para mantener la tasa rectora en Chile, evitando así un desalineamiento respecto al resto del mundo y, por ende, una mayor presión sobre el tipo de cambio. Además, señala que el Ministerio de Hacienda estima que es necesario quitar el sesgo restrictivo a la política monetaria de los Comunicados anteriores, en la medida que el escenario internacional se ha vuelto altamente volátil y con riesgos de una desaceleración importante, de forma de permitir mayor flexibilidad en el uso del instrumental monetario en caso de ser necesario en el corto plazo.",
+    "sha256_texto": "8a59b77d976cb142c0bec4f0b12f80a330543bea7e6f9b21785c5600853d47c0",
+    "revision_previa": {
+      "caso_revision": "H12",
+      "fecha": "2011-08-18",
+      "actor": "Felipe Larraín Bascuñán",
+      "etiqueta_ia": "dovish",
+      "pred_adjudicada": "hawkish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "dovish",
+      "confianza_revision": "alta",
+      "sha256_texto": "8a59b77d976cb142c0bec4f0b12f80a330543bea7e6f9b21785c5600853d47c0",
+      "lectura": "Pide mantener la tasa y quitar el sesgo restrictivo ante riesgos y moderación inflacionaria. Es una recomendación doméstica de menor restricción, no solo diagnóstico internacional. D está respaldada.",
+      "limite_y_accion": "El compromiso de normalizar la política fiscal es otra variable, no una recomendación de subir la TPM. Esa distinción es textual; no prueba que el clasificador haya confundido ambos objetos. Conservar D.",
+      "citas_agente": "[\"estima que es necesario quitar el sesgo restrictivo a la política monetaria de los Comunicados anteriores\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2011-08-18:4272:1",
+      "citas": [
+        "es necesario quitar el sesgo restrictivo a la política monetaria de los Comunicados anteriores"
+      ],
+      "fenomenos": [
+        "objeto_fiscal_vs_monetario",
+        "supresion_del_sesgo_restrictivo"
+      ],
+      "lectura": "La recomendación doméstica es pausar y retirar el sesgo restrictivo: D. La normalización fiscal del Ministerio y las políticas extranjeras no se convierten en su recomendación sobre la TPM chilena.",
+      "hipotesis_a_contrastar": "Una exposición extensa incluye normalización fiscal, actividad dinámica y tasas extranjeras; comprobar si señales genéricas de ese cuerpo dominan sobre la recomendación final.",
+      "limite": "No atribuir causalmente el error al párrafo fiscal solo porque existe. Los coeficientes pueden mostrar asociaciones distintas. La postura no se hereda al comunicado separado de la misma reunión."
+    },
+    "scores_b": {
+      "dovish": -0.04836505436199434,
+      "hawkish": 0.3829113166897875,
+      "neutral": -0.33454626232759654
+    },
+    "descomposicion": {
+      "intercepto": -0.28307764660236956,
+      "suma_aportes": 0.714354017654146,
+      "margen": 0.4312763710517764,
+      "residuo_no_mostrado": 0.7080941384117629,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "puntos",
+          "tfidf": 0.031679713490099785,
+          "coef_contraste": 0.874105594485697,
+          "aporte": 0.02769141479340023,
+          "df_train_hawkish": 77,
+          "df_train_dovish": 31,
+          "df_train_neutral": 91
+        },
+        {
+          "termino": "base en",
+          "tfidf": 0.027495804561038156,
+          "coef_contraste": 0.957553939823496,
+          "aporte": 0.026328715986038937,
+          "df_train_hawkish": 36,
+          "df_train_dovish": 8,
+          "df_train_neutral": 21
+        },
+        {
+          "termino": "puntos base en",
+          "tfidf": 0.02796288643745665,
+          "coef_contraste": 0.9178045082672408,
+          "aporte": 0.025664463236462598,
+          "df_train_hawkish": 34,
+          "df_train_dovish": 7,
+          "df_train_neutral": 20
+        },
+        {
+          "termino": "el crecimiento",
+          "tfidf": 0.030834215140376237,
+          "coef_contraste": 0.6784316141356879,
+          "aporte": 0.020918906348292514,
+          "df_train_hawkish": 40,
+          "df_train_dovish": 14,
+          "df_train_neutral": 85
+        },
+        {
+          "termino": "de inflacion",
+          "tfidf": 0.027753973884112854,
+          "coef_contraste": 0.7501740911231636,
+          "aporte": 0.020820312133570378,
+          "df_train_hawkish": 73,
+          "df_train_dovish": 36,
+          "df_train_neutral": 125
+        },
+        {
+          "termino": "escenario internacional",
+          "tfidf": 0.03895194157062644,
+          "coef_contraste": 0.48718097463803317,
+          "aporte": 0.01897664485842151,
+          "df_train_hawkish": 16,
+          "df_train_dovish": 2,
+          "df_train_neutral": 20
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "de hacienda",
+          "tfidf": 0.04045242583645038,
+          "coef_contraste": -0.5929805137828714,
+          "aporte": -0.02398750025626185,
+          "df_train_hawkish": 8,
+          "df_train_dovish": 13,
+          "df_train_neutral": 56
+        },
+        {
+          "termino": "hacienda",
+          "tfidf": 0.04045242583645038,
+          "coef_contraste": -0.5929805137828714,
+          "aporte": -0.02398750025626185,
+          "df_train_hawkish": 8,
+          "df_train_dovish": 13,
+          "df_train_neutral": 56
+        },
+        {
+          "termino": "forma",
+          "tfidf": 0.03782427025218864,
+          "coef_contraste": -0.6141660680781209,
+          "aporte": -0.02323038333871093,
+          "df_train_hawkish": 23,
+          "df_train_dovish": 23,
+          "df_train_neutral": 51
+        },
+        {
+          "termino": "ministro de",
+          "tfidf": 0.033668719534669336,
+          "coef_contraste": -0.6279936892131753,
+          "aporte": -0.0211437433916607,
+          "df_train_hawkish": 7,
+          "df_train_dovish": 12,
+          "df_train_neutral": 49
+        },
+        {
+          "termino": "ministro de hacienda",
+          "tfidf": 0.033668719534669336,
+          "coef_contraste": -0.6279936892131753,
+          "aporte": -0.0211437433916607,
+          "df_train_hawkish": 7,
+          "df_train_dovish": 12,
+          "df_train_neutral": 49
+        },
+        {
+          "termino": "senor ministro de",
+          "tfidf": 0.030872529677533928,
+          "coef_contraste": -0.6688051706456879,
+          "aporte": -0.020647707479247143,
+          "df_train_hawkish": 5,
+          "df_train_dovish": 10,
+          "df_train_neutral": 26
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "es necesario quitar el sesgo restrictivo a la política monetaria de los Comunicados anteriores",
+      "solo_b": true,
+      "pred_b": "neutral",
+      "scores_b": {
+        "dovish": -0.6003409572634462,
+        "hawkish": -0.5691775574770412,
+        "neutral": 1.1695185147406848
+      },
+      "coincide_referencia": false
+    }
+  },
+  {
+    "intervencion_id": "RPM-2007-01-11:1057:1",
+    "actor": "Consejo del Banco Central de Chile",
+    "fecha": "2007-01-11",
+    "fold": 3,
+    "etiqueta_ia_original": "dovish",
+    "etiqueta_corregida_v2": "dovish",
+    "pred_a": 1,
+    "pred": "hawkish",
+    "texto_completo": "En mérito de lo anterior, el Consejo adopta el siguiente Acuerdo: 102-01-070111 - Tasa de Política Monetaria. En su reunión mensual de política monetaria, el Consejo del Banco Central de Chile acordó reducir la tasa de interés de política monetaria desde 5,25% a 5% anual. Comunicado “ En su reunión mensual de política monetaria, el Consejo del Banco Central de Chile acordó reducir la tasa de interés de política monetaria desde 5,25% a 5% anual. La información acumulada en los últimos meses configura un escenario de baja inflación para los próximos trimestres que justifica esta disminución de la tasa de interés, de manera de asegurar la convergencia de la inflación a 3% en el horizonte de política, es decir, en torno a dos años. El escenario externo relevante para la economía chilena continúa favorable. A pesar de la desaceleración de EE.UU., el crecimiento mundial sigue elevado, mientras que las condiciones financieras internacionales se mantienen ventajosas. Por su parte, los precios del petróleo y del cobre han descendido en las últimas semanas, experimentando una normalización parcial más rápida que la esperada. La información disponible sugiere que, si bien la actividad interna recobró cierto dinamismo, las holguras originadas en el inesperado menor crecimiento del año pasado persistirán por varios trimestres. Ello se observa a pesar de la vigorosa expansión de la demanda interna, en especial del consumo, del aumento del empleo asalariado y de la reducción del desempleo. Las condiciones financieras internas permanecen favorables. Las medidas de inflación total y subyacente se ubican entre 2 y 3%, considerablemente por debajo de las proyecciones previas. En ello han influido, además de la caída en el precio del petróleo, las mayores brechas de actividad y las reducidas presiones de costo. Otros indicadores de tendencia inflacionaria siguen bajos, si bien algunos muestran una incipiente reversión, explicada por factores aparentemente puntuales. Se proyecta que en el corto plazo la inflación aumente transitoriamente a cerca de 3% por efectos de base de comparación, para luego ubicarse próxima a 2% por algunos trimestres y converger a 3% en torno a dos años. El Consejo reafirma su compromiso de conducir la política monetaria de manera que la inflación proyectada se ubique en 3% en el horizonte de política. Cambios futuros en la TPM para lograr este objetivo dependerán de la nueva información que se acumule y de sus implicancias sobre la inflación proyectada.”",
+    "sha256_texto": "cc9bfccb91f601db8f42f9d079ed0a4dbb73f7a83d98c571588f6a8abb3c0d61",
+    "revision_previa": {
+      "caso_revision": "H05",
+      "fecha": "2007-01-11",
+      "actor": "Consejo del Banco Central de Chile",
+      "etiqueta_ia": "dovish",
+      "pred_adjudicada": "hawkish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "dovish",
+      "confianza_revision": "alta",
+      "sha256_texto": "cc9bfccb91f601db8f42f9d079ed0a4dbb73f7a83d98c571588f6a8abb3c0d61",
+      "lectura": "El acuerdo institucional reduce la TPM y justifica el recorte con baja inflación y holguras persistentes. D está respaldada por una decisión explícita; el H del modelo contradice el texto.",
+      "limite_y_accion": "La normalización mencionada para precios del petróleo/cobre no es normalización alcista de la TPM. No se afirma que esa palabra haya causado el error sin medir contribuciones. Conservar D.",
+      "citas_agente": "[\"acordó reducir la tasa de interés de política monetaria desde 5,25% a 5% anual.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2007-01-11:1057:1",
+      "citas": [
+        "acordó reducir la tasa de interés de política monetaria desde 5,25% a 5% anual."
+      ],
+      "fenomenos": [
+        "recorte_explicito",
+        "decision_vs_diagnostico"
+      ],
+      "lectura": "D por recorte explícito, repetido en el acuerdo y comunicado. La fortaleza de la demanda y la mejora de la actividad no revierten esa decisión.",
+      "hipotesis_a_contrastar": "Comprobar si las fórmulas del comunicado y el diagnóstico desplazan la instrucción de reducir; no basta suponer que el modelo no conoce reducir.",
+      "limite": "Caso especialmente claro. Se conserva la repetición del acuerdo/comunicado: no se deduplica internamente para obtener una predicción mejor."
+    },
+    "scores_b": {
+      "dovish": -0.11546692959110705,
+      "hawkish": 0.8997232200215932,
+      "neutral": -0.7842562904302821
+    },
+    "descomposicion": {
+      "intercepto": -0.28307764660236956,
+      "suma_aportes": 1.2982677962150693,
+      "margen": 1.0151901496126996,
+      "residuo_no_mostrado": 1.3747590289689287,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "25",
+          "tfidf": 0.03592305295250518,
+          "coef_contraste": 1.4208666541892536,
+          "aporte": 0.05104186805688943,
+          "df_train_hawkish": 75,
+          "df_train_dovish": 26,
+          "df_train_neutral": 50
+        },
+        {
+          "termino": "de politica monetaria",
+          "tfidf": 0.04213829799631557,
+          "coef_contraste": 0.6406995975166214,
+          "aporte": 0.02699799056627484,
+          "df_train_hawkish": 93,
+          "df_train_dovish": 54,
+          "df_train_neutral": 152
+        },
+        {
+          "termino": "mensual",
+          "tfidf": 0.045179948191100286,
+          "coef_contraste": 0.506349256432393,
+          "aporte": 0.02287683317221767,
+          "df_train_hawkish": 27,
+          "df_train_dovish": 7,
+          "df_train_neutral": 38
+        },
+        {
+          "termino": "politica monetaria",
+          "tfidf": 0.04169683541015481,
+          "coef_contraste": 0.5290221726298816,
+          "aporte": 0.022058550460470675,
+          "df_train_hawkish": 104,
+          "df_train_dovish": 66,
+          "df_train_neutral": 182
+        },
+        {
+          "termino": "brechas de",
+          "tfidf": 0.03195387777687388,
+          "coef_contraste": 0.6620019713752612,
+          "aporte": 0.021153530081374657,
+          "df_train_hawkish": 23,
+          "df_train_dovish": 4,
+          "df_train_neutral": 8
+        },
+        {
+          "termino": "anos",
+          "tfidf": 0.036871190149198436,
+          "coef_contraste": 0.5734617769765238,
+          "aporte": 0.021144218222198634,
+          "df_train_hawkish": 24,
+          "df_train_dovish": 4,
+          "df_train_neutral": 112
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "reducir la tasa",
+          "tfidf": 0.07671736170841427,
+          "coef_contraste": -0.8099336888834239,
+          "aporte": -0.0621359757698999,
+          "df_train_hawkish": 0,
+          "df_train_dovish": 4,
+          "df_train_neutral": 1
+        },
+        {
+          "termino": "reducir la tasa de",
+          "tfidf": 0.07671736170841427,
+          "coef_contraste": -0.8099336888834239,
+          "aporte": -0.0621359757698999,
+          "df_train_hawkish": 0,
+          "df_train_dovish": 4,
+          "df_train_neutral": 1
+        },
+        {
+          "termino": "reducir la",
+          "tfidf": 0.06090557789258773,
+          "coef_contraste": -0.6472572415041505,
+          "aporte": -0.03942157633897251,
+          "df_train_hawkish": 6,
+          "df_train_dovish": 8,
+          "df_train_neutral": 6
+        },
+        {
+          "termino": "reducir",
+          "tfidf": 0.0521570008295804,
+          "coef_contraste": -0.6655170460103468,
+          "aporte": -0.034711373120861554,
+          "df_train_hawkish": 13,
+          "df_train_dovish": 12,
+          "df_train_neutral": 16
+        },
+        {
+          "termino": "trimestres",
+          "tfidf": 0.05621516480208759,
+          "coef_contraste": -0.41900585097804144,
+          "aporte": -0.023554482965769553,
+          "df_train_hawkish": 17,
+          "df_train_dovish": 15,
+          "df_train_neutral": 39
+        },
+        {
+          "termino": "en la tpm",
+          "tfidf": 0.03899434624890763,
+          "coef_contraste": -0.5078900213242212,
+          "aporte": -0.019804839347881763,
+          "df_train_hawkish": 2,
+          "df_train_dovish": 7,
+          "df_train_neutral": 4
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "acordó reducir la tasa de interés de política monetaria desde 5,25% a 5% anual.",
+      "solo_b": true,
+      "pred_b": "dovish",
+      "scores_b": {
+        "dovish": 0.3400172501085198,
+        "hawkish": -0.15255543654637993,
+        "neutral": -0.18746181356194214
+      },
+      "coincide_referencia": true
+    }
+  },
+  {
+    "intervencion_id": "RPM-2008-02-07:1672:1",
+    "actor": "Klaus Schmidt-Hebbel Dunker",
+    "fecha": "2008-02-07",
+    "fold": 4,
+    "etiqueta_ia_original": "dovish",
+    "etiqueta_corregida_v2": "dovish",
+    "pred_a": 1,
+    "pred": "hawkish",
+    "texto_completo": "El Gerente de Investigación Económica señor Klaus Schmidt-Hebbel, señala que la gran mayoría de las novedades del mes apuntan a una sola dirección, la que consiste en la circunstancia que en la economía internacional, hay importantes componentes no anticipados en el desarrollo de la crisis sub-prime y sus coletazos financieros y reales, en el debilitamiento de la economía de Estados Unidos de América y en algunos otros países importantes, en el precio del petróleo y, en particular, en la dramática reducción del Fed Funds Rate en 125 puntos base. Agrega que del anterior debilitamiento de la economía mundial sólo han escapado los precios de algunos commodities, como sucede con el caso del cobre. Señala el señor Gerente de Investigación Económica que en la economía doméstica se han verificado shocks contractivos de oferta en la producción, reflejados en un crecimiento menor proyectado para el primer trimestre de 2008, y sorpresas a la baja en los precios de ítems volátiles, reflejadas en un componente no anticipado de -0,6% en el registro del IPC del mes de enero. Comenta que a ello se agrega una apreciación del tipo de cambio nominal en torno a 5%, probablemente derivada, en gran parte, de la reducción sorpresiva de la tasa de política de la Fed, explicación congruente con una depreciación anticipada futura del tipo de cambio, coherente con el diferencial de las tasas de rendimiento esperadas a futuro. Agrega que estas novedades, en la medida en que modifiquen también las proyecciones futuras de brechas e inflación, justificarían una política monetaria menos restrictiva. Sin embargo, cree que hay un antecedente que apunta en la dirección contraria, mientras que las compensaciones inflacionarias a 12 meses y de forwards de tres en dos y de cinco en cinco, caen respecto a un mes atrás. Por su parte, la compensación inflacionaria de forward de uno en uno sube en 10 puntos base durante el último mes, llegando a 3,70%, al cierre estadístico de ayer. Menciona el Gerente de Investigación Económica que quisiera detenerse brevemente en esa novedad, porque el plazo de la compensación uno en uno coincide precisamente con el horizonte de política monetaria del Banco, por lo que esta medida de la compensación inflacionaria, aunque es imperfecta en relación a las expectativas de inflación del mercado en dicho plazo, debe ponderarse con mucha más atención que lo que sucede para plazos distintos. Por lo tanto, señala que detrás de este aumento de la compensación inflacionaria pueden haber tres factores o una combinación de ellos, esto es un alza en el premio por riesgo inflación, y alza en el premio por riesgo liquidez o un alza en las expectativas de inflación. Le parece al señor Gerente de Investigación Económica que resulta difícil argumentar que se debe a un alza en el premio por riesgo inflación, porque dicho mayor riesgo debería haberse reflejado con mucha más intensidad en un alza en la compensación inflacionaria en doce meses, pero ésta se redujo en 108 puntos base en los últimos treinta y un días. Señala también, que en ausencia de buenas medidas de las ofertas relativas a títulos emitidos a plazos distintos y una adecuada identificación de cambios en las demandas deseadas de estos instrumentos, no se puede discernir si el alza de la compensación inflacionaria a doce meses se debe a un aumento en el premio de liquidez o a un aumento de expectativas inflacionarias. Agrega que si se debe señalar que las cuatro medidas de compensación inflacionaria, a distintos plazos, se encuentran hoy muy cercanas entre sí, esto es, entre 3,52% y 3,76%, que son niveles aún preocupantes y que justificaron las alzas en la Tasa de Política Monetaria realizadas en el pasado reciente. Finalmente, el Gerente de Investigación Económica estima que, balanceando las novedades nacionales e internacionales contractivas en actividad y precios, con el riesgo que aún se enfrentan por las altas compensaciones inflacionarias, y con la mantención de la coherencia intertemporal en las decisiones de política, se sugiere adoptar una política levemente menos restrictiva en esta ocasión, manteniendo la Tasa de Política Monetaria en 6,25%, pero suprimiendo todo sesgo a dicha decisión.",
+    "sha256_texto": "a64750135fd70725fddca741da41d504cfc14fa9adb743e3f72cecd39c1f0e65",
+    "revision_previa": {
+      "caso_revision": "H07",
+      "fecha": "2008-02-07",
+      "actor": "Klaus Schmidt-Hebbel Dunker",
+      "etiqueta_ia": "dovish",
+      "pred_adjudicada": "hawkish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "dovish",
+      "confianza_revision": "alta",
+      "sha256_texto": "a64750135fd70725fddca741da41d504cfc14fa9adb743e3f72cecd39c1f0e65",
+      "lectura": "Recomienda explícitamente una política menos restrictiva y suprimir el sesgo. El análisis de expectativas altas no revoca esa conclusión. D está respaldada; la condición de staff no anula una recomendación de dirección.",
+      "limite_y_accion": "No inferir D de los recortes extranjeros: la conclusión citada es doméstica. Mantener hoy no basta por sí solo; menos restrictiva y suprimir el sesgo son las señales relevantes. Conservar D.",
+      "citas_agente": "[\"se sugiere adoptar una política levemente menos restrictiva en esta ocasión, manteniendo la Tasa de Política Monetaria en 6,25%, pero suprimiendo todo sesgo a dicha decisión.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2008-02-07:1672:1",
+      "citas": [
+        "se sugiere adoptar una política levemente menos restrictiva en esta ocasión, manteniendo la Tasa de Política Monetaria en 6,25%, pero suprimiendo todo sesgo a dicha decisión."
+      ],
+      "fenomenos": [
+        "comparacion_menos_restrictiva",
+        "riesgos_vs_recomendacion"
+      ],
+      "lectura": "D por recomendación final de menor restricción y supresión del sesgo. La larga discusión de expectativas inflacionarias considera el argumento opuesto, pero no es la conclusión elegida.",
+      "hipotesis_a_contrastar": "Verificar si las menciones repetidas a alzas, premios y expectativas aportan hacia H pese a la recomendación final D; menos restrictiva exige resolver una comparación.",
+      "limite": "No inferir D del recorte de la Fed: la evidencia decisiva es la recomendación doméstica. No se borra el riesgo inflacionario para convertir el texto en un caso simple."
+    },
+    "scores_b": {
+      "dovish": -0.2694212725866053,
+      "hawkish": 0.3168828800909451,
+      "neutral": -0.047461607504347025
+    },
+    "descomposicion": {
+      "intercepto": -0.22999032783580342,
+      "suma_aportes": 0.8162944805133562,
+      "margen": 0.5863041526775528,
+      "residuo_no_mostrado": 0.6802841083267618,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "un alza",
+          "tfidf": 0.055003819538125165,
+          "coef_contraste": 1.075635967544571,
+          "aporte": 0.05916408664753824,
+          "df_train_hawkish": 38,
+          "df_train_dovish": 10,
+          "df_train_neutral": 31
+        },
+        {
+          "termino": "alza",
+          "tfidf": 0.04360761592300863,
+          "coef_contraste": 1.2661318810982651,
+          "aporte": 0.055212992778809575,
+          "df_train_hawkish": 61,
+          "df_train_dovish": 24,
+          "df_train_neutral": 160
+        },
+        {
+          "termino": "inflacionaria",
+          "tfidf": 0.05986367818058982,
+          "coef_contraste": 0.8413173088744275,
+          "aporte": 0.05036434862621861,
+          "df_train_hawkish": 42,
+          "df_train_dovish": 9,
+          "df_train_neutral": 50
+        },
+        {
+          "termino": "un aumento",
+          "tfidf": 0.03367621568336611,
+          "coef_contraste": 1.0838279635738284,
+          "aporte": 0.03649922426497571,
+          "df_train_hawkish": 46,
+          "df_train_dovish": 10,
+          "df_train_neutral": 72
+        },
+        {
+          "termino": "puntos base",
+          "tfidf": 0.037507569041349435,
+          "coef_contraste": 0.8870926828110012,
+          "aporte": 0.03327269004660952,
+          "df_train_hawkish": 75,
+          "df_train_dovish": 32,
+          "df_train_neutral": 67
+        },
+        {
+          "termino": "puntos",
+          "tfidf": 0.035109657014410926,
+          "coef_contraste": 0.8366671709378063,
+          "aporte": 0.029375097406843895,
+          "df_train_hawkish": 77,
+          "df_train_dovish": 34,
+          "df_train_neutral": 96
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "en un",
+          "tfidf": 0.03758711454816266,
+          "coef_contraste": -0.7099708501892443,
+          "aporte": -0.026685755671919557,
+          "df_train_hawkish": 41,
+          "df_train_dovish": 37,
+          "df_train_neutral": 95
+        },
+        {
+          "termino": "reduccion",
+          "tfidf": 0.03861458095816412,
+          "coef_contraste": -0.6668486117531915,
+          "aporte": -0.02575007970538297,
+          "df_train_hawkish": 21,
+          "df_train_dovish": 18,
+          "df_train_neutral": 43
+        },
+        {
+          "termino": "mes",
+          "tfidf": 0.0367690893411571,
+          "coef_contraste": -0.5267174023605494,
+          "aporte": -0.019366919224937235,
+          "df_train_hawkish": 39,
+          "df_train_dovish": 38,
+          "df_train_neutral": 176
+        },
+        {
+          "termino": "de investigacion",
+          "tfidf": 0.09289032770421769,
+          "coef_contraste": -0.20122408280840925,
+          "aporte": -0.018691770994053773,
+          "df_train_hawkish": 5,
+          "df_train_dovish": 4,
+          "df_train_neutral": 2
+        },
+        {
+          "termino": "de investigacion economica",
+          "tfidf": 0.09289032770421769,
+          "coef_contraste": -0.20122408280840925,
+          "aporte": -0.018691770994053773,
+          "df_train_hawkish": 5,
+          "df_train_dovish": 4,
+          "df_train_neutral": 2
+        },
+        {
+          "termino": "gerente de investigacion",
+          "tfidf": 0.09289032770421769,
+          "coef_contraste": -0.20122408280840925,
+          "aporte": -0.018691770994053773,
+          "df_train_hawkish": 5,
+          "df_train_dovish": 4,
+          "df_train_neutral": 2
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "se sugiere adoptar una política levemente menos restrictiva en esta ocasión, manteniendo la Tasa de Política Monetaria en 6,25%, pero suprimiendo todo sesgo a dicha decisión.",
+      "solo_b": true,
+      "pred_b": "hawkish",
+      "scores_b": {
+        "dovish": -0.022372193867839285,
+        "hawkish": 0.8822597531700616,
+        "neutral": -0.859887559302229
+      },
+      "coincide_referencia": false
+    }
+  },
+  {
+    "intervencion_id": "RPM-2015-12-17:7210:1",
+    "actor": "Alberto Naudon Dell'Oro",
+    "fecha": "2015-12-17",
+    "fold": 4,
+    "etiqueta_ia_original": "hawkish",
+    "etiqueta_corregida_v2": "hawkish",
+    "pred_a": 1,
+    "pred": "dovish",
+    "texto_completo": "El señor Alberto Naudon inicia su intervención refiriéndose a los principales desarrollos acontecidos desde la última Reunión de Política Monetaria. Señala que las noticias conocidas desde la última Reunión y el análisis del IPoM del mes de diciembre dan cuenta de que el escenario planteado en el Informe anterior, con mayores presiones inflacionarias de corto plazo, pero menores en el mediano, se ha intensificado. Expresa que en el corto plazo, la inflación subyacente ha sido algo mayor que lo presupuestado, en un contexto donde el peso se ha depreciado, las holguras de capacidad siguen acotadas —como lo sugiere la evolución del mercado laboral— y los patrones históricos de indexación siguen actuando. Así, resalta que la inflación SAE servicios, típicamente más asociada a la de los no transables, continúa alta, sin indicios de que vaya a sufrir una corrección rápida. Por su parte, el aumento que la inflación SAE bienes ha tenido en los últimos trimestres —muy asociado a la evolución del tipo de cambio— sigue explicando la mayor parte del incremento de la inflación. Por otra parte, informa que el escenario de crecimiento para el año 2016 se ha corregido a la baja desde el IPoM del mes de septiembre, en gran medida como consecuencia del deterioro del escenario externo, donde el crecimiento de nuestros socios comerciales se ha corregido algo a la baja y las condiciones financieras globales que enfrentan las economías emergentes se han vuelto a deteriorar, todo ello en un ambiente de claro deterioro de nuestros términos de intercambio. De esta forma, consigna que la proyección de inflación subyacente se ha corregido fundamentalmente por una mayor inflación prevista durante los primeros meses del año, mientras que hacia fines del 2016 e inicios del 2017 se esperan velocidades de inflación algo menores. Agrega que la reciente baja del precio de los combustibles y la menor incidencia de los alimentos también han contribuido a la contención de la inflación. Con todo, manifiesta que de acuerdo con nuestra proyección, la inflación bajará de 4% solo a fines de 2016, con registros todavía altos en los primeros meses del año. Hace presente que en este contexto de debilidad del crecimiento, la Gerencia de División Estudios cree que, a pesar de la alta inflación actual, la política monetaria debe continuar contribuyendo a la recuperación de la economía, manteniéndose en terreno expansivo. Sin embargo, en línea con una inflación que ha resultado ser mayor y más persistente que lo previsto, estima que los grados de expansividad deben acotarse respecto de los niveles actuales para asegurar la convergencia de la inflación a la meta dentro del horizonte de proyección. En razón de ello, se inclina por recomendar un aumento de 25 puntos base en esta Reunión, para llevar la tasa de política a 3,5%. Indica que, en lo grueso, este análisis no difiere mucho de lo consignado en el Informe del mes de septiembre, salvo que la mayor inflación subyacente prevista y observada en el corto plazo ha hecho aconsejable adelantar parcialmente la reducción del estímulo monetario. Hace notar, además, que medida en términos reales, la TPM sigue siendo baja, aun después de considerar los ajustes que se han hecho y que se proponen para esta Reunión. Además, de seguir una trayectoria similar al supuesto de trabajo del IPoM, la tasa real estará claramente por debajo de los niveles que se consideran neutrales durante todo el horizonte de proyección, coherente con un escenario de crecimiento débil como el planteado en el escenario base. Manifiesta que el análisis interno también sugiere que los riesgos para la actividad están principalmente a la baja, ya que, por una parte, el escenario externo se ha tornado más complejo, especialmente para las economías emergentes, con precios de commodities, incluyendo el del cobre, que se espera sigan bajos por un tiempo mayor, y condiciones financieras menos favorables. Por otra parte, los indicadores de confianza permanecen bajos y no dan signos de repuntar, a pesar de que el crecimiento de la economía parece estabilizarse, aunque en niveles bajos, y que el mercado laboral continúa mostrando un grado de resiliencia importante. Además, no es descartable que se observe una corrección más rápida del mercado laboral, con su consecuente efecto negativo en la inflación y el consumo. En este contexto, plantea que la opción de mantener parece ser relevante de incorporar en esta Reunión. Sin embargo, varias razones llevan a preferir la opción de subir. En primer lugar, un aumento a 3,5% es lo más coherente con el escenario base del IPoM que se dará conocer el lunes próximo. En segundo término, las simulaciones que se han realizado de escenarios donde, por distintos motivos, la actividad crece del orden de 0,5 puntos porcentuales menos, sugieren que una tasa que se mantiene en torno a 3,5% por un tiempo prolongado sigue siendo adecuada. En tercer lugar, aunque esta vez el mercado se muestra más dividido respecto de la decisión que se adoptará en la presente Reunión, un aumento no lo sorprendería. Por último, se espera un aumento de la inflación anual durante los primeros meses del año, que la ubicarán por sobre las expectativas de mercado, lo que hace menos aconsejable retrasar una alza que tiene una probabilidad alta de ser ejecutada. Respecto del sesgo, indica que la decisión es menos obvia. Por una parte, de seguir una trayectoria similar a la del supuesto del trabajo del IPoM, la próxima alza después del mes de diciembre sería en el segundo trimestre, algo más espaciado que lo que se ha hecho en los últimos meses. Ello aconsejaría un sesgo neutral. Por otra parte, un sesgo neutro puede dar la sensación de que no estamos validando la curva de tasas actual, la que es muy similar a la usada en las proyecciones del IPoM que se presentará el próximo lunes 21 de diciembre. En este contexto, manifiesta que la sugerencia de la Gerencia de División Estudios es la de mantener el sesgo al alza, pero que considere alguna referencia a que el espacio de tiempo antes de la próxima alza será mayor.",
+    "sha256_texto": "c551e72b06b4131d77a2fb63c4eed7a3586d623d6e8aeb96c6bdfb01b5cd2e32",
+    "revision_previa": {
+      "caso_revision": "H15",
+      "fecha": "2015-12-17",
+      "actor": "Alberto Naudon Dell'Oro",
+      "etiqueta_ia": "hawkish",
+      "pred_adjudicada": "dovish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "hawkish",
+      "confianza_revision": "alta",
+      "sha256_texto": "c551e72b06b4131d77a2fb63c4eed7a3586d623d6e8aeb96c6bdfb01b5cd2e32",
+      "lectura": "Recomienda subir ahora y mantener un sesgo al alza con mayor distancia entre incrementos. Que la política permanezca en terreno expansivo describe su nivel; la dirección propuesta es reducir esa expansividad. H está claramente respaldada.",
+      "limite_y_accion": "El análisis de riesgos de crecimiento y de mantener como alternativa no revoca la preferencia explícita por subir. Tampoco se asigna N por ser staff. Conservar H.",
+      "citas_agente": "[\"se inclina por recomendar un aumento de 25 puntos base en esta Reunión, para llevar la tasa de política a 3,5%.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2015-12-17:7210:1",
+      "citas": [
+        "se inclina por recomendar un aumento de 25 puntos base en esta Reunión, para llevar la tasa de política a 3,5%.",
+        "la sugerencia de la Gerencia de División Estudios es la de mantener el sesgo al alza"
+      ],
+      "fenomenos": [
+        "nivel_expansivo_vs_direccion",
+        "alza_explicita"
+      ],
+      "lectura": "H por recomendar subir 25 puntos y conservar un sesgo al alza, aunque el nivel posterior siga siendo expansivo y las alzas futuras se espacien. El texto sí expresa la dirección; no hay que importar una tasa de partida desde otra intervención.",
+      "hipotesis_a_contrastar": "Comprobar si la debilidad de actividad y las palabras sobre expansividad empujan a D, y si la recomendación aislada se reconoce como H.",
+      "limite": "Mantener la política en terreno expansivo describe nivel; reducir su expansividad describe dirección. Una media de segmentos en BETO también podría diluir esta distinción; no basta cambiar arquitectura."
+    },
+    "scores_b": {
+      "dovish": 0.42424775149588767,
+      "hawkish": 0.17055475892364536,
+      "neutral": -0.5948025104195458
+    },
+    "descomposicion": {
+      "intercepto": 0.22999032783580342,
+      "suma_aportes": 0.02370266473643809,
+      "margen": 0.25369299257224154,
+      "residuo_no_mostrado": 0.047536354854077104,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "baja",
+          "tfidf": 0.03356580630270247,
+          "coef_contraste": 1.101369249034164,
+          "aporte": 0.03696834688083363,
+          "df_train_hawkish": 21,
+          "df_train_dovish": 41,
+          "df_train_neutral": 149
+        },
+        {
+          "termino": "sesgo",
+          "tfidf": 0.045728675408658305,
+          "coef_contraste": 0.7470990430331714,
+          "aporte": 0.034163849636983136,
+          "df_train_hawkish": 18,
+          "df_train_dovish": 23,
+          "df_train_neutral": 20
+        },
+        {
+          "termino": "mantener",
+          "tfidf": 0.02411305684843279,
+          "coef_contraste": 1.0260921415415005,
+          "aporte": 0.02474221814072035,
+          "df_train_hawkish": 47,
+          "df_train_dovish": 49,
+          "df_train_neutral": 65
+        },
+        {
+          "termino": "tiempo",
+          "tfidf": 0.03208976271170939,
+          "coef_contraste": 0.6811662293363707,
+          "aporte": 0.021858462666633955,
+          "df_train_hawkish": 20,
+          "df_train_dovish": 26,
+          "df_train_neutral": 85
+        },
+        {
+          "termino": "contexto",
+          "tfidf": 0.04130838240308579,
+          "coef_contraste": 0.5260181979487775,
+          "aporte": 0.021728960871850177,
+          "df_train_hawkish": 17,
+          "df_train_dovish": 22,
+          "df_train_neutral": 49
+        },
+        {
+          "termino": "bajos",
+          "tfidf": 0.04319437846137111,
+          "coef_contraste": 0.4648776607801203,
+          "aporte": 0.02008010161797341,
+          "df_train_hawkish": 5,
+          "df_train_dovish": 11,
+          "df_train_neutral": 30
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "un aumento",
+          "tfidf": 0.0367697992162482,
+          "coef_contraste": -1.0838279635738284,
+          "aporte": -0.03985213660556484,
+          "df_train_hawkish": 46,
+          "df_train_dovish": 10,
+          "df_train_neutral": 72
+        },
+        {
+          "termino": "alza",
+          "tfidf": 0.028876664951120075,
+          "coef_contraste": -1.2661318810982651,
+          "aporte": -0.036561666114406005,
+          "df_train_hawkish": 61,
+          "df_train_dovish": 24,
+          "df_train_neutral": 160
+        },
+        {
+          "termino": "un aumento de",
+          "tfidf": 0.03164444684122518,
+          "coef_contraste": -0.928065799613213,
+          "aporte": -0.029368128861019457,
+          "df_train_hawkish": 31,
+          "df_train_dovish": 6,
+          "df_train_neutral": 30
+        },
+        {
+          "termino": "25 puntos base",
+          "tfidf": 0.015736797594724853,
+          "coef_contraste": -1.719701379377691,
+          "aporte": -0.027062592530635858,
+          "df_train_hawkish": 68,
+          "df_train_dovish": 18,
+          "df_train_neutral": 34
+        },
+        {
+          "termino": "25 puntos",
+          "tfidf": 0.01569462381446521,
+          "coef_contraste": -1.718711423337167,
+          "aporte": -0.026974529234900894,
+          "df_train_hawkish": 68,
+          "df_train_dovish": 18,
+          "df_train_neutral": 35
+        },
+        {
+          "termino": "de 25 puntos base",
+          "tfidf": 0.01868972006955707,
+          "coef_contraste": -1.2604028577440802,
+          "aporte": -0.023556576586106617,
+          "df_train_hawkish": 40,
+          "df_train_dovish": 5,
+          "df_train_neutral": 22
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "se inclina por recomendar un aumento de 25 puntos base en esta Reunión, para llevar la tasa de política a 3,5%.",
+      "solo_b": true,
+      "pred_b": "hawkish",
+      "scores_b": {
+        "dovish": -1.3673713140308545,
+        "hawkish": 1.6015356217889314,
+        "neutral": -0.23416430775808417
+      },
+      "coincide_referencia": true
+    }
+  },
+  {
+    "intervencion_id": "RPM-2008-03-13:1731:2",
+    "actor": "Manuel Marfán Lewis",
+    "fecha": "2008-03-13",
+    "fold": 4,
+    "etiqueta_ia_original": "hawkish",
+    "etiqueta_corregida_v2": "hawkish",
+    "pred_a": 1,
+    "pred": "dovish",
+    "texto_completo": "El Consejero señor Manuel Marfán agradece el análisis del staff que en esta ocasión de mayor dificultad para interpretar la coyuntura, ha estado particularmente esclarecedor. Destaca especialmente la Minuta de Opciones que de manera breve ha abordado temas de profundidad y hace suyas la lista de las principales noticias contenidas en esa Minuta para no alargar este voto. Indica que en ocasiones anteriores ha hecho referencia al elevado nivel de las compensaciones inflacionarias que se desprenden de los precios de los activos, y señala que el propio staff ha elaborado Minutas internas que muestran que se trata de un fenómeno generalizado en muchas otras economías y que en nuestro caso hay un componente de prima de riesgo que se ha elevado y que, por lo tanto, no hay una evidencia clara de desanclaje de expectativas. Manifiesta que un indicador más confiable en las actuales circunstancias es la Encuesta de Expectativas Económicas que muestra un aumento en las proyecciones de inflación que es considerablemente inferior al que está contenido en las compensaciones inflacionarias. Respecto del tipo de cambio, el Consejero señor Manuel Marfán destaca dos factores. Primero, que la apreciación del peso de los últimos meses no se explica por la mayor inflación mundial en dólares solamente y que, por lo tanto, la apreciación real también ha sido muy significativa. Segundo, que la apreciación de los últimos meses no se explica por un cambio en los fundamentales que determinan su equilibrio. Por lo tanto, en su opinión, sí se justifica lo que ha señalado en los dos últimas Reuniones, en cuanto a que el tipo de cambio real se encuentra por debajo, es decir más apreciado del rango que el Banco Central de Chile considera el equilibrio fundamental; que ese desalineamiento cambiario se ha profundizado; y, que los supuestos de convergencia que usualmente se imponen en nuestros modelos no se están dando. El Consejero señor Marfán agrega a su planteamiento que las políticas de estabilización cuando coinciden con desalineamientos cambiarios pronunciados no han tenido efecto permanente, ni en Chile ni en otras economías y que profundizar el efecto estabilizador a costa de exacerbar otros desequilibrios macroeconómicos está fuera de cualquier modelo racional que conozca. Comenta el señor Consejero Marfán que el papel de la política monetaria es acercar la economía lo más rápidamente posible a su equilibrio estacionario, donde una inflación igual a la meta forma parte de este equilibrio, pero acercar la inflación a su nivel meta a costa de alejar alguna otra variable de su equilibrio estacionario es inconsistente, a su juicio, con nuestra misión institucional. Indica que la actual coyuntura exige combinar una política monetaria estabilizadora con intervención en el mercado cambiario, es decir, un esfuerzo que nos acerque al equilibrio estacionario en todas sus variables fundamentales. Reconoce el Consejero señor Marfán que esta mezcla de política es altamente debatible, tanto teórica como empíricamente, y que en su argumento el peso de la prueba recae en él. Señala que se trata de una tarea qué está realizando, de la cual está convencido, pero donde está pendiente aún convencer a sus colegas del Consejo y del staff, cosa que espera hacer en los próximos días. En opinión del Consejero señor Manuel Marfán, hay que elevar la tasa de política monetaria en conjunto con una intervención cambiaria y que en ausencia de esta última, no corresponde elevar la tasa de política monetaria en esta Reunión. Por las razones ya expuestas, indica que lo anterior no significa renunciar a nuestra misión antiinflacionaria. Agrega que el esfuerzo antiinflacionario debe hacerse de manera duradera, sin exacerbar otros desequilibrios peligrosos. Manifiesta que el atraso cambiario no es una forma legítima, en el sentido de duradera, de lograr una meta que hemos definido de manera permanente, ya que hay amplia evidencia que los desalineamientos cambiarios se corrigen con brusquedad. Indica que tampoco está señalando que elevar la tasa de política hoy hará más controlable la inflación a futuro, solo por su efecto cambiario. Por el contrario, señala que lo que está diciendo es que ese aumento exacerbaría un desequilibrio que existe y que ya es grave. Finalmente, señala el Consejero señor Marfán que respecto del sesgo, hay que mantenerlo por simple coherencia con su propio argumento, y agrega que si cree debe hacerse una intervención cambiaria, desconocer ese sesgo sería una pura y simple manipulación. En consecuencia, el Consejero señor Manuel Marfán vota por mantener la tasa de política monetaria en su nivel actual, manteniendo el sesgo al alza en el Comunicado. Luego de la votación del Consejero señor Manuel Marfán,",
+    "sha256_texto": "1a0920b92c9bd8d68e6e540132c1286e2ba32d5a67a72989f2b47e5a66df9079",
+    "revision_previa": {
+      "caso_revision": "H09",
+      "fecha": "2008-03-13",
+      "actor": "Manuel Marfán Lewis",
+      "etiqueta_ia": "hawkish",
+      "pred_adjudicada": "dovish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "hawkish",
+      "confianza_revision": "alta",
+      "sha256_texto": "1a0920b92c9bd8d68e6e540132c1286e2ba32d5a67a72989f2b47e5a66df9079",
+      "lectura": "Respalda elevar la TPM bajo una combinación de políticas y conserva el sesgo al alza. Mantiene hoy porque no se realiza la intervención cambiaria que considera necesaria. La condición no elimina la inclinación revelada; H tiene fundamento.",
+      "limite_y_accion": "No afirma que subir aisladamente hoy sea su opción. El propósito es capturar la postura del texto completo, no registrar un alza que no ocurrió. Conservar H; D omite la propuesta combinada y el sesgo expreso.",
+      "citas_agente": "[\"hay que elevar la tasa de política monetaria en conjunto con una intervención cambiaria\", \"manteniendo el sesgo al alza en el Comunicado.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2008-03-13:1731:2",
+      "citas": [
+        "vota por mantener la tasa de política monetaria en su nivel actual, manteniendo el sesgo al alza en el Comunicado."
+      ],
+      "fenomenos": [
+        "pausa_con_sesgo_alcista",
+        "paquete_condicionado"
+      ],
+      "lectura": "H por conservar explícitamente el sesgo al alza y preferir una combinación de alza e intervención cambiaria. Sin el segundo instrumento rechaza subir hoy. La referencia es más defendible que en los cinco ambiguos, pero no tiene la simplicidad de un voto de alza inmediata.",
+      "hipotesis_a_contrastar": "Comprobar si los argumentos contra subir sin intervención dominan frente al sesgo y a la combinación preferida.",
+      "limite": "No traducir H como voto de alza hoy: vota mantener. La condición de intervención cambiaria es sustantiva. Conservar la cautela de horizonte y paquete; no afirmar error indiscutible por el solo estado respaldada."
+    },
+    "scores_b": {
+      "dovish": 0.3383818612512174,
+      "hawkish": 0.09594295730415037,
+      "neutral": -0.4343248185553765
+    },
+    "descomposicion": {
+      "intercepto": 0.22999032783580342,
+      "suma_aportes": 0.012448576111264716,
+      "margen": 0.24243890394706813,
+      "residuo_no_mostrado": 0.0441824919151266,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "estacionario",
+          "tfidf": 0.07885746100025147,
+          "coef_contraste": 0.6250182158135374,
+          "aporte": 0.04928734957796278,
+          "df_train_hawkish": 0,
+          "df_train_dovish": 4,
+          "df_train_neutral": 3
+        },
+        {
+          "termino": "sesgo",
+          "tfidf": 0.050956624901857615,
+          "coef_contraste": 0.7470990430331714,
+          "aporte": 0.038069645700378095,
+          "df_train_hawkish": 18,
+          "df_train_dovish": 23,
+          "df_train_neutral": 20
+        },
+        {
+          "termino": "votacion",
+          "tfidf": 0.03162687229893375,
+          "coef_contraste": 1.181549967392454,
+          "aporte": 0.037368729933530485,
+          "df_train_hawkish": 1,
+          "df_train_dovish": 11,
+          "df_train_neutral": 7
+        },
+        {
+          "termino": "equilibrio estacionario",
+          "tfidf": 0.08830193698185611,
+          "coef_contraste": 0.3630243083998906,
+          "aporte": 0.03205574960320903,
+          "df_train_hawkish": 0,
+          "df_train_dovish": 2,
+          "df_train_neutral": 1
+        },
+        {
+          "termino": "consecuencia el",
+          "tfidf": 0.034943470553387444,
+          "coef_contraste": 0.7562483293874829,
+          "aporte": 0.026425941228999956,
+          "df_train_hawkish": 2,
+          "df_train_dovish": 7,
+          "df_train_neutral": 2
+        },
+        {
+          "termino": "en consecuencia el",
+          "tfidf": 0.034943470553387444,
+          "coef_contraste": 0.7562483293874829,
+          "aporte": 0.026425941228999956,
+          "df_train_hawkish": 2,
+          "df_train_dovish": 7,
+          "df_train_neutral": 2
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "elevar",
+          "tfidf": 0.06279769892410139,
+          "coef_contraste": -0.8641238214464451,
+          "aporte": -0.0542649875723378,
+          "df_train_hawkish": 19,
+          "df_train_dovish": 2,
+          "df_train_neutral": 4
+        },
+        {
+          "termino": "elevar la",
+          "tfidf": 0.06707143957274994,
+          "coef_contraste": -0.8042269566875713,
+          "aporte": -0.05394065972824702,
+          "df_train_hawkish": 15,
+          "df_train_dovish": 1,
+          "df_train_neutral": 2
+        },
+        {
+          "termino": "elevar la tasa de",
+          "tfidf": 0.07224217490570602,
+          "coef_contraste": -0.6882834959928372,
+          "aporte": -0.049723096702225356,
+          "df_train_hawkish": 11,
+          "df_train_dovish": 0,
+          "df_train_neutral": 1
+        },
+        {
+          "termino": "elevar la tasa",
+          "tfidf": 0.06941298501864684,
+          "coef_contraste": -0.5612611402942087,
+          "aporte": -0.03895881112279055,
+          "df_train_hawkish": 12,
+          "df_train_dovish": 1,
+          "df_train_neutral": 2
+        },
+        {
+          "termino": "compensaciones",
+          "tfidf": 0.05250120804652602,
+          "coef_contraste": -0.43405303107855975,
+          "aporte": -0.02278830848788069,
+          "df_train_hawkish": 11,
+          "df_train_dovish": 1,
+          "df_train_neutral": 9
+        },
+        {
+          "termino": "compensaciones inflacionarias",
+          "tfidf": 0.05470717428484246,
+          "coef_contraste": -0.3965002716192336,
+          "aporte": -0.02169140946346079,
+          "df_train_hawkish": 10,
+          "df_train_dovish": 1,
+          "df_train_neutral": 6
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "vota por mantener la tasa de política monetaria en su nivel actual, manteniendo el sesgo al alza en el Comunicado.",
+      "solo_b": true,
+      "pred_b": "dovish",
+      "scores_b": {
+        "dovish": 0.05665890942973684,
+        "hawkish": 0.0214431856462578,
+        "neutral": -0.07810209507600341
+      },
+      "coincide_referencia": false
+    }
+  },
+  {
+    "intervencion_id": "RPM-2015-12-17:7212:1",
+    "actor": "Pablo García Silva",
+    "fecha": "2015-12-17",
+    "fold": 4,
+    "etiqueta_ia_original": "hawkish",
+    "etiqueta_corregida_v2": "hawkish",
+    "pred_a": 1,
+    "pred": "dovish",
+    "texto_completo": "El Consejero señor Pablo García inicia su intervención agradeciendo los antecedentes proporcionados por la Gerencia de División Estudios para esta Reunión, así como también las opiniones vinculadas con el IPoM, que resultan ser muy útiles para esta ocasión. Manifiesta su concordancia con lo consignado en la minuta de opciones en cuanto a que las dos alternativas planteadas —la mantención de la TPM en 3,25% o un alza de 25 puntos base, a 3,5%— son válidas. De hecho, considera notable que para la Reunión de hoy las opiniones de analistas, las encuestas y los precios de activos estén prácticamente equiparados en lo que se refiere a la decisión de política monetaria en sí misma. Expresa que, a su entender, ello refleja que la decisión está finamente balanceada, pero en un contexto general donde no cree que haya diferencias muy significativas. De hecho, el escenario de política monetaria del IPoM que se divulgará la semana próxima sugiere que en este ciclo la TPM de llegada está en torno a 4%, lo que es similar a lo contemplado en el IPoM del mes de septiembre y refleja que los efectos de las noticias sobre la trayectoria de la tasa se tienden a compensar. Precisa que estas noticias dicen relación, por un lado, con un escenario externo que se ve más deteriorado debido a la caída del precio del cobre y perspectivas de crecimiento globales, pero principalmente regionales, peores. Por el lado doméstico, concuerda con la minuta de opciones respecto de la pertinencia de mantener una política monetaria en terreno expansivo, en un contexto donde la política fiscal está tomando una senda de consolidación que es gradual. En su opinión, ambas opciones mantienen los criterios mencionados. En ese contexto, manifiesta una preferencia marginal por aumentar la TPM, principalmente basado en el hecho que es en el IPoM donde se dará a conocer nuestra estrategia de política monetaria relacionada con el escenario base para los próximos trimestres y, por lo tanto, cree que puede ser prudente tener un contexto sin temas pendientes vinculados con el escenario del Informe del mes de septiembre. Pero, por lo mismo, considera que ello lleva consigo una comunicación de sesgo que debe ser más bien neutra. A su juicio, ello se justifica por dos razones principales. En primer lugar, porque si se repite el mismo sesgo de la Reunión pasada, será muy directo colegir por parte de observadores externos que ese lenguaje específico de sesgo implica una alza cada dos Reuniones, asunto que no es parte del escenario del IPoM. En segundo término, porque el IPoM de diciembre tiene alzas hacia el segundo trimestre del próximo año, lo que es un horizonte suficientemente lejano como para que no sea obvio indicar un sesgo en un comunicado de una RPM en particular. Como lo ha manifestado en otras ocasiones, considera que la inclusión de un sesgo tiene que sugerir —o debiese sugerir— un movimiento de tasas relativamente inmediato. Dentro de estas mismas consideraciones, menciona el punto a favor de mantener la TPM con un sesgo. Señala que de seguir esta estrategia, se puede transmitir que el lenguaje que tenemos incluido en el texto sugiere un ritmo de normalización de un alza cada tres o cuatro Reuniones, que se aproxima bastante al escenario que se tiene delineado en el Informe. Sin embargo, se debe reconocer que este es un argumento relativamente complejo y que radica en cierta tranquilidad en que podemos comunicar de manera transparente pasos a seguir en política monetaria con bastante más certeza que la que realmente tenemos. En cualquier caso, estima que ambas opciones son coherentes con que la tasa de llegada en este ciclo es del orden de 4% hacia fines del año 2016. No obstante, como este es un tema que corresponde explicar plenamente en el IPoM, expresa su inclinación por la opción de subir la TPM en esta Reunión, con un sesgo neutral, o, en su defecto, como consigna la minuta de opciones, con una comunicación que sea coherente con lo que tenemos delineado hasta ahora en el IPoM del mes de diciembre. En razón de lo expresado precedentemente, el Consejero señor Pablo García manifiesta que su voto es por aumentar la TPM en 25 puntos base, a 3,5%.",
+    "sha256_texto": "610009da5e0beec504efad779d6541f625a5f68cc684ec30742d2517eb3c4a48",
+    "revision_previa": {
+      "caso_revision": "H16",
+      "fecha": "2015-12-17",
+      "actor": "Pablo García Silva",
+      "etiqueta_ia": "hawkish",
+      "pred_adjudicada": "dovish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "hawkish",
+      "confianza_revision": "alta",
+      "sha256_texto": "610009da5e0beec504efad779d6541f625a5f68cc684ec30742d2517eb3c4a48",
+      "lectura": "Vota por subir, expresa una trayectoria posterior hacia 4% y solo quiere que la comunicación no prometa alzas demasiado frecuentes. Su preferencia por un sesgo comunicacional neutral no transforma en N o D el voto alcista de esta intervención.",
+      "limite_y_accion": "Distinguir postura completa, cambio decidido y etiqueta del sesgo del comunicado. Aquí el alza explícita permite resolverlo bajo R1. Conservar H.",
+      "citas_agente": "[\"su voto es por aumentar la TPM en 25 puntos base, a 3,5%.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2015-12-17:7212:1",
+      "citas": [
+        "su voto es por aumentar la TPM en 25 puntos base, a 3,5%."
+      ],
+      "fenomenos": [
+        "alza_con_sesgo_neutral",
+        "nivel_expansivo_vs_direccion"
+      ],
+      "lectura": "H por voto explícito de alza. La comunicación neutral y el carácter aún expansivo del nivel de tasa no convierten la decisión en D ni en N. El menú inicial acaba en una preferencia elegida.",
+      "hipotesis_a_contrastar": "Examinar si las asociaciones con mantener, expansividad y sesgo neutral superan la evidencia de subir; probar el voto aislado sin llamarlo un clasificador nuevo.",
+      "limite": "Una preferencia marginal sigue siendo una preferencia, no certeza sobre toda la trayectoria futura. No heredar automáticamente el sesgo de otro consejero."
+    },
+    "scores_b": {
+      "dovish": 0.6080001463334456,
+      "hawkish": 0.3945510304543678,
+      "neutral": -1.0025511767878283
+    },
+    "descomposicion": {
+      "intercepto": 0.22999032783580342,
+      "suma_aportes": -0.016541211956725786,
+      "margen": 0.21344911587907764,
+      "residuo_no_mostrado": 0.07317851739748932,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "sesgo",
+          "tfidf": 0.07088552421214414,
+          "coef_contraste": 0.7470990430331714,
+          "aporte": 0.05295850730379759,
+          "df_train_hawkish": 18,
+          "df_train_dovish": 23,
+          "df_train_neutral": 20
+        },
+        {
+          "termino": "tpm",
+          "tfidf": 0.05895245006386365,
+          "coef_contraste": 0.6219862578528562,
+          "aporte": 0.036667613806479926,
+          "df_train_hawkish": 22,
+          "df_train_dovish": 31,
+          "df_train_neutral": 44
+        },
+        {
+          "termino": "la tpm",
+          "tfidf": 0.060682801696189774,
+          "coef_contraste": 0.5461782204615399,
+          "aporte": 0.03314362464304544,
+          "df_train_hawkish": 22,
+          "df_train_dovish": 30,
+          "df_train_neutral": 36
+        },
+        {
+          "termino": "de opciones",
+          "tfidf": 0.059856934292300906,
+          "coef_contraste": 0.5450926423028863,
+          "aporte": 0.032627574473540547,
+          "df_train_hawkish": 7,
+          "df_train_dovish": 14,
+          "df_train_neutral": 9
+        },
+        {
+          "termino": "mantener",
+          "tfidf": 0.03027789803836566,
+          "coef_contraste": 1.0260921415415005,
+          "aporte": 0.031067913239561817,
+          "df_train_hawkish": 47,
+          "df_train_dovish": 49,
+          "df_train_neutral": 65
+        },
+        {
+          "termino": "la minuta",
+          "tfidf": 0.05313474964360982,
+          "coef_contraste": 0.5302572759467994,
+          "aporte": 0.02817508760413571,
+          "df_train_hawkish": 10,
+          "df_train_dovish": 14,
+          "df_train_neutral": 26
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "25 puntos base",
+          "tfidf": 0.033456809450327474,
+          "coef_contraste": -1.719701379377691,
+          "aporte": -0.05753572136130472,
+          "df_train_hawkish": 68,
+          "df_train_dovish": 18,
+          "df_train_neutral": 34
+        },
+        {
+          "termino": "25",
+          "tfidf": 0.03752867419200983,
+          "coef_contraste": -1.5307244415927963,
+          "aporte": -0.05744605884628223,
+          "df_train_hawkish": 79,
+          "df_train_dovish": 29,
+          "df_train_neutral": 53
+        },
+        {
+          "termino": "25 puntos",
+          "tfidf": 0.03336714698110821,
+          "coef_contraste": -1.718711423337167,
+          "aporte": -0.05734849668060094,
+          "df_train_hawkish": 68,
+          "df_train_dovish": 18,
+          "df_train_neutral": 35
+        },
+        {
+          "termino": "aumentar la",
+          "tfidf": 0.04423229978067471,
+          "coef_contraste": -1.1489214399448295,
+          "aporte": -0.05081943755608415,
+          "df_train_hawkish": 31,
+          "df_train_dovish": 3,
+          "df_train_neutral": 10
+        },
+        {
+          "termino": "un alza",
+          "tfidf": 0.0379643239171685,
+          "coef_contraste": -1.075635967544571,
+          "aporte": -0.04083579228881904,
+          "df_train_hawkish": 38,
+          "df_train_dovish": 10,
+          "df_train_neutral": 31
+        },
+        {
+          "termino": "alza",
+          "tfidf": 0.03188810288598326,
+          "coef_contraste": -1.2661318810982651,
+          "aporte": -0.040374543691685,
+          "df_train_hawkish": 61,
+          "df_train_dovish": 24,
+          "df_train_neutral": 160
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "su voto es por aumentar la TPM en 25 puntos base, a 3,5%.",
+      "solo_b": true,
+      "pred_b": "hawkish",
+      "scores_b": {
+        "dovish": -0.7830861346749787,
+        "hawkish": 1.0337910109168684,
+        "neutral": -0.2507048762418984
+      },
+      "coincide_referencia": true
+    }
+  },
+  {
+    "intervencion_id": "RPM-2015-09-15:7045:1",
+    "actor": "Consejo del Banco Central de Chile",
+    "fecha": "2015-09-15",
+    "fold": 5,
+    "etiqueta_ia_original": "hawkish",
+    "etiqueta_corregida_v2": "hawkish",
+    "pred_a": 1,
+    "pred": "dovish",
+    "texto_completo": "Conforme a la votación efectuada por los señores Consejeros, el Consejo adoptó el siguiente Acuerdo: N° 226-01-150915 - Tasa de Política Monetaria En su reunión mensual de política monetaria, el Consejo del Banco Central de Chile acordó mantener la tasa de interés de política monetaria en 3% anual. Al concluir la Reunión, se procede a dar lectura al texto del Comunicado, que es del siguiente tenor: Comunicado “En su reunión mensual de política monetaria, el Consejo del Banco Central de Chile acordó mantener la tasa de interés de política monetaria en 3% anual. En el ámbito externo, los mercados financieros siguen mostrando una alta volatilidad. Destacan los riesgos relacionados con los desarrollos de la economía china, la incertidumbre acerca de la próxima decisión de la Reserva Federal y el deterioro del escenario para América Latina, en particular Brasil. La volatilidad se ha manifestado también en los precios de las materias primas, especialmente del petróleo y, en menor medida, del cobre. En lo interno, el IPC de agosto sorprendió al alza, mayormente por sus componentes más volátiles. Con ello, la inflación anual alcanzó a 5%. La inflación subyacente — IPCSAE— no tuvo mayores sorpresas respecto de lo previsto. Las expectativas de inflación aumentaron en algunos plazos. Su evolución se seguirá monitoreando con especial atención. Por su parte, la actividad y la demanda siguen débiles, y los indicadores de confianza se volvieron más pesimistas. La creación de empleo privado y el crecimiento anual de los salarios no muestran mayores cambios respecto del mes previo. En línea con el IPoM de septiembre, el Consejo considera que la convergencia de la inflación a 3% en el horizonte de política requerirá reducir el elevado estímulo monetario actual. Dados los antecedentes recientes, se prevé que este proceso comenzará en el corto plazo. El Consejo reafirma su compromiso de conducir la política monetaria con flexibilidad, acorde con la meta de inflación.”",
+    "sha256_texto": "75c9fc890578e632345dcb041b37bdf6fe7a4b9c91c404390e962dc07d73383c",
+    "revision_previa": {
+      "caso_revision": "H14",
+      "fecha": "2015-09-15",
+      "actor": "Consejo del Banco Central de Chile",
+      "etiqueta_ia": "hawkish",
+      "pred_adjudicada": "dovish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "hawkish",
+      "confianza_revision": "alta",
+      "sha256_texto": "75c9fc890578e632345dcb041b37bdf6fe7a4b9c91c404390e962dc07d73383c",
+      "lectura": "Mantiene hoy, pero anuncia un retiro del estímulo necesario y próximo. H es consistente con la postura futura respaldada. Reducir el estímulo no significa reducir la tasa: son objetos distintos y direcciones monetarias opuestas.",
+      "limite_y_accion": "Las noticias de actividad débil no eliminan esa conclusión. Conservar H. El contraste semántico no es una explicación medida de los coeficientes del modelo.",
+      "citas_agente": "[\"la convergencia de la inflación a 3% en el horizonte de política requerirá reducir el elevado estímulo monetario actual.\", \"se prevé que este proceso comenzará en el corto plazo.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2015-09-15:7045:1",
+      "citas": [
+        "el Consejo considera que la convergencia de la inflación a 3% en el horizonte de política requerirá reducir el elevado estímulo monetario actual. Dados los antecedentes recientes, se prevé que este proceso comenzará en el corto plazo."
+      ],
+      "fenomenos": [
+        "objeto_estimulo_vs_tasa",
+        "direccion_futura"
+      ],
+      "lectura": "H por anunciar retiro de estímulo próximo, aunque mantenga hoy la TPM. Reducir estímulo es dirección contractiva, no reducir la tasa.",
+      "hipotesis_a_contrastar": "Verificar si estímulo, debilidad y mantener aportan D y si los n-gramas disponibles distinguen el objeto de reducir.",
+      "limite": "El texto no fija una magnitud de alza. No inventar una decisión inmediata ni identificar una palabra como causa suficiente sin medir sus contribuciones."
+    },
+    "scores_b": {
+      "dovish": 0.3961387584475451,
+      "hawkish": -0.01264437375741223,
+      "neutral": -0.3834943846900476
+    },
+    "descomposicion": {
+      "intercepto": 0.13948384131122493,
+      "suma_aportes": 0.2692992908937335,
+      "margen": 0.40878313220495843,
+      "residuo_no_mostrado": 0.22918288836962875,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "mantener la tasa",
+          "tfidf": 0.04359621255479717,
+          "coef_contraste": 0.8686058005007171,
+          "aporte": 0.03786792310495901,
+          "df_train_hawkish": 29,
+          "df_train_dovish": 33,
+          "df_train_neutral": 44
+        },
+        {
+          "termino": "mantener",
+          "tfidf": 0.03719501625601797,
+          "coef_contraste": 0.9363289134472632,
+          "aporte": 0.034826769156650596,
+          "df_train_hawkish": 50,
+          "df_train_dovish": 47,
+          "df_train_neutral": 73
+        },
+        {
+          "termino": "mantener la",
+          "tfidf": 0.040321767298088035,
+          "coef_contraste": 0.7838997912849583,
+          "aporte": 0.03160822496921187,
+          "df_train_hawkish": 39,
+          "df_train_dovish": 39,
+          "df_train_neutral": 57
+        },
+        {
+          "termino": "reducir",
+          "tfidf": 0.03328968243835658,
+          "coef_contraste": 0.8881685828484852,
+          "aporte": 0.02956685007475127,
+          "df_train_hawkish": 13,
+          "df_train_dovish": 14,
+          "df_train_neutral": 14
+        },
+        {
+          "termino": "votacion",
+          "tfidf": 0.039272612098225176,
+          "coef_contraste": 0.6416588332344404,
+          "aporte": 0.025199618457015936,
+          "df_train_hawkish": 3,
+          "df_train_dovish": 9,
+          "df_train_neutral": 7
+        },
+        {
+          "termino": "la votacion",
+          "tfidf": 0.04107202572937641,
+          "coef_contraste": 0.5955707361690404,
+          "aporte": 0.02446129659959848,
+          "df_train_hawkish": 2,
+          "df_train_dovish": 6,
+          "df_train_neutral": 7
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "de politica monetaria",
+          "tfidf": 0.045147967493014,
+          "coef_contraste": -0.7225599674405625,
+          "aporte": -0.032622113921759774,
+          "df_train_hawkish": 97,
+          "df_train_dovish": 55,
+          "df_train_neutral": 152
+        },
+        {
+          "termino": "de politica",
+          "tfidf": 0.0453980467206657,
+          "coef_contraste": -0.5403869352809345,
+          "aporte": -0.024532511335121215,
+          "df_train_hawkish": 104,
+          "df_train_dovish": 68,
+          "df_train_neutral": 174
+        },
+        {
+          "termino": "siguen",
+          "tfidf": 0.042493544017393164,
+          "coef_contraste": -0.5278323829587193,
+          "aporte": -0.022429468599061864,
+          "df_train_hawkish": 43,
+          "df_train_dovish": 15,
+          "df_train_neutral": 57
+        },
+        {
+          "termino": "de inflacion",
+          "tfidf": 0.03308869416201913,
+          "coef_contraste": -0.6579228196416438,
+          "aporte": -0.021769806961335625,
+          "df_train_hawkish": 71,
+          "df_train_dovish": 38,
+          "df_train_neutral": 121
+        },
+        {
+          "termino": "del banco",
+          "tfidf": 0.040729362273966806,
+          "coef_contraste": -0.5308333331139974,
+          "aporte": -0.0216205031314973,
+          "df_train_hawkish": 45,
+          "df_train_dovish": 22,
+          "df_train_neutral": 64
+        },
+        {
+          "termino": "alza",
+          "tfidf": 0.01923450267748415,
+          "coef_contraste": -1.0626672408449358,
+          "aporte": -0.02043987588930661,
+          "df_train_hawkish": 62,
+          "df_train_dovish": 22,
+          "df_train_neutral": 155
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "el Consejo considera que la convergencia de la inflación a 3% en el horizonte de política requerirá reducir el elevado estímulo monetario actual. Dados los antecedentes recientes, se prevé que este proceso comenzará en el corto plazo.",
+      "solo_b": true,
+      "pred_b": "neutral",
+      "scores_b": {
+        "dovish": 0.007329487363038956,
+        "hawkish": -0.7143207825903599,
+        "neutral": 0.7069912952274096
+      },
+      "coincide_referencia": false
+    }
+  },
+  {
+    "intervencion_id": "RPM-2010-10-14:3491:1",
+    "actor": "José De Gregorio Rebeco",
+    "fecha": "2010-10-14",
+    "fold": 5,
+    "etiqueta_ia_original": "hawkish",
+    "etiqueta_corregida_v2": "hawkish",
+    "pred_a": 1,
+    "pred": "dovish",
+    "texto_completo": "El Presidente señor José De Gregorio inicia su intervención, destacando que la economía nacional sigue en una vigorosa senda de recuperación, lo que se reafirma con las recientes cifras de actividad y empleo; que en el margen también se observa una moderación del crecimiento de la demanda agregada; y, que todo ello es coherente con el escenario base del último IPoM. No obstante, advierte que, en el ambiente internacional, a pesar que los precios de los commodities han seguido aumentando y las tasas de interés se han reducido, existen riesgos importantes, y todo ello, en un panorama en el que la recuperación de las economías avanzadas continúa lento y con niveles de desempleo muy elevados. En su opinión, eso sugiere, tal como ya ha sido anunciado por la Reserva Federal, que habrá nuevos relajamientos monetarios sobre la base de relajaciones cuantitativas. El Presidente señor José De Gregorio subraya que la principal fuente de riesgos proviene del importante desacoplamiento del crecimiento de las economías emergentes con el desempeño de las economías avanzadas. A su juicio, si en estas últimas persiste la debilidad por un tiempo prolongado, es difícil pensar que el desacoplamiento persistirá, tanto por sus implicancias para la demanda global como por las tensiones financieras y cambiarias que esto podría seguir causando. De hecho, indica que si bien el dólar se ha depreciado, el ajuste de monedas en los países actualmente en una posición cíclica fuerte ha sido incompleto, lo que ha puesto gran presión sobre las monedas de los países que flotan. Añade que esta heterogeneidad del ajuste podría tener efectos negativos sobre la actividad y la estabilidad financiera en las economías emergentes, y que si bien la economía global está creciendo, fundamentalmente por la fuerza de las economías en desarrollo, y se espera que continúe el próximo año, la dirección de los ajustes en la economía global, así como sus implicancias sobre nuestra economía, son altamente inciertos. En el ámbito inflacionario, menciona que las noticias recientes muestran que la inflación ha tenido un comportamiento más contenido que el esperado, que el mercado así ha tomado las cifras más recientes y que las expectativas se han ajustado a la baja. Más aún, el señor Presidente destaca que, incluso, el vigor del empleo no se ha visto reflejado en aumentos de las presiones salariales. El Presidente señor José De Gregorio hace presente que la apreciación del peso ha sido significativa e inesperada y que si bien la evolución del peso no es muy distinta a las de las otras monedas de las economías emergentes, el ajuste es importante, lo cual tiene consecuencias sobre la inflación. Más allá de las últimas cifras, en las que la apreciación del peso tiene un impacto limitado, plantea que es esperable que en el horizonte de políticas, el actual nivel del peso, incluso revirtiendo parte de su fortaleza, reduzca las presiones inflacionarias. Agrega que, dada la trayectoria de política monetaria que hace algunos meses fuera, a juicio del Consejo, la más adecuada para cumplir con la meta de inflación, las noticias recientes sugieren moderar el retiro del estímulo monetario. De hecho, señala que, en su caso, de no haber ocurrido la apreciación del peso y los menores registros de inflación, cree que la opción más adecuada hubiera sido subir la tasa en 50 puntos base. Hoy día, en su opinión, la mejor opción es por un alza menor. Con todo, expresa que el proceso de retiro del estímulo monetario debe continuar, pero que la magnitud y oportunidad habrá que calibrarlos, según las nuevas condiciones que se vayan configurando. Por lo anterior, el Presidente señor José De Gregorio manifiesta que su voto es por subir la TPM en 25 puntos base hasta 2,75%. En todo caso, el señor Presidente hace presente la necesidad de enfatizar que esta decisión de política monetaria es enteramente consistente con asegurar que la inflación se ubique en 3% en el plazo de dos años. En consecuencia, el Presidente señor José De Gregorio señala que el Consejo acuerda, por unanimidad, subir la tasa de política monetaria en 25 puntos base.",
+    "sha256_texto": "900925f48dd9136960187c8cb49ff360d79b19432a560d4602ba8691944c637e",
+    "revision_previa": {
+      "caso_revision": "H11",
+      "fecha": "2010-10-14",
+      "actor": "José De Gregorio Rebeco",
+      "etiqueta_ia": "hawkish",
+      "pred_adjudicada": "dovish",
+      "estado_revision": "referencia_respaldada",
+      "postura_sugerida_agente": "hawkish",
+      "confianza_revision": "alta",
+      "sha256_texto": "900925f48dd9136960187c8cb49ff360d79b19432a560d4602ba8691944c637e",
+      "lectura": "Modera el alza de 50 a 25 puntos, pero recomienda y vota por subir; también respalda continuar retirando estímulo. Un incremento menor sigue siendo H en esta tarea de dirección, no D por comparación con el aumento mayor descartado.",
+      "limite_y_accion": "No confundir los relajamientos monetarios descritos para economías avanzadas con su voto doméstico. Conservar H; no se ha identificado causalmente qué parte del texto generó la salida D.",
+      "citas_agente": "[\"su voto es por subir la TPM en 25 puntos base hasta 2,75%.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2010-10-14:3491:1",
+      "citas": [
+        "su voto es por subir la TPM en 25 puntos base hasta 2,75%.",
+        "el proceso de retiro del estímulo monetario debe continuar"
+      ],
+      "fenomenos": [
+        "alza_menor_no_recorte",
+        "externo_vs_domestico"
+      ],
+      "lectura": "H: sube 25 en lugar de los 50 que habría preferido sin nuevas noticias y respalda continuar retirando estímulo. La moderación del ritmo y los relajamientos extranjeros no invierten la dirección doméstica.",
+      "hipotesis_a_contrastar": "Comprobar si el vocabulario de moderar, inflación contenida o relajamiento domina; un menor endurecimiento no es automáticamente una reducción de la TPM.",
+      "limite": "El escenario alternativo de subir 50 es contrafactual; la decisión efectivamente respaldada es subir 25. No tratar ambos como dos recomendaciones independientes."
+    },
+    "scores_b": {
+      "dovish": 0.6010868815914325,
+      "hawkish": 0.49420697518019785,
+      "neutral": -1.0952938567715371
+    },
+    "descomposicion": {
+      "intercepto": 0.13948384131122493,
+      "suma_aportes": -0.03260393489999214,
+      "margen": 0.1068799064112328,
+      "residuo_no_mostrado": 0.12591738321451348,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "estimulo",
+          "tfidf": 0.03863944691671924,
+          "coef_contraste": 0.7090045137984419,
+          "aporte": 0.02739554227462923,
+          "df_train_hawkish": 21,
+          "df_train_dovish": 20,
+          "df_train_neutral": 20
+        },
+        {
+          "termino": "economias",
+          "tfidf": 0.05070526552023911,
+          "coef_contraste": 0.5126278379210205,
+          "aporte": 0.025992930634851443,
+          "df_train_hawkish": 25,
+          "df_train_dovish": 26,
+          "df_train_neutral": 81
+        },
+        {
+          "termino": "del peso",
+          "tfidf": 0.06362664793076067,
+          "coef_contraste": 0.4003617659018238,
+          "aporte": 0.025473677123972967,
+          "df_train_hawkish": 5,
+          "df_train_dovish": 13,
+          "df_train_neutral": 29
+        },
+        {
+          "termino": "las economias",
+          "tfidf": 0.05643898206797868,
+          "coef_contraste": 0.4421638822795497,
+          "aporte": 0.024955279423083343,
+          "df_train_hawkish": 16,
+          "df_train_dovish": 20,
+          "df_train_neutral": 58
+        },
+        {
+          "termino": "estimulo monetario",
+          "tfidf": 0.04026038854365396,
+          "coef_contraste": 0.5596273818830543,
+          "aporte": 0.02253081583427958,
+          "df_train_hawkish": 19,
+          "df_train_dovish": 18,
+          "df_train_neutral": 15
+        },
+        {
+          "termino": "emergentes",
+          "tfidf": 0.04189781418275764,
+          "coef_contraste": 0.5059337686871015,
+          "aporte": 0.021197519029234464,
+          "df_train_hawkish": 14,
+          "df_train_dovish": 21,
+          "df_train_neutral": 63
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "subir la",
+          "tfidf": 0.05350654163825174,
+          "coef_contraste": -1.2780721483652528,
+          "aporte": -0.06838522062319526,
+          "df_train_hawkish": 25,
+          "df_train_dovish": 3,
+          "df_train_neutral": 11
+        },
+        {
+          "termino": "subir",
+          "tfidf": 0.047485905106306084,
+          "coef_contraste": -1.174171516170318,
+          "aporte": -0.05575659719539126,
+          "df_train_hawkish": 30,
+          "df_train_dovish": 7,
+          "df_train_neutral": 26
+        },
+        {
+          "termino": "25 puntos base",
+          "tfidf": 0.03172899342521647,
+          "coef_contraste": -1.455251253375289,
+          "aporte": -0.04617365745038257,
+          "df_train_hawkish": 69,
+          "df_train_dovish": 20,
+          "df_train_neutral": 31
+        },
+        {
+          "termino": "subir la tasa",
+          "tfidf": 0.0454748934743885,
+          "coef_contraste": -1.0119638508490323,
+          "aporte": -0.04601894831729172,
+          "df_train_hawkish": 19,
+          "df_train_dovish": 3,
+          "df_train_neutral": 9
+        },
+        {
+          "termino": "25 puntos",
+          "tfidf": 0.03164393254512554,
+          "coef_contraste": -1.453953673544671,
+          "aporte": -0.04600881196938505,
+          "df_train_hawkish": 69,
+          "df_train_dovish": 20,
+          "df_train_neutral": 32
+        },
+        {
+          "termino": "25",
+          "tfidf": 0.028713227689707937,
+          "coef_contraste": -1.522777144785549,
+          "aporte": -0.043723846878910816,
+          "df_train_hawkish": 81,
+          "df_train_dovish": 29,
+          "df_train_neutral": 51
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "su voto es por subir la TPM en 25 puntos base hasta 2,75%.",
+      "solo_b": true,
+      "pred_b": "hawkish",
+      "scores_b": {
+        "dovish": -0.7790230387644685,
+        "hawkish": 0.6995447725064103,
+        "neutral": 0.07947826625814702
+      },
+      "coincide_referencia": true
+    }
+  },
+  {
+    "intervencion_id": "RPM-2015-08-13:6965:1",
+    "actor": "Beltrán de Ramón Acevedo",
+    "fecha": "2015-08-13",
+    "fold": 5,
+    "etiqueta_ia_original": "neutral",
+    "etiqueta_corregida_v2": "dovish",
+    "pred_a": 1,
+    "pred": "hawkish",
+    "texto_completo": "El Gerente de División Operaciones Financieras señor Beltrán de Ramón presenta sus reflexiones a propósito de la discusión sobre el riesgo de desanclaje que se desarrolló en la Sesión de esta mañana. Recuerda que en el episodio inflacionario del año 2008 era usual que las autoridades del Banco Central manifestaran que la inflación era un fenómeno transitorio, que se iba a revertir muy pronto; y se sabe ex post que ello no ocurrió, produciendo un daño a la credibilidad del Banco Central. Lo expresado, porque lo que para Chile constituía un shock de oferta, para el mundo era un exceso de demanda liderado por la mayor demanda de China y otras economías emergentes, que presionó los precios de una infinidad de commodities por más tiempo que el esperado y terminó desanclando significativamente las expectativas de inflación en Chile. En su opinión, el escenario actual es distinto, ya que de los cuatro bloques económicos externos solo uno se está expandiendo y a una tasa que no es alta, a lo que se suma la significativa caída de los precios de los commodities, incluyendo el del petróleo, que incide directamente en la inflación. En Chile, en tanto, los salarios se están desacelerando por tercer mes consecutivo — lo que dejaría de ser un dato de una vez y pareciera ser una tendencia— y la brecha de PIB y uso de capacidad están en terreno negativo. De esta forma, plantea que el único factor importante de riesgo que queda, y que presiona los precios, es la depreciación cambiaria, pero que finalmente es la forma de ajustar todo lo anterior a nuestro esquema de política de flotación. Indica que el mercado lo sabe, y es por ello que las expectativas de inflación están ancladas, a pesar de que la inflación spot se ha mantenido por encima de 4% por largo tiempo. A su juicio, si el mercado le cree al Banco Central es porque también hay una justificación macroeconómica para ello. Señala que es por este motivo que la opción de subir la tasa es confusa y se justificaría únicamente en un contexto de desanclaje, que hoy no está presente. Con todo, le parece muy legítimo que las autoridades del Banco, encabezadas por su Presidente, mencionen en entrevistas y discursos que están “incómodos” con la inflación headline. En su opinión, ello no solo es legítimo, sino que va en la dirección correcta de mostrar preocupación por nuestro mandato constitucional, que es la estabilidad de la moneda. Sin embargo, estima que si bien es correcto mostrar preocupación por la inflación, el mencionar el riesgo de desanclaje y considerar un alza de tasa como opción representa un desafío comunicacional muy complejo en esta coyuntura. También lo es la publicación de los antecedentes de esta Reunión, que contiene numerosas láminas referidas a expectativas de inflación, que llevarán al mercado a concluir algo sobre dicho riesgo.",
+    "sha256_texto": "2fe2fed24135c473b3990d273f09b85df7497564ef923843c96f584dc6de2576",
+    "revision_previa": {
+      "caso_revision": "N19",
+      "fecha": "2015-08-13",
+      "actor": "Beltrán de Ramón Acevedo",
+      "etiqueta_ia": "neutral",
+      "pred_adjudicada": "hawkish",
+      "estado_revision": "referencia_cuestionable",
+      "postura_sugerida_agente": "dovish",
+      "confianza_revision": "alta",
+      "sha256_texto": "2fe2fed24135c473b3990d273f09b85df7497564ef923843c96f584dc6de2576",
+      "lectura": "Propongo N→D: rechaza fundamentadamente considerar un alza en la coyuntura actual. No se limita a describir riesgos o repetir opciones. La lectura cuestiona tanto el N de la referencia como el H del modelo.",
+      "limite_y_accion": "No pide recortar; D se apoya en oposición a endurecer, como en otros casos aceptados. La frase sobre desanclaje no se interpreta como recomendación de subir si él dice que esa condición no existe. Pendiente de aceptación humana.",
+      "citas_agente": "[\"la opción de subir la tasa es confusa y se justificaría únicamente en un contexto de desanclaje, que hoy no está presente.\"]",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_3_neutralidad_v1/resultados/casos_revisados.json",
+      "nuevas_correcciones_aceptadas": false,
+      "cambios_aplicados": false
+    },
+    "lectura_agente": {
+      "intervencion_id": "RPM-2015-08-13:6965:1",
+      "citas": [
+        "la opción de subir la tasa es confusa y se justificaría únicamente en un contexto de desanclaje, que hoy no está presente."
+      ],
+      "fenomenos": [
+        "condicion_negada",
+        "historia_vs_postura_actual"
+      ],
+      "lectura": "D, conforme a la corrección N→D aceptada: argumenta contra el alza porque la condición que la justificaría no está presente. El relato de inflación y desanclaje de 2008 contrasta con el escenario actual, no respalda subir ahora.",
+      "hipotesis_a_contrastar": "Medir si inflación, desanclaje y subir aportan H aun dentro de una condición rechazada; comprobar también la lectura del fragmento aislado.",
+      "limite": "No propone explícitamente un recorte. La corrección sigue siendo adjudicación asistida post-predicción; no se convierte su confianza del agente en certeza humana independiente."
+    },
+    "scores_b": {
+      "dovish": -0.08737736883916403,
+      "hawkish": 0.0518128464948131,
+      "neutral": 0.03556452234444141
+    },
+    "descomposicion": {
+      "intercepto": -0.13948384131122493,
+      "suma_aportes": 0.2786740566452015,
+      "margen": 0.13919021533397657,
+      "residuo_no_mostrado": 0.20127551889339917,
+      "top_a_favor_prediccion": [
+        {
+          "termino": "subir la",
+          "tfidf": 0.034965217892877536,
+          "coef_contraste": 1.2780721483652528,
+          "aporte": 0.044688071150409174,
+          "df_train_hawkish": 25,
+          "df_train_dovish": 3,
+          "df_train_neutral": 11
+        },
+        {
+          "termino": "subir la tasa",
+          "tfidf": 0.03683312337207141,
+          "coef_contraste": 1.0119638508490323,
+          "aporte": 0.03727378936639888,
+          "df_train_hawkish": 19,
+          "df_train_dovish": 3,
+          "df_train_neutral": 9
+        },
+        {
+          "termino": "subir",
+          "tfidf": 0.03103087899247656,
+          "coef_contraste": 1.174171516170318,
+          "aporte": 0.03643557423469387,
+          "df_train_hawkish": 30,
+          "df_train_dovish": 7,
+          "df_train_neutral": 26
+        },
+        {
+          "termino": "precios",
+          "tfidf": 0.039898288279423856,
+          "coef_contraste": 0.8583216218920727,
+          "aporte": 0.03424556350671256,
+          "df_train_hawkish": 73,
+          "df_train_dovish": 37,
+          "df_train_neutral": 158
+        },
+        {
+          "termino": "un alza de",
+          "tfidf": 0.03416738884502499,
+          "coef_contraste": 0.9704252146598744,
+          "aporte": 0.03315689565430077,
+          "df_train_hawkish": 33,
+          "df_train_dovish": 5,
+          "df_train_neutral": 5
+        },
+        {
+          "termino": "que es",
+          "tfidf": 0.03711749945971853,
+          "coef_contraste": 0.8388024562491934,
+          "aporte": 0.031134249716640014,
+          "df_train_hawkish": 47,
+          "df_train_dovish": 24,
+          "df_train_neutral": 118
+        }
+      ],
+      "top_a_favor_referencia": [
+        {
+          "termino": "tiempo",
+          "tfidf": 0.043165769471155406,
+          "coef_contraste": -0.7124764806354185,
+          "aporte": -0.030754595516728593,
+          "df_train_hawkish": 20,
+          "df_train_dovish": 26,
+          "df_train_neutral": 77
+        },
+        {
+          "termino": "forma",
+          "tfidf": 0.046073540315847816,
+          "coef_contraste": -0.5649670036069718,
+          "aporte": -0.026030030017809555,
+          "df_train_hawkish": 26,
+          "df_train_dovish": 25,
+          "df_train_neutral": 49
+        },
+        {
+          "termino": "antecedentes de",
+          "tfidf": 0.04437348971343196,
+          "coef_contraste": -0.5078749181106958,
+          "aporte": -0.02253618245449506,
+          "df_train_hawkish": 1,
+          "df_train_dovish": 7,
+          "df_train_neutral": 4
+        },
+        {
+          "termino": "es por ello",
+          "tfidf": 0.04577187760421469,
+          "coef_contraste": -0.4525532734658756,
+          "aporte": -0.020714213042466754,
+          "df_train_hawkish": 2,
+          "df_train_dovish": 6,
+          "df_train_neutral": 2
+        },
+        {
+          "termino": "de esta",
+          "tfidf": 0.05763667037725719,
+          "coef_contraste": -0.35890756846761546,
+          "aporte": -0.02068623721967082,
+          "df_train_hawkish": 20,
+          "df_train_dovish": 16,
+          "df_train_neutral": 61
+        },
+        {
+          "termino": "lo que",
+          "tfidf": 0.0315764517916575,
+          "coef_contraste": -0.5958347616229904,
+          "aporte": -0.018814347626182098,
+          "df_train_hawkish": 64,
+          "df_train_dovish": 54,
+          "df_train_neutral": 313
+        }
+      ]
+    },
+    "sonda": {
+      "texto": "la opción de subir la tasa es confusa y se justificaría únicamente en un contexto de desanclaje, que hoy no está presente.",
+      "solo_b": true,
+      "pred_b": "neutral",
+      "scores_b": {
+        "dovish": -0.7853897953201097,
+        "hawkish": -0.5105742961131144,
+        "neutral": 1.295964091433313
+      },
+      "coincide_referencia": false
+    }
+  }
+]

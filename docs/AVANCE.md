@@ -1,8 +1,22 @@
 # AVANCE — Proyecto D&H
 
-Última actualización: **13 correcciones aceptadas y aplicadas en una referencia versionada; TF-IDF entrenado y reproducido localmente. F1 H/D 0,711084→0,747060 contra la misma referencia corregida. BETO sigue bloqueado por TLS.**
+Última actualización: **diagnóstico de diez inversiones H/D completado: 40.937 caracteres íntegros, contribuciones exactas y 793 predicciones reproducidas. No se cambiaron referencias ni se ejecutó un candidato nuevo.**
 
-## Estado activo: referencias corregidas v2 y modelo ejecutado
+## Estado activo: diagnóstico H/D y siguiente comparación contextual
+
+- Usuario autorizó («pk adeñamte») revisar las diez inversiones más claras, apartar cinco ambiguas y diseñar la comparación contextual. [Síntesis para el investigador](LECTURA_DIAGNOSTICO_INVERSIONES_HD_V1.md) y [detalle técnico](DIAGNOSTICO_INVERSIONES_HD_V1.md).
+- Selección exhaustiva de 15 H↔D de `seis_mas_trece`/referencia v2: diez seleccionadas (9 referencias respaldadas + De Ramón 6965 N→D aceptada), cinco ambiguas excluidas (671, 215, 867, 1019, 621). Las quince siguen siendo errores numéricos contra la referencia actual, no quince errores semánticos probados.
+- Diez fuentes releídas íntegras: 40.937 caracteres. Script 37 reconstruyó cinco folds del mismo modelo; las **793 predicciones A/B/finales coinciden** con 36. A=1 en los diez. No nuevo candidato, ajustes de parámetros, etiquetas ni métricas sustituidas.
+- Descomposición de margen error−referencia con **8.558 features activos**; se guardan todos y se muestran seis principales por signo con residuo. Intercepto + suma de aportes coincide con decision_function (tolerancia 1e-9). Coeficientes/aportes no equivalen a causalidad lingüística o efecto de borrar palabras.
+- Hallazgos: en Consejo 1057 reducir la tasa aporta correctamente D, pero 25 (dentro de 5,25%) y fórmulas contribuyen H. En De Ramón 6965 subir favorece H pese a condición negada; en Consejo 7045 reducir favorece D pese a referirse a estímulo. Schmidt-Hebbel 1672 sigue H incluso con recomendación menos restrictiva aislada. No basta culpar a longitud.
+- García 7212 y De Gregorio 3491: suma textual favorece ligeramente H, pero intercepto aprendido da margen D−H positivo. No describir todos los casos como dominancia de palabras D ni atribuir intercepto automáticamente a desbalance de clases. La hipótesis fiscal de Larraín no se confirmó por los mayores aportes observados.
+- **Sonda primera cita preseleccionada:** 4 coincidencias (1057 D; 7210/7212/3491 H), 4 N (2758/4272/7045/6965), 2 inversiones (1672 H y 1731 D). No score de un extractor: selección manual informada por referencia. La primera cita puede perder contexto legítimo, como duración en 2758; no contar los cuatro N como nuevos errores semánticos de fragmentos.
+- Marfán 1731 conserva matiz: vota mantener con sesgo al alza y prefiere alza junto a intervención cambiaria; H no significa voto de alza inmediata. Ninguna nueva adjudicación.
+- [Protocolo previo](PROTOCOLO_DIAGNOSTICO_INVERSIONES_HD_V1.md): futura comparación de B TF-IDF/BETO con referencia v2, mismos folds/A y cobertura de todo el texto; no usar citas manuales como entradas. Contar inversiones por sentido con soportes fijos, H/D→N y N→H/D, F1 H/D y guardas macro/recall. Menos inversiones sin aumentar H/D→N, sin optimizar repetidamente sobre estos diez conocidos. BETO sigue sin ejecutar; no se repitió el chequeo TLS de 36.
+- **Verificación:** 64 pruebas específicas aprobadas, 0 omitidas; seis salidas e informe técnico exactamente reproducidos; protocolo igual salvo UTC; **298 archivos previos intactos**. `data/auditoria/inversiones_hd_v1/verificacion.json` incluye hash de la síntesis manual final. No apertura de 306, refit global ni pesos persistidos.
+- Rama fija `arena/01a0a81b-fase-2`; PR existente **#4** abierto. Esta continuación se añade al mismo PR. Siguiente bloqueo: acceso a pesos/recursos para candidato contextual; no volver a solicitar las 13 correcciones ni las seis aceptaciones anteriores.
+
+## Historial: referencias corregidas v2 y modelo ejecutado
 
 - Usuario: «corrige las referencias, e ittenta mandar el modelo en tu entorno», después «sigue». Se interpretó y anunció aplicación de las 13 propuestas y comprobación TF-IDF/BETO. Las 13 ya no requieren aceptación; los 12 ambiguos permanecen sin cambio. No repetir las seis decisiones Rxx anteriores.
 - Aceptación por ID/etiqueta/hash en `data/auditoria/revision_errores_adjudicada_v1/adjudicacion_cierre_66_v1/aceptacion.json`. Asistida y posterior a predicciones, no humana ciega. 19 decisiones aceptadas entre ambas rondas, 16 cambios efectivos frente a IA. Confianza/citas del agente conservadas como tales.

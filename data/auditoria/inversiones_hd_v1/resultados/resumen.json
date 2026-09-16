@@ -1,0 +1,20 @@
+{
+  "casos": 10,
+  "ambiguos_excluidos": 5,
+  "caracteres_completos": 40937,
+  "predicciones_reproducidas": 793,
+  "puerta_a_activa": 10,
+  "citas_primera_b_coincide_referencia": 4,
+  "sonda_predicciones": {
+    "neutral": 4,
+    "dovish": 2,
+    "hawkish": 4
+  },
+  "features_activos_exportados": 8558,
+  "ajustes_reconstruccion": 5,
+  "etiquetas_modificadas": false,
+  "metricas_36_modificadas": false,
+  "nuevo_candidato_evaluado": false,
+  "beto_ejecutado": false,
+  "examen_306_abierto": false
+}
