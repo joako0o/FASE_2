@@ -490,3 +490,16 @@ Con 1.352 etiquetas: F1 alza-2005 108, F2 mantención 335, F3 alza-2007 152, F4 
 ### Pendientes sin cambios
 - Gold ciego 306 con el usuario (instrumento intacto, zero respuestas aún).
 - `consolidado_macro` variables en `data/L2/pendientes_manifest.csv`.
+
+---
+
+## Sesión 12 (cont.): validación agregada serie stance vs dTPM (2026-09-15)
+
+- Nuevo script `16_validacion_serie_stance.py` + artefactos `data/L2/serie_stance_reunion.csv` y `validacion_serie_stance.json`.
+- Series s por reunión (media de PH-PD sobre relevantes, 131 reuniones con etiquetas IA):
+  - pearson(s, dTPM) = **0,346** (p=5e-05); spearman = **0,664** (p=5e-18)
+  - media s por decisión: **sube −+0,227** / mantiene −0,045 / **baja −0,232** → signos correctos
+  - precision direccional de clase dominante (argmax P): 0,626; regla |s|>0,10 → 0,657 (umbral elegido en muestra, uso descriptivo)
+- Ensayo "solo votantes" descartado: cubre solo 79 reuniones y degrada la correlación (0,16/0,32). La muestra IA integra expectativas del staff como señal adicional.
+- Nota: validación preliminar de sanidad a nivel reunión; la prueba formal sigue siendo el κ vs gold humano.
+- LOG técnico: el sandbox reinició y borró `~/venvs/fase2` y `.git`; se reconstruyó el venv (pandas 3.0.5, sklearn 1.9.1) y se restauró la rama con `git fetch` + `git reset --hard a33bd7f205ef156f647433d338b3cd64b615e96ae` (a33bd7f). Sin pérdida de trabajo.
