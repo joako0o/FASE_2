@@ -6,3 +6,7 @@ data/** -text
 docs/** -text
 requirements.txt -text
 *.xlsx -text
+
+# Lock adicional del ensayo GPU; también entra en manifiestos SHA256.
+requirements-beto.txt -text
+notebooks/** -text
