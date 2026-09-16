@@ -178,15 +178,32 @@ Entregable `semantica/comparacion_topico_humano_maquina.csv` con: matriz de acue
 - [x] **Fase 0 histórica** — *(previa al repo)* consolidación del corpus y esquemas v0a/v0b
 - [x] **Fase 1** — Planificación y documentación inicial (este archivo, v2)
 - [x] **Fase 2** — Codebook v2 APROBADO y congelado (2026-09-15, `docs/codebook_v2.md`)
-- [ ] **Fase 3** — Preparación: scripts 01–03 creados y ejecutados (L0 + muestra piloto n=300 con seed 20260915 listos). Pendiente: descarga macro (sandbox sin salida TLS; bootstrap progresivo con fetcher o ejecución local) y curado restante de metadata de actores
-- [ ] **Fase 4** — Piloto de etiquetado IA + revisión → codebook v2
-- [ ] **Fase 5** — Rondas de escalado **acotado a training set ~1.000** (cronológico 2005 + estratificado por fases 2006–2015; decisión 8 §3) + curva de aprendizaje (PR por ronda)
-- [ ] **Fase 6** — Gold humano a ciegas (n=300) + Cohen's κ
-- [ ] **Fase 7** — Fine-tune BETO + evaluación final vs gold
-- [ ] **Fase 8** — Scoring de las 9.725 + serie temporal + validación vs ΔTPM
+- [x] **Fase 3** — Preparación: scripts 01–03 creados y ejecutados (L0 + muestra piloto n=300 con seed 20260915 listos). Macro: TPM/IPC/IMACEC/USD/cobre integrados por vía local del investigador (datos en `data/L2/macro_por_reunion.csv`); pendientes listados en `data/L2/pendientes_manifest.csv` (eee_inflacion_1a, ipec, sit_pais_1a, pib, expo/impo, hueco desempleo 2005-09)
+- [x] **Fase 4** — Piloto de etiquetado IA completado (rondas r1-r4, 300 int) → codebook v2 aprobado y congelado
+- [x] **Fase 5** — Rondas de escalado cerradas (2026-09-15): training set final **1.352 etiquetas IA** (19 CSV append-only en `data/etiquetas/`; H=116 / D=89 / N=1.147; flag-0=269). Incluye estrato enriquecido decisión 10 (250 int) agotado por diseño. Curva de aprendizaje: pendiente (se hará junto al fine-tune con folds temporales)
+- [ ] **Fase 6** — Gold humano a ciegas (n=306) + Cohen's κ — **BLOQUEADO: esperando etiquetado del investigador** (`data/muestras/gold_ciego_300.csv` + `docs/INSTRUCCIONES_GOLD.md`; hoy 0/306). Por su parte, baseline TF-IDF dos etapas ya corrido: macroF1=0,3511 (`scripts/15`, `data/L2/baseline_tfidf_*`), piso de comparación para BETO
+- [ ] **Fase 7** — Fine-tune BETO dos etapas (decisión 10) + evaluación final vs gold (306 como test puro)
+- [ ] **Fase 8** — Scoring de las 9.725 + serie temporal + validación vs ΔTPM. Sanity-check preliminar ya corrido con etiquetas IA: serie s(=PH−PD) por reunión → spearman(s,ΔTPM)=0,664 (`scripts/16`, `data/L2/serie_stance_reunion.csv`)
 - [ ] **Fase 9** — Entregables de actores (radar, vocab, convergencia, afinidad, disenso) + evolución semántica + comparación humano-máquina de tópicos/keywords
 - [ ] **Fase 10** — Extracción de **votos explícitos** por actor y de la decisión del Consejo en cada acta (diferida al final: no se usa en el modelo)
 - [ ] **Fase 11 (fuera de alcance por ahora)** — Scrollytelling + paper
+
+### 9.1 Punto de retoma (handoff 2026-09-15)
+
+**Hecho y congelado:**
+- Corpus L0 (9.725 int) + capa L2 (actores, macro por reunión en `data/L2/`) — no re-generar.
+- Training set IA: `data/etiquetas/*.csv` (19 CSV, 1.352, append-only, todos validados con `scripts/05`). Codebook v2 congelado.
+- Gold ciego 306: marco muestreado y disjunto; **faltan solo las respuestas del investigador** en la columna `etiqueta` de `data/muestras/gold_ciego_300.csv`.
+- Baseline TF-IDF (piso 0,3511 macroF1) y sanity-check agregado vs ΔTPM (spearman 0,664).
+
+**Hacer a continuación, en orden:**
+1. Cuando llegue el gold: script κ (chat vs humano sobre las 306; métricas por clase y reporte de sesgo de sub-estratos ya documentado §decisión 9).
+2. Fase 7: fine-tune BETO dos etapas (A: `es_relevante`; B: stance 3-clases sobre relevantes) con `class_weight='balanced'`; test exclusivamente en las 306 gold. Objetivo de trabajo: macroF1 ≥ 0,55, F1_dovish ≥ 0,35 (el piso bag-of-words es 0,35).
+3. Fase 8: scoring de las ~8.600 restantes y serie mensual s (construir primero la serie por reunión replicando `scripts/16` con etiquetas del modelo).
+
+**Convenciones de etiquetado vigentes (fuente de verdad):** `docs/codebook_v2.md` + secciones "Convenciones" de los encabezados de `scripts/13/14` y de `docs/AVANCE.md` (sesiones 9-12). Reglas operativas: `docs/REGLAS.md`.
+
+**Notas de infraestructura sandbox:** el venv vive fuera del repo (`~/venvs/fase2`); si desaparece: `python3 -m venv ~/venvs/fase2 && ~/venvs/fase2/bin/pip install -r requirements.txt`. Si `.git` vuelve al commit base tras un reinicio (archivos como untracked): `git fetch origin arena/01a0a3a0-fase-2 && git reset --hard $(git rev-parse FETCH_HEAD)` — el trabajo commiteado se restaura; lo untracked nuevo sobrevive.
 
 ## 10. Referencias
 

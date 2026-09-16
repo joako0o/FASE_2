@@ -503,3 +503,19 @@ Con 1.352 etiquetas: F1 alza-2005 108, F2 mantención 335, F3 alza-2007 152, F4 
 - Ensayo "solo votantes" descartado: cubre solo 79 reuniones y degrada la correlación (0,16/0,32). La muestra IA integra expectativas del staff como señal adicional.
 - Nota: validación preliminar de sanidad a nivel reunión; la prueba formal sigue siendo el κ vs gold humano.
 - LOG técnico: el sandbox reinició y borró `~/venvs/fase2` y `.git`; se reconstruyó el venv (pandas 3.0.5, sklearn 1.9.1) y se restauró la rama con `git fetch` + `git reset --hard a33bd7f205ef156f647433d338b3cd64b615e96ae` (a33bd7f). Sin pérdida de trabajo.
+
+---
+
+## Sesión 12 (fin): puesta en orden para cierre del PR y handoff (2026-09-15)
+
+A petición del investigador, se ordenó el repo para que otra sesión pueda continuar sin contexto previo:
+
+1. **Auditoría de artefactos**: los 19 CSV de `data/etiquetas/` pasan `scripts/05` al 100% (1.352 filas, 0 duplicados, rondas únicas). Corregida en r16 la frase justificante de `RPM-2015-02-12:6624:1` (verbatim exigía mayúscula inicial "Manifiesta…").
+2. **Código**: ningún script muerto. 13/14 (estrato enriquecido r13/r14, 77 etiquetas) conservados por linaje junto a `estrato_enriquecido.csv`; el estrato enriquecido vigente es `estrato_tanda9.csv` (scripts/10_muestra_tanda9_stance.py). `__pycache__` eliminado (gitignored).
+3. **requirements.txt** actualizado: numpy, scikit-learn, scipy, pandas, openpyxl (incluye lo necesario para scripts 15/16).
+4. **PLAN.md**: roadmap §9 actualizado (fases 3-5 completadas, fase 6 bloqueada en gold, baseline + sanity-check registrados) y nueva **§9.1 "Punto de retoma (handoff)"**: qué está congelado, siguientes 3 pasos, fuentes de verdad de convenciones, recetas de recuperación del sandbox (venv y git).
+5. **README.md**: breve estado al 2026-09-15 + setup + sanity check.
+
+**Pendiente único del usuario:** etiquetar las columnas del gold ciego (`data/muestras/gold_ciego_300.csv`, 306 filas). Con eso listo, la siguiente sesión ejecuta κ y comienza Fase 7 (BETO).
+
+*Repo listo para cerrar/asimilar el PR hacia main.*
