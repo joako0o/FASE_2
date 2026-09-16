@@ -8,7 +8,7 @@
 
 ## Qué tienes que hacer
 
-1. **[Abrir el notebook en Google Colab](https://colab.research.google.com/github/joako0o/FASE_2/blob/arena/01a0a81b-fase-2/notebooks/BETO_comparacion_v1.ipynb).** Puedes guardar una copia en tu cuenta. El código del experimento que descarga está fijado a un commit, no al último estado de una rama.
+1. **[Abrir el notebook en Google Colab](https://colab.research.google.com/github/joako0o/FASE_2/blob/c93eef3f1fdd9ea3e43b52a7dcff9d46b1035259/notebooks/BETO_comparacion_v1.ipynb).** Puedes guardar una copia en tu cuenta. El código del experimento que descarga está fijado a un commit, no al último estado de una rama.
 2. En **Entorno de ejecución → Cambiar tipo de entorno de ejecución**, elegir **GPU**; T4 si está disponible. No contratar un plan ni pagar: si no te ofrecen GPU gratuita, detenerse y avisarme. La disponibilidad y duración de la sesión no están garantizadas.
 3. Ejecutar las celdas **en orden**. Dejar `RESTAURAR_ZIP = False` la primera vez. Primero instala un entorno aislado y verifica los datos; después prueba dos textos completos de entrenamiento con BETO. Si aparece un error, no saltarlo ni cambiar las etiquetas/longitud: enviarme el mensaje, sin contraseñas ni tokens.
 4. Si esa prueba pasa, ejecutará los **cinco grupos** y luego la comparación. No hay una estimación fiable de duración antes de medir la GPU real. La instalación también descarga dependencias grandes.

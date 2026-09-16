@@ -17,7 +17,8 @@
   "alcance": "Portabilidad de datos/scripts desde archivo Git y sintaxis del notebook; no GPU ni prueba extremo a extremo de Colab.",
   "sha256_entrega": {
     "notebooks/BETO_comparacion_v1.ipynb": "cf1244f27ad999e1ac406248e131c691d5967e900a476697428130a1dcb37cd8",
-    "docs/GUIA_EJECUTAR_BETO_COLAB_V1.md": "439b1d9485d6d5c99292d1de49e3cd3286aea6a20e27847fd91d18121e32f5d0"
+    "docs/GUIA_EJECUTAR_BETO_COLAB_V1.md": "600efcd4f3dc94202cf7b058a16aa740481f130dbfdf646863da91e78c517d17"
   },
-  "assets_historicos_rechazados_eliminados_tras_registrar_hashes": true
+  "assets_historicos_rechazados_eliminados_tras_registrar_hashes": true,
+  "revision_notebook_publicado_enlace_colab": "c93eef3f1fdd9ea3e43b52a7dcff9d46b1035259"
 }
