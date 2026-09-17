@@ -29,7 +29,7 @@ MANIFIESTO = 'MANIFIESTO_ENTREGA.json'
 ENTRADA = 'data/checkpoints/beto_v1/entrada'
 RESULTADOS = 'data/checkpoints/beto_v1/ejecucion'
 ARCHIVOS_ENTRADA = ['documentos.json', 'folds.json', 'baseline.json', 'checkpoint.json', 'manifest.json']
-PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py', 'test_compatibilidad_criterios.py', 'test_referencia_v3.py', 'test_recodificacion_v3.py']
+PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py', 'test_compatibilidad_criterios.py', 'test_referencia_v3.py', 'test_recodificacion_v3.py', 'test_tfidf_supervision_v3.py']
 PRUEBAS_ANTERIORES_SEGURAS = [
     'test_inversiones_hd.py', 'test_referencias_corregidas.py', 'test_modelo_adjudicado.py',
     'test_revision_cierre_66.py', 'test_revision_neutralidad.py',
@@ -445,6 +445,8 @@ def main(argv=None):
     pre2000.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/set_pre2000_revision_inicial_v1')
     fase_a = acciones.add_parser('evaluar-recodificacion-v3', help='Fase A: puntuar predicciones congeladas contra v2/v3; no entrena')
     fase_a.add_argument('--salida', type=Path, default=RAIZ/'data/evaluacion/recodificacion_tfidf_v3_fase_a')
+    fase_b = acciones.add_parser('entrenar-tfidf-v3', help='Fase B: mismo TF-IDF/folds con supervisión v3; CPU')
+    fase_b.add_argument('--salida', type=Path, default=RAIZ/'data/evaluacion/tfidf_supervision_v3_fase_b')
     argumentos = parser.parse_args(argv)
     try:
         if argumentos.accion == 'instalar': instalar(argumentos.beto)
@@ -469,6 +471,9 @@ def main(argv=None):
         elif argumentos.accion == 'evaluar-recodificacion-v3':
             subprocess.run([sys.executable, '-X', 'utf8', 'scripts/evaluar_recodificacion_v3.py',
                 '--salida', str(argumentos.salida.resolve())], cwd=RAIZ, check=True)
+        elif argumentos.accion == 'entrenar-tfidf-v3':
+            ejecutar_python(['scripts/entrenar_tfidf_supervision_v3.py',
+                '--salida', str(argumentos.salida.resolve())])
         elif argumentos.accion == 'diagnosticar-ampliacion-tfidf':
             preparar()
             ejecutar_python(['scripts/diagnosticar_ampliacion_tfidf.py', '--salida', argumentos.salida.resolve()])
