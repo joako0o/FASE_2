@@ -466,3 +466,10 @@ Informe en `docs/RESULTADOS_BETO_V1.md`: **F1 H/D media 0,747060→0,625043**, e
 Auditoría reproducible incorporada al gestor 40 (`auditar-resultados`), no un script numerado nuevo: ZIP con inventario acotado, hashes, metadatos de train/épocas/pasos/cobertura/smoke, reconsolidación exacta con 39 y cuenta aritmética independiente. **98 pruebas aprobadas, 0 omitidas.** Fuentes congeladas 38/39/entrada intactas; paquete f7aa1589… sin cambios.
 
 Registros externos declaran RTX 5060, prueba real aprobada y cinco entrenamientos; no se repiten GPU/tokenización aquí. Falta copia/hash del código ejecutado, entorno/CUDA completo y verificación remota de pesos; commit informativo del ZIP null. No confundir integridad de resultados con certificación del entorno ni el booleano estático `entrenamiento_realizado=false` con falta de entrenamiento. Cerrar procedencia y diagnosticar nuevas inversiones antes de otro ensayo. Sin refit/scoring/nuevas anotaciones/datasets. La limpieza extrema de 9.21 sigue pendiente.
+
+
+### 9.23 Propuesta de enriquecimiento H/D, pendiente de autorización
+
+Tras confirmar que el agente externo no modificó scripts, el investigador plantea aumentar la muestra buscando más H/D. Conteo v2: 125 H/89 D/1.138 N; B relevante 125 H/89 D/869 N y train por fold 106–114 H/75–81 D. Propuesta orientativa: 60 candidatos nuevos del corpus propio (probables H/D equilibrados), después acercarse progresivamente a 200 H/200 D si la revisión confirma las clases. No es una cuota a imponer a las etiquetas ni se ha ejecutado selección alguna.
+
+Mantener v2/folds/A, no repetir IDs anotados ni abrir 306 respuestas; purgar nuevas observaciones por reunión/texto frente a cada validación. Muestra enriquecida solo para entrenamiento, no para estimar prevalencias ni generalización independiente. Ampliación, protocolo nuevo y comparación requieren decisión posterior; no se entrena ni se cambia el paquete actual por esta conversación. El diagnóstico cualitativo se inició, pero no está cerrado ni demuestra causalidad del deterioro.

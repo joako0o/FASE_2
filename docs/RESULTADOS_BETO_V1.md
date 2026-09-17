@@ -131,7 +131,9 @@ La suma de tiempos declarados de los cinco grupos es **1.835,20 segundos, unos 3
 
 El respaldo tiene `git_commit_informativo: null` y no incluye el código ejecutado, versiones completas del entorno/CUDA, logs completos de consola ni los binarios de pesos. Por eso no puedo certificar solo con este ZIP que no hubo modificaciones, ni verificar aquí los hashes de los pesos usados remotamente. **No es una acusación de irregularidad; es el alcance de la evidencia disponible.**
 
-Para cerrar procedencia, pedir al agente externo:
+**Actualización posterior:** el investigador confirma que el agente no modificó los scripts; véase `data/auditoria/recepcion_beto_v1/confirmacion_usuario.json`. Se acepta como declaración del investigador, no como comparación independiente de hashes remotos. No hace falta volver a pedir esa confirmación. Las versiones completas quedan pendientes para cuando pueda aportarlas.
+
+La lista original de evidencias de procedencia era:
 
 1. Si cambió código, parámetros o dependencias: lista de cambios/diff, especialmente scripts 38/39, requisitos y utilidades involucradas. Si no cambió nada, dejarlo expresamente indicado.
 2. Python, sistema operativo, `pip freeze`, versión CUDA de PyTorch y registro de GPU; salidas de comprobación/smoke y entrenamiento si las conserva.

@@ -1,5 +1,15 @@
 # AVANCE — Proyecto D&H
 
+## Actualización: confirmación del usuario y propuesta de ampliar H/D
+
+El investigador confirma que el agente externo **no cambió los scripts**; declaración separada en `data/auditoria/recepcion_beto_v1/confirmacion_usuario.json`. No pedir de nuevo esa confirmación. El entorno completo/CUDA y hashes remotos no fueron aportados, por lo que no se convierten en verificación independiente de binarios.
+
+El investigador propone tentativamente aumentar la muestra buscando H y D. Conteo de referencia v2 comprobado: 125 H, 89 D, 1.138 N; entre los relevantes para B, 125 H, 89 D y 869 N. En los cinco train purgados quedan 106–114 H y 75–81 D. El entrenamiento ya pondera clases: ponderar o duplicar filas no agrega variedad lingüística.
+
+**Propuesta, no ejecutada ni aprobada como experimento nuevo:** primera tanda de 60 candidatos del corpus propio, aproximadamente mitad probables H y mitad probables D; revisión del texto completo sin tratar la preselección como verdad. Objetivo orientativo posterior de acercarse a 200 H y 200 D, condicionado a etiquetas realmente confirmadas y utilidad. Incluir decisiones explícitas, postura futura, pausas, negaciones y alternativas; no solo ejemplos fáciles. Conservar N/ambiguos encontrados, sin forzar cuotas. No reutilizar los 1.352 ni las 306 respuestas para simular datos nuevos.
+
+Preservar validación v2/folds/A y purgar de cada train ampliado cualquier reunión/texto de su validación. La muestra enriquecida sería de entrenamiento, no test representativo. Nueva preparación/versionado y comparación controlada solo tras autorización; ninguna selección, etiqueta, entrenamiento o scoring global ejecutado ahora. La revisión de las 20 inversiones nuevas y siete corregidas se inició con lectura de 27 textos completos, pero fue interrumpida antes de cerrar informe/diagnóstico; no declarar causa demostrada. Limpieza extrema final pendiente.
+
 ## Cierre actual: resultados BETO externos recibidos, no adoptados
 
 El investigador subió seis ZIP a `main` en `af99d510da75b5a54f63fe46b56af3bcbb55217b`. Son respaldos acumulativos; el final `resultados_beto_20260917T012512_748901Z.zip` contiene cinco folds y comparación. [Informe](RESULTADOS_BETO_V1.md); evidencia en `data/auditoria/recepcion_beto_v1/` y tabla alineada en `data/evaluacion/comparacion_beto_v1/`. No se borraron los originales remotos ni se duplicaron ZIP versionados.

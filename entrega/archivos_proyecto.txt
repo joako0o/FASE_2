@@ -45,6 +45,7 @@ data/auditoria/preparacion_beto_v1/preparacion.json
 data/auditoria/preparacion_beto_v1/runtime_local.json
 data/auditoria/preparacion_beto_v1/verificacion.json
 data/auditoria/recepcion_beto_v1/auditoria.json
+data/auditoria/recepcion_beto_v1/confirmacion_usuario.json
 data/auditoria/recepcion_beto_v1/origen.json
 data/auditoria/recepcion_beto_v1/verificacion.json
 data/auditoria/revision_entrenamiento_30_v1/NO_ABRIR_hasta_finalizar_clave.csv
