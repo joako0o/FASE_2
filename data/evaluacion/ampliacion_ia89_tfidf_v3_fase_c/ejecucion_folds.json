@@ -1,0 +1,272 @@
+[
+  {
+    "fold": 1,
+    "condicion": "fase_b_base",
+    "n_ia_nueva_incluida": 0,
+    "ia_nueva_por_clase": {},
+    "n_train": 1178,
+    "n_train_relevante": 947,
+    "clases_train": {
+      "neutral": 997,
+      "hawkish": 131,
+      "dovish": 50
+    },
+    "relevancia_train": {
+      "1": 947,
+      "0": 231
+    },
+    "vocabulario_a": 4431,
+    "vocabulario_b": 36461,
+    "iteraciones_a": [
+      13
+    ],
+    "iteraciones_b": [
+      27
+    ]
+  },
+  {
+    "fold": 1,
+    "condicion": "fase_c_mas_89",
+    "n_ia_nueva_incluida": 79,
+    "ia_nueva_por_clase": {
+      "dovish": 30,
+      "hawkish": 27,
+      "neutral": 22
+    },
+    "n_train": 1257,
+    "n_train_relevante": 1026,
+    "clases_train": {
+      "neutral": 1019,
+      "hawkish": 158,
+      "dovish": 80
+    },
+    "relevancia_train": {
+      "1": 1026,
+      "0": 231
+    },
+    "vocabulario_a": 4726,
+    "vocabulario_b": 41989,
+    "iteraciones_a": [
+      20
+    ],
+    "iteraciones_b": [
+      26
+    ]
+  },
+  {
+    "fold": 2,
+    "condicion": "fase_b_base",
+    "n_ia_nueva_incluida": 0,
+    "ia_nueva_por_clase": {},
+    "n_train": 1178,
+    "n_train_relevante": 960,
+    "clases_train": {
+      "neutral": 996,
+      "hawkish": 134,
+      "dovish": 48
+    },
+    "relevancia_train": {
+      "1": 960,
+      "0": 218
+    },
+    "vocabulario_a": 4431,
+    "vocabulario_b": 36396,
+    "iteraciones_a": [
+      13
+    ],
+    "iteraciones_b": [
+      24
+    ]
+  },
+  {
+    "fold": 2,
+    "condicion": "fase_c_mas_89",
+    "n_ia_nueva_incluida": 79,
+    "ia_nueva_por_clase": {
+      "dovish": 33,
+      "hawkish": 23,
+      "neutral": 23
+    },
+    "n_train": 1257,
+    "n_train_relevante": 1039,
+    "clases_train": {
+      "neutral": 1019,
+      "hawkish": 157,
+      "dovish": 81
+    },
+    "relevancia_train": {
+      "1": 1039,
+      "0": 218
+    },
+    "vocabulario_a": 4736,
+    "vocabulario_b": 42078,
+    "iteraciones_a": [
+      15
+    ],
+    "iteraciones_b": [
+      27
+    ]
+  },
+  {
+    "fold": 3,
+    "condicion": "fase_b_base",
+    "n_ia_nueva_incluida": 0,
+    "ia_nueva_por_clase": {},
+    "n_train": 1178,
+    "n_train_relevante": 963,
+    "clases_train": {
+      "neutral": 1005,
+      "hawkish": 130,
+      "dovish": 43
+    },
+    "relevancia_train": {
+      "1": 963,
+      "0": 215
+    },
+    "vocabulario_a": 4482,
+    "vocabulario_b": 37255,
+    "iteraciones_a": [
+      15
+    ],
+    "iteraciones_b": [
+      16
+    ]
+  },
+  {
+    "fold": 3,
+    "condicion": "fase_c_mas_89",
+    "n_ia_nueva_incluida": 79,
+    "ia_nueva_por_clase": {
+      "dovish": 29,
+      "hawkish": 27,
+      "neutral": 23
+    },
+    "n_train": 1257,
+    "n_train_relevante": 1042,
+    "clases_train": {
+      "neutral": 1028,
+      "hawkish": 157,
+      "dovish": 72
+    },
+    "relevancia_train": {
+      "1": 1042,
+      "0": 215
+    },
+    "vocabulario_a": 4790,
+    "vocabulario_b": 43019,
+    "iteraciones_a": [
+      15
+    ],
+    "iteraciones_b": [
+      31
+    ]
+  },
+  {
+    "fold": 4,
+    "condicion": "fase_b_base",
+    "n_ia_nueva_incluida": 0,
+    "ia_nueva_por_clase": {},
+    "n_train": 1183,
+    "n_train_relevante": 959,
+    "clases_train": {
+      "neutral": 1006,
+      "hawkish": 128,
+      "dovish": 49
+    },
+    "relevancia_train": {
+      "1": 959,
+      "0": 224
+    },
+    "vocabulario_a": 4439,
+    "vocabulario_b": 37074,
+    "iteraciones_a": [
+      20
+    ],
+    "iteraciones_b": [
+      29
+    ]
+  },
+  {
+    "fold": 4,
+    "condicion": "fase_c_mas_89",
+    "n_ia_nueva_incluida": 72,
+    "ia_nueva_por_clase": {
+      "dovish": 30,
+      "hawkish": 24,
+      "neutral": 18
+    },
+    "n_train": 1255,
+    "n_train_relevante": 1031,
+    "clases_train": {
+      "neutral": 1024,
+      "hawkish": 152,
+      "dovish": 79
+    },
+    "relevancia_train": {
+      "1": 1031,
+      "0": 224
+    },
+    "vocabulario_a": 4732,
+    "vocabulario_b": 42428,
+    "iteraciones_a": [
+      20
+    ],
+    "iteraciones_b": [
+      19
+    ]
+  },
+  {
+    "fold": 5,
+    "condicion": "fase_b_base",
+    "n_ia_nueva_incluida": 0,
+    "ia_nueva_por_clase": {},
+    "n_train": 1183,
+    "n_train_relevante": 959,
+    "clases_train": {
+      "neutral": 1001,
+      "hawkish": 134,
+      "dovish": 48
+    },
+    "relevancia_train": {
+      "1": 959,
+      "0": 224
+    },
+    "vocabulario_a": 4450,
+    "vocabulario_b": 36398,
+    "iteraciones_a": [
+      15
+    ],
+    "iteraciones_b": [
+      21
+    ]
+  },
+  {
+    "fold": 5,
+    "condicion": "fase_c_mas_89",
+    "n_ia_nueva_incluida": 76,
+    "ia_nueva_por_clase": {
+      "dovish": 30,
+      "hawkish": 27,
+      "neutral": 19
+    },
+    "n_train": 1259,
+    "n_train_relevante": 1035,
+    "clases_train": {
+      "neutral": 1020,
+      "hawkish": 161,
+      "dovish": 78
+    },
+    "relevancia_train": {
+      "1": 1035,
+      "0": 224
+    },
+    "vocabulario_a": 4693,
+    "vocabulario_b": 41459,
+    "iteraciones_a": [
+      15
+    ],
+    "iteraciones_b": [
+      19
+    ]
+  }
+]

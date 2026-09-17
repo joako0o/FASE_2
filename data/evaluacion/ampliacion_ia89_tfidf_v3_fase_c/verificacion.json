@@ -1,0 +1,15 @@
+{
+  "fase_b_reproducida_exactamente_793": true,
+  "ids_validacion_unicos": 793,
+  "ids_ia_nueva_unicos": 89,
+  "incluidos_por_fold": [
+    79,
+    79,
+    79,
+    72,
+    76
+  ],
+  "copias_textuales_incluidas": 0,
+  "reuniones_validacion_incluidas": 0,
+  "ia_nueva_no_usada_en_validacion": true
+}
