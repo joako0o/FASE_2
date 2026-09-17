@@ -1,0 +1,14 @@
+{
+  "codebook": "docs/codebook_v3.md",
+  "fuente_sha256": "cb089985d1ba6a22ec2d33b537deba9b757ab7fe93ed660b9765796498b3856b",
+  "cola_sha256": "b4553b39b3d5f6591c426f630bdab41e731547a2fa04577081c2f74619fb90ce",
+  "operacion": "segunda lectura completa de 300 unidades sin predicciones",
+  "reglas": [
+    "dirección propia respaldada",
+    "acción actual explícita prima",
+    "diagnóstico no asigna signo",
+    "expectativa ajena no asigna signo",
+    "mantener sin sesgo es N"
+  ],
+  "uso": "ampliación de train con purga por reunión y texto; nunca test final"
+}

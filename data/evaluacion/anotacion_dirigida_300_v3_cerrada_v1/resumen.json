@@ -1,0 +1,26 @@
+{
+  "filas": 300,
+  "ids_unicos": 300,
+  "segunda_revision": 300,
+  "ratificadas": 285,
+  "corregidas": 15,
+  "cambios": {
+    "hawkish→neutral": 7,
+    "neutral→dovish": 3,
+    "neutral→hawkish": 1,
+    "dovish→neutral": 4
+  },
+  "etiquetas_finales": {
+    "neutral": 198,
+    "hawkish": 36,
+    "dovish": 66
+  },
+  "relevancia_final": {
+    "1": 295,
+    "0": 5
+  },
+  "filas_cerradas": 300,
+  "lista_para_entrenamiento": true,
+  "predicciones_modelo_consultadas": false,
+  "evaluacion_independiente": false
+}
