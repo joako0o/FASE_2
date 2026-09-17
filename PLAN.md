@@ -534,3 +534,14 @@ El investigador reitera «intentemos llevar cada uno a 300,». El agente contin�
 Acumulado: 89 nuevos IDs anotados, H30/D37/N22; núcleo alto sin descartes H29/D30. Con base H125/D89: **H154/D119**, faltan **H146/D181**. Reservas H1/D6 y un duplicado D no cuentan. Plan acumulado permitiría 53/51/52/50/53 adiciones por fold, pero siguen sin incorporarse. Originales y paquete f7aa1589… intactos. Sin entrenamiento, nuevas métricas, sintéticos ni cambios de scripts.
 
 Cola siguiente G001–G020 sin etiquetas, 15.056 palabras, en `data/auditoria/meta_hd_300_v1/seleccion_05/`. Para la selección nueva se endureció explícitamente Jaccard a ≥0,80 a raíz de E009; no se alteran tandas anteriores. Pistas no son etiquetas y la muestra sigue siendo dirigida, no test representativo. Próxima salida `anotacion_ia_v1/tanda_05/`, aún no creada. Si se agota evidencia válida antes de 300, registrar el límite, no completar con copias o reclasificación forzada.
+
+
+### 9.29 Ensayo TF-IDF con 59 aumentos, sin mejora
+
+Autorizado por «prueba tfidf con estos aumentos haber si cambia algo». Protocolo fijado antes de fit en `docs/PROTOCOLO_AMPLIACION_TFIDF_59_V1.md`. Cohorte59: H29/D30 de tandas01–04, sin reservas/N/dudas/E009/colaG. Mismos 793 casos/v2/folds, A ajustada solo en train original y compartida. Nuevos B permitidos 53/51/52/50/53. Parámetros intactos; vocabulario/IDF y pesos balanced reaprendidos dentro del train B de cada condición.
+
+**Resultado:** F1 H/D media0,747060→0,713526, macro0,822250→0,798866; errores51→57, H↔D15→17, HD→N12→12, N→HD24→28. Solo mejora1/5folds. 16predicciones cambian:3corregidas/9errores nuevos/4errores de otro tipo. No cumple guardas y **no se adopta**. No retirar ambiguos del criterio ni cambiar referencias para mejorar el resultado.
+
+Control reproduce exactamente A/B/final anteriores. Dos corridas completas con resultados idénticos byte a byte (predicciones, comparaciones, inclusiones, métricas); protocolo/ejecución salvoUTC/tiempos. Comprobación aritmética independiente de matrices/F1. **111pruebas aprobadas,0omitidas**; entorno de preparación recreado, dependencia transformers faltante resuelta antes de repetir suite completa. Paquete f7aa1589… intacto, no encoder/torch, modelos persistidos, refit o scoring global.
+
+Nuevo comando del gestor40 `evaluar-ampliacion-tfidf` delega en módulo reutilizable no numerado; datos en `data/evaluacion/ampliacion_tfidf_59_v1/`. Objetivo300/300 y catálogoH154/D119 permanecen. Los nuevos altos se usaron solo en train experimental por fold, no sustituyeron la base global. Se recomienda revisar consistencia/representatividad antes de acumular por número. No inferir que más datos siempre empeoren ni atribuir causalmente la pérdida a etiquetas, IDF o ponderación sin otro diseño. Limpieza extrema final pendiente.

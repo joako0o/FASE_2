@@ -1,20 +1,20 @@
 # AVANCE — Proyecto D&H
 
-## Estado actual: meta 300 H / 300 D, cuatro tandas IA cerradas
+## Cierre actual: TF-IDF probado con los 59 aumentos, sin mejora
 
-El investigador reiteró la meta de 300 H/300 D; no hace falta otra autorización por tanda ni respuestas al Excel. Se cuentan la base v2 fija y los nuevos IDs H/D altos sin descarte. **Disponibles para preparar: H154/D119; faltan H146/D181.** El modelo vigente todavía utiliza H125/D89. Cero nuevas incorporaciones a train y cero entrenamientos.
+El investigador pidió «prueba tfidf con estos aumentos haber si cambia algo». Se ejecutó aquí una comparación controlada en CPU: base v2 frente al mismo B ampliado con 59 IDs H/D altos (29 H/30 D), purgados por reunión/texto frente a cada validación. **53/51/52/50/53 adiciones por fold**, A entrenada solo con originales y compartida, mismos parámetros y referencias.
 
-Cuatro tandas: **89 nuevas intervenciones íntegras leídas, 299.397 caracteres**, anotadas como H30/D37/N22. De ellas, **H29/D30 = 59** son de alta confianza y utilizables; H1/D6 medios quedan reservados y un D alto se descarta por copia cercana. Los N no se fuerzan a dirección. Contador/objetivo en `data/auditoria/meta_hd_300_v1/`; [informe](ANOTACION_IA_AMPLIACION_HD_V1.md).
+**F1 H/D media 0,747060 → 0,713526; macro-F1 media 0,822250 → 0,798866; errores 51→57; H↔D 15→17; H/D→N 12→12; N→H/D 24→28.** Solo mejora 1/5 folds. Cambian 16 predicciones: tres errores corregidos, nueve aciertos perdidos y cuatro errores que cambian de tipo. **No se adopta la ampliación como reemplazo del control.** [Informe](RESULTADOS_AMPLIACION_TFIDF_59_V1.md).
 
-En esta continuación se completaron E001–E020 y F001–F009: 96.608 caracteres / 15.702 palabras, dentro del presupuesto de 20.000. Aportan **H12/D12 altos**. E009 es D pero casi repite C35 (Jaccard 0,80645): se conserva etiquetado y **no cuenta para la meta**. Las dos nuevas D medias se reservan y E012 se registra como N dudoso. Datos en `data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/` y `tanda_04/`.
+El control reproduce exactamente las 793 predicciones anteriores A/B/final. Dos corridas completas reproducen byte a byte predicciones, comparación, inclusiones y métricas; protocolo/ejecución idénticos salvo fecha/tiempos. Cuenta aritmética independiente confirma matrices/F1. **111 pruebas aprobadas, 0 omitidas** (106 previas + 5 nuevas). Se recreó el entorno de preparación; la primera pasada sin transformers falló y se repitió completa tras instalar los requisitos fijados. No se omitieron controles.
 
-**Siguiente: G001–G020**, cola sin etiquetas ya preparada en `data/auditoria/meta_hd_300_v1/seleccion_05/cola.json`, 15.056 palabras. Excluye originales, marco humano y los 89 nuevos revisados. Prioridad a recomendación/voto/sesgo doméstico/acuerdo; canales 9 H/11 D no son etiquetas ni se suman al contador. Umbral de casi copia endurecido a 0,80 para la cola nueva, de forma explícita tras detectar E009; no se alteraron tandas anteriores.
+Protocolo previo al fit en `docs/PROTOCOLO_AMPLIACION_TFIDF_59_V1.md`, datos en `data/evaluacion/ampliacion_tfidf_59_v1/`. Gestor 40: `evaluar-ampliacion-tfidf`, módulo `scripts/evaluar_ampliacion_tfidf.py`. Vocabulario/IDF y class_weight=balanced de B se recalculan dentro del train respectivo; no búsqueda de hiperparámetros. No modelos guardados, refit global, scoring completo, ejecución BETO ni cambio de fuentes/paquete f7aa1589….
 
-### Controles y límites
+## Ampliación IA y meta que siguen registradas
 
-Citas exactas, textos completos, manifiestos, exclusiones y planes contrastados. Los 59 altos permitirían **53/51/52/50/53** incorporaciones por fold, nunca las 59 en todos. El lector IA, no el modelo ni una cuota, asigna las etiquetas; confianza no calibrada, sin doble revisión semántica independiente.
+89 nuevos IDs anotados en cuatro tandas, 299.397 caracteres: H30/D37/N22. Núcleo utilizable H29/D30, catálogo base+preparados **H154/D119**, faltan **H146/D181** para 300/300. Reservas H1/D6 y E009 descartado por copia cercana no cuentan. El entrenamiento experimental ahora está realizado; no confundirlo con incorporación permanente al corpus o adopción global, que siguen sin hacerse.
 
-No cambios de scripts, tests, L0, etiquetas originales, v2/folds/A ni paquete BETO. No nuevos modelos, métricas o sintéticos. Los 106 tests de software son del cierre anterior de selección/Excel; esta continuación añade comprobaciones de datos, citas, planes y contador. Si el corpus no alcanza 300 válidos por clase, informar sin inventar, duplicar o bajar el estándar para llenar cuotas.
+La cola G001–G020 está preparada y **sin anotar**, 15.056 palabras. La meta no se cancela automáticamente, pero tras este resultado se recomienda revisar consistencia/representatividad del enriquecimiento antes de seguir acumulando solo por cantidad. No cambiar referencias ni retirar ejemplos porque perjudican el score. No pedir anotación al usuario ni nueva autorización por cada tanda de la ampliación ya aprobada.
 
 ## Estado científico vigente
 
@@ -28,9 +28,9 @@ No cambios de scripts, tests, L0, etiquetas originales, v2/folds/A ni paquete BE
 
 ## Qué sigue y qué no
 
-1. El agente continúa con G001–G020 y después amplía la búsqueda hasta intentar 300 H/300 D. C01–C60, E001–E020 y F001–F009 están cerrados; no repetirlos.
+1. Informar el resultado negativo y revisar consistencia/representatividad antes de otra prueba. La meta 300/300 y G001–G020 pendientes siguen registradas; no convertirla en una cuota que fuerce etiquetas.
 2. Completar y revisar la capa IA de entrenamiento; no reabrir las 306 respuestas ni rehacer las 30 anotaciones humanas anteriores. En una selección futura excluir también los nuevos IDs ya anotados.
-3. Mantener TF-IDF. No nuevo entrenamiento, refit global, scoring del corpus, cambios de referencias o datasets externos por la mera creación del Excel.
+3. Mantener el TF-IDF de control. El ensayo ampliado ya se ejecutó; no fue adoptado. Sin refit global, scoring del corpus, cambios de referencias, sintéticos o datasets externos por esta prueba.
 4. **Idea sintética solo registrada**, PLAN §9.24: no generar ahora. La meta autorizada ahora es 300 H/300 D, sin forzar respuestas para cumplirla.
 5. **Limpieza extrema final obligatoria y pendiente**, REGLAS §12: reducir de verdad la entrega a una entrada y pocos módulos esenciales. El gestor sobre los scripts históricos no cumple por sí solo el cierre.
 

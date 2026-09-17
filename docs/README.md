@@ -2,6 +2,8 @@
 
 ## Trabajo actual
 
+**Último ensayo:** [TF-IDF con 59 ejemplos nuevos](RESULTADOS_AMPLIACION_TFIDF_59_V1.md): comparación ejecutada, sin mejora y sin reemplazo del control.
+
 **Trabajo vigente:** [anotación IA para ampliar entrenamiento](ANOTACION_IA_AMPLIACION_HD_V1.md), meta 300 H/300 D; 89 casos terminados y G001–G020 pendientes. El Excel de 60 no es una tarea humana requerida; no hay sintéticos ni nuevo entrenamiento.
 
 **Último resultado:** [BETO v1 recibido y no adoptado](RESULTADOS_BETO_V1.md): cinco folds, métricas verificadas y límites de procedencia.

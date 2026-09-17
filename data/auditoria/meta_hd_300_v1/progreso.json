@@ -45,7 +45,7 @@
     "5": 53
   },
   "objetivo_alcanzado": false,
-  "entrenamiento_realizado": false,
+  "entrenamiento_realizado": true,
   "evaluacion_independiente": false,
   "confianza_es_juicio_no_calibrado_del_agente": true,
   "sha256_insumos": {
@@ -70,5 +70,23 @@
   "cola_preparada": "data/auditoria/meta_hd_300_v1/seleccion_05/cola.json",
   "n_candidatos_pendientes_cola": 20,
   "cola_sin_incorporar_al_contador": true,
-  "siguiente": "Leer G001–G020 completos y anotar sin heredar canales; luego seguir la ampliación hasta intentar 300 H y 300 D."
+  "siguiente": "Leer G001–G020 completos y anotar sin heredar canales; luego seguir la ampliación hasta intentar 300 H y 300 D.",
+  "alcance_incorporaciones_efectivas_a_train": "El contador cero se refiere al corpus/modelo global: sí se usaron 59 IDs en train experimental por folds, sin refit ni adopción.",
+  "experimentos_realizados": [
+    {
+      "tipo": "tfidf_control_vs_ampliacion_59",
+      "resultado": "no_mejora_no_adoptado",
+      "ruta": "data/evaluacion/ampliacion_tfidf_59_v1",
+      "nuevos_por_fold": [
+        53,
+        51,
+        52,
+        50,
+        53
+      ],
+      "f1_hd_control": 0.7470596639017691,
+      "f1_hd_ampliado": 0.7135262752233299,
+      "refit_global": false
+    }
+  ]
 }

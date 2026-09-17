@@ -21,3 +21,5 @@ No modificar 38/39 dentro de una corrida iniciada. Un cambio necesario después 
 Para resultados recibidos: `python scripts/40_gestionar_proyecto.py auditar-resultados ARCHIVO.zip --salida AUDITORIA_NUEVA.json`. Verifica un ZIP final y recalcula la comparación sin GPU, sin ejecutar código externo ni sobrescribir el original. BETO v1 recibido no superó al control; ver `docs/RESULTADOS_BETO_V1.md`.
 
 Muestreo de revisión: `40_gestionar_proyecto.py preparar-muestra-hd --salida RUTA_NUEVA` delega en `muestreo_revision.py` y reutiliza el formato de 29. **La primera muestra de 60 ya está creada**: no hace falta ejecutar de nuevo para responder el Excel. No etiqueta ni entrena.
+
+`40_gestionar_proyecto.py evaluar-ampliacion-tfidf --salida RUTA_NUEVA` reproduce el ensayo controlado con los 59 altos de tandas01–04. Delega en `evaluar_ampliacion_tfidf.py`; CPU, A/referencias/folds fijos, sin guardar modelos o sustituir el control. Ya se ejecutó y no mejoró.

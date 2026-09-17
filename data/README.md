@@ -6,6 +6,7 @@
 |---|---|
 | `auditoria/ampliacion_hd_60_v1/` | Selección real de 60 y capa `anotacion_ia_v1/tanda_01/` con 60 etiquetas IA en dos tandas; 35 H/D altos preparados, no incorporados al modelo. No esperar respuestas humanas. |
 | `auditoria/meta_hd_300_v1/` | Meta 300 H/300 D, anotaciones adicionales, progreso H154/D119 y cola siguiente G001–G020 sin etiquetas. |
+| `evaluacion/ampliacion_tfidf_59_v1/` | Ensayo CPU original vs +59 altos: protocolo, inclusiones, predicciones, métricas y replay; no adoptado. |
 | `L0/corpus.csv` | Corpus completo inmutable: 9.725 intervenciones. No corregir OCR ni reconstruir textos manualmente. |
 | `etiquetas/etiquetas_*.csv` | 1.352 anotaciones IA originales, conservadas. No sobrescribirlas. |
 | `evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv` | Vista activa de 1.352 IDs; referencia original, seis adjudicaciones y versión con trece correcciones adicionales. |
