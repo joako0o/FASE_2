@@ -10,6 +10,22 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.
 - **[Carpeta de código](scripts/README.md)** · **[Mapa de datos](data/README.md)** · **[Índice de documentación](docs/README.md)**.
 
+## Criterios importantes para clasificar: postura y relevancia
+
+**Registrados por indicación del investigador el 17-09-2026.** Son la referencia documental para calibrar y auditar consistencia; **no implican reclasificar automáticamente los datos ni sustituir el codebook v2 congelado**.
+
+- **Qué medimos:** orientación monetaria para Chile respaldada por el actor o el Consejo en la unidad completa. No mero sentimiento económico, presencia de “TPM”, nivel de una tasa ni ranking entre consejeros. En el plan B se incluyen los nombres históricos del instrumento cuando su función monetaria esté identificada.
+- **H:** respalda endurecer, subir la tasa, retirar estímulo o un sesgo al alza. **D:** respalda relajar, bajar la tasa, ampliar estímulo o un sesgo a la baja. Una oposición a más relajamiento/retirada de estímulo exige justificación sustantiva; no se invierte el signo mecánicamente por discrepar.
+- **N relevante existe:** análisis monetario, opciones sin preferencia, preguntas sin respuesta, relato sin nueva adhesión y mantención sin orientación identificable pueden ser `neutral` y **`es_relevante=1`**. La ausencia de voto no los hace irrelevantes.
+- **Irrelevante no equivale a neutral:** `es_relevante=0` se reserva para unidades realmente ajenas al objetivo o puramente administrativas, no para todo texto sin dirección. Un N relevante debe seguir disponible para que B aprenda esa distinción.
+- **La dirección actual explícita prima:** bajar 50 frente a 70 pb sigue siendo D; subir 25 frente a 50 sigue siendo H. Mantener se interpreta con su contexto/sesgo; no es automáticamente N ni una postura relativa frente a otra propuesta.
+- **Historia, expectativas ajenas y mención no equivalen a adhesión.** Identificar quién respalda qué y cuándo. Si falta información esencial o se mezclan asuntos, registrar la limitación y apartar el caso del entrenamiento hasta resolverla; no asignar N de alta confianza para llenar el campo.
+- **Texto y evidencia:** conservar el original, leer la unidad completa y usar cita literal de hasta 300 caracteres. No sustituirlo por correcciones de IA sin cotejo ni completar dirección con otras intervenciones. Agrupar por acta/reunión para evitar contaminación entre train y validación.
+
+Detalle: [criterio acotado para el plan B](docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos y decisiones aún por acordar](docs/DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
+
+**¿Reclasificar lo anterior?** Primero auditar consistencia, no cambiarlo todo ni revisar solo los errores del modelo. Propuesta de orden: revisar las 89 anotaciones IA nuevas y después las familias de riesgo de la base de 1.352, con controles de casos no señalados por esas búsquedas. Las reglas nuevas de alcance/pendientes que difieran de v2 requieren una versión explícita. Conservar originales, decisiones humanas aceptadas y resultados; registrar por ID cualquier cambio propuesto. No abrir las antiguas 306 respuestas. Si se aprueba otra referencia, separar el efecto de cambiar etiquetas de evaluación del efecto de volver a entrenar. **Esta revisión/migración no se ha ejecutado.**
+
 ## Estado real
 
 | Componente | Estado |

@@ -574,3 +574,12 @@ El investigador pidió definir qué es/no es postura y consultar otros trabajos.
 Después pidió detener la continuación y evaluar15fragmentos1995–1999 filtrados por tasas. Guía acotada en `docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md`: sesgo monetario doméstico respaldado, no cadena literalTPM ni ranking entre alternativas. N relevante debe conservarse;31369/32169/32531no se convierten enirrelevantes por falta de voto.21910esrelatohistórico,29595incluye medidas después de la apertura,30704ambas bajas50/70sonD,31986Hmedia debe justificarse por rechazo de estímulo excesivo y no por disenso,33553noDalta por postergar revisión. Se precisan unidades/actores/citas y se prohíbe sustituir original por correcciónIA sin cotejo.
 
 Las observaciones son de calibración con fragmentos pegados, no etiquetas definitivas verificadas contra originales. No importación, entrenamiento, modificación de v2/folds/A o datos del proyecto. Se preservan las propuestas como tales mientras se acuerda el criterio.
+
+
+### 9.33 Definiciones visibles y propuesta de auditoría de consistencia
+
+El investigador solicita registrar las definiciones en README y otra parte, y consulta si hay que reclasificar los datos existentes. Se destacan en README y REGLAS §13: orientación monetaria doméstica respaldada, neutralidad distinta de irrelevancia, dirección actual frente a magnitud relativa, mantención contextual, historia/pregunta/expectativa ajena, y conservación del original. No se cambia el codebook v2 ni se adopta automáticamente toda la propuesta histórica.
+
+Se recomienda auditar antes de reclasificar: primero las89anotaciones IA recientes, luego familias de riesgo y controles no seleccionados por esas familias en la base de1.352. No solo errores del clasificador; no se supone que todas las etiquetas estén mal ni se sabe aún cuántas cambiarían. Cualquier cambio autorizado se guarda en otra capa con ID/regla/evidencia, preservando originales y adjudicaciones. No abrir306respuestas. Si cambia la referencia, separar su efecto sobre scores del efecto de un modelo reentrenado.
+
+**Actualización documental, no auditoría o reclasificación ejecutada; sin datos/modelos/folds/A modificados, importación histórica o nuevos entrenamientos.**

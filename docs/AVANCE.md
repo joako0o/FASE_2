@@ -1,5 +1,13 @@
 # AVANCE — Proyecto D&H
 
+## Última actualización: definiciones destacadas y revisión de etiquetas pendiente
+
+El investigador pidió anotar las definiciones en README y otra parte, destacando su importancia, y preguntó si hay que reclasificar lo anterior. Se añadieron una sección visible en `README.md` y la regla13 en `docs/REGLAS.md`, con enlaces a los borradores: orientación respaldada, **N relevante ≠ irrelevante**, dirección frente a magnitud relativa, mantención contextual, historia/pregunta sin adhesión y texto original.
+
+Recomendación: **auditoría de consistencia, no reclasificación masiva automática**. Empezar por las89anotaciones IA nuevas; después revisar familias de riesgo en las1.352 y casos de control, sin limitarse a los errores del modelo. No sabemos todavía cuántas etiquetas cambiarían. Las discrepancias de criterio, si se confirman y autorizan, deben versionarse preservando originales/adjudicaciones y separando el efecto de nueva referencia del de nuevo entrenamiento. No abrir las306respuestas.
+
+Solo documentación en esta actualización: **no se revisaron/reclasificaron filas, no se modificó v2/A/folds, no se importó planB ni se entrenó**. Los borradores generales no se convierten por esta instrucción en una migración aprobada. El deterioro +59 no prueba por sí solo etiquetas erróneas; hay fallos de representación ya documentados.
+
 ## Consulta vigente: criterio del plan B centrado en tasa de política
 
 El investigador pidió detener la continuación y definir el criterio antes de seguir. Presentó15ejemplos de1995–1999 extraídos por un filtro de TPM. Revisión en `docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md`: extracción más pertinente, pero **N no implica irrelevancia** (31369/32169/32531 deben conservar relevancia monetaria en este criterio); no ranking de H/D entre alternativas (bajar50 frente a70 sigue siendoD); historia de bajas no equivale a postura actual (21910);29595 contiene contenido sustantivo después de la apertura y no admiteN/0alta automática.
