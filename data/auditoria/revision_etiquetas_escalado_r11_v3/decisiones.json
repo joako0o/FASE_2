@@ -1,0 +1,16 @@
+[
+  {
+    "intervencion_id": "RPM-2011-09-15:4333:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "se acuerda por unanimidad mantener la tasa de política monetaria en 5,25% anual",
+    "fundamento": "El acuerdo solo mantiene la TPM y no expresa sesgo ni dirección futura: N, no D."
+  },
+  {
+    "intervencion_id": "RPM-2011-09-15:4329:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "no parece prudente, por el momento, señalizar eventuales cambios en la dirección de la política monetaria",
+    "fundamento": "Vota mantener y rechaza señalizar una dirección, a la espera de información: N, no D."
+  }
+]

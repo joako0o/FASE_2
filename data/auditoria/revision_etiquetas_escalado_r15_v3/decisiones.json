@@ -1,0 +1,16 @@
+[
+  {
+    "intervencion_id": "RPM-2011-09-15:4332:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "su voto también es por mantener la tasa en un 5,25%, con un sesgo neutral",
+    "fundamento": "Mantiene con sesgo neutral y condiciona cualquier ajuste a nueva información: N, no D."
+  },
+  {
+    "intervencion_id": "RPM-2006-05-11:671:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "nuestro escenario central considera una normalización pausada de la política monetaria",
+    "fundamento": "Hace propia la normalización al alza y pausa únicamente para no sorprender al mercado: H, no D."
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "intervencion_id": "RPM-2006-11-16:979:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "se dé una señal hacia una mayor neutralidad en el sesgo implícito de los movimientos futuros de la tasa de política monetaria",
+    "fundamento": "Respalda mantener y neutralizar el sesgo futuro, no una baja ni orientación expansiva: N."
+  },
+  {
+    "intervencion_id": "RPM-2006-03-16:621:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "perfectamente podría aprovecharse la ocasión para dar un paso oportuno en la normalización de la política monetaria",
+    "fundamento": "Acepta y respalda la normalización; prefiere pausar solo porque sorprendería menos al mercado y apoyaría cualquiera de las dos opciones. La trayectoria es H, no D."
+  }
+]
