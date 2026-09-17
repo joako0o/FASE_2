@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** [anotar ejemplos nuevos para entrenamiento](docs/ANOTACION_IA_AMPLIACION_HD_V1.md). Meta 300 H/300 D: 89 candidatos revisados por IA; base más nuevos altos utilizables H154/D119. El ensayo TF-IDF con 59 aumentos ya se ejecutó y **no mejoró**: [resultados](docs/RESULTADOS_AMPLIACION_TFIDF_59_V1.md). No se reemplazó el control. [Diagnóstico de los errores](docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md): atajos léxicos y fronteras de criterio, sin modificar etiquetas. El investigador **no necesita completar el Excel** para que continúe este trabajo.
+**Trabajo actual del agente:** [revisar compatibilidad entre criterios y etiquetas](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md), sin reclasificar automáticamente. La meta300H/300D y las89anotaciones IA nuevas permanecen registradas (base+altos H154/D119). El ensayo TF-IDF con59aumentos no mejoró y el control no se reemplazó. El investigador no necesita volver a completar un Excel para esta auditoría.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.
@@ -24,7 +24,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 Detalle: [criterio acotado para el plan B](docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos y decisiones aún por acordar](docs/DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
 
-**¿Reclasificar lo anterior?** Primero auditar consistencia, no cambiarlo todo ni revisar solo los errores del modelo. Propuesta de orden: revisar las 89 anotaciones IA nuevas y después las familias de riesgo de la base de 1.352, con controles de casos no señalados por esas búsquedas. Las reglas nuevas de alcance/pendientes que difieran de v2 requieren una versión explícita. Conservar originales, decisiones humanas aceptadas y resultados; registrar por ID cualquier cambio propuesto. No abrir las antiguas 306 respuestas. Si se aprueba otra referencia, separar el efecto de cambiar etiquetas de evaluación del efecto de volver a entrenar. **Esta revisión/migración no se ha ejecutado.**
+**¿Reclasificar lo anterior?** La [auditoría inicial de compatibilidad](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md) confirmó convenciones relativas al menú/fase en parte del entrenamiento IA, no invalidez de toda la colección. La separación N/relevancia ya existía: 878 N relevantes y 269 irrelevantes en los originales. Priorizar las 77 filas de las dos rondas con convenciones documentadas, extender a familias similares en otras rondas y revisar también la ampliación de 89 con el criterio que se acuerde; incluir controles, no solo errores del modelo. No se conoce aún el total de cambios y las 306 respuestas humanas no se reevaluaron. Las reglas nuevas de alcance/pendientes que difieran de v2 requieren una versión explícita. Conservar originales, decisiones humanas aceptadas y resultados; registrar por ID cualquier cambio propuesto. No abrir las antiguas 306 respuestas. Si se aprueba otra referencia, separar el efecto de cambiar etiquetas de evaluación del efecto de volver a entrenar. **Se hizo una auditoría inicial estructural y de 12 textos; no una reclasificación o migración.**
 
 ## Estado real
 

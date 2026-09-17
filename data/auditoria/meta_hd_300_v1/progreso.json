@@ -95,5 +95,13 @@
     "etiquetas_modificadas": false,
     "variantes_nuevas": false,
     "recomendacion": "Uniformar criterio y priorizar contrastes de acto discursivo; no acumular solo por número, no reetiquetar validación ni añadir N indiscriminadamente."
+  },
+  "auditoria_compatibilidad": {
+    "ruta": "data/auditoria/compatibilidad_criterios_v1",
+    "estructura_ia_contada": 1352,
+    "textos_inspeccionados": 12,
+    "etiquetas_modificadas": 0,
+    "respuestas_humanas_reevaluadas": false,
+    "decision": "Resolver compatibilidad de convenciones antes de nuevas incorporaciones; meta no cancelada."
   }
 }

@@ -25,3 +25,5 @@ Muestreo de revisión: `40_gestionar_proyecto.py preparar-muestra-hd --salida RU
 `40_gestionar_proyecto.py evaluar-ampliacion-tfidf --salida RUTA_NUEVA` reproduce el ensayo controlado con los 59 altos de tandas01–04. Delega en `evaluar_ampliacion_tfidf.py`; CPU, A/referencias/folds fijos, sin guardar modelos o sustituir el control. Ya se ejecutó y no mejoró.
 
 `40_gestionar_proyecto.py diagnosticar-ampliacion-tfidf --salida RUTA_NUEVA` reconstruye las mismas condiciones y descompone los 16 cambios. No entrena una variante nueva ni modifica etiquetas. Detalle en `docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md`.
+
+`40_gestionar_proyecto.py auditar-compatibilidad --salida RUTA_NUEVA` reproduce el recuento/tamiz/selección de controles y coteja la lectura conservada. Solo biblioteca estándar; no etiqueta, entrena o abre el libro humano. No repetir la auditoría como si fuera revisión semántica completa.

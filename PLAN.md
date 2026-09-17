@@ -590,3 +590,14 @@ Se recomienda auditar antes de reclasificar: primero las89anotaciones IA recient
 El investigador precisa que consulta si sus~300anotaciones humanas y las~1000IA originales están mal con la definición afinada. Se aclara que no hay auditoría completa ni dictamen de incompatibilidad total: distinguir aplicación errónea de reglas, redefinición de la variable y error de modelo. No invalidar trabajo previo por cambiar después la definición. Preservar1.352IA/306humanas, sin abrir estas últimas ni migrar referencias automáticamente.
 
 El nuevo ejemplo de plan B corrige Nrelevante y varias etiquetas, pero siguen pendientes29595(Nalta por ausencia de voto),31986(Hrelativo y cita conelipsis), citas ausentes paraNrelevantes,33553(justificación de sesgo declarado incompatible conNseguro) y precisión propuesta/adopción en27863. La cita21716 se midió en291caracteres; se corrige la recomendación previa innecesaria de recortarla. Notas en `docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md`. No datos importados, reclasificación, cambio de codebook, entrenamiento o código nuevo.
+
+
+### 9.35 Auditoría inicial de compatibilidad: evidencia de convenciones relativas
+
+Tras «sigue», se contrastan guías/documentación y estructura de los19CSV/1.352IA, sin abrir306respuestas. Originales: H116/D89/Nrelevante878/Nirrelevante269; v2actualH125/D89/Nrelevante869/Nirrelevante269. Neutralidad y relevancia ya estaban separadas; no hay motivo para asumir el error del plan B en toda la base.
+
+`CONVENCIONES_ETIQUETADO.md` documenta pausa en alzas=Drelativa y mantenercontra recorte=Hrelativo. Cuatro notas explícitas y textos completos (525:1,672:1,1102:1,1218:1) muestran dónde revisar compatibilidad con dirección respaldada. Dos archivos41+36=77filas prioritarias, no77errores. Ocho controlesporhash/estrato:5compatibles,2fronterasdecriterio,1evaluabilidad;292:1fuera de esas rondas impide limitar el alcance a77. En total12textos/27.887caracteres.930notasvacías eran permitidas para relevantes y limitan rastreo, no prueba de error. No se estima porcentaje global.
+
+Informe `docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md`; datos `data/auditoria/compatibilidad_criterios_v1/`; comando40 `auditar-compatibilidad` con auditor de solo lectura. Replay exacto y122tests/0omitidos. Cero etiquetas nuevas, reclasificación, cambios de referencias/folds o entrenamiento. Las humanas conservadas no son declaradas erróneas ni compatibles sin revisión individual autorizada.
+
+Recomendar acuerdo explícito sobre la convención y luego revisión versionada por familias, no corrección oportunista por score. Mantener originales y decisiones aceptadas; separar efecto de nueva referencia del reentrenamiento. Meta300/300 no cancelada, pero no incorporar nuevas filas mientras se resuelve compatibilidad.

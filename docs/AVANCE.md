@@ -1,5 +1,17 @@
 # AVANCE — Proyecto D&H
 
+## Cierre actual: compatibilidad original auditada parcialmente, no reclasificada
+
+Se contrastaron v2, las convenciones históricas, documentación del instrumento humano y los19CSV/1.352IA. **Hallazgo confirmado:** parte del training IA usó pausa en alzas=D y mantener contra recorte=Hrelativo, según `CONVENCIONES_ETIQUETADO.md` y cuatro notas explícitas. Esas convenciones no son automáticamente equivalentes a dirección respaldada en la propia unidad. No significa que las1.352estén mal ni que cada caso de esa familia cambie necesariamente de clase.
+
+La separación N/relevancia **ya estaba en la guía y en los datos**: originales H116/D89/Nrelevante878/Nirrelevante269; vista v2 H125/D89/Nrelevante869/Nirrelevante269, tras16cambios aceptados que no son nuevos. El error de N=irrelevante de la calibración externa no se extrapola a toda nuestra base.
+
+Se leyeron12textos completos (27.887caracteres/4.591palabras):4focos por notas y8controles por hash/estrato no seleccionados por error de modelo. Cinco controles compatibles, dos fronteras de criterio y uno de evaluabilidad; no es estimación de proporción de errores. El control292:1muestra una pausa fuera de los dos archivos prioritarios. Estos contienen41+36=77filas, punto de partida, no número de etiquetas malas ni límite del problema.930notasvacías eran permitidas en relevantes y limitan el tamiz textual, no invalidan esas etiquetas.
+
+**Tus306humanas no se abrieron ni reevaluaron.** Se revisó documentación, no se comprobó qué regla siguió cada respuesta. No declarar inválida esa referencia ni asegurar compatibilidad total con otra definición. Originales, decisiones y métricas intactos. Recomendación: acordar la frontera de criterio y revisar las familias identificadas en una nueva capa, sin corregir por mejora de score.
+
+[Informe](AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md), evidencia en `data/auditoria/compatibilidad_criterios_v1/`. Auditor reproducible de solo lectura en gestor40 `auditar-compatibilidad`; no clasifica automáticamente ni entrena. Replay byte a byte y **122pruebas aprobadas,0omitidas**. **Cero etiquetas modificadas.** No auditoría semántica exhaustiva, nueva estimación de generalización o entrenamiento. La ampliación300/300 no se cancela, pero no se incorporan nuevas filas mientras se resuelve compatibilidad.
+
 ## Aclaración vigente: compatibilidad de las anotaciones originales y tercera calibración
 
 El investigador aclara que su pregunta sobre “las1000tuyas+300mías” se refería al conjunto original IA/humano, no solo a las89nuevas. **No se puede declarar que las1.352IA y306humanas estén mal en bloque ni que sean totalmente compatibles sin revisión.** Separar errores de aplicación de reglas existentes de cambios de variable/definición; cambiar después el objetivo no convierte automáticamente la etiqueta anterior en equivocada. No se sabe cuántas cambiarían. No se reabrieron306respuestas ni se ejecutó reclasificación.

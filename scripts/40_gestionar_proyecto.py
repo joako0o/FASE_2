@@ -29,7 +29,7 @@ MANIFIESTO = 'MANIFIESTO_ENTREGA.json'
 ENTRADA = 'data/checkpoints/beto_v1/entrada'
 RESULTADOS = 'data/checkpoints/beto_v1/ejecucion'
 ARCHIVOS_ENTRADA = ['documentos.json', 'folds.json', 'baseline.json', 'checkpoint.json', 'manifest.json']
-PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py']
+PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py', 'test_compatibilidad_criterios.py']
 PRUEBAS_ANTERIORES_SEGURAS = [
     'test_inversiones_hd.py', 'test_referencias_corregidas.py', 'test_modelo_adjudicado.py',
     'test_revision_cierre_66.py', 'test_revision_neutralidad.py',
@@ -434,6 +434,8 @@ def main(argv=None):
     ampliacion.add_argument('--salida', type=Path, default=RAIZ/'data/evaluacion/ampliacion_tfidf_59_v1')
     diagnostico = acciones.add_parser('diagnosticar-ampliacion-tfidf', help='Reconstruir el ensayo +59 y analizar sus márgenes sin nuevas variantes')
     diagnostico.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/diagnostico_ampliacion_tfidf_59_v1')
+    compatibilidad = acciones.add_parser('auditar-compatibilidad', help='Auditar criterios y estructura IA sin reclasificar ni abrir respuestas humanas')
+    compatibilidad.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/compatibilidad_criterios_v1')
     argumentos = parser.parse_args(argv)
     try:
         if argumentos.accion == 'instalar': instalar(argumentos.beto)
@@ -442,6 +444,9 @@ def main(argv=None):
         elif argumentos.accion in ['comprobar', 'smoke', 'comparar']:
             ejecutar_beto({'comprobar':'--comprobar', 'smoke':'--smoke', 'comparar':'--consolidar'}[argumentos.accion])
         elif argumentos.accion == 'entrenar': entrenar()
+        elif argumentos.accion == 'auditar-compatibilidad':
+            subprocess.run([sys.executable, '-X', 'utf8', 'scripts/auditar_compatibilidad_criterios.py',
+                '--salida', str(argumentos.salida.resolve())], cwd=RAIZ, check=True)
         elif argumentos.accion == 'diagnosticar-ampliacion-tfidf':
             preparar()
             ejecutar_python(['scripts/diagnosticar_ampliacion_tfidf.py', '--salida', argumentos.salida.resolve()])

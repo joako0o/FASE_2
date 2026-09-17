@@ -45,6 +45,12 @@ data/auditoria/ampliacion_hd_60_v1/manifest.json
 data/auditoria/ampliacion_hd_60_v1/resumen.json
 data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx
 data/auditoria/ampliacion_hd_60_v1/verificacion.json
+data/auditoria/compatibilidad_criterios_v1/casos_inspeccionados.json
+data/auditoria/compatibilidad_criterios_v1/conteos.json
+data/auditoria/compatibilidad_criterios_v1/lectura.json
+data/auditoria/compatibilidad_criterios_v1/manifest.json
+data/auditoria/compatibilidad_criterios_v1/protocolo.json
+data/auditoria/compatibilidad_criterios_v1/verificacion.json
 data/auditoria/diagnostico_ampliacion_tfidf_59_v1/contribuciones.csv
 data/auditoria/diagnostico_ampliacion_tfidf_59_v1/frecuencias_auditadas.json
 data/auditoria/diagnostico_ampliacion_tfidf_59_v1/lectura_casos.json
@@ -308,6 +314,7 @@ data/muestras/test_retest_30.csv
 docs/ADJUDICACION_SEIS_DISCREPANCIAS_30_V1.md
 docs/AMPLIACION_HD_60_V1.md
 docs/ANOTACION_IA_AMPLIACION_HD_V1.md
+docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md
 docs/AVANCE.md
 docs/CALIBRACION_PLAN_B_ACTAS_HISTORICAS.md
 docs/CONTINUIDAD.md
@@ -397,6 +404,7 @@ scripts/38_preparar_beto.py
 scripts/39_ejecutar_beto.py
 scripts/40_gestionar_proyecto.py
 scripts/README.md
+scripts/auditar_compatibilidad_criterios.py
 scripts/auditoria_datos.py
 scripts/config.py
 scripts/diagnosticar_ampliacion_tfidf.py
@@ -409,6 +417,7 @@ scripts/representaciones_contextuales.py
 scripts/utilidades.py
 tests/test_ampliacion_tfidf.py
 tests/test_clasificadores_hd.py
+tests/test_compatibilidad_criterios.py
 tests/test_diagnostico_ampliacion.py
 tests/test_entrega_portable.py
 tests/test_excel_revision.py

@@ -2,6 +2,8 @@
 
 ## Trabajo actual
 
+**Último resultado:** [compatibilidad de las etiquetas anteriores](AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md): convenciones relativas confirmadas en parte de la IA, neutralidad/relevancia ya separadas; no reclasificación ni revisión de respuestas humanas.
+
 **Definición pendiente de acuerdo:** [criterio acotado del plan B](CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos de la propuesta general](DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md). No reemplazan el codebook v2 ni autorizan importar etiquetas.
 
 **Consulta de calibración:** [plan B con actas históricas](CALIBRACION_PLAN_B_ACTAS_HISTORICAS.md), solo opinión; no corpus importado ni etiquetas finales.

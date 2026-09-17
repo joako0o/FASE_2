@@ -1,0 +1,34 @@
+{
+  "estado": "verificado",
+  "pruebas_aprobadas": 122,
+  "pruebas_por_modulo": [
+    14,
+    20,
+    8,
+    5,
+    5,
+    6,
+    8,
+    12,
+    10,
+    10,
+    8,
+    8,
+    8
+  ],
+  "omitidas": 0,
+  "archivos_replay_byte_identico": [
+    "conteos.json",
+    "casos_inspeccionados.json",
+    "protocolo.json"
+  ],
+  "datos_ia_originales_contados": 1352,
+  "lecturas_integras": 12,
+  "caracteres_leidos": 27887,
+  "citas_verificadas": 12,
+  "etiquetas_nuevas": 0,
+  "respuestas_humanas_abiertas": false,
+  "porcentaje_error_global_no_estimado": true,
+  "sha256_informe": "551af1972eb2fdd73137bbd3a1c60d870cd87d21ffdedc8c08506fb3be04d19c",
+  "sha256_tests": "7f93a8a570eb67762f4633336a6274e33708de03b3b34fdba6f845bb4d1abc5e"
+}

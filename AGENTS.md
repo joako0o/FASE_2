@@ -19,3 +19,5 @@
 14. Ensayo TF-IDF con 59 altos ya ejecutado y no adoptado: F1 H/D 0,747060→0,713526, errores51→57, H↔D15→17. Ver `docs/RESULTADOS_AMPLIACION_TFIDF_59_V1.md`. No repetirlo o adoptar/refit automáticamente; fuentes/v2/folds/A intactos. La meta300/300 permanece, con recomendación de revisar calidad/representatividad antes de acumular por cuota.
 
 15. Diagnóstico del deterioro +59 terminado: `docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md`, 16 textos/12.005 contribuciones/replay exacto/116tests. Fronteras de referencia no son correcciones aprobadas. No reetiquetar o entrenar variantes automáticamente; contrastes de acto discursivo antes de acumular por cuota, sin añadir estos casos a su train.
+
+16. Auditoría inicial de compatibilidad cerrada: `docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md`. Hay convenciones relativas documentadas en trainingIA; N/relevancia ya estaban separados.12textos inspeccionados, no1.352reclasificados;77filas prioritarias no son77errores. Las306respuestas no se reevaluaron. Cero etiquetas cambiadas; acordar criterio y versionar cualquier revisión, sin corregir por score ni afirmar invalidez global.
