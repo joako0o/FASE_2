@@ -1,0 +1,16 @@
+{
+  "ancla_c89_reproducida": true,
+  "ancla_c_primera300_reproducida": true,
+  "filas_validacion": 793,
+  "ids_validacion_unicos": 793,
+  "segunda_tanda_ids": 300,
+  "inclusion_segunda_por_fold": [
+    264,
+    267,
+    263,
+    256,
+    255
+  ],
+  "copias_textuales_incluidas": 0,
+  "reuniones_validacion_incluidas": 0
+}
