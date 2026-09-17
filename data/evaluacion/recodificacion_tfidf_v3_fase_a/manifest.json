@@ -1,0 +1,10 @@
+{
+  "sha256_salidas": {
+    "predicciones_referencias_v2_v3.csv": "1bf429177f55f21737125c884374cfa13d1720f8a87b68c6ef2b116ce60a9b57",
+    "cambios_referencia.csv": "5b6ee8db52a2367b2836cf6c790b32f32c5d051b8a9536f6ab57f1bfe0554f54",
+    "metricas.json": "ef45968d5f871c1b4a172753bbfde23d0d6ff4b21bdcf5a66d521f436cac5d84",
+    "resumen.md": "c3694b6c18b5ee1b4ddaae4787cf08324e7dbabe54ef9f976f45784af52888af",
+    "protocolo.json": "d90533a23c615614620f90c18ae29af5ee4bb57b6dc1c58851e55f78f0c1c422",
+    "verificacion.json": "84ae4280c7cf4f32f471411b6f5c23b94319370dfd8e44038a69c3f7bdeb47ab"
+  }
+}

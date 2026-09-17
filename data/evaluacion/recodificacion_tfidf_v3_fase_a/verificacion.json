@@ -1,0 +1,16 @@
+{
+  "estado": "verificado",
+  "filas": 793,
+  "ids_unicos": 793,
+  "anclas_v2_publicadas": {
+    "accuracy": 0.935687263556116,
+    "macro_f1": 0.8199279654489144,
+    "f1_hd": 0.7435283118097353,
+    "media_folds_f1_hd": 0.7470596639017691
+  },
+  "reproduce_todas_las_anclas_v2": true,
+  "reproduce_matriz_v2_historica": true,
+  "reproduce_errores_v2_historicos": true,
+  "predicciones_v2_v3_identicas": true,
+  "entrenamiento_ejecutado": false
+}
