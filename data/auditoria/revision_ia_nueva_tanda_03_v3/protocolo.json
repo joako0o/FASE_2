@@ -1,0 +1,18 @@
+{
+  "codebook": "docs/codebook_v3.md",
+  "alcance": "Todas las filas de anotaciones_ia.csv; etiquetas visibles, revisión del agente, no segunda anotación ciega.",
+  "decisiones_manuales": "data/auditoria/revision_ia_nueva_tanda_03_v3/decisiones.json",
+  "fuentes_sha256": {
+    "data/L0/corpus.csv": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/anotaciones_ia.csv": "d26d0ed3dad340f5264d35373af8cb3c75cd0999f54875bf30b9c4b2d36ba909",
+    "data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv": "dc1336c88cb8f21e40a632d39fefe1b74477660e608045fec49a936865bf3903",
+    "docs/codebook_v3.md": "c41cebf74ea73e57c48fae2c8606e5b555dc17ff1c65608fcf17d362dbbc39cf",
+    "data/auditoria/revision_ia_nueva_tanda_03_v3/decisiones.json": "1688b913650cb455d7a67b5eae9fa039a790bb8f60e711bd7e217ed8213bbebb"
+  },
+  "controles": [
+    "IDs únicos",
+    "citas exactas tras normalizar espacios y <=300",
+    "hash por texto",
+    "sin sobrescribir fuentes"
+  ]
+}

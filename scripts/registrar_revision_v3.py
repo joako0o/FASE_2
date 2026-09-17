@@ -52,8 +52,9 @@ def registrar(archivo, decisiones, salida):
         identidad = fila['intervencion_id']
         texto = corpus[identidad]['texto']
         texto_normalizado = ' '.join(texto.split())
-        v2 = refs[identidad]['etiqueta_corregida_v2']
-        relevancia_v2 = refs[identidad]['es_relevante']
+        referencia = refs.get(identidad)
+        v2 = referencia['etiqueta_corregida_v2'] if referencia else fila['etiqueta']
+        relevancia_v2 = referencia['es_relevante'] if referencia else fila['es_relevante']
         manual = manuales.get(identidad)
         if manual:
             nueva = manual['etiqueta_v3']

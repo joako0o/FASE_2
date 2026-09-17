@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; 1.747 IDs distintos. Cerrados: [dos rondas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md), [pilotos r1–r4](docs/REVISION_PILOTO_R4_V3.md) y escalados [r5](docs/REVISION_ESCALADO_R5_V3.md)–[r17](docs/REVISION_ESCALADO_R11_R17_V3.md): **1.352 revisados**, quedan 395. Las 19 rondas IA originales están cerradas. V2 y sus métricas se preservan; no se reentrena hasta consolidar v3.
+**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; 1.747 IDs distintos. Cerrados: [dos rondas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md), [pilotos r1–r4](docs/REVISION_PILOTO_R4_V3.md) y escalados [r5](docs/REVISION_ESCALADO_R5_V3.md)–[r17](docs/REVISION_ESCALADO_R11_R17_V3.md): **1.441 revisados**, quedan 306. Todas las anotaciones IA —1.352 originales y 89 nuevas— están cerradas; restan las humanas. V2 y sus métricas se preservan; no se reentrena hasta consolidar v3.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.

@@ -1,7 +1,7 @@
 {
   "sha256_salidas": {
-    "inventario.csv": "10a43891edb2c6098702c1fc51e3bb2914a8599b17922c232b264c09edf89756",
-    "resumen.json": "8aeae3fc166d0388234b95930d778d09b8f4ebd1921390de98ea70fb8ba17f60",
-    "protocolo.json": "72dc9ce35c4f2607b9509e904e92e5e614fea7861d7ab2efbf37e29e42041856"
+    "inventario.csv": "c0e1e91fb24d547c956558b09e79833352173a6cbf437c5d8be02c4afb72ba91",
+    "resumen.json": "4e15239a69192b09eb8869231faec981e612de530a0b55820e6836ab21b604b9",
+    "protocolo.json": "9ff68929082a2854d47e59327abdf966e89a796008cc3e4a87e8bd318a415acc"
   }
 }
