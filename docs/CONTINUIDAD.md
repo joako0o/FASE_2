@@ -4,7 +4,9 @@
 
 **Último cierre:** el `codebook_v3.md` quedó aplicado a todo el universo autorizado: 19 rondas IA/1.352 IDs, cuatro tandas IA nuevas/89 y humanas v2/306; **1.747/1.747 revisados, 0 pendientes** en 24 lotes. El inventario reproducible está en `data/auditoria/migracion_v3/`. No se entrenó ni se sobrescribieron L0, v2, el XLSX humano, folds o modelos.
 
-La [revisión humana](REVISION_HUMANA_V3.md) cubre explícitamente 306/306: 277 compatibles, 28 cambios de etiqueta y uno de relevancia; final H39/D27/N240 y relevancia 266/40. Todas las filas relevantes tienen cita literal validada y hash. La capa humana v3 fue revisada con respuestas visibles: **no es un test ciego independiente**. Las decisiones completas están en `data/auditoria/revision_humana_v3/`. Cualquier paso posterior debe separar recodificación de referencias y cambio de supervisión; no reentrenar automáticamente.
+La referencia unificada está en `data/evaluacion/referencia_v3/`: 1.747 IDs, H218/D115/N1.414 y relevancia 1.439/308. El [protocolo de comparación](PROTOCOLO_COMPARACION_V3.md) fija primero recodificación sin reentrenar, luego supervisión v3 con los mismos 1.352/folds y después la adición separada de 89. Las 306 humanas son solo evaluación descriptiva no independiente.
+
+`Set_Entrenamiento_Pre_2000.xlsx` fue recuperado de `main` y auditado sin modificarlo: 257 IDs, 6 pendientes puestos en la etiqueta, 8 citas no literales y 4 pares duplicados, además de incompatibilidades semánticas prioritarias. Leer [REVISION_INICIAL_SET_PRE_2000_V1](REVISION_INICIAL_SET_PRE_2000_V1.md). **No incorporarlo ni entrenar con él** hasta crear su capa v3, procedencia/agrupación y citas válidas.
 
 **Vigencia:** los párrafos siguientes conservan la cronología y límites de etapas anteriores. Cuando contradigan el estado v3 anterior, mandan estos primeros párrafos y `docs/codebook_v3.md`.
 
@@ -64,7 +66,7 @@ Antes se ordenó el proyecto y se preparó una entrega con código/datos para ot
 
 ## 2. Lo pendiente de verdad
 
-**La revisión v3 definida ya está cerrada.** Lo próximo requiere una decisión nueva del investigador: consolidar una vista de referencia/entrenamiento v3 y diseñar una comparación que separe recodificación de supervisión, o retomar otra línea del proyecto. No reutilizar las 306 humanas v3 como test intacto ni lanzar entrenamiento por defecto.
+**La revisión y consolidación v3 ya están cerradas.** El siguiente paso fijado, todavía no ejecutado, es la fase A del protocolo: puntuar las predicciones TF-IDF históricas congeladas contra v2 y v3 para medir solo recodificación. Después se podrá ejecutar la fase B, reentrenando el mismo TF-IDF con los mismos 1.352 IDs/folds y supervisión v3. El set pre-2000 requiere antes una adjudicación separada; no reutilizar las 306 humanas como test intacto.
 
 En la línea BETO histórica falta cerrar la procedencia remota y explicar el deterioro, no calcular por primera vez las métricas. Ya se reprodujo exactamente la comparación recibida, se verificaron probabilidades/IDs/cobertura declarada y se hizo una segunda cuenta aritmética. No se repitieron entrenamiento ni tokenización oficiales localmente.
 

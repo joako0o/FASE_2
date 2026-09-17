@@ -2,7 +2,7 @@
 
 ## Trabajo actual
 
-**Trabajo vigente:** migración al [codebook v3 aprobado](codebook_v3.md), cerrada en **1.747/1.747 IDs y 0 pendientes**: 1.352 IA base, 89 IA nuevas y [306 humanas](REVISION_HUMANA_V3.md). La revisión humana produjo 28 cambios de etiqueta y uno de relevancia. V2 permanece como historial reproducible; la capa humana v3 no es un test ciego y no se reentrenó.
+**Trabajo vigente:** migración al [codebook v3 aprobado](codebook_v3.md), cerrada en **1.747/1.747 IDs y 0 pendientes**, y [referencia consolidada](PROTOCOLO_COMPARACION_V3.md) sin entrenamiento. El nuevo [set pre-2000](REVISION_INICIAL_SET_PRE_2000_V1.md) tiene 257 filas y queda excluido hasta completar su revisión v3, reparar citas/estado y fijar agrupación/procedencia. V2 y los XLSX permanecen intactos; la capa humana v3 no es un test ciego.
 
 **Antecedentes:** [auditoría inicial de compatibilidad](AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md), [criterio acotado del plan B](CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos generales](DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
 

@@ -8,7 +8,10 @@
 | `auditoria/meta_hd_300_v1/` | Meta 300 H/300 D, anotaciones adicionales, progreso H154/D119 y cola siguiente G001–G020 sin etiquetas. |
 | `evaluacion/ampliacion_tfidf_59_v1/` | Ensayo CPU original vs +59 altos: protocolo, inclusiones, predicciones, métricas y replay; no adoptado. |
 | `auditoria/diagnostico_ampliacion_tfidf_59_v1/` | Lectura de 16 casos, contribuciones/márgenes/vecinos del ensayo +59; no nuevas etiquetas o métricas. |
-| `auditoria/compatibilidad_criterios_v1/` | Conteos de1.352IA y lectura de12casos sobre compatibilidad de reglas; sin nuevas etiquetas ni respuestas humanas. |
+| `auditoria/compatibilidad_criterios_v1/` | Conteos de1.352IA y lectura de12casos sobre compatibilidad de reglas; etapa histórica. |
+| `auditoria/migracion_v3/` | Inventario cerrado de 1.747/1.747 revisiones v3, sin pendientes. |
+| `evaluacion/referencia_v3/` | Vista canónica de las 1.747 decisiones v3 con evidencia, roles y protocolo; todavía sin entrenamiento. |
+| `auditoria/set_pre2000_revision_inicial_v1/` | Auditoría estructural del XLSX de 257 filas; incidencias y exclusión temporal del entrenamiento. |
 | `L0/corpus.csv` | Corpus completo inmutable: 9.725 intervenciones. No corregir OCR ni reconstruir textos manualmente. |
 | `etiquetas/etiquetas_*.csv` | 1.352 anotaciones IA originales, conservadas. No sobrescribirlas. |
 | `evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv` | Vista activa de 1.352 IDs; referencia original, seis adjudicaciones y versión con trece correcciones adicionales. |

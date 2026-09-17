@@ -4,7 +4,9 @@
 
 El investigador aprobó el 17-09-2026 la definición de **dirección monetaria respaldada** como `docs/codebook_v3.md` y autorizó revisar IA y humanas. V2, sus etiquetas y métricas quedan preservadas como historial; no se sobrescriben. Las 306 humanas dejan de ser test ciego para la futura referencia v3.
 
-Inventario reproducible: **1.747 IDs distintos en 24 lotes, 1.747 revisados y 0 pendientes** —19 rondas IA/1.352, cuatro tandas IA nuevas/89 y humanas/306— en `data/auditoria/migracion_v3/`. La [revisión humana v3](REVISION_HUMANA_V3.md) cerró las 306 filas con 28 cambios de etiqueta y uno de relevancia; distribución final humana H39/D27/N240 y relevancia 266/40. Las tandas IA nuevas cambiaron tres D→N. V2 y el XLSX permanecen intactos. No hubo entrenamiento; la capa humana v3 no es un test ciego independiente.
+Inventario reproducible: **1.747 IDs distintos en 24 lotes, 1.747 revisados y 0 pendientes** —19 rondas IA/1.352, cuatro tandas IA nuevas/89 y humanas/306— en `data/auditoria/migracion_v3/`. La vista única está en `data/evaluacion/referencia_v3/`: H218/D115/N1.414, relevancia 1.439/308. El [protocolo](PROTOCOLO_COMPARACION_V3.md) separa recodificación, supervisión y ampliación; todavía no se entrenó.
+
+Se inspeccionó `Set_Entrenamiento_Pre_2000.xlsx` (257 IDs, H27/D39/N185/pendiente6). La [auditoría inicial](REVISION_INICIAL_SET_PRE_2000_V1.md) confirmó buen contenido, pero detectó 6 pendientes usados como etiqueta, 8 citas no literales, 4 pares de texto duplicado y varios H/D incompatibles con dirección doméstica respaldada. Se preserva el XLSX y queda fuera del control hasta una revisión v3 propia.
 
 ## Consulta histórica: formato estructurado del plan B, sin ampliar la revisión
 

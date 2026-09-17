@@ -1,0 +1,37 @@
+{
+  "version": "set_pre2000_revision_inicial_v1",
+  "fecha_auditoria": "2026-09-17",
+  "archivo": "Set_Entrenamiento_Pre_2000.xlsx",
+  "sha256_archivo": "662ec786e234a8bd8824214c81cf8139ad0955a8f139a596ba9bbf18859ad3fb",
+  "filas": 257,
+  "ids_unicos": 257,
+  "textos_normalizados_unicos": 253,
+  "etiquetas": {
+    "pendiente": 6,
+    "dovish": 39,
+    "hawkish": 27,
+    "neutral": 185
+  },
+  "confianza": {
+    "alta": 193,
+    "media": 64
+  },
+  "relevancia": {
+    "1": 157,
+    "0": 100
+  },
+  "anios": {
+    "1999": 126,
+    "1995": 42,
+    "1996": 28,
+    "1997": 23,
+    "1998": 38
+  },
+  "incidencias": {
+    "pendiente_en_etiqueta": 6,
+    "cita_no_literal_o_extensa": 8,
+    "texto_duplicado_normalizado": 8
+  },
+  "entrenamiento_ejecutado": false,
+  "incorporacion_autorizada": false
+}

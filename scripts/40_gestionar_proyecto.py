@@ -29,7 +29,7 @@ MANIFIESTO = 'MANIFIESTO_ENTREGA.json'
 ENTRADA = 'data/checkpoints/beto_v1/entrada'
 RESULTADOS = 'data/checkpoints/beto_v1/ejecucion'
 ARCHIVOS_ENTRADA = ['documentos.json', 'folds.json', 'baseline.json', 'checkpoint.json', 'manifest.json']
-PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py', 'test_compatibilidad_criterios.py']
+PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py', 'test_compatibilidad_criterios.py', 'test_referencia_v3.py']
 PRUEBAS_ANTERIORES_SEGURAS = [
     'test_inversiones_hd.py', 'test_referencias_corregidas.py', 'test_modelo_adjudicado.py',
     'test_revision_cierre_66.py', 'test_revision_neutralidad.py',
@@ -438,6 +438,11 @@ def main(argv=None):
     compatibilidad.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/compatibilidad_criterios_v1')
     migracion = acciones.add_parser('preparar-migracion-v3', help='Inventariar IA y humanas autorizadas para revisión v3; no adjudica ni entrena')
     migracion.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/migracion_v3')
+    referencia_v3 = acciones.add_parser('consolidar-referencia-v3', help='Unir las 1.747 revisiones v3; no entrena')
+    referencia_v3.add_argument('--salida', type=Path, default=RAIZ/'data/evaluacion/referencia_v3')
+    pre2000 = acciones.add_parser('auditar-set-pre2000', help='Revisar estructura/citas del XLSX pre-2000; no corrige ni entrena')
+    pre2000.add_argument('--archivo', type=Path, default=RAIZ/'Set_Entrenamiento_Pre_2000.xlsx')
+    pre2000.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/set_pre2000_revision_inicial_v1')
     argumentos = parser.parse_args(argv)
     try:
         if argumentos.accion == 'instalar': instalar(argumentos.beto)
@@ -452,6 +457,13 @@ def main(argv=None):
         elif argumentos.accion == 'preparar-migracion-v3':
             subprocess.run([sys.executable, '-X', 'utf8', 'scripts/preparar_migracion_v3.py',
                 '--salida', str(argumentos.salida.resolve())], cwd=RAIZ, check=True)
+        elif argumentos.accion == 'consolidar-referencia-v3':
+            subprocess.run([sys.executable, '-X', 'utf8', 'scripts/consolidar_referencia_v3.py',
+                '--salida', str(argumentos.salida.resolve())], cwd=RAIZ, check=True)
+        elif argumentos.accion == 'auditar-set-pre2000':
+            subprocess.run([sys.executable, '-X', 'utf8', 'scripts/auditar_set_pre2000.py',
+                '--origen', str(argumentos.archivo.resolve()), '--salida', str(argumentos.salida.resolve())],
+                cwd=RAIZ, check=True)
         elif argumentos.accion == 'diagnosticar-ampliacion-tfidf':
             preparar()
             ejecutar_python(['scripts/diagnosticar_ampliacion_tfidf.py', '--salida', argumentos.salida.resolve()])

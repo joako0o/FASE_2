@@ -1,0 +1,23 @@
+frag_id,tipo,detalle
+31972,pendiente_en_etiqueta,Separar estado_revision; etiqueta H/D/N o vacía mientras se resuelve.
+22077,pendiente_en_etiqueta,Separar estado_revision; etiqueta H/D/N o vacía mientras se resuelve.
+31033,cita_no_literal_o_extensa,longitud=300;literal=False
+31327,cita_no_literal_o_extensa,longitud=300;literal=False
+31333,cita_no_literal_o_extensa,longitud=300;literal=False
+32531,cita_no_literal_o_extensa,longitud=300;literal=False
+32572,cita_no_literal_o_extensa,longitud=300;literal=False
+32795,cita_no_literal_o_extensa,longitud=300;literal=False
+33249,cita_no_literal_o_extensa,longitud=300;literal=False
+31430,cita_no_literal_o_extensa,longitud=300;literal=False
+32181,pendiente_en_etiqueta,Separar estado_revision; etiqueta H/D/N o vacía mientras se resuelve.
+33268,pendiente_en_etiqueta,Separar estado_revision; etiqueta H/D/N o vacía mientras se resuelve.
+30995,pendiente_en_etiqueta,Separar estado_revision; etiqueta H/D/N o vacía mientras se resuelve.
+31991,pendiente_en_etiqueta,Separar estado_revision; etiqueta H/D/N o vacía mientras se resuelve.
+33306,texto_duplicado_normalizado,33306|33311
+33311,texto_duplicado_normalizado,33306|33311
+25337,texto_duplicado_normalizado,25337|25826
+25826,texto_duplicado_normalizado,25337|25826
+32311,texto_duplicado_normalizado,32311|32315
+32315,texto_duplicado_normalizado,32311|32315
+33307,texto_duplicado_normalizado,33307|33312
+33312,texto_duplicado_normalizado,33307|33312

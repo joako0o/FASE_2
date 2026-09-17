@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo cerrado: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; **1.747/1.747 revisados, 0 pendientes**. La [revisión humana](docs/REVISION_HUMANA_V3.md) registró 28 cambios de etiqueta y uno de relevancia. V2, el XLSX humano y las métricas históricas se preservan; no se reentrenó. La capa humana v3 no es un test ciego intacto.
+**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo cerrado: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; **1.747/1.747 revisados, 0 pendientes**. Ya existe una [referencia v3 consolidada](docs/PROTOCOLO_COMPARACION_V3.md), sin entrenamiento. La [revisión inicial del set pre-2000](docs/REVISION_INICIAL_SET_PRE_2000_V1.md) encontró 257 filas valiosas, pero pendientes, citas, duplicados y casos semánticos que deben resolverse antes de incorporarlo. V2 y los XLSX originales permanecen intactos; la capa humana v3 no es un test ciego.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.
@@ -31,7 +31,7 @@ Detalle vigente: [codebook v3](docs/codebook_v3.md). Sus antecedentes son el [cr
 | Componente | Estado |
 |---|---|
 | Corpus y datos de trabajo | Incluidos: 9.725 intervenciones; desarrollo de 1.352 textos. |
-| Referencias | V2 histórica fijada y preservada. Capa de revisión v3 cerrada: 1.747/1.747, sin pendientes ni reentrenamiento. |
+| Referencias | V2 histórica preservada. Referencia v3 consolidada: 1.747/1.747, sin pendientes ni entrenamiento. Set pre-2000 aún excluido y en revisión propia. |
 | Control TF-IDF | Ejecutado: F1 H/D medio **0,747060**, 51 errores en 793 validaciones corregidas. |
 | Diagnóstico H/D | Diez inversiones examinadas y cinco ambiguas tratadas aparte. |
 | BETO v1 recibido | Cinco folds externos: F1 H/D medio **0,625043**, 66 errores, 25 inversiones. **No mejora; no adoptado.** [Auditoría y resultados](docs/RESULTADOS_BETO_V1.md). |

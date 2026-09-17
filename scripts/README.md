@@ -7,6 +7,8 @@
 | `40_gestionar_proyecto.py` | Instalar, preparar, probar, delegar BETO y exportar | Sí, con el subcomando indicado. |
 | `38_preparar_beto.py` | Reconstruir/verificar 1.352 textos, folds y control | Lo llama 40. No descarga pesos. |
 | `39_ejecutar_beto.py` | Prueba GPU, entrenamiento por fold y comparación | Lo llama 40, después de instalar GPU y superar `smoke`. |
+| `consolidar_referencia_v3.py` | Unir las 1.747 revisiones v3, con evidencia y roles | Ya ejecutado; reproducir solo en ruta nueva mediante 40. No entrena. |
+| `auditar_set_pre2000.py` | Auditar estructura, citas y duplicados del XLSX pre-2000 | Ya ejecutado; no corrige ni incorpora el set. |
 | `36_evaluar_referencias_corregidas.py` | Evaluación TF-IDF de referencia v2 ya ejecutada | No repetir sobre sus salidas existentes. 38 reutiliza su cargador. |
 | `37_diagnosticar_inversiones_hd.py` | Diagnóstico ya terminado de diez inversiones | Solo reproducción explícita en rutas nuevas si fuera necesaria. |
 | `01`–`35` y auxiliares | Preparación, modelos, evaluación y adjudicaciones previas | Conservados por dependencias/procedencia. No ejecutarlos todos. |
@@ -26,4 +28,6 @@ Muestreo de revisión: `40_gestionar_proyecto.py preparar-muestra-hd --salida RU
 
 `40_gestionar_proyecto.py diagnosticar-ampliacion-tfidf --salida RUTA_NUEVA` reconstruye las mismas condiciones y descompone los 16 cambios. No entrena una variante nueva ni modifica etiquetas. Detalle en `docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md`.
 
-`40_gestionar_proyecto.py auditar-compatibilidad --salida RUTA_NUEVA` reproduce el recuento/tamiz/selección de controles y coteja la lectura conservada. Solo biblioteca estándar; no etiqueta, entrena o abre el libro humano. No repetir la auditoría como si fuera revisión semántica completa.
+`40_gestionar_proyecto.py auditar-compatibilidad --salida RUTA_NUEVA` reproduce el recuento/tamiz/selección de controles y coteja la lectura conservada. Es una etapa histórica, no la revisión v3 ya cerrada.
+
+`40_gestionar_proyecto.py consolidar-referencia-v3 --salida RUTA_NUEVA` reproduce la vista canónica de 1.747 IDs. `auditar-set-pre2000 --archivo Set_Entrenamiento_Pre_2000.xlsx --salida RUTA_NUEVA` reproduce las incidencias estructurales del nuevo libro. Ambos usan solo biblioteca estándar y **no entrenan**.
