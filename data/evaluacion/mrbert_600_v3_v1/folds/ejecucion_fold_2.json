@@ -1,0 +1,15 @@
+{
+  "n_train": 1792,
+  "n_validacion": 159,
+  "train_por_clase": {
+    "neutral": 1410,
+    "hawkish": 222,
+    "dovish": 160
+  },
+  "class_weights": {
+    "hawkish": 1.165176272392273,
+    "dovish": 1.3724867105484009,
+    "neutral": 0.462336927652359
+  },
+  "seed": 20260919
+}

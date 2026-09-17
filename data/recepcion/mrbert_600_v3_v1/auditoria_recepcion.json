@@ -1,0 +1,10 @@
+{
+  "archivo_origen_github": "resultados_mrbert_600_v3.zip",
+  "rama_origen": "main",
+  "commit_origen": "2c62fea",
+  "sha256_zip": "3823d3f14b3f9b8b889a7d38583f788471f151a107dac48c8371a74186c27e3b",
+  "integridad_manifest_interno": true,
+  "archivos_manifest_verificados": 19,
+  "resultado_normalizado": "data/evaluacion/mrbert_600_v3_v1",
+  "evaluacion_independiente": false
+}

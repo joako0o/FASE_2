@@ -1,0 +1,23 @@
+{
+  "sha256_salidas": {
+    "protocolo.json": "9565f8233456699f1b56841316657c79cc2c1a41abe8fad400f0115619d3b291",
+    "predicciones.csv": "3535d3beb732de4654ce548fe7e36e276ea849480513ef55adb973a0e3b11fa9",
+    "metricas.json": "b2b6478f7a9939ce669bddd64887b957f6d6d5ec52401f8906f4c773e8202c51",
+    "entorno.json": "2f3547ff14b22c95d46f1f54b490bd459782cfc1e9e5736ab553d27b76dd96e2",
+    "folds/ejecucion_fold_1.json": "83e46e72b019373a39dcb5178241ea0b8c8f0e59d0eb91d7d29ed80648edc883",
+    "folds/ejecucion_fold_2.json": "e593251e219b3c6b21f845984b7ac51ad0b5abfd69ead4baa2b3191d433f8926",
+    "folds/ejecucion_fold_3.json": "1ec26804c1d9d65156c15cdfa1b7f1560db65cb54a09c38a602c9e01d43c4b2b",
+    "folds/ejecucion_fold_4.json": "824862414e49164adb4b9eb628622ed9335ed5add5fe036d27d2ed51de59e534",
+    "folds/ejecucion_fold_5.json": "4b1f4777d6639b53eb1860e13ad4789895195f51f41af7dd6269ac30f2470181",
+    "folds/inclusion_fold_1.csv": "d2cf51dead4ca26f31afedef0fee8bbd6eaf218be631dfa8a4120d4e510aa616",
+    "folds/inclusion_fold_2.csv": "c0d226a033b132f5e1126ea47caa4c42b81fdfee174064bcae1af4a4aad4a842",
+    "folds/inclusion_fold_3.csv": "f1a6b0f7d3c219aaf535040b5ac6c9ef351704dde5975d02878478a7bfe8e7b8",
+    "folds/inclusion_fold_4.csv": "45458267ac453e109237f468e266278184717c28a0b3d2486513b6c09f438a42",
+    "folds/inclusion_fold_5.csv": "9b19dbca913c02f59ddbe58d5ff30780b8634867ab3e109d9e8dc73459e760bf",
+    "folds/predicciones_fold_1.csv": "e8a8f37e554fbb9a584dde8aa4a76e118284c84fdf5b2dfa35770704ab8779c6",
+    "folds/predicciones_fold_2.csv": "9652f16710f79203f73cad027e1041b02da1ca4f76c90edb3442e9e79f19e776",
+    "folds/predicciones_fold_3.csv": "c78efb447634bf3e7831382ebb981f0bb63f06312b530cab172331a1e9efe2f5",
+    "folds/predicciones_fold_4.csv": "1c30fc05eadd570194403c2c5a61babb6c15930e40f553b6ff6d21873063f78d",
+    "folds/predicciones_fold_5.csv": "b68223e755b0d333584bc01b688a865210a48a67af87d355893050596b40deab"
+  }
+}

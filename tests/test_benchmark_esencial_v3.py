@@ -17,10 +17,11 @@ class TestBenchmarkEsencialV3(unittest.TestCase):
         with (OUT / "tabla_modelos.csv").open(encoding="utf-8", newline="") as f: cls.rows = list(csv.DictReader(f))
 
     def test_modelos_y_estados_clave(self):
-        self.assertEqual(len(self.rows), 11)
+        self.assertEqual(len(self.rows), 12)
         self.assertEqual(self.registry["mejor_numerico_v3"], "W+C+600")
         self.assertEqual(self.registry["modelo_formal_vigente"], "C+89")
-        self.assertEqual(self.registry["mrbert_estado"], "pendiente de ejecución Colab")
+        self.assertEqual(self.registry["mrbert_estado"], "ejecutado; no adoptado")
+        self.assertEqual({r["modelo"] for r in self.rows} & {"MrBERT-es+600"}, {"MrBERT-es+600"})
 
     def test_metricas_copiadas_de_fuentes(self):
         by = {r["modelo"]: r for r in self.rows}
@@ -30,6 +31,9 @@ class TestBenchmarkEsencialV3(unittest.TestCase):
         self.assertEqual(int(by["W+C+600"]["errores"]), source["errores"])
         legacy = json.loads((ROOT / "data/auditoria/recepcion_beto_v1/auditoria.json").read_text(encoding="utf-8"))["comparacion"]["condiciones"]
         self.assertEqual(float(by["BETO"]["macro_f1"]), legacy["beto"]["conjunto"]["macro_f1"])
+        mrbert = json.loads((ROOT / "data/evaluacion/mrbert_600_v3_v1/metricas.json").read_text(encoding="utf-8"))["mrbert_600"]
+        self.assertEqual(float(by["MrBERT-es+600"]["macro_f1"]), mrbert["macro_f1"])
+        self.assertEqual(int(by["MrBERT-es+600"]["omisiones_direccion"]), 27)
 
     def test_parametros_congelados(self):
         params = self.registry["parametros_tfidf"]

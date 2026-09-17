@@ -3,10 +3,11 @@
   "objetivo": "preservar evidencia, parámetros y decisiones para defender elección TF-IDF",
   "mejor_numerico_v3": "W+C+600",
   "modelo_formal_vigente": "C+89",
-  "mrbert_estado": "pendiente de ejecución Colab",
+  "mrbert_estado": "ejecutado; no adoptado",
   "advertencias": [
     "793 casos son desarrollo abierto, no test final",
     "no comparar directamente grupos v3 y legado v2",
+    "MrBERT-es evaluado no representa a todos los transformers",
     "una arquitectura rechazada no prueba inferioridad universal"
   ],
   "parametros_tfidf": {
@@ -231,6 +232,24 @@
       "clave": "wc_mas_600"
     },
     {
+      "modelo": "MrBERT-es+600",
+      "grupo_comparabilidad": "v3_desarrollo_793",
+      "accuracy": 0.9344262295081968,
+      "macro_f1": 0.7711088292010196,
+      "f1_hd": 0.6713691261544706,
+      "f1_h": 0.7664670658682634,
+      "f1_d": 0.5762711864406779,
+      "recall_d": 0.53125,
+      "f1_n": 0.9705882352941175,
+      "errores": 52,
+      "inversiones_hd": 12,
+      "omisiones_direccion": 27,
+      "falsas_direcciones": 13,
+      "decision": "rechazado_controlado",
+      "fuente": "data/evaluacion/mrbert_600_v3_v1/metricas.json",
+      "clave": "mrbert_600"
+    },
+    {
       "modelo": "TF-IDF legado",
       "grupo_comparabilidad": "legado_v2_793",
       "accuracy": 0.935687263556116,
@@ -275,6 +294,7 @@
     "data/evaluacion/ensamble_calibrado_v3_v1/metricas.json": "6f86c6dcab39ad7efe4ff4fd5c7fb15e12750c7beb12e762b9c44dee7e633bb0",
     "data/evaluacion/extension_representaciones_v3_v1/metricas.json": "d2a52b8bb2afc43531e545dd7d21058ed11e5158403b31c40a25dab2b9de89e0",
     "data/evaluacion/jerarquia_direccional_v3_v1/metricas.json": "dc4f8ac010cd8784e2cd35150fb637d5c3777339ec072591a373bac21e7e68c3",
+    "data/evaluacion/mrbert_600_v3_v1/metricas.json": "b2b6478f7a9939ce669bddd64887b957f6d6d5ec52401f8906f4c773e8202c51",
     "data/evaluacion/palabras_caracteres_tfidf_v3_v1/metricas.json": "5ad077031960b00861639deee21bb0fdb57d18d5f9990d094301011046c0d50c",
     "data/evaluacion/reestimacion_600_c_wc_v3_v1/metricas.json": "40d536c8e7786783e05ad96c0cb0821b7ff9fb0d983188d71ecadf30f67eef26",
     "scripts/entrenar_tfidf_supervision_v3.py": "f5a581e0731fc1087d5ef01a0644863ee99d6a9edd85b9c5947c9638b7e96ca8",

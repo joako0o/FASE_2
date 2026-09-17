@@ -72,6 +72,15 @@ Si A predice irrelevante, la salida final es neutral. Ambas etapas usan regresi�
 | Ensamble calibrado | 0,770451 | 0,674028 | 0,763441 | 0,584615 | 0,963296 | 60 | 11 | 19 | rechazado |
 | C+600 | 0,786694 | 0,697513 | 0,782123 | 0,612903 | 0,965056 | 55 | 8 | 23 | no adoptado |
 | **W+C+600** | **0,825003** | **0,752701** | **0,784091** | **0,721311** | **0,969607** | **48** | **7** | 22 | mejor numérico/challenger |
+| MrBERT-es+600 | 0,771109 | 0,671369 | 0,766467 | 0,576271 | 0,970588 | 52 | 12 | 27 | rechazado controlado |
+
+### Comparación controlada con MrBERT-es
+
+MrBERT-es se ejecutó en Colab sobre los mismos 793 casos, cinco outer folds agrupados, datos adicionales +600, purga y etiquetas v3. Usó la revisión inmutable `34a7cc86e0d0a2b77e802d07a189db1c0ef2e7d4`, clasificación directa H/D/N, longitud máxima 1.024, dos épocas, tasa `2e-5`, batch 2, acumulación 8, `weight_decay=0,01` y pesos de clase inversos a la raíz de la frecuencia calculados solo en cada outer train.
+
+Frente a W+C+600, MrBERT-es obtuvo menor accuracy (0,934426 frente a 0,939470), macro-F1 (0,771109 frente a 0,825003), F1-HD (0,671369 frente a 0,752701), F1 D (0,576271 frente a 0,721311) y F1 H (0,766467 frente a 0,784091). También produjo más errores (52 frente a 48), inversiones (12 frente a 7) y omisiones (27 frente a 22). Solo F1 N fue marginalmente mayor (0,970588 frente a 0,969607). No justificó sustituir TF-IDF/W+C.
+
+El resultado es evidencia negativa importante, no una demostración de que todos los transformers sean inferiores. Es desarrollo comparativo abierto y no evaluación final independiente.
 
 ## Comparación controlada histórica con BETO
 
@@ -84,7 +93,7 @@ Esta comparación pertenece al benchmark legado v2 y no debe mezclarse numérica
 
 BETO perdió en macro-F1, F1-HD, F1 D, errores e inversiones. Esto no prueba que todo transformer sea inferior; prueba que **ese BETO, con ese protocolo y esos datos**, no justificó reemplazar TF-IDF.
 
-MrBERT-es queda registrado como experimento pendiente. Su resultado deberá añadirse sin borrar el resultado negativo de BETO ni cambiar retrospectivamente los criterios.
+MrBERT-es queda registrado como experimento ejecutado y no adoptado. Su resultado se añadió sin borrar el resultado negativo de BETO ni cambiar retrospectivamente los criterios.
 
 ## Por qué se sostiene TF-IDF/W+C
 
@@ -101,7 +110,7 @@ MrBERT-es queda registrado como experimento pendiente. Su resultado deberá aña
 - El mejor resultado v3 aún no es una evaluación ciega final.
 - W+C+600 aumentó omisiones frente al ancla formal C+89 y por eso no lo reemplazó bajo la regla congelada.
 - La procedencia humana, asistida o automática de cada tanda debe declararse.
-- La conclusión final debe incorporar MrBERT-es y las 300 evaluaciones ciegas sin reescribir el historial.
+- La conclusión final ya incorpora el resultado de MrBERT-es; aún debe incorporar las 300 evaluaciones ciegas sin reescribir el historial.
 
 ## Elementos que no deben eliminarse al condensar
 
