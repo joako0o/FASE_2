@@ -88,5 +88,12 @@
       "f1_hd_ampliado": 0.7135262752233299,
       "refit_global": false
     }
-  ]
+  ],
+  "ultimo_diagnostico": {
+    "ruta": "data/auditoria/diagnostico_ampliacion_tfidf_59_v1",
+    "casos": 16,
+    "etiquetas_modificadas": false,
+    "variantes_nuevas": false,
+    "recomendacion": "Uniformar criterio y priorizar contrastes de acto discursivo; no acumular solo por número, no reetiquetar validación ni añadir N indiscriminadamente."
+  }
 }

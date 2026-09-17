@@ -1,0 +1,10 @@
+{
+  "sha256_salidas": {
+    "contribuciones.csv": "1eb3ad04377c9a07fdb8884ec9400163350b94810b4c24f1c5a4207812eb594b",
+    "margenes.csv": "ba298d6093129b5915d961d41f31095fb44bbbb4bdf36e137fe3bc5f567db998",
+    "protocolo.json": "d54761245cd5134cb1e3bac537134275c53037247184b354ea5a97714ae70221",
+    "reajustes.json": "c1a9a2b9a33a811d1da1dc2bf67e0d924479e344c9fec6a5de3268e8205d0398",
+    "resumen.json": "51cdcf593c8369a36743c97119c4c35e93d4cb288d668b87fd5caed5638de58c",
+    "vecinos_nuevos_train.csv": "7fd3934d1d62da086dd8fbab5d75dd7cf952c569cae41c6adec9be2d234c1a8f"
+  }
+}

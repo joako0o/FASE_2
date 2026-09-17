@@ -2,6 +2,8 @@
 
 ## Trabajo actual
 
+**Último análisis:** [por qué se deterioró TF-IDF +59](DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md), lectura de los 16 cambios y descomposición de márgenes. Sin nueva variante ni etiquetas corregidas.
+
 **Último ensayo:** [TF-IDF con 59 ejemplos nuevos](RESULTADOS_AMPLIACION_TFIDF_59_V1.md): comparación ejecutada, sin mejora y sin reemplazo del control.
 
 **Trabajo vigente:** [anotación IA para ampliar entrenamiento](ANOTACION_IA_AMPLIACION_HD_V1.md), meta 300 H/300 D; 89 casos terminados y G001–G020 pendientes. El Excel de 60 no es una tarea humana requerida; no hay sintéticos ni nuevo entrenamiento.

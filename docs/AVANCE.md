@@ -1,5 +1,17 @@
 # AVANCE — Proyecto D&H
 
+## Último cierre: diagnóstico de los nuevos errores TF-IDF
+
+El investigador pidió revisar los errores nuevos y pensar por qué falla. Se leyeron **los 16 textos completos con cambios (57.722 caracteres): nueve errores nuevos, tres corregidos y cuatro errores que cambian de tipo**. [Diagnóstico](DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md). No se modificó ninguna referencia, etiqueta o cohorte y no se ensayó otra variante.
+
+Se reconstruyeron las dos condiciones del ensayo +59 y se reprodujeron **A/B/final sobre los 793 casos de cada una**. Se guardaron **12.005 contribuciones** y márgenes con cierre algebraico, 48 vecinos exclusivamente del nuevo train permitido, reajustes de vocabulario/balanced y frecuencias de términos. Replay byte a byte de los artefactos cuantitativos; **116 pruebas aprobadas, 0 omitidas**, 16 citas exactas verificadas. El gestor incorpora `diagnosticar-ampliacion-tfidf`, sin nuevo script numerado ni pesos guardados.
+
+Hallazgos: pregunta de adhesión confundida con adhesión real; nombres/cargos y fórmulas compartidas ganan peso hacia D incluso frente a una recomendación de alza; recorte rechazado y sesgo retirado reciben señal de las palabras de recorte/sesgo; riesgos extranjeros y mantención sin compromiso se parecen a textos D. En 8/9 errores nuevos, el componente de coeficientes es el mayor en magnitud de la descomposición simétrica, mientras representación se opone al cambio en 7/9. **Es descripción matemática, no prueba causal ni diagnóstico de un ejemplo individual como culpable.**
+
+Se señalaron fronteras de criterio —incluido un acierto nuevo contra v2— sin proponer/recalcular etiquetas alternativas. Recomendación: uniformar la aplicación de dirección respaldada y buscar contrastes reales de acto discursivo, no N al azar ni solo más H/D. No meter los 16 casos en su propio train ni cambiar el score por depuración retrospectiva. Meta300/300 y colaG siguen registradas, pero no se avanzó anotación ni entrenamiento de variantes en este diagnóstico.
+
+Evidencia: `data/auditoria/diagnostico_ampliacion_tfidf_59_v1/`; protocolo previo `docs/PROTOCOLO_DIAGNOSTICO_AMPLIACION_TFIDF.md`. Paquete BETO, resultados del ensayo, originales y métricas permanecen intactos. No causalidad, segunda anotación independiente, sintéticos, refit global o adopción.
+
 ## Cierre actual: TF-IDF probado con los 59 aumentos, sin mejora
 
 El investigador pidió «prueba tfidf con estos aumentos haber si cambia algo». Se ejecutó aquí una comparación controlada en CPU: base v2 frente al mismo B ampliado con 59 IDs H/D altos (29 H/30 D), purgados por reunión/texto frente a cada validación. **53/51/52/50/53 adiciones por fold**, A entrenada solo con originales y compartida, mismos parámetros y referencias.
@@ -28,7 +40,7 @@ La cola G001–G020 está preparada y **sin anotar**, 15.056 palabras. La meta n
 
 ## Qué sigue y qué no
 
-1. Informar el resultado negativo y revisar consistencia/representatividad antes de otra prueba. La meta 300/300 y G001–G020 pendientes siguen registradas; no convertirla en una cuota que fuerce etiquetas.
+1. Diagnóstico completado: aplicar consistentemente el criterio y priorizar contrastes de decisión/adhesión/negación antes de otra prueba. No añadir N indiscriminadamente ni ajustar a los 16 casos conocidos; meta300/300 y G001–G020 pendientes siguen registradas.
 2. Completar y revisar la capa IA de entrenamiento; no reabrir las 306 respuestas ni rehacer las 30 anotaciones humanas anteriores. En una selección futura excluir también los nuevos IDs ya anotados.
 3. Mantener el TF-IDF de control. El ensayo ampliado ya se ejecutó; no fue adoptado. Sin refit global, scoring del corpus, cambios de referencias, sintéticos o datasets externos por esta prueba.
 4. **Idea sintética solo registrada**, PLAN §9.24: no generar ahora. La meta autorizada ahora es 300 H/300 D, sin forzar respuestas para cumplirla.

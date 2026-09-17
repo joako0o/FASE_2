@@ -45,6 +45,16 @@ data/auditoria/ampliacion_hd_60_v1/manifest.json
 data/auditoria/ampliacion_hd_60_v1/resumen.json
 data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx
 data/auditoria/ampliacion_hd_60_v1/verificacion.json
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/contribuciones.csv
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/frecuencias_auditadas.json
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/lectura_casos.json
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/manifest.json
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/margenes.csv
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/protocolo.json
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/reajustes.json
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/resumen.json
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/vecinos_nuevos_train.csv
+data/auditoria/diagnostico_ampliacion_tfidf_59_v1/verificacion.json
 data/auditoria/entrega_portable_v1/limpieza.json
 data/auditoria/entrega_portable_v1/verificacion.json
 data/auditoria/inversiones_hd_v1/lecturas_agente.json
@@ -301,6 +311,7 @@ docs/ANOTACION_IA_AMPLIACION_HD_V1.md
 docs/AVANCE.md
 docs/CONTINUIDAD.md
 docs/CONVENCIONES_ETIQUETADO.md
+docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md
 docs/DIAGNOSTICO_INVERSIONES_HD_V1.md
 docs/EVALUACION_CLASIFICADORES_HD_V1.md
 docs/EVALUACION_HIBRIDO_V1.md
@@ -321,6 +332,7 @@ docs/LONGITUD_NGRAMAS.md
 docs/PROPUESTA_SEIS_DISCREPANCIAS_30_V1.md
 docs/PROTOCOLO_AMPLIACION_TFIDF_59_V1.md
 docs/PROTOCOLO_CLASIFICADORES_HD_V1.md
+docs/PROTOCOLO_DIAGNOSTICO_AMPLIACION_TFIDF.md
 docs/PROTOCOLO_DIAGNOSTICO_INVERSIONES_HD_V1.md
 docs/PROTOCOLO_HIBRIDO_V1.md
 docs/PROTOCOLO_MODELO_ADJUDICADO_V1.md
@@ -384,6 +396,7 @@ scripts/40_gestionar_proyecto.py
 scripts/README.md
 scripts/auditoria_datos.py
 scripts/config.py
+scripts/diagnosticar_ampliacion_tfidf.py
 scripts/evaluar_ampliacion_tfidf.py
 scripts/fusionar_gold_llenado.py
 scripts/lexico_ngramas.py
@@ -393,6 +406,7 @@ scripts/representaciones_contextuales.py
 scripts/utilidades.py
 tests/test_ampliacion_tfidf.py
 tests/test_clasificadores_hd.py
+tests/test_diagnostico_ampliacion.py
 tests/test_entrega_portable.py
 tests/test_excel_revision.py
 tests/test_exportacion_revision.py

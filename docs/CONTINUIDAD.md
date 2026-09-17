@@ -2,6 +2,12 @@
 
 ## 1. Estado que debes asumir — y comprobar
 
+**Última tarea cerrada: diagnóstico del ensayo TF-IDF +59.** Leer `docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md`. Los 16 textos cambiados se leyeron íntegros (57.722 caracteres); márgenes, 12.005 contribuciones y 48 vecinos de train permitido verificados. Reconstrucción exacta A/B/final para ambas condiciones/793 casos, replay byte a byte y 116tests/0omitidos. No etiquetas cambiadas ni nueva variante. Datos en `data/auditoria/diagnostico_ampliacion_tfidf_59_v1/`; comando 40 `diagnosticar-ampliacion-tfidf --salida RUTA_NUEVA` solo reconstruye las condiciones ya publicadas.
+
+La evidencia apunta a atajos léxicos/actor/cargo, confusión de pregunta/adhesión, negación o retiro del sesgo, narrativa extranjera frente a decisión doméstica, y fronteras de aplicación de referencias en mantenciones. Coeficientes/vecinos no son pruebas causales. Los casos de frontera **no son nuevas correcciones aprobadas**: conservar v2 y métricas. No convertir un acierto nuevo de score en validación semántica independiente.
+
+Antes de otra prueba, se recomienda aplicar uniformemente las reglas ya aceptadas y buscar contrastes reales en train, no agregar N al azar ni incorporar estos casos a su propia validación. Meta300/300/colaG no canceladas, pero no se anotaron casos nuevos en el diagnóstico. No lanzar automáticamente otra arquitectura, borrar nombres o cambiar min_df/ngramas a partir de este informe.
+
 **Último encargo y resultado:** el investigador autorizó probar TF-IDF con los aumentos existentes. **Ensayo de 59 nuevos altos ejecutado y no adoptado**: F1 H/D media 0,747060→0,713526; errores 51→57, H↔D 15→17, H/D→N 12→12, N→H/D 24→28; mejora 1/5 folds. Control A/B/final idéntico al anterior, validación v2 y A fijas. Tres correcciones, nueve errores nuevos. Leer `docs/RESULTADOS_AMPLIACION_TFIDF_59_V1.md` y su protocolo.
 
 Datos reproducibles en `data/evaluacion/ampliacion_tfidf_59_v1/`. Comando único `40_gestionar_proyecto.py evaluar-ampliacion-tfidf --salida RUTA_NUEVA`; fija las cuatro tandas evaluadas, no añade futuras tandas automáticamente. Se reconstruyen vocabulario/IDF y balanced dentro del train B; A solo ve train original. Nuevos por fold 53/51/52/50/53. Dos corridas idénticas (salvo UTC/tiempos), matrices/F1 comprobados aritméticamente y 111 tests aprobados/0 omitidos. No refit global ni modelos guardados. No entrenar/ejecutar BETO otra vez por defecto.

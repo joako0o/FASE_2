@@ -23,3 +23,5 @@ Para resultados recibidos: `python scripts/40_gestionar_proyecto.py auditar-resu
 Muestreo de revisión: `40_gestionar_proyecto.py preparar-muestra-hd --salida RUTA_NUEVA` delega en `muestreo_revision.py` y reutiliza el formato de 29. **La primera muestra de 60 ya está creada**: no hace falta ejecutar de nuevo para responder el Excel. No etiqueta ni entrena.
 
 `40_gestionar_proyecto.py evaluar-ampliacion-tfidf --salida RUTA_NUEVA` reproduce el ensayo controlado con los 59 altos de tandas01–04. Delega en `evaluar_ampliacion_tfidf.py`; CPU, A/referencias/folds fijos, sin guardar modelos o sustituir el control. Ya se ejecutó y no mejoró.
+
+`40_gestionar_proyecto.py diagnosticar-ampliacion-tfidf --salida RUTA_NUEVA` reconstruye las mismas condiciones y descompone los 16 cambios. No entrena una variante nueva ni modifica etiquetas. Detalle en `docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md`.
