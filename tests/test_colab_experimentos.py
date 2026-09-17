@@ -28,9 +28,15 @@ class TestColabExperimentos(unittest.TestCase):
 
     def test_salida_auditable(self):
         self.assertIn("checksums_colab.json", self.code)
+        self.assertIn("entorno_colab.json", self.code)
+        for field in ["repositorio", "rama", "commit", "experimento", "python_runtime", "modo_instalacion"]:
+            self.assertIn(f'"{field}"', self.code)
         self.assertIn("make_archive", self.code)
         self.assertIn("colab_files.download", self.code)
         self.assertIn("OPENBLAS_NUM_THREADS", self.code)
+
+    def test_suite_incluye_pruebas_del_lanzador(self):
+        self.assertIn('"tests.test_colab_experimentos"', self.code)
 
     def test_rejecucion_sale_del_checkout_antes_de_borrarlo(self):
         setup = "".join(self.nb["cells"][2]["source"])

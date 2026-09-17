@@ -28,7 +28,7 @@ La opción predeterminada es `suite_pruebas`. Las opciones disponibles son:
 - Con Python 3.11/3.12 instala el entorno mediante `scripts/40_gestionar_proyecto.py instalar`.
 - Con el runtime Python 3.13 de Colab crea un `.venv` aislado mediante `virtualenv`, instala allí `requirements-preparacion.txt` y ejecuta `pip check` con ese intérprete.
 - Limita los hilos numéricos para reducir variación y consumo.
-- Cada ZIP incluye `checksums_colab.json`.
+- Cada ZIP incluye `checksums_colab.json` y `entorno_colab.json` con repositorio, rama, commit, experimento, Python y modo de instalación.
 - Los experimentos nuevos deben agregarse al repositorio y preregistrarse antes de incorporarlos al menú.
 
 El enlace por rama apunta a la versión vigente. Para ejecuciones que deban quedar congeladas se debe usar un enlace de Colab basado en el hash exacto del commit.
