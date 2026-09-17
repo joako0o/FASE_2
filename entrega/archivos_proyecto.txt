@@ -44,6 +44,9 @@ data/auditoria/preparacion_beto_v1/portabilidad.json
 data/auditoria/preparacion_beto_v1/preparacion.json
 data/auditoria/preparacion_beto_v1/runtime_local.json
 data/auditoria/preparacion_beto_v1/verificacion.json
+data/auditoria/recepcion_beto_v1/auditoria.json
+data/auditoria/recepcion_beto_v1/origen.json
+data/auditoria/recepcion_beto_v1/verificacion.json
 data/auditoria/revision_entrenamiento_30_v1/NO_ABRIR_hasta_finalizar_clave.csv
 data/auditoria/revision_entrenamiento_30_v1/archivo_interfaz_v1/index.html
 data/auditoria/revision_entrenamiento_30_v1/archivo_interfaz_v1/manifest.json
@@ -139,6 +142,7 @@ data/evaluacion/clasificadores_hd_v1/protocolo.json
 data/evaluacion/clasificadores_hd_v1/reproducibilidad.json
 data/evaluacion/clasificadores_hd_v1/resultados_folds.csv
 data/evaluacion/clasificadores_hd_v1/tiempos.json
+data/evaluacion/comparacion_beto_v1/predicciones_comparadas.csv
 data/evaluacion/hibrido_contextual_v1/asignacion_folds.csv
 data/evaluacion/hibrido_contextual_v1/comparacion_variantes.csv
 data/evaluacion/hibrido_contextual_v1/errores.csv
@@ -268,6 +272,7 @@ docs/PROTOCOLO_REVISION_ENTRENAMIENTO_30_V1.md
 docs/PROTOCOLO_WCB_PILOTO_V1.md
 docs/README.md
 docs/REGLAS.md
+docs/RESULTADOS_BETO_V1.md
 docs/REVISION_2026-09-16.md
 docs/REVISION_ERRORES_CIERRE_66_V1.md
 docs/REVISION_ERRORES_NUEVOS_ADJUDICADA_V1.md

@@ -16,7 +16,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 | Referencias | V2 fijada: seis adjudicaciones anteriores + trece correcciones aceptadas. Originales preservados. |
 | Control TF-IDF | Ejecutado: F1 H/D medio **0,747060**, 51 errores en 793 validaciones corregidas. |
 | Diagnóstico H/D | Diez inversiones examinadas y cinco ambiguas tratadas aparte. |
-| BETO | Código/entrada/notebook preparados. **Pesos, prueba GPU y entrenamiento real pendientes.** |
+| BETO v1 recibido | Cinco folds externos: F1 H/D medio **0,625043**, 66 errores, 25 inversiones. **No mejora; no adoptado.** [Auditoría y resultados](docs/RESULTADOS_BETO_V1.md). |
 | Tipo de evaluación | Desarrollo reutilizado y asistido; no test independiente ni evidencia de generalización. |
 
 No se reemplazó el modelo histórico ni se puntuó todo el corpus. No hacen falta nuevas anotaciones para el siguiente paso.

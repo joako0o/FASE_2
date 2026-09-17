@@ -17,3 +17,5 @@ La numeración describe el historial metodológico, **no una receta para volver 
 `17_auditar_estado_gold.py`, `19_evaluar_tfidf_gold.py`, el importador gold y ciertas pruebas integrales pertenecen a tareas cerradas: no usarlos para el experimento BETO. La puerta de entrada 40 no los ejecuta para volver a evaluar respuestas humanas.
 
 No modificar 38/39 dentro de una corrida iniciada. Un cambio necesario después del primer error GPU requiere nueva versión/paquete y una decisión explícita sobre resultados parciales.
+
+Para resultados recibidos: `python scripts/40_gestionar_proyecto.py auditar-resultados ARCHIVO.zip --salida AUDITORIA_NUEVA.json`. Verifica un ZIP final y recalcula la comparación sin GPU, sin ejecutar código externo ni sobrescribir el original. BETO v1 recibido no superó al control; ver `docs/RESULTADOS_BETO_V1.md`.

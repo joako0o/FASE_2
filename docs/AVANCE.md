@@ -1,5 +1,17 @@
 # AVANCE — Proyecto D&H
 
+## Cierre actual: resultados BETO externos recibidos, no adoptados
+
+El investigador subió seis ZIP a `main` en `af99d510da75b5a54f63fe46b56af3bcbb55217b`. Son respaldos acumulativos; el final `resultados_beto_20260917T012512_748901Z.zip` contiene cinco folds y comparación. [Informe](RESULTADOS_BETO_V1.md); evidencia en `data/auditoria/recepcion_beto_v1/` y tabla alineada en `data/evaluacion/comparacion_beto_v1/`. No se borraron los originales remotos ni se duplicaron ZIP versionados.
+
+**Métricas recalculadas:** F1 H/D media **0,747060 → 0,625043**; macro-F1 media **0,822250 → 0,739629**; errores **51 → 66**; inversiones **15 → 25** (H→D 6→8, D→H 9→17); H/D→N **12→14**, N→H/D **24→27**. Recall H igual (62/76), D **38/51→26/51**. Solo mejora 1/5 folds; **no cumple criterios y no se adopta**. 19 errores corregidos, 34 nuevos; de las 15 inversiones conocidas corrige 7, lleva 3 a N y conserva 5, pero crea 20 inversiones nuevas en casos antes correctos.
+
+Verificados ZIP/blobs/hashes, cadena acumulativa, IDs/v2/folds/A, probabilidades y argmax, cinco manifiestos, pesos de clase/pasos/épocas, cobertura declarada de 1.352 textos y smoke coherente con los documentos previstos. Reconsolidación exacta como JSON con 39 y cuenta aritmética independiente. Se añadió `auditar-resultados` al gestor 40, **sin script 41 ni cambios en 38/39 o su paquete**. **98 pruebas aprobadas, 0 omitidas** (14 + 20 + 64), sin abrir las 306 respuestas.
+
+Los registros reportan RTX 5060, smoke exitoso y unas 30,59 min sumadas de folds. No se repitió aquí entrenamiento/tokenización oficial. El ZIP no incluye código/pesos remotos y su commit informativo es null: **cerrar procedencia con el agente externo antes de atribuir el resultado a una implementación plenamente auditada**. No confundir el campo estático `hardware.entrenamiento_realizado=false` con el estado del fold.
+
+**Siguiente:** mantener TF-IDF; solicitar cambios/diff, entorno/CUDA y manifiesto usados; diagnosticar nuevas inversiones sin cambiar referencias. No más entrenamiento automático, refit/scoring, datasets externos ni confirmación humana de una mejora inexistente. Limpieza extrema final sigue pendiente. Las notas siguientes describen etapas previas, no sustituyen este cierre.
+
 ## Actualización: investigación web mientras BETO se prepara en otro equipo
 
 El investigador informa que un agente Gemini mediante Antigravity está preparando dependencias/modelo y pidió investigar papers, modelos actuales/SOTA y foros. **No se recibieron resultados ni prueba GPU del entorno externo; no podemos verificar su avance automáticamente.** Los bloqueos anteriores describen este entorno, no necesariamente el otro PC.
@@ -40,14 +52,14 @@ El investigador pidió ordenar todo el proyecto, eliminar lo innecesario, dejar 
 - Control TF-IDF contra referencia v2: F1 H/D **0,747060**, 51 errores de 793; **15 H↔D, 12 H/D→N, 24 N→H/D**. Desarrollo reutilizado/asistido, no test independiente.
 - Diagnóstico de diez inversiones terminado, cinco ambiguas aparte. No confundir contribuciones léxicas o sondas de primera cita con causalidad/mejora automática.
 - Paquete BETO: **1.352 textos íntegros / 1.997.823 caracteres**, 793 validaciones. ID **`f7aa15894b1c0a4cdcf64a2a5c26e9b5029393e960a44c57f474a90fcc2b681a`**.
-- **BETO NO ejecutado**: sin pesos, torch local ni GPU. Conexión a servidores HF/DCC/PyTorch falló TLS EOF; GitHub API/PyPI funcionaron. Notebook/código preparados, no prueba real aprobada.
+- BETO: ya hay resultados externos negativos y evaluación recalculada (ver cierre actual). Los bloqueos anteriores de este entorno no describen necesariamente el PC externo; no se repitió el encoder localmente.
 - Etapa anterior: 78 pruebas aprobadas (14 sin encoder + 64 regresiones), paquete reproducido y 313 archivos anteriores intactos. La nueva organización añade controles de exportación, no evidencia neuronal.
 
 ## Siguiente acción concreta
 
-1. Descargar/extraer el ZIP completo y abrir EMPEZAR_AQUI.
-2. Nueva sesión: leer CONTINUIDAD y verificar paquete/pruebas; no rehacer anotaciones ni búsquedas descartadas.
-3. Con GPU CUDA y acceso a pesos: instalar entorno BETO, superar prueba técnica real, ejecutar cinco grupos y comparar. Si falta GPU/red o falla el código, conservar error y registrar el bloqueo; no saltarse controles.
-4. Si llegan resultados GPU, verificar procedencia y paquete antes de aceptar métricas. Menos H↔D sin aumentar H/D→N, junto con guardas F1/recall/macro. No refit final ni scoring global todavía.
+1. Leer RESULTADOS_BETO_V1 y verificar el ZIP final con `auditar-resultados` si se retoma en otro PC.
+2. Cerrar con el agente externo la procedencia del código/entorno; no descargar pesos aquí para esta auditoría.
+3. Conservar TF-IDF. Diagnosticar nuevas inversiones, sin volver a etiquetar ni iniciar otra familia automáticamente.
+4. Respetar la limpieza extrema final pendiente y la continuidad; no cerrar/fusionar PR sin autorización.
 
 Historia detallada: [PLAN](../PLAN.md), [evaluación v2](EVALUACION_REFERENCIAS_CORREGIDAS_V2.md), [diagnóstico H/D](LECTURA_DIAGNOSTICO_INVERSIONES_HD_V1.md), [protocolo BETO](INVESTIGACION_Y_PROTOCOLO_BETO_V1.md). Las propuestas que aparecen como pendientes en documentos históricos no sustituyen las aceptaciones posteriores.

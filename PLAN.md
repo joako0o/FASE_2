@@ -455,3 +455,14 @@ Cierre verificado de 9.20: **90 pruebas aprobadas, 0 omitidas**, instalación li
 El investigador exige dejar al final solo lo necesario y esencial; considera inadecuada la colección actual de unos 40 scripts. La organización de 9.20 es provisional y no satisface este requisito. Regla vinculante en `docs/REGLAS.md` §12; pendiente visible en CONTINUIDAD/AGENTS/AVANCE.
 
 Antes de la entrega definitiva: refactorizar las dependencias activas en una entrada y pocos módulos claros; retirar material muerto/duplicado y etapas descartadas del paquete operativo; conservar evidencia histórica necesaria en una versión recuperable separada. No esconder la misma cadena de scripts detrás de un lanzador ni mantenerla como dependencia indirecta. Entregar inventario reducido, registro de retirados/fusionados, pruebas de equivalencia y ejecución en instalación limpia sin depender del archivo histórico. Preservar fuentes/adjudicaciones esenciales y versionar nuevos manifiestos, sin reescribir los antiguos ni cambiar referencias/folds/A. La refactorización aún no se ha ejecutado.
+
+
+### 9.22 Recepción externa de BETO v1 y resultado negativo
+
+El investigador subió seis respaldos acumulativos a GitHub (`af99d510da75b5a54f63fe46b56af3bcbb55217b`). Se recuperaron por blob verificado; el ZIP final contiene cinco folds y comparación, sin cambios a resultados de los respaldos anteriores. No se borraron los ZIP remotos ni se incorporaron duplicados binarios a esta rama.
+
+Informe en `docs/RESULTADOS_BETO_V1.md`: **F1 H/D media 0,747060→0,625043**, errores 51→66, H↔D 15→25, H/D→N 12→14, N→H/D 24→27; recall D 38/51→26/51. Solo mejora 1/5 folds. **No cumple criterios: no se adopta BETO v1.** Corrige 19 errores pero pierde 34 aciertos; crea 20 inversiones nuevas en casos antes correctos. No se cambian v2/folds/A ni se excluyen cinco ambiguos del criterio principal.
+
+Auditoría reproducible incorporada al gestor 40 (`auditar-resultados`), no un script numerado nuevo: ZIP con inventario acotado, hashes, metadatos de train/épocas/pasos/cobertura/smoke, reconsolidación exacta con 39 y cuenta aritmética independiente. **98 pruebas aprobadas, 0 omitidas.** Fuentes congeladas 38/39/entrada intactas; paquete f7aa1589… sin cambios.
+
+Registros externos declaran RTX 5060, prueba real aprobada y cinco entrenamientos; no se repiten GPU/tokenización aquí. Falta copia/hash del código ejecutado, entorno/CUDA completo y verificación remota de pesos; commit informativo del ZIP null. No confundir integridad de resultados con certificación del entorno ni el booleano estático `entrenamiento_realizado=false` con falta de entrenamiento. Cerrar procedencia y diagnosticar nuevas inversiones antes de otro ensayo. Sin refit/scoring/nuevas anotaciones/datasets. La limpieza extrema de 9.21 sigue pendiente.

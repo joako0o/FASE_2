@@ -2,7 +2,7 @@
 
 1. Leer primero `docs/CONTINUIDAD.md`, `EMPEZAR_AQUI.md` y `docs/AVANCE.md`. No reconstruir decisiones buscando respuestas antiguas.
 2. Trabajar en la rama asignada por el entorno de la sesión actual. La entrega previa procede de `arena/01a0a81b-fase-2`, PR #4. No cambiar automáticamente a esa rama en otra sesión; comprobar si el PR fue integrado.
-3. La tarea pendiente es una comparación BETO controlada. Preparado no significa entrenado: no hay ejecución real ni métricas BETO en esta entrega.
+3. Ya se recibieron cinco folds BETO externos y se verificaron integridad/métricas: F1 H/D 0,625043 frente a 0,747060 de TF-IDF; inversiones 25 frente a 15. No adoptado. Leer `docs/RESULTADOS_BETO_V1.md`. Falta cerrar procedencia del código/entorno remoto; no repetir entrenamiento ni afirmar reproducción GPU local.
 4. Referencias corregidas v2, cinco folds purgados y filtro A fijos. No alterar etiquetas/textos/OCR, no volver a pedir las seis aceptaciones ni las trece correcciones, no repetir las 30 anotaciones.
 5. Los 793 casos son desarrollo reutilizado con ayuda IA, no un test independiente. Diez inversiones conocidas y cinco ambiguas no forman un nuevo test.
 6. No abrir las respuestas antiguas de 306 ni ejecutar la suite general. Usar `python scripts/40_gestionar_proyecto.py probar --regresion`, que selecciona módulos permitidos.

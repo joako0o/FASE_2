@@ -7,14 +7,19 @@ Instalar/preparar/probar funciona sin GPU; smoke/entrenar requiere GPU CUDA y pe
 # ---- 1. Rutas y comandos seguros, independientes del directorio de la terminal ----
 # El entorno se crea en el nuevo PC; nunca se copia un virtualenv entre equipos.
 import argparse
+import csv
+import io
+from collections import Counter
 from datetime import datetime, timezone
 import hashlib
 import json
+import math
 import os
 from pathlib import Path, PurePosixPath
 import platform
 import subprocess
 import sys
+import tempfile
 import venv
 import zipfile
 
@@ -213,7 +218,196 @@ def verificar_entrega(raiz=RAIZ):
     return registro
 
 
-# ---- 6. Interfaz corta: no hay entrenamiento o instalación automática al consultar ayuda ----
+# ---- 6. Recepción: leer ZIP no confiable y recalcular sin GPU ni sobrescrituras ----
+# Los hashes prueban integridad del respaldo, no que el agente remoto ejecutó ese código.
+def exigir_auditoria(condicion, mensaje):
+    if not condicion:
+        raise ValueError(mensaje)
+
+
+def json_respaldo(datos):
+    def pares_unicos(pares):
+        exigir_auditoria(len({k for k, _ in pares}) == len(pares), 'Claves JSON duplicadas')
+        return dict(pares)
+    def constante_invalida(valor):
+        raise ValueError('Número JSON no finito: '+valor)
+    return json.loads(datos, object_pairs_hook=pares_unicos, parse_constant=constante_invalida)
+
+
+def leer_respaldo_resultados(archivo, limite=25*1024*1024):
+    """Admite respaldos parciales para integridad; nunca extrae rutas recibidas."""
+    archivo = Path(archivo)
+    exigir_auditoria(archivo.stat().st_size <= limite, 'ZIP demasiado grande')
+    permitidos = {RESULTADOS+'/'+n for n in ['smoke.json', 'comparacion.json']}
+    for fold in range(1, 6):
+        permitidos.update(f'{RESULTADOS}/fold_{fold}/{n}' for n in
+            ['predicciones.csv', 'cobertura.json', 'ejecucion.json', 'entrenamiento.jsonl', 'manifest.json'])
+    with zipfile.ZipFile(archivo) as z:
+        infos = z.infolist(); nombres = [i.filename for i in infos]
+        exigir_auditoria(len(nombres) == len(set(nombres)) <= 28, 'Entradas duplicadas o excesivas')
+        exigir_auditoria(sum(i.file_size for i in infos) <= limite, 'Contenido descomprimido demasiado grande')
+        for i in infos:
+            exigir_auditoria(i.filename in {'FASE_2/'+n for n in permitidos|{MANIFIESTO}}, 'Ruta ajena al respaldo')
+            exigir_auditoria(not i.flag_bits & 1 and (i.external_attr >> 16) & 0o170000 != 0o120000,
+                'Archivo cifrado o enlace simbólico')
+        exigir_auditoria('FASE_2/'+MANIFIESTO in nombres, 'Falta manifiesto de entrega')
+        registro = json_respaldo(z.read('FASE_2/'+MANIFIESTO))
+        exigir_auditoria(registro['version'] == 'entrega_portable_v1' and
+            registro['tipo'] == 'solo_resultados_no_proyecto', 'No es un respaldo de resultados')
+        hashes = registro['sha256_archivos']
+        exigir_auditoria(isinstance(hashes, dict) and hashes and set(hashes) <= permitidos, 'Inventario inválido')
+        exigir_auditoria(set(nombres) == {'FASE_2/'+n for n in set(hashes)|{MANIFIESTO}}, 'Inventario incompleto')
+        contenido = {n:z.read('FASE_2/'+n) for n in hashes}
+        for n, datos in contenido.items():
+            exigir_auditoria(hashlib.sha256(datos).hexdigest() == hashes[n], 'Hash alterado: '+n)
+        exigir_auditoria(sum(map(len, contenido.values())) == registro['bytes_sin_comprimir'], 'Tamaño no coincide')
+    return registro, contenido
+
+
+def validar_registros_beto(contenido, manifiesto, documentos, folds, lock):
+    """Contrasta metadatos declarados con el paquete local, sin fingir tokenización real."""
+    docs = {d['intervencion_id']:d for d in documentos}
+    paquete_id = manifiesto['paquete_id']; resumen = []; cobertura_anterior = None
+    def objeto(nombre):
+        return json_respaldo(contenido[RESULTADOS+'/'+nombre])
+    def hardware_valido(h):
+        exigir_auditoria(h['gpu_disponible'] is True and h['gpu_memoria_bytes'] > 0 and h['gpu'], 'GPU no declarada')
+        for n, v in [('torch','2.6.0'), ('transformers','4.57.6'), ('tokenizers','0.22.2'), ('huggingface-hub','0.36.2')]:
+            exigir_auditoria(h['versiones'][n].split('+')[0] == v, 'Versión declarada distinta: '+n)
+    for f in folds:
+        numero = f['fold']; prefijo = f'fold_{numero}/'
+        m = objeto(prefijo+'manifest.json')
+        exigir_auditoria(m['paquete_id'] == paquete_id and m['fold'] == numero and m['epocas_completadas'] == 3,
+            'Fold/paquete/épocas distintos')
+        exigir_auditoria(set(m['sha256_archivos']) == {'cobertura.json','ejecucion.json','entrenamiento.jsonl','predicciones.csv'},
+            'Manifiesto de fold incompleto')
+        for n, h in m['sha256_archivos'].items():
+            exigir_auditoria(hashlib.sha256(contenido[RESULTADOS+'/'+prefijo+n]).hexdigest() == h, 'Hash interno distinto')
+        cobertura = objeto(prefijo+'cobertura.json')
+        exigir_auditoria(len(cobertura) == len(docs) and {r['intervencion_id'] for r in cobertura} == set(docs), 'Cobertura incompleta/duplicada')
+        for r in cobertura:
+            n = r['n_tokens_contenido']; esperado = []; inicio = 0
+            exigir_auditoria(type(n) is int and 0 < n <= 1000000, 'Número de tokens inválido')
+            while True:
+                fin = min(inicio+510, n); esperado.append([inicio, fin])
+                if fin == n: break
+                inicio = fin-64
+            exigir_auditoria(r['sha256_texto'] == docs[r['intervencion_id']]['sha256_texto'] and
+                r['tramos'] == esperado and r['n_segmentos'] == len(esperado) and
+                r['ultimo_token_cubierto'] == n and r['cobertura_completa'] is True, 'Cobertura/texto incoherente')
+        exigir_auditoria(cobertura_anterior is None or cobertura_anterior == cobertura, 'Cobertura cambia entre folds')
+        cobertura_anterior = cobertura
+        train = [k for k in f['train'] if docs[k]['es_relevante'] == 1]
+        conteos = Counter(docs[k]['etiqueta'] for k in train)
+        pesos = [len(train)/(3*conteos[c]) for c in manifiesto['clases']]
+        e = objeto(prefijo+'ejecucion.json'); hardware_valido(e['hardware'])
+        exigir_auditoria(e['checkpoint_revision'] == lock['revision'] and e['n_train_relevante'] == len(train), 'Train/checkpoint distintos')
+        exigir_auditoria(len(e['pesos_train']) == 3 and all(math.isclose(a,b,rel_tol=1e-12) for a,b in zip(pesos,e['pesos_train'])), 'Pesos de clase distintos')
+        pasos_epoca = math.ceil(len(train)/8)
+        registros = [json_respaldo(x) for x in contenido[RESULTADOS+'/'+prefijo+'entrenamiento.jsonl'].splitlines() if x.strip()]
+        exigir_auditoria(len(registros) == 3 and e['pasos'] == pasos_epoca*3, 'Pasos/épocas incompletos')
+        for epoca, r in enumerate(registros, 1):
+            exigir_auditoria(r['epoca'] == epoca and r['pasos'] == epoca*pasos_epoca and
+                math.isfinite(r['media_loss_grupos']) and r['media_loss_grupos'] >= 0, 'Log de entrenamiento inválido')
+        exigir_auditoria(math.isfinite(e['segundos']) and e['segundos'] > 0 and
+            0 < e['gpu_pico_bytes'] <= e['hardware']['gpu_memoria_bytes'], 'Tiempo/memoria inválidos')
+        exigir_auditoria(not e['carga']['mismatched_keys'] and not e['carga']['error_msgs'], 'Errores declarados al cargar')
+        exigir_auditoria(all(k.startswith(('classifier.', 'bert.pooler.')) for k in e['carga']['missing_keys']),
+            'Faltan parámetros declarados del encoder')
+        resumen.append({'fold':numero,'n_train_relevante':len(train),'pasos':e['pasos'],
+            'segundos_declarados':e['segundos'],'gpu_pico_bytes_declarado':e['gpu_pico_bytes'],
+            'hardware_declarado':e['hardware'],'entrenamiento':registros})
+    smoke = objeto('smoke.json'); hardware_valido(smoke['hardware'])
+    exigir_auditoria(smoke['estado'] == 'aprobado_con_pesos_reales' and smoke['paquete_id'] == paquete_id and
+        smoke['checkpoint_revision'] == lock['revision'], 'Smoke incompatible')
+    for n in ['cabeza_modificada','encoder_modificado','modelo_smoke_descartado','no_es_evaluacion']:
+        exigir_auditoria(smoke[n] is True, 'Smoke incompleto: '+n)
+    exigir_auditoria(math.isfinite(smoke['loss_tecnica']) and smoke['loss_tecnica'] >= 0, 'Pérdida smoke inválida')
+    segmentos = {r['intervencion_id']:r['n_segmentos'] for r in cobertura_anterior}
+    train = [k for k in folds[0]['train'] if docs[k]['es_relevante'] == 1]
+    train.sort(key=lambda k:(segmentos[k], len(docs[k]['texto']), k))
+    exigir_auditoria(smoke['train_ids'] == [train[-1], train[0]] and
+        smoke['segmentos'] == [segmentos[k] for k in smoke['train_ids']], 'Smoke no usa los documentos previstos')
+    return {'folds':resumen,'smoke_declarado':smoke,
+        'documentos_cobertura':len(docs),'tokens_declarados':sum(r['n_tokens_contenido'] for r in cobertura_anterior),
+        'segmentos_declarados':sum(segmentos.values()),'documentos_multisegmento':sum(n>1 for n in segmentos.values()),
+        'max_segmentos_declarados':max(segmentos.values())}
+
+
+def resumir_predicciones_beto(contenido, baseline, comparacion):
+    """Segunda cuenta aritmética sin sklearn: matrices, F1 y transiciones pareadas."""
+    base = {r['intervencion_id']:r for r in baseline}; filas = []
+    clases = ['hawkish','dovish','neutral']
+    for fold in range(1, 6):
+        datos = contenido[f'{RESULTADOS}/fold_{fold}/predicciones.csv'].decode('utf-8-sig')
+        for r in csv.DictReader(io.StringIO(datos)):
+            filas.append((fold, r['etiqueta'], base[r['intervencion_id']]['pred'], r['pred']))
+    for nombre, indice in [('tfidf',2),('beto',3)]:
+        def metricas(sub):
+            matriz = [[sum(r[1] == y and r[indice] == p for r in sub) for p in clases] for y in clases]
+            f1 = []
+            for i in range(3):
+                den = sum(matriz[i])+sum(f[i] for f in matriz)
+                f1.append(2*matriz[i][i]/den if den else 0.)
+            return matriz, sum(f1[:2])/2, sum(f1)/3
+        observado = comparacion['condiciones'][nombre]
+        exigir_auditoria(metricas(filas)[0] == observado['conjunto']['matriz'], 'Matriz aritmética distinta')
+        por_fold = [metricas([r for r in filas if r[0] == f]) for f in range(1,6)]
+        for indice_metrica, clave in [(1,'media_f1_hd'),(2,'media_macro_f1')]:
+            exigir_auditoria(math.isclose(sum(r[indice_metrica] for r in por_fold)/5, observado[clave],
+                rel_tol=0, abs_tol=1e-14), 'F1 aritmética distinta')
+    def tipo(y, p):
+        if y == p: return 'correcto'
+        if y != 'neutral' and p != 'neutral': return 'inversion_hd'
+        return 'n_a_hd' if y == 'neutral' else 'hd_a_n'
+    transiciones = Counter((tipo(y,a),tipo(y,b)) for _,y,a,b in filas)
+    return {'comprobacion_aritmetica_independiente_del_runner':True,
+        'predicciones_cambiadas':sum(a != b for _,y,a,b in filas),
+        'errores_corregidos':sum(y != a and y == b for _,y,a,b in filas),
+        'aciertos_perdidos':sum(y == a and y != b for _,y,a,b in filas),
+        'transiciones':[{'tfidf':a,'beto':b,'n':n} for (a,b),n in sorted(transiciones.items())]}
+
+
+def auditar_resultados(archivo, salida=None, raiz=RAIZ):
+    """Recalcula los 793 casos mediante 39, conservando el ZIP y las salidas originales."""
+    if salida is not None and Path(salida).exists():
+        raise FileExistsError('No sobrescribir auditoría existente')
+    registro, contenido = leer_respaldo_resultados(archivo)
+    exigir_auditoria(len(contenido) == 27, 'Se necesitan cinco folds, smoke y comparación final')
+    preparar(raiz)
+    m, documentos, folds, lock = [json_respaldo((Path(raiz)/ENTRADA/n).read_bytes()) for n in
+        ['manifest.json','documentos.json','folds.json','checkpoint.json']]
+    detalles = validar_registros_beto(contenido, m, documentos, folds, lock)
+    with tempfile.TemporaryDirectory(prefix='auditoria beto ') as temporal:
+        destino = Path(temporal)
+        for n, datos in contenido.items():
+            relativo = n.removeprefix(RESULTADOS+'/')
+            if relativo == 'comparacion.json': continue
+            p = destino/relativo; p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(datos)
+        ejecutar_python(['scripts/39_ejecutar_beto.py', '--consolidar', '--salida', destino], raiz)
+        recalculada = json_respaldo((destino/'comparacion.json').read_bytes())
+    recibida = json_respaldo(contenido[RESULTADOS+'/comparacion.json'])
+    exigir_auditoria(recalculada == recibida, 'La comparación recibida difiere de la recalculada')
+    auditoria = {'estado':'integridad_y_metricas_verificadas_no_reentrenamiento',
+        'archivo':Path(archivo).name,'sha256_zip':hash_archivo(archivo),'manifiesto_recibido':registro,
+        'paquete_id':m['paquete_id'],'comparacion_reproducida_exactamente_como_json':True,
+        'entrenamiento_repetido_localmente':False,'codigo_y_pesos_remotos_verificados':False,
+        'limites':['No incluye copia/hash del código ejecutado ni binarios remotos.',
+            'Cobertura coherente con tokens declarados; no se repitió tokenización con pesos/tokenizer oficiales.',
+            'El campo hardware.entrenamiento_realizado=false es estático en el runner; no es un veredicto del fold.'],
+        'sha256_verificadores_locales':{n:hash_archivo(Path(raiz)/n) for n in
+            ['scripts/38_preparar_beto.py','scripts/39_ejecutar_beto.py','scripts/40_gestionar_proyecto.py']},
+        'registros':detalles,'comparacion':recalculada}
+    auditoria.update(resumir_predicciones_beto(contenido,
+        json_respaldo((Path(raiz)/ENTRADA/'baseline.json').read_bytes()), recalculada))
+    if salida is not None:
+        p = Path(salida);p.parent.mkdir(parents=True, exist_ok=True)
+        with p.open('x', encoding='utf-8') as f:
+            json.dump(auditoria, f, ensure_ascii=False, indent=2, allow_nan=False);f.write('\n')
+    return auditoria
+
+
+# ---- 7. Interfaz corta: no hay entrenamiento o instalación automática al consultar ayuda ----
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     acciones = parser.add_subparsers(dest='accion', required=True)
@@ -231,6 +425,9 @@ def main(argv=None):
     acciones.add_parser('verificar-entrega', help='Verificar ZIP ya extraído; solo biblioteca estándar')
     acciones.add_parser('respaldar', help='Guardar únicamente resultados GPU, incluidos intentos parciales')
     acciones.add_parser('estado', help='Mostrar ubicación y estado básico, sin instalar ni abrir respuestas')
+    auditoria = acciones.add_parser('auditar-resultados', help='Verificar ZIP final y recalcular métricas sin GPU ni sobrescribir resultados')
+    auditoria.add_argument('archivo', type=Path)
+    auditoria.add_argument('--salida', type=Path, help='Archivo JSON nuevo para conservar la auditoría')
     argumentos = parser.parse_args(argv)
     try:
         if argumentos.accion == 'instalar': instalar(argumentos.beto)
@@ -243,13 +440,17 @@ def main(argv=None):
             preparar(); print('Entrega creada:', exportar(salida=argumentos.salida))
         elif argumentos.accion == 'verificar-entrega': verificar_entrega()
         elif argumentos.accion == 'respaldar': print(respaldar_resultados())
+        elif argumentos.accion == 'auditar-resultados':
+            r = auditar_resultados(argumentos.archivo, argumentos.salida)
+            print(json.dumps({'estado':r['estado'], 'criterios':r['comparacion']['criterios'],
+                'cumple_criterios_desarrollo':r['comparacion']['cumple_criterios_desarrollo']}, ensure_ascii=False, indent=2))
         else:
             print(json.dumps({'raiz':str(RAIZ), 'python':platform.python_version(),
                 'entorno_instalado':python_entorno().is_file(),
                 'entrada_presente':(RAIZ/ENTRADA/'manifest.json').is_file(),
                 'comparacion_presente':(RAIZ/RESULTADOS/'comparacion.json').is_file(),
                 'nota':'Presencia de archivos no valida entrenamiento; usar preparar/comparar.'}, ensure_ascii=False, indent=2))
-    except (OSError, ValueError, RuntimeError, subprocess.CalledProcessError) as error:
+    except (OSError, ValueError, KeyError, TypeError, zipfile.BadZipFile, RuntimeError, subprocess.CalledProcessError) as error:
         print('DETENIDO:', error, file=sys.stderr)
         return 1
     return 0

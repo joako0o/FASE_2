@@ -1,5 +1,7 @@
 # Llevar el proyecto a otro PC y continuar
 
+**Actualización:** ya se recibieron cinco grupos BETO y se recalcularon sus métricas. No superan TF-IDF; **no repetir el entrenamiento por defecto**. Leer [RESULTADOS_BETO_V1](docs/RESULTADOS_BETO_V1.md). La guía conserva los comandos para instalación/reproducción; para revisar un ZIP recibido existe `auditar-resultados`.
+
 ## 1. Qué debes llevar
 
 **Descarga `FASE_2_portable.zip` y descomprímelo completo.** Dentro está la carpeta `FASE_2/`, con código, datos, referencias, resultados históricos y entrada BETO preparada. No copies solo el notebook o solo los scripts. Puedes guardar el ZIP en un pendrive.

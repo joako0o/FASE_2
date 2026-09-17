@@ -2,10 +2,13 @@
 
 ## 1. Estado que debes asumir — y comprobar
 
-**Actualización más reciente:** el investigador delegó la preparación/ejecución a un agente Gemini mediante Antigravity y pidió investigación web mientras descarga dependencias/modelo. No se recibieron resultados ni una prueba técnica verificable de ese entorno. No iniciar una corrida duplicada ni modificar el protocolo mientras llega evidencia.
+**Actualización más reciente:** el investigador subió seis respaldos BETO a GitHub. El último contiene cinco folds y comparación; se verificó la cadena acumulativa, los hashes y la evaluación de 793 IDs contra v2/folds/A. **BETO no mejora y no se adopta:** F1 H/D medio 0,625043 frente a 0,747060; errores 66 frente a 51; H↔D 25 frente a 15; H/D→N 14 frente a 12. Solo mejora 1/5 folds. Leer [RESULTADOS_BETO_V1.md](RESULTADOS_BETO_V1.md).
 
-Leer [INVESTIGACION_SOTA_POSTURA_MONETARIA.md](INVESTIGACION_SOTA_POSTURA_MONETARIA.md): revisión dirigida al 2026-09-16, 20 registros de fuentes, sin nuevos scripts/datasets/modelos ejecutados. Terminar BETO primero; MrBERT-es es un candidato posterior condicionado a necesidad, no una decisión de reemplazo. Una clasificación estructurada es alternativa ante errores semánticos persistentes, no una búsqueda indiscriminada de variantes.
+Fuente inmutable: `af99d510da75b5a54f63fe46b56af3bcbb55217b` de `main`, ZIP `resultados_beto_20260917T012512_748901Z.zip`; origen/hashes en `data/auditoria/recepcion_beto_v1/origen.json`. No son seis corridas: los otros cinco respaldos son acumulativos. La auditoría se reproduce con `40_gestionar_proyecto.py auditar-resultados ZIP --salida RUTA_NUEVA.json`, sin GPU ni sobrescribir resultados. El resultado no se instaló en la carpeta activa de entrenamiento; las copias locales descargadas están ignoradas, y GitHub conserva los originales.
 
+Se recibió un smoke que declara éxito y hardware RTX 5060; no se repitió aquí ni se recibieron pesos/código remoto. **Pendiente cerrar procedencia con el agente externo**, especialmente cambios de código, entorno completo/CUDA y manifiesto de entrada. `hardware.entrenamiento_realizado=false` es un campo estático del runner, no un veredicto de no ejecución. No solicitar ni publicar credenciales, venv ni pesos.
+
+La [investigación web](INVESTIGACION_SOTA_POSTURA_MONETARIA.md) es anterior a esta recepción y propone candidatos, no una adopción. No lanzar MrBERT ni otra variante automáticamente: primero cerrar procedencia y diagnosticar las nuevas inversiones sin cambiar etiquetas.
 Antes se ordenó el proyecto y se preparó una entrega con código/datos para otro PC; la limpieza extrema final sigue pendiente. No se autorizó cerrar/fusionar el PR ni nuevas anotaciones.
 
 - Entrega de origen: rama `arena/01a0a81b-fase-2`, **PR #4**: https://github.com/joako0o/FASE_2/pull/4.
@@ -15,11 +18,11 @@ Antes se ordenó el proyecto y se preparó una entrega con código/datos para ot
 - El ZIP portable contiene código, datos, historia necesaria y paquete BETO; no `.git`, entornos, pesos ni credenciales. El inventario está en `entrega/archivos_proyecto.txt`; el ZIP añade `MANIFIESTO_ENTREGA.json` para verificarlo sin dependencias.
 - Se simplificaron README/AVANCE y se añadieron índices. No se movieron rutas congeladas ni se eliminaron fuentes/resultados necesarios por parecer antiguos. No repetir limpieza destruyendo manifiestos.
 
-**Verificación del traslado:** 90 pruebas aprobadas, 0 omitidas; instalación limpia desde ZIP sin Git, ruta con espacios, preparación idéntica y reexportación comprobadas en Linux/Python 3.11. Los 330 archivos históricos protegidos siguen intactos. Evidencia en `data/auditoria/entrega_portable_v1/verificacion.json`. No es validación GPU ni ejecución Windows/macOS.
+**Verificación del traslado:** 90 pruebas aprobadas, 0 omitidas; instalación limpia desde ZIP sin Git, ruta con espacios, preparación idéntica y reexportación comprobadas en Linux/Python 3.11. En aquella auditoría se verificaron 330 archivos previos intactos; los cambios posteriores están versionados. Evidencia en `data/auditoria/entrega_portable_v1/verificacion.json`. No es validación GPU ni ejecución Windows/macOS.
 
 ## 2. Lo pendiente de verdad
 
-**Aquí no hay resultados BETO recibidos/verificados ni prueba GPU aprobada.** El investigador informa de una preparación externa; no sabemos si ya terminó o empezó a entrenar. Hay scripts, protocolo y notebook preparados, más tests sin encoder. No llamar a eso «BETO ejecutado» ni dar por fracasada la ejecución externa por los bloqueos del entorno anterior.
+**Falta cerrar la procedencia remota y explicar el deterioro, no calcular por primera vez las métricas.** Ya se reprodujo exactamente la comparación recibida, se verificaron probabilidades/IDs/cobertura declarada y se hizo una segunda cuenta aritmética. 98 pruebas de software aprobadas, 0 omitidas. No se repitieron entrenamiento ni tokenización oficiales localmente.
 
 Entorno anterior: Linux, Python 3.11, 2 CPU, ~4 GB RAM, sin NVIDIA. GitHub API y PyPI funcionaban; Hugging Face, descarga histórica DCC y ruedas CPU PyTorch fallaban con TLS EOF. No es un problema de contraseña. El navegador de investigación leyó metadatos, pero no transfirió pesos al cómputo.
 
@@ -31,7 +34,7 @@ Se rechazó y retiró un vocabulario histórico distinto al checkpoint elegido; 
 2. Si es el ZIP portable, ejecutar `python scripts/40_gestionar_proyecto.py verificar-entrega` **antes de editar**. En ZIP GitHub normal no existe ese manifiesto; usar los controles de preparación.
 3. Instalar Python 3.11 recomendado y ejecutar `instalar`, `preparar`, `probar --regresion`. El gestor crea `.venv`; no depende de `/home/user/venvs/fase2` del entorno anterior.
 4. Confirmar paquete **`f7aa15894b1c0a4cdcf64a2a5c26e9b5029393e960a44c57f474a90fcc2b681a`**, 1.352 textos íntegros / 1.997.823 caracteres, 793 validaciones y cinco grupos. Tamaños de train antes del filtro de relevancia: 1178, 1178, 1178, 1183, 1183.
-5. Comprobar hardware/red del nuevo entorno. Si hay GPU CUDA y acceso a pesos: `instalar --beto`, `comprobar`, `smoke`, `entrenar`, `comparar`, en ese orden. Si no, registrar bloqueo y usar Colab cuando el investigador pueda iniciarlo.
+5. No iniciar otra corrida por defecto. Recuperar el ZIP final desde el origen fijado, ejecutar `auditar-resultados` si se necesita verificar la recepción y leer las métricas/limitaciones. Conservar TF-IDF; revisar procedencia y nuevas inversiones antes de proponer otro experimento.
 6. Si el investigador trae resultados GPU, **primero verificar procedencia/manifiestos/paquete, cobertura y los cinco grupos**. Un ZIP de resultados no es un proyecto completo. Colab usa la carpeta `ejecucion/`; el gestor local usa `data/checkpoints/beto_v1/ejecucion/`: trasladar solo esos resultados a una ruta nueva, sin sobrescribir intentos previos.
 
 El notebook fijó código al commit **`8a088fc3fc283c9e2cccaf179ea3261f61bccd1d`**; la versión del notebook enlazada en la guía está publicada en **`c93eef3f1fdd9ea3e43b52a7dcff9d46b1035259`**. Aunque descargue esa revisión anterior a la organización, produce el mismo paquete. No mezclar resultados si una corrección futura del runner cambia esa identidad.

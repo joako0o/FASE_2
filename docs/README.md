@@ -2,10 +2,12 @@
 
 ## Trabajo actual
 
+**Último resultado:** [BETO v1 recibido y no adoptado](RESULTADOS_BETO_V1.md): cinco folds, métricas verificadas y límites de procedencia.
+
 1. [EMPEZAR_AQUI](../EMPEZAR_AQUI.md): otro PC, instalación y ejecución.
 2. [CONTINUIDAD](CONTINUIDAD.md): instrucciones para la siguiente sesión.
 3. [AVANCE](AVANCE.md): último cierre y pendientes concretos.
-4. [Investigación/protocolo BETO](INVESTIGACION_Y_PROTOCOLO_BETO_V1.md): método fijado, límites y prueba GPU pendiente.
+4. [Investigación/protocolo BETO](INVESTIGACION_Y_PROTOCOLO_BETO_V1.md): método fijado y límites; documento histórico anterior a la recepción externa.
 5. [Guía Colab](GUIA_EJECUTAR_BETO_COLAB_V1.md): alternativa si el PC no dispone de GPU.
 
 6. [Investigación web de modelos y postura monetaria](INVESTIGACION_SOTA_POSTURA_MONETARIA.md): papers, candidatos actuales y foros; no cambia la corrida BETO.

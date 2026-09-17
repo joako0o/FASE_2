@@ -11,6 +11,8 @@
 | `evaluacion/clasificadores_hd_v1/asignacion_folds.csv` | Asignación fija de validación; el cargador reconstruye/purga el train original. |
 | `auditoria/preparacion_beto_v1/` | Lock del checkpoint, bloqueos reales, protocolo de entrada y pruebas sin encoder. |
 | `checkpoints/beto_v1/entrada/` | `documentos.json`, `folds.json`, `baseline.json`, `checkpoint.json`, `manifest.json`. Paquete listo en ZIP portable; el gestor lo regenera si falta. |
+| `auditoria/recepcion_beto_v1/` | Origen GitHub, auditoría de cinco folds BETO y métricas recalculadas; no adoptado. |
+| `evaluacion/comparacion_beto_v1/predicciones_comparadas.csv` | 793 resultados externos alineados con el control, sin duplicar los textos. |
 | `checkpoints/beto_v1/ejecucion/` | Resultados BETO futuros/recibidos. Verificar manifiestos y procedencia; no presumir entrenamiento por mera presencia de un archivo. |
 
 **Identidad esperada del paquete actual:**
