@@ -6,6 +6,26 @@ El investigador aclaró que **el agente debe buscar y puntuar los ejemplos de en
 
 Se utilizan intervenciones reales completas de L0. La cita es evidencia de la decisión, **no el texto que reemplaza a la intervención al entrenar**. No se generan ejemplos ficticios ni se fuerza una cuota H/D.
 
+## Meta vigente: 300 H y 300 D
+
+El 17-09-2026 el investigador pidió «intentemos llevar cada uno a 300». Se entiende como **300 por clase en el catálogo total**, contando la referencia v2 fija y los nuevos IDs de alta confianza; no como 300 nuevos ni 300 dentro de cada fold tras purga. No se rebaja la confianza ni se fuerzan etiquetas para completar el objetivo.
+
+| Contador | H | D |
+|---|---:|---:|
+| Base vigente usada por los modelos | 125 | 89 |
+| Nuevos de alta confianza preparados, dos tandas | 17 | 18 |
+| **Base + preparados** | **142** | **107** |
+| **Faltan para 300** | **158** | **193** |
+| Reservas de confianza media, no contadas | 1 | 4 |
+
+Los 60 candidatos iniciales ya están leídos: 18 H, 22 D y 20 N según la IA. Solo 35 de los 40 direccionales son de alta confianza. Ninguna nueva anotación está integrada todavía al train activo. El objetivo y el contador auditado están en `data/auditoria/meta_hd_300_v1/objetivo.json` y `progreso.json`.
+
+**Segunda tanda C31–C60:** 94.993 caracteres / 15.608 palabras; 11 H, 9 D, 10 N. Aporta 11 H y 6 D de alta confianza. C32/C40/C56 son D medios en reserva; C60 es N de baja confianza/duda. Se conservaron las mismas reglas: sesgo al alza con mantención puede ser H (C52/C54), recorte con sesgo neutral sigue siendo D (C53), y descripción de tasas/encuestas extranjeras no es postura chilena. No se alteran las decisiones de la primera tanda.
+
+Próxima cola **E001–E020** ya preparada, sin etiquetas: `data/auditoria/meta_hd_300_v1/seleccion_03/cola.json`. Contiene 20 candidatos nuevos, 14.146 palabras, 17 reuniones y 15 actores, priorizados por patrones de recomendación/voto, sesgo doméstico o acuerdo institucional. Sus canales de búsqueda (9 H / 11 D) **no se suman al contador**. Se excluyeron los 60 ya anotados además de los 1.352/306 originales y sus copias.
+
+La búsqueda detectó un conjunto prioritario que todavía requiere lectura; no prueba que existan suficientes casos válidos para alcanzar 300. Un primer intento de cola de 30 solo pudo seleccionar 29 dentro del presupuesto de 20.000 palabras. Se eligió una cola de 20 antes de anotar, dejando registro, sin relajar los controles. Si el corpus no alcanza, hay que informar el límite; no suplirlo con duplicados, sintéticos o etiquetas forzadas. Seguir diversificando textos y revisando contexto, no solo acumular votos fáciles.
+
 ## Primera tanda terminada: C01–C30
 
 Se leyeron **30 intervenciones íntegras, 107.796 caracteres y 17.674 palabras**, dentro del presupuesto vigente de 20.000 palabras por tanda. Se registra etiqueta, confianza, cita literal, explicación y procedencia IA por caso.
@@ -19,7 +39,7 @@ Se leyeron **30 intervenciones íntegras, 107.796 caracteres y 17.674 palabras**
 
 **Núcleo propuesto de alta confianza para ampliar H/D: 18 casos (6 H + 12 D).** Se prepararon sus textos completos, sin añadirlos todavía al train activo. Las otras dos decisiones direccionales —C13 H y C15 D— tienen confianza media y quedan en reserva. Los diez N no se fuerzan a H/D; C03 se marca además como duda y se excluye de incorporación. Confianza es el juicio del agente, no una probabilidad calibrada ni validación humana.
 
-Esta primera tanda no agota los 60: **C31–C60 siguen pendientes de lectura/anotación IA**. No deben incorporarse por su canal de búsqueda. No hace falta esperar respuestas del investigador para continuar con ellos.
+La primera tanda no agotaba los 60; C31–C60 se completaron después en `tanda_02/`, sin tomar sus canales de búsqueda como etiquetas. No hace falta esperar respuestas del investigador para continuar la ampliación.
 
 ## Decisiones y problemas detectados
 
@@ -86,8 +106,15 @@ Se guardan fuera de `data/etiquetas/*.csv` para impedir que un cargador históri
 
 ## Próximos pasos
 
-1. Continuar la lectura y anotación IA de C31–C60 en una segunda tanda separada; no esperar el Excel humano.
+1. Continuar con E001–E020 de la cola nueva, en `data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/`, aún no creada. Leer cada texto íntegro desde L0 y verificar su hash antes de anotar. No esperar el Excel humano.
 2. Revisar la calidad y variedad del conjunto ampliado sin forzar casos N o dudosos a H/D. No relajar la confianza para completar cuotas.
 3. Preparar una nueva versión de los insumos de entrenamiento, respetando los folds y las purgas. No pasar estos JSON directamente a 38/39 ni mezclar paquetes.
 4. Comparar contra el mismo control y validación de desarrollo, sin presentar esta ampliación como evaluación independiente. **No se ha realizado un nuevo entrenamiento en esta tanda.**
 5. Mantener la limpieza extrema final pendiente y la idea sintética sin ejecutar.
+
+
+## Control de cierre de la segunda tanda y acumulado
+
+Las 30 citas de la segunda tanda se verificaron como subcadenas exactas (máximo 191 caracteres); los 17 textos H/D altos son idénticos a L0. Cero solapes de ID/texto/casi copia con la base, el marco humano y la primera tanda. El plan de 150 filas de esta tanda permitiría 16/15/13/15/16 nuevos casos por fold. Sumadas ambas tandas, serían **32/30/29/32/33**, no 35 en todos los folds. Las incorporaciones efectivas siguen en cero.
+
+Los datos de `tanda_02/` usan el mismo esquema que `tanda_01/`, con decisiones, CSV, payload de textos, plan, resumen, manifiesto y verificación. Se cotejaron ambas tandas y el acumulado de 60 IDs únicos/35 H/D altos. El paquete f7aa1589… no cambia. No se ejecutó un nuevo modelo ni hubo segunda anotación semántica independiente.

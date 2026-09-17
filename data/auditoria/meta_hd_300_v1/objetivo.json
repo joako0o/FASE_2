@@ -1,0 +1,17 @@
+{
+  "fecha_local": "2026-09-17",
+  "autorizacion_usuario": "intentemos llevar cada uno a 300,",
+  "objetivo_por_clase": {
+    "hawkish": 300,
+    "dovish": 300
+  },
+  "unidad": "intervencion_real_completa",
+  "definicion_contador": "Base v2 fija más nuevos IDs únicos H/D de confianza alta. Reservas medias y N no cuentan.",
+  "objetivo_aplica_catalogo_no_train_de_cada_fold": true,
+  "no_fuerza_etiquetas_para_completar_cuotas": true,
+  "datos_sinteticos_autorizados": false,
+  "lectura_ia_por_tandas_max_palabras": 20000,
+  "mantener_validacion_v2_folds_y_A": true,
+  "entrenamiento_nuevo_realizado": false,
+  "si_el_corpus_no_alcanza": "Informar el límite y no completar con duplicados, etiquetas forzadas o sintéticos."
+}

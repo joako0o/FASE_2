@@ -2,7 +2,7 @@
 
 ## Trabajo actual
 
-**Trabajo vigente:** [anotación IA para ampliar entrenamiento](ANOTACION_IA_AMPLIACION_HD_V1.md), primera tanda terminada y C31–C60 pendientes. El Excel de 60 no es una tarea humana requerida; no hay sintéticos ni nuevo entrenamiento.
+**Trabajo vigente:** [anotación IA para ampliar entrenamiento](ANOTACION_IA_AMPLIACION_HD_V1.md), meta 300 H/300 D; C01–C60 terminados y E001–E020 pendientes. El Excel de 60 no es una tarea humana requerida; no hay sintéticos ni nuevo entrenamiento.
 
 **Último resultado:** [BETO v1 recibido y no adoptado](RESULTADOS_BETO_V1.md): cinco folds, métricas verificadas y límites de procedencia.
 

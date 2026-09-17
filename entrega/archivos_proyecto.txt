@@ -34,6 +34,13 @@ data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/manifest.json
 data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/plan_por_fold.csv
 data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/resumen.json
 data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/verificacion.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/anotaciones_ia.csv
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/decisiones.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/documentos_hd_alta.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/manifest.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/plan_por_fold.csv
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/resumen.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/verificacion.json
 data/auditoria/ampliacion_hd_60_v1/manifest.json
 data/auditoria/ampliacion_hd_60_v1/resumen.json
 data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx
@@ -50,6 +57,11 @@ data/auditoria/inversiones_hd_v1/resultados/protocolo.json
 data/auditoria/inversiones_hd_v1/resultados/resumen.json
 data/auditoria/inversiones_hd_v1/resultados/seleccion.csv
 data/auditoria/inversiones_hd_v1/verificacion.json
+data/auditoria/meta_hd_300_v1/objetivo.json
+data/auditoria/meta_hd_300_v1/progreso.json
+data/auditoria/meta_hd_300_v1/seleccion_03/cola.json
+data/auditoria/meta_hd_300_v1/seleccion_03/manifest.json
+data/auditoria/meta_hd_300_v1/seleccion_03/protocolo.json
 data/auditoria/preparacion_beto_v1/acceso.json
 data/auditoria/preparacion_beto_v1/checkpoint.json
 data/auditoria/preparacion_beto_v1/portabilidad.json

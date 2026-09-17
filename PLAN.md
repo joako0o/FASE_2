@@ -512,3 +512,16 @@ C01–C30 leídos íntegramente: 107.796 caracteres / 17.674 palabras, dentro de
 Datos separados en `data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/`, fuera del glob de etiquetas original: decisiones, anotaciones CSV, 18 documentos H/D completos, plan por fold, resumen/manifiesto/verificación. Los 18 altos permitirían 16/15/16/17/17 incorporaciones por fold tras purga, pero todavía no se integra train ni se cambia el paquete f7aa1589…, las referencias, A o los folds. Sin nuevos scripts, entrenamiento o métricas en esta tanda.
 
 **Pendiente: C31–C60 a cargo de la IA**, no del investigador. Una futura selección excluirá también los nuevos IDs anotados. Preparación de paquete ampliado y comparación controlada serán una etapa posterior. Libro vacío de selección conservado como antecedente, no fabricado como respuesta humana. Limpieza extrema final e idea sintética siguen pendientes.
+
+
+### 9.27 Meta 300 H / 300 D y segunda tanda IA
+
+Autorización del investigador: «intentemos llevar cada uno a 300,» (17-09-2026). Se fija meta sobre catálogo total de base v2 más nuevos IDs H/D de confianza alta, no 300 adicionales ni por fold. No forzar cuotas, rebajar confianza para cumplirlas o suplir con sintéticos. Si el corpus no alcanza, informar la limitación.
+
+C31–C60 leídos íntegramente: 94.993 caracteres / 15.608 palabras. IA: 11 H, 9 D, 10 N; núcleo alto 11 H/6 D. Tres D medios reservados (C32/C40/C56), C60 N dudoso excluido. Citas exactas, campos, textos/payloads, exclusiones originales/humanas y primera tanda, casi copias y plan de 150 filas verificados. Datos separados en `data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/`.
+
+Acumulado de dos tandas: 60 nuevos IDs anotados, 18 H/22 D/20 N, con **17 H/18 D altos**. Base vigente H125/D89 + altos = **H142/D107**; faltantes **H158/D193**. Reservas H1/D4 no cuentan. Plan potencial acumulado por fold 32/30/29/32/33; incorporaciones efectivas cero. Objetivo/contador con hashes en `data/auditoria/meta_hd_300_v1/`. Sin nueva ejecución de modelos ni cambios de v2/folds/A/paquete.
+
+Cola siguiente E001–E020 preparada sin etiquetas, 14.146 palabras/17 reuniones/15 actores; prioridad a lenguaje de recomendación/voto/sesgo local/acuerdo, evitando exposiciones extranjeras como primera prioridad. Canales 9 H/11 D son pistas y no se suman a la meta. Un intento de 30 solo llegó a 29 con 19.965 palabras; el tamaño de la cola se redujo a 20 antes de anotar, sin relajar controles. Las próximas anotaciones irán en `data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/`, aún inexistente. Leer texto completo y verificar hashes, no asumir etiquetas del buscador.
+
+No esperar trabajo humano en el Excel. Mantener limpio, sin nuevos scripts en esta tanda ni datos duplicados/forzados para aumentar conteos. Limpieza extrema final pendiente e idea sintética no ejecutada.

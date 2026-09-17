@@ -1,0 +1,16 @@
+{
+  "estado": "controles_de_integridad_aprobados",
+  "casos": 30,
+  "citas_exactas": 30,
+  "campos_validos": 30,
+  "documentos_hd_alta_completos": 17,
+  "solapes_ids_textos_o_casi_copias": 0,
+  "filas_plan_verificadas": 150,
+  "anotacion_humana": false,
+  "segunda_revision_semantica_independiente": false,
+  "validadores_reutilizados": [
+    "scripts/utilidades.py:errores_anotacion",
+    "scripts/muestreo_revision.py:clave,trigramas,casi_copia"
+  ],
+  "no_se_ejecuto_entrenamiento": true
+}

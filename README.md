@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** [anotar ejemplos nuevos para entrenamiento](docs/ANOTACION_IA_AMPLIACION_HD_V1.md). Primera tanda de 30 anotada por IA; faltan C31–C60. El investigador **no necesita completar el Excel** para que continúe este trabajo.
+**Trabajo actual del agente:** [anotar ejemplos nuevos para entrenamiento](docs/ANOTACION_IA_AMPLIACION_HD_V1.md). Meta 300 H/300 D: 60 candidatos revisados por IA; base más nuevos altos H142/D107. Continúa la búsqueda y anotación, sin reentrenamiento todavía. El investigador **no necesita completar el Excel** para que continúe este trabajo.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.

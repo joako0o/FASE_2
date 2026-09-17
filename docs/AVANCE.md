@@ -1,22 +1,22 @@
 # AVANCE — Proyecto D&H
 
-## Estado actual: el agente anota ejemplos para entrenamiento; no esperar Excel humano
+## Estado actual: meta 300 H / 300 D, ampliación IA en curso
 
-El investigador aclaró que quiere que **la IA busque y puntúe las intervenciones de entrenamiento**, no otra tarea de anotación para él. Esto sustituye la espera de respuestas al Excel de 60 candidatos. El libro vacío se conserva como artefacto de selección, sin hacerlo pasar por una respuesta humana.
+El investigador pidió «intentemos llevar cada uno a 300». Meta registrada el **17-09-2026** en `data/auditoria/meta_hd_300_v1/objetivo.json`: base v2 fija más nuevos casos H/D de alta confianza. No son 300 nuevos ni 300 por fold. Sin etiquetas forzadas, duplicados o sintéticos para alcanzar la cifra.
 
-**Primera tanda IA terminada, C01–C30:** 30 textos íntegros, **107.796 caracteres / 17.674 palabras**. Resultado: **7 H, 13 D, 10 N**. Núcleo propuesto de alta confianza: **6 H + 12 D = 18 intervenciones completas**. C13 H y C15 D tienen confianza media y quedan en reserva. C03 se registra como N de baja confianza/duda y no se incorpora. No se fuerzan los N a H/D.
+**60 candidatos iniciales completamente leídos en dos tandas**, 202.789 caracteres: 18 H, 22 D y 20 N según la IA. Nuevos H/D altos: **17 H + 18 D**. Sumados a la base vigente H125/D89, hay **142 H / 107 D preparados en el catálogo**, aún sin incorporar a train. **Faltan 158 H y 193 D.** Las reservas medias H1/D4 no cuentan; las dos dudas N tampoco se convierten en dirección.
 
-Archivos en `data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/`: decisiones del agente, CSV de 30 anotaciones, JSON con los 18 textos H/D altos, plan por fold, resumen, manifiesto y verificación. Método `ia_lectura_integra`, no gold humano ni evaluación independiente. [Detalle](ANOTACION_IA_AMPLIACION_HD_V1.md).
+Segunda tanda cerrada C31–C60: 94.993 caracteres / 15.608 palabras, 11 H/9 D/10 N; núcleo alto 11 H/6 D. Datos en `data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/`. Primera tanda intacta. [Informe](ANOTACION_IA_AMPLIACION_HD_V1.md), contador con hashes en `data/auditoria/meta_hd_300_v1/progreso.json`.
 
-**Pendientes C31–C60**, a leer y anotar por la IA en una segunda tanda respetando el presupuesto de 20.000 palabras. No preguntar al investigador si completó el Excel ni inventar etiquetas de los casos pendientes. No esperar revisión humana para seguir la tarea autorizada; si llega alguna, conservarla como fuente separada y declarar exposición a IA.
+**Siguiente: anotar E001–E020**, cola nueva en `data/auditoria/meta_hd_300_v1/seleccion_03/cola.json`. Son 20 candidatos sin etiquetas, 14.146 palabras, 17 reuniones y 15 actores. Prioridad a recomendación/voto, sesgo doméstico y acuerdo institucional para evitar gastar la tanda en exposiciones puramente extranjeras. Canales 9 H/11 D son búsqueda, no anotaciones; no sumarlos a la meta. Un intento de 30 solo alcanzó 29 con el presupuesto; se redujo la cola a 20 antes de leerla, sin relajar controles. No garantiza que el corpus alcance la meta completa.
 
 ### Controles y límites
 
-30 citas verificadas como subcadenas literales exactas (máximo 260 caracteres), campos válidos con utilidades compartidas, hashes de todos los textos contra L0, cero solapes con 1.352 anotados/306 del marco humano y cero casi copias Jaccard ≥0,85. Payload H/D de alta confianza conserva 18 textos completos, no solo citas. Las 150 filas del plan por fold respetan exclusiones por reunión/texto; permitirían **16/15/16/17/17** de esos 18 casos respectivamente, pero **no se incorporó ninguno a train**.
+60 citas literales verificadas acumuladas; campos/hashes/IDs/textos comprobados. Sin solapes con 1.352 originales, 306 del marco humano o entre tandas, incluyendo control de casi copias Jaccard ≥0,85. Payloads altos conservan **35 intervenciones completas**, no solo citas. El plan acumulado permitiría 32/30/29/32/33 incorporaciones por fold tras purga; efectivamente se incorporaron **cero**.
 
-No se modificó código en esta tanda. El paquete BETO y sus fuentes congeladas se verificaron intactos. Los 106 tests de software pertenecen al cierre previo de selección/Excel; la nueva evidencia es de integridad de anotaciones, **no de entrenamiento ni doble revisión semántica**. La confianza es juicio del agente, no calibración probabilística.
+No se modificaron scripts, etiquetas originales, v2/folds/A o paquete BETO. No hubo entrenamiento ni nuevas métricas. La confianza es juicio de la IA, no probabilidad calibrada ni revisión humana independiente. Los 106 tests de software son del cierre anterior de selección/Excel; en esta tanda se verificaron datos, citas, manifiestos, planes y contador.
 
-La selección de origen sigue siendo de 60 candidatos reales, 56 reuniones, 29 actores, 202.789 caracteres y dos canales lexicales de 30. Esos canales no eran etiquetas y el muestreo no es representativo. El archivo técnico de selección no debe usarse como verdad. [Protocolo de selección, ahora histórico respecto del encargo humano](AMPLIACION_HD_60_V1.md).
+El agente es responsable de seguir anotando; **no esperar el Excel del investigador**. El libro vacío permanece como antecedente, nunca como supuesta respuesta humana. Las próximas tandas deben excluir también estos 60 IDs (incluidos N, reservas y dudas) y usar los textos originales completos. Si faltan casos válidos, informar, no inventar.
 
 ## Estado científico vigente
 
@@ -30,10 +30,10 @@ La selección de origen sigue siendo de 60 candidatos reales, 56 reuniones, 29 a
 
 ## Qué sigue y qué no
 
-1. El agente debe continuar con C31–C60. Ya hay una primera capa de 30 anotaciones IA, sin aceptación humana por caso ni integración al modelo.
+1. El agente continúa con E001–E020 y después amplía la búsqueda hasta intentar 300 H/300 D. Los C01–C60 están cerrados; no volver a etiquetarlos.
 2. Completar y revisar la capa IA de entrenamiento; no reabrir las 306 respuestas ni rehacer las 30 anotaciones humanas anteriores. En una selección futura excluir también los nuevos IDs ya anotados.
 3. Mantener TF-IDF. No nuevo entrenamiento, refit global, scoring del corpus, cambios de referencias o datasets externos por la mera creación del Excel.
-4. **Idea sintética solo registrada**, PLAN §9.24: no generar ahora. El objetivo de acercarse a 200 H/200 D es orientativo y posterior, no una cuota que imponer a las respuestas.
+4. **Idea sintética solo registrada**, PLAN §9.24: no generar ahora. La meta autorizada ahora es 300 H/300 D, sin forzar respuestas para cumplirla.
 5. **Limpieza extrema final obligatoria y pendiente**, REGLAS §12: reducir de verdad la entrega a una entrada y pocos módulos esenciales. El gestor sobre los scripts históricos no cumple por sí solo el cierre.
 
 ## Continuidad y publicación
