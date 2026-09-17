@@ -1,12 +1,18 @@
 # AVANCE — Proyecto D&H
 
+## Última nota: idea sintética registrada, no ejecutada
+
+El investigador plantea que una IA genere frases/intervenciones ficticias a partir del estilo de actas, **solo como idea para evaluar después**. Registrada en PLAN §9.24 con controles de procedencia, fuentes train-only por fold, revisión semántica y comparación sobre datos reales. No se generó ningún texto sintético, no se llamó a modelos/APIs y no se cambió entrenamiento, datos o etiquetas.
+
+Antes de esta nota, el investigador autorizó preparar **60 candidatos reales** con «siii». Se exploraron los generadores existentes y las fuentes; el trabajo fue interrumpido antes de crear selección, código nuevo o Excel. **Preparación de los 60 autorizada y pendiente; etiquetado/entrenamiento y sintéticos no autorizados por esa aceptación.** El objetivo de 200 H/200 D sigue orientativo. No confundir esta nota con la entrega de la muestra.
+
 ## Actualización: confirmación del usuario y propuesta de ampliar H/D
 
 El investigador confirma que el agente externo **no cambió los scripts**; declaración separada en `data/auditoria/recepcion_beto_v1/confirmacion_usuario.json`. No pedir de nuevo esa confirmación. El entorno completo/CUDA y hashes remotos no fueron aportados, por lo que no se convierten en verificación independiente de binarios.
 
 El investigador propone tentativamente aumentar la muestra buscando H y D. Conteo de referencia v2 comprobado: 125 H, 89 D, 1.138 N; entre los relevantes para B, 125 H, 89 D y 869 N. En los cinco train purgados quedan 106–114 H y 75–81 D. El entrenamiento ya pondera clases: ponderar o duplicar filas no agrega variedad lingüística.
 
-**Propuesta, no ejecutada ni aprobada como experimento nuevo:** primera tanda de 60 candidatos del corpus propio, aproximadamente mitad probables H y mitad probables D; revisión del texto completo sin tratar la preselección como verdad. Objetivo orientativo posterior de acercarse a 200 H y 200 D, condicionado a etiquetas realmente confirmadas y utilidad. Incluir decisiones explícitas, postura futura, pausas, negaciones y alternativas; no solo ejemplos fáciles. Conservar N/ambiguos encontrados, sin forzar cuotas. No reutilizar los 1.352 ni las 306 respuestas para simular datos nuevos.
+**Propuesta original (la preparación de los 60 fue autorizada después; entrenamiento no):** primera tanda de 60 candidatos del corpus propio, aproximadamente mitad probables H y mitad probables D; revisión del texto completo sin tratar la preselección como verdad. Objetivo orientativo posterior de acercarse a 200 H y 200 D, condicionado a etiquetas realmente confirmadas y utilidad. Incluir decisiones explícitas, postura futura, pausas, negaciones y alternativas; no solo ejemplos fáciles. Conservar N/ambiguos encontrados, sin forzar cuotas. No reutilizar los 1.352 ni las 306 respuestas para simular datos nuevos.
 
 Preservar validación v2/folds/A y purgar de cada train ampliado cualquier reunión/texto de su validación. La muestra enriquecida sería de entrenamiento, no test representativo. Nueva preparación/versionado y comparación controlada solo tras autorización; ninguna selección, etiqueta, entrenamiento o scoring global ejecutado ahora. La revisión de las 20 inversiones nuevas y siete corregidas se inició con lectura de 27 textos completos, pero fue interrumpida antes de cerrar informe/diagnóstico; no declarar causa demostrada. Limpieza extrema final pendiente.
 

@@ -473,3 +473,20 @@ Registros externos declaran RTX 5060, prueba real aprobada y cinco entrenamiento
 Tras confirmar que el agente externo no modificó scripts, el investigador plantea aumentar la muestra buscando más H/D. Conteo v2: 125 H/89 D/1.138 N; B relevante 125 H/89 D/869 N y train por fold 106–114 H/75–81 D. Propuesta orientativa: 60 candidatos nuevos del corpus propio (probables H/D equilibrados), después acercarse progresivamente a 200 H/200 D si la revisión confirma las clases. No es una cuota a imponer a las etiquetas ni se ha ejecutado selección alguna.
 
 Mantener v2/folds/A, no repetir IDs anotados ni abrir 306 respuestas; purgar nuevas observaciones por reunión/texto frente a cada validación. Muestra enriquecida solo para entrenamiento, no para estimar prevalencias ni generalización independiente. Ampliación, protocolo nuevo y comparación requieren decisión posterior; no se entrena ni se cambia el paquete actual por esta conversación. El diagnóstico cualitativo se inició, pero no está cerrado ni demuestra causalidad del deterioro.
+
+
+### 9.24 Idea futura: ejemplos sintéticos con estilo de actas
+
+**Propuesta del investigador, no autorización de ejecución:** proporcionar a una IA ejemplos de lenguaje de actas y pedir frases o intervenciones ficticias para entrenar. El investigador indicó expresamente que no pide hacerlo ahora y que primero habría que evaluar si la idea es buena. Se registra como hipótesis pendiente, no como mejora demostrada ni decisión de incorporar datos.
+
+Condiciones para una eventual propuesta experimental:
+
+- Priorizar intervenciones completas, nuestra unidad de clasificación. Las frases sueltas no se convertirían automáticamente en intervenciones etiquetadas ni reemplazarían la evaluación documental.
+- Mantener separados los originales reales y los sintéticos. Registrar origen sintético, modelo/revisión, prompt, semilla cuando proceda, ejemplos fuente, etiqueta propuesta y controles de revisión. No presentar textos ficticios como actas o citas reales ni incorporarlos a L0.
+- Para cada fold, los ejemplos fuente y cualquier recuperación del generador deben proceder exclusivamente de su train permitido, nunca de reuniones/textos de validación o test ni de las 306 respuestas humanas. Los sintéticos heredan la procedencia y exclusiones de sus ejemplos fuente; generar una vez con todo el corpus y repartir después puede contaminar la comparación.
+- La etiqueta solicitada a la IA no es una etiqueta verdadera verificada. Revisar dirección monetaria, negación, adhesión/rechazo, temporalidad y coherencia global; detectar copia y duplicación con fuentes, validación y otros sintéticos. Imitación estilística no garantiza semántica adecuada. Eliminar o separar casos defectuosos sin modificar referencias reales para acomodarlos.
+- No concentrarse solo en plantillas evidentes de alza/baja: pueden enseñar atajos y producir una mejora aparente que no se traslada a actas auténticas. El objetivo sería añadir variedad útil, no completar cuotas con copias o paráfrasis triviales.
+- Si se autoriza más adelante, comenzar con una proporción pequeña y fijada de sintéticos; comparar real-solo frente a real+sintético manteniendo el resto controlado. Evaluar sobre textos reales intactos y los criterios H↔D/H/D→N/F1/recall, sin sustituir la futura confirmación independiente por datos generados o juicios del mismo generador. Registrar el presupuesto de variantes para evitar ajustar repetidamente a la validación conocida.
+- No se autorizan ahora generación, etiquetado, entrenamiento, APIs de pago ni nuevos datasets externos. No se cambia el paquete BETO ni se afirma que este enfoque resolverá el deterioro observado.
+
+**Trabajo previo que sigue vigente:** el investigador sí autorizó preparar la selección de 60 candidatos reales H/D mediante «siii». Solo se inició la exploración de fuentes/herramientas; la selección y el Excel todavía no se han generado. Esa autorización no se extiende a generar sintéticos, etiquetar automáticamente o entrenar.
