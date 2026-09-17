@@ -18,5 +18,6 @@
   "runner_38_39_modificado": false,
   "reentrenamiento_local": false,
   "nota": "Pruebas de software y auditoría de archivos; no certificación de ejecución GPU remota.",
-  "sha256_predicciones_comparadas": "a39ac620032f376a18c87bb087601f5ae270e1c77dd92c052a9bbe881d18c2ed"
+  "sha256_predicciones_comparadas": "2437fca54468af42dd20c82af117b4034d76c00a2c29e1f3c7ce35e4b221d57b",
+  "formato_tabla_derivada": "UTF-8 con LF; mismos 793 registros y probabilidades. ZIP y CSV originales recibidos sin alterar."
 }
