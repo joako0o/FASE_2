@@ -1,0 +1,59 @@
+{
+  "filas": 1018,
+  "ids_unicos": 1018,
+  "textos_normalizados_unicos": 801,
+  "distribucion_clases": {
+    "Hawkish": 357,
+    "Dovish": 364,
+    "Neutral": 297
+  },
+  "distribucion_candidatos_unicos": {
+    "Hawkish": 274,
+    "Dovish": 285,
+    "Neutral": 242
+  },
+  "grupos_texto_duplicado": 161,
+  "filas_en_grupos_duplicados": 378,
+  "copias_excedentes": 217,
+  "duplicados_con_etiquetas_conflictivas": 0,
+  "citas_literal_exacta": 542,
+  "citas_solo_diferencia_mayusculas": 124,
+  "citas_no_subcadena_continua": 352,
+  "filas_con_oracion_larga_reutilizada": 908,
+  "oraciones_largas_reutilizadas_unicas": 614,
+  "temas_unicos": 513,
+  "temas_con_mas_de_una_clase": 0,
+  "fechas_ficticias_unicas": 38,
+  "solapamiento_corpus_real": {
+    "textos_normalizados_exactos": 0,
+    "oraciones_largas_exactas": 0
+  },
+  "lotes_inferidos": {
+    "1_517": {
+      "filas": 517,
+      "con_caracter_no_ascii": 514
+    },
+    "518_1018": {
+      "filas": 501,
+      "con_caracter_no_ascii": 20
+    }
+  },
+  "muestra_semantica_inicial": {
+    "filas": 30,
+    "por_clase": {
+      "Hawkish": 10,
+      "Dovish": 10,
+      "Neutral": 10
+    },
+    "compatibles_provisionales": 30
+  },
+  "metadatos_ausentes": [
+    "generador",
+    "version_prompt",
+    "semilla",
+    "familia_plantilla_explicita"
+  ],
+  "incorporacion_autorizada": false,
+  "motivo": "Requiere deduplicación, agrupación de familias y revisión semántica v3 antes de cualquier curva de dosis.",
+  "entrenamiento_ejecutado": false
+}
