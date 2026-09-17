@@ -2,6 +2,8 @@
 
 ## Trabajo actual
 
+**Consulta de calibración:** [plan B con actas históricas](CALIBRACION_PLAN_B_ACTAS_HISTORICAS.md), solo opinión; no corpus importado ni etiquetas finales.
+
 **Último análisis:** [por qué se deterioró TF-IDF +59](DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md), lectura de los 16 cambios y descomposición de márgenes. Sin nueva variante ni etiquetas corregidas.
 
 **Último ensayo:** [TF-IDF con 59 ejemplos nuevos](RESULTADOS_AMPLIACION_TFIDF_59_V1.md): comparación ejecutada, sin mejora y sin reemplazo del control.

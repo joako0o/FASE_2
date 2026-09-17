@@ -2,6 +2,8 @@
 
 ## 1. Estado que debes asumir — y comprobar
 
+**Consulta más reciente:** plan B con actas anteriores a2000, todavía en calibración. El investigador envió ejemplos en chat y pidió opinión, no importación/entrenamiento. Leer `docs/CALIBRACION_PLAN_B_ACTAS_HISTORICAS.md`: separar postura monetaria agregada de ayuda focalizada, regulación cambiaria, crédito sectorial, multas y deuda extranjera; corregir la unidad que mezcla varios acuerdos. No asumir H/D de palabras como ayuda/restricción, ni N/0 solo por ratificación o ausencia de TPM. No asignar etiquetas finales sin contexto suficiente ni sumar el corpus histórico al objetivo300. No se cambiaron datos, etiquetas, codebook o modelos. Esta nota no autoriza ejecutar el plan B.
+
 **Última tarea cerrada: diagnóstico del ensayo TF-IDF +59.** Leer `docs/DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md`. Los 16 textos cambiados se leyeron íntegros (57.722 caracteres); márgenes, 12.005 contribuciones y 48 vecinos de train permitido verificados. Reconstrucción exacta A/B/final para ambas condiciones/793 casos, replay byte a byte y 116tests/0omitidos. No etiquetas cambiadas ni nueva variante. Datos en `data/auditoria/diagnostico_ampliacion_tfidf_59_v1/`; comando 40 `diagnosticar-ampliacion-tfidf --salida RUTA_NUEVA` solo reconstruye las condiciones ya publicadas.
 
 La evidencia apunta a atajos léxicos/actor/cargo, confusión de pregunta/adhesión, negación o retiro del sesgo, narrativa extranjera frente a decisión doméstica, y fronteras de aplicación de referencias en mantenciones. Coeficientes/vecinos no son pruebas causales. Los casos de frontera **no son nuevas correcciones aprobadas**: conservar v2 y métricas. No convertir un acierto nuevo de score en validación semántica independiente.

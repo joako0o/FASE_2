@@ -1,5 +1,13 @@
 # AVANCE — Proyecto D&H
 
+## Consulta más reciente: plan B histórico en calibración, no ejecutado
+
+El investigador presentó fragmentos de actas de 1977/1982/1986/1992 con etiquetas tentativas y pidió opinión antes de comenzar. Se revisó el encaje conceptual en [CALIBRACION_PLAN_B_ACTAS_HISTORICAS](CALIBRACION_PLAN_B_ACTAS_HISTORICAS.md). **No se importó el corpus ni se asignaron etiquetas finales, se entrenó o se modificó el codebook.**
+
+Hallazgo central: ayuda focalizada/refinanciamiento/reprogramación o flexibilización de multas no equivalen automáticamente a D monetaria; control normativo no implica H. Destacan la multa de30→20 del ID78 (no tasa de política), deuda de Bolivia4480/4481 (no postura chilena), excepción a una prohibición en42 (no resumir como endurecimiento), y el cambio5→10 de18566, cuyo parámetro no está identificado (no declararlo rutinario con alta confianza). Hay inconsistencias entre ratificaciones etiquetadas N/0 y ayudas similares D/1, además de filas que mezclan varios acuerdos.
+
+Recomendación de calibración: definir unidad semántica por asunto/discusión-resolución, función/instrumento/alcance y cambio respecto de la norma previa antes de H/D/N; separar fuera de alcance/contexto insuficiente de neutralidad sustantiva. No exigir literalmente TPM a toda medida histórica ni tratar toda operación monetaria como macro-direccional. Revisión limitada a textos del chat; no originales/anexos/normas anteriores. Contexto histórico apoyado en fuentes BCCh: flotación1999 y nominalización2001. Mantener el plan B separado y no usarlo para completar300 por cuota. Esta consulta no altera el diagnóstico ni los resultados vigentes.
+
 ## Último cierre: diagnóstico de los nuevos errores TF-IDF
 
 El investigador pidió revisar los errores nuevos y pensar por qué falla. Se leyeron **los 16 textos completos con cambios (57.722 caracteres): nueve errores nuevos, tres corregidos y cuatro errores que cambian de tipo**. [Diagnóstico](DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md). No se modificó ninguna referencia, etiqueta o cohorte y no se ensayó otra variante.
