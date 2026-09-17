@@ -1,0 +1,28 @@
+{
+  "version": "revision_direccion_respaldada_v1",
+  "fecha": "2026-09-17",
+  "pregunta": "Compatibilidad de las etiquetas H/D prioritarias con dirección monetaria respaldada, no postura relativa al menú/fase.",
+  "universo": "29 H/D de las 77 filas de r13_tanda09 y r14_tanda10.",
+  "fuera_de_alcance": "Adjudicación exhaustiva de las 48 N, otras rondas, 89 nuevas y 306 humanas.",
+  "metodo": "Lectura de intervención completa con etiqueta visible; cotejo de cita normalizando solo espacios; juicio del agente, no doble anotación independiente.",
+  "reglas": [
+    "acción actual explícita prima sobre magnitud relativa",
+    "mantención usa sesgo propio respaldado",
+    "esperar para subir/bajar puede conservar la dirección futura",
+    "diagnóstico o riesgo sin conexión de política no asigna H/D",
+    "retirar un sesgo no implica automáticamente el signo opuesto"
+  ],
+  "fuentes_sha256": {
+    "data/L0/corpus.csv": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "data/etiquetas/etiquetas_r13_tanda09.csv": "bbd7ea0e7ec3940da47ed09e31ac7c2de8e2b38c1b65c3add75da119a7d63ab3",
+    "data/etiquetas/etiquetas_r14_tanda10.csv": "46d1554510606c663c3379cd66e7a8cc042d1612f959772d795764758aefcf9a",
+    "docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md": "95ea73b33298bd2e1ca37bbae03369b6799367dc5046aa8931d8a98853a5bdec",
+    "docs/codebook_v2.md": "a0d12dcb3b7dc951440cd015f92ba9960e0ca222f1df2c4250b5dbce83ffbf42",
+    "docs/CONVENCIONES_ETIQUETADO.md": "fdd79194232f988512488ee13ef799cd951392aefc89c8ea889d67e94229ddbf"
+  },
+  "preservacion": {
+    "etiquetas_sobrescritas": 0,
+    "gold_humano_abierto": false,
+    "entrenamiento": false
+  }
+}

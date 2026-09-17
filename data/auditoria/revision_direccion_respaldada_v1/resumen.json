@@ -1,0 +1,36 @@
+{
+  "version": "revision_direccion_respaldada_v1",
+  "fecha": "2026-09-17",
+  "criterio": "docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md (propuesto, no codebook aprobado)",
+  "universo_prioritario_filas": 77,
+  "etiquetas_hd_revisadas": 29,
+  "etiquetas_neutral_no_adjudicadas_exhaustivamente": 48,
+  "resultado": {
+    "compatible": 18,
+    "cambio_propuesto": 11
+  },
+  "transiciones": {
+    "dovish->hawkish": 2,
+    "dovish->neutral": 6,
+    "hawkish->dovish": 1,
+    "hawkish->neutral": 2
+  },
+  "cambios_confianza": {
+    "media": 4,
+    "alta": 7
+  },
+  "por_etiqueta_origen": {
+    "hawkish": {
+      "revisadas": 18,
+      "cambios": 3
+    },
+    "dovish": {
+      "revisadas": 11,
+      "cambios": 8
+    }
+  },
+  "conclusion": "Existe incompatibilidad material con la definición direccional propuesta; no permite extrapolar una tasa de error a las 1.352 IA ni a las 306 humanas.",
+  "etiquetas_sobrescritas": 0,
+  "entrenamiento_ejecutado": false,
+  "respuestas_humanas_abiertas": false
+}
