@@ -20,8 +20,8 @@ class MigracionV3(unittest.TestCase):
             self.assertEqual(1747, len({fila['intervencion_id'] for fila in filas}))
             self.assertEqual({'ia_base_v2': 1352, 'ia_nueva_v1': 89, 'humana_v2': 306},
                              resumen['por_coleccion'])
-            self.assertEqual(77, resumen['revisados_iniciales'])
-            self.assertEqual(1670, resumen['pendientes'])
+            self.assertEqual(187, resumen['revisados_iniciales'])
+            self.assertEqual(1560, resumen['pendientes'])
 
     def test_no_sobrescribe(self):
         with tempfile.TemporaryDirectory() as temporal:

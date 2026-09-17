@@ -1,0 +1,13 @@
+{
+  "estado": "verificado",
+  "filas": 110,
+  "ids_unicos": 110,
+  "citas_validas": 110,
+  "hashes_validos": 110,
+  "pendientes": 0,
+  "pruebas_unitarias_relacionadas": {
+    "aprobadas": 10,
+    "fallos": 0,
+    "comando": "python -m unittest tests.test_migracion_v3 tests.test_compatibilidad_criterios"
+  }
+}

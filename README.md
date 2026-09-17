@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; 1.747 IDs distintos. Las [dos rondas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md) están cerradas: 77/77 revisadas, 11 cambios de etiqueta y uno de relevancia frente a v2 vigente. Quedan 1.670 IDs. V2 y sus métricas se preservan; no se reentrena hasta consolidar v3.
+**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; 1.747 IDs distintos. Cerrados: [dos rondas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md) y [piloto r1](docs/REVISION_PILOTO_R1_V3.md), **187 casos revisados**; quedan 1.560. V2 y sus métricas se preservan; no se reentrena hasta consolidar v3.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.

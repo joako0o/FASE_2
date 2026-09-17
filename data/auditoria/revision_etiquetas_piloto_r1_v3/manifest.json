@@ -1,0 +1,8 @@
+{
+  "sha256_salidas": {
+    "revision.csv": "02c2b62b618a7d6c4d075a9b96e928aaafc64de2cc267d4103792cce52644781",
+    "resumen.json": "53b782d1de02cba2fcf5e7a81242aacf17a1d44700cbfe1b6f0e21c24a705afd",
+    "protocolo.json": "a9f2edd75d41a6d28bfe3552f1c195e072fb260fbf5ab730309a2797b47b7bfb",
+    "verificacion.json": "a93864d9d770024c817a819adfa703c93c1031805db7d8928d7d4b2e99f5354b"
+  }
+}

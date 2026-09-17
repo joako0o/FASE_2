@@ -37,6 +37,7 @@
     "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_04/anotaciones_ia.csv": "537ef8d5acff75552e861c85372c4828fffa8d9e764dbc3c32c87b0522cbae61",
     "data/evaluacion/tfidf_gold_v1/comparacion_gold.csv": "a32437dfdf4ea852d3ceb842b12e756460ade79909c0d4c60b96aca9eed90feb",
     "data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv": "dc1336c88cb8f21e40a632d39fefe1b74477660e608045fec49a936865bf3903",
+    "data/auditoria/revision_etiquetas_piloto_r1_v3/revision.csv": "02c2b62b618a7d6c4d075a9b96e928aaafc64de2cc267d4103792cce52644781",
     "data/auditoria/revision_rondas_prioritarias_v3/revision_77.csv": "9e01c450b62c186249cd1af5a28dedd0034e9123e3c0324022050a43834f62de"
   }
 }

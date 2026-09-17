@@ -92,11 +92,17 @@ def preparar(salida=SALIDA):
     if not set(ids) <= set(corpus):
         raise ValueError('Hay IDs de revisión que no existen en L0')
 
-    revision_path = RAIZ / 'data/auditoria/revision_rondas_prioritarias_v3/revision_77.csv'
-    fuentes.append(revision_path)
-    revisados = {fila['intervencion_id']: fila for fila in leer_csv(revision_path)}
-    if len(revisados) != 77:
-        raise ValueError('La revisión de rondas prioritarias debe contener 77 IDs')
+    revision_paths = sorted((RAIZ / 'data/auditoria').glob('revision_*_v3/revision*.csv'))
+    revisados = {}
+    for revision_path in revision_paths:
+        fuentes.append(revision_path)
+        for revision in leer_csv(revision_path):
+            identidad = revision['intervencion_id']
+            if identidad in revisados:
+                raise ValueError(f'ID revisado en más de un lote v3: {identidad}')
+            revisados[identidad] = revision
+    if not revisados:
+        raise ValueError('No hay lotes v3 revisados')
 
     for fila in registros:
         identidad = fila['intervencion_id']
