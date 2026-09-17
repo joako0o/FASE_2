@@ -1,9 +1,9 @@
 # CODEBOOK v2 — Codificación de Postura de Política Monetaria
 **Proyecto D&H · Actas RPM Banco Central de Chile 2005–2015**
 
-> **Estado: v2 APROBADO por el investigador (2026-09-15). Congelado: es la única referencia válida para el piloto y las rondas de etiquetado hasta una eventual v3.**
+> **Estado histórico:** v2 fue aprobado el 2026-09-15 y permanece congelado para reproducir sus anotaciones, referencias y métricas. Fue sustituido para nuevas anotaciones y revisión por [`codebook_v3.md`](codebook_v3.md), aprobado el 2026-09-17. No reinterpretar resultados v2 como si hubieran usado v3.
 > Cambios v1 → v2: la variable de postura queda en **3 clases** (hawkish/dovish/neutral); la clase `irrelevante` se reemplaza por el flag binario `es_relevante` + columna `nota` obligatoria. Fundamento: la relevancia es una propiedad del registro, no una postura (coherente con Shah et al. 2023, FOMC, 3 clases).
-> Este documento es la única fuente válida para etiquetar. Cualquier cambio de criterio implica nueva versión y queda registrado aquí.
+> Este documento conserva la fuente que rigió las rondas v2. Cualquier nueva corrección debe registrarse en la capa v3, sin sobrescribir este historial.
 
 ---
 

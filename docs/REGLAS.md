@@ -76,13 +76,13 @@ Se pueden agregar o modificar reglas, siempre: propuesta → acuerdo con el inve
 - Registrar este cierre en AVANCE/CONTINUIDAD. **No marcar «limpieza final terminada» mientras la solución operativa siga dependiendo de los aproximadamente 40 scripts actuales.** Este requisito prevalece sobre la costumbre de conservar cada etapa en el árbol de entrega.
 
 
-## 13. Criterios de postura y relevancia — registro de calibración
+## 13. Criterios de postura y relevancia — codebook v3 vigente
 
-**17-09-2026, a solicitud del investigador:** destacar las definiciones en README y otra parte, y evaluar si obligan a reclasificar los datos existentes.
+**17-09-2026:** el investigador aprobó `docs/codebook_v3.md` y autorizó revisar todas las IA y las 306 humanas. V2 permanece congelado como historial; no se sobrescribe.
 
-- Consultar `README.md`, sección «Criterios importantes para clasificar», y `docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md`. **Neutralidad no es irrelevancia:** análisis y opciones monetarias sin preferencia pueden ser N con relevancia1; no retirarlos de B por carecer de voto o dirección.
+- **Neutralidad no es irrelevancia:** análisis y opciones monetarias sin preferencia pueden ser N con relevancia1; no retirarlos de B por carecer de voto o dirección.
 - Medir orientación doméstica respaldada, no palabras aisladas, sentimiento macro, orden relativo de propuestas o cualquier tasa. La dirección explícita domina la magnitud relativa; la mantención requiere contexto; relato/pregunta/expectativa ajena no equivalen por sí solos a adhesión.
-- Este registro documental **no autoriza reclasificación automática, incorporación del corpus histórico, sustitución de v2, cambio de A o nueva ejecución de modelos**. Las decisiones de alcance/estados pendientes de los borradores que difieran del esquema actual requieren acuerdo y versionado antes de implementarse.
-- Auditar consistencia antes de cambiar etiquetas, sin seleccionar solo errores del clasificador. Empezar por la ampliación IA reciente y revisar luego las familias de riesgo de la base, incluyendo casos de control no seleccionados por esas familias. La propuesta no se ha ejecutado.
-- Si se aprueban cambios: conservar originales y registrar por ID etiqueta/relevancia anterior y propuesta, regla, cita y motivo. Las adjudicaciones humanas ya aceptadas no se revierten silenciosamente; las discrepancias se señalan por separado. No reabrir las antiguas306respuestas.
-- No redefinir la referencia para mejorar una métrica. Una evaluación con nueva referencia debe distinguir mejora de score por recodificación de mejora de modelo sobre la misma referencia. Conservar los resultados v2 para reproducción histórica.
+- Revisar las 19 rondas IA/1.352 IDs, las cuatro tandas IA nuevas/89 y las humanas/306, incluyendo H, D y posibles falsos N. No seleccionar solo errores del clasificador.
+- Conservar originales y registrar por ID etiqueta/relevancia anterior y v3, regla, cita, motivo, confianza y hash. Una corrección v3 no altera retrospectivamente el significado ni las métricas v2.
+- Las 306 respuestas humanas están autorizadas para revisión y dejan de ser test ciego respecto de v3. Su versión v2 y procedencia se preservan; no presentar la nueva referencia como evaluación independiente intacta.
+- No redefinir la referencia para mejorar una métrica. Una evaluación v3 debe distinguir mejora de score por recodificación de mejora de modelo sobre la misma referencia. No entrenar hasta cerrar el lote definido para la comparación.

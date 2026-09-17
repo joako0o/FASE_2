@@ -436,6 +436,8 @@ def main(argv=None):
     diagnostico.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/diagnostico_ampliacion_tfidf_59_v1')
     compatibilidad = acciones.add_parser('auditar-compatibilidad', help='Auditar criterios y estructura IA sin reclasificar ni abrir respuestas humanas')
     compatibilidad.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/compatibilidad_criterios_v1')
+    migracion = acciones.add_parser('preparar-migracion-v3', help='Inventariar IA y humanas autorizadas para revisión v3; no adjudica ni entrena')
+    migracion.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/migracion_v3')
     argumentos = parser.parse_args(argv)
     try:
         if argumentos.accion == 'instalar': instalar(argumentos.beto)
@@ -446,6 +448,9 @@ def main(argv=None):
         elif argumentos.accion == 'entrenar': entrenar()
         elif argumentos.accion == 'auditar-compatibilidad':
             subprocess.run([sys.executable, '-X', 'utf8', 'scripts/auditar_compatibilidad_criterios.py',
+                '--salida', str(argumentos.salida.resolve())], cwd=RAIZ, check=True)
+        elif argumentos.accion == 'preparar-migracion-v3':
+            subprocess.run([sys.executable, '-X', 'utf8', 'scripts/preparar_migracion_v3.py',
                 '--salida', str(argumentos.salida.resolve())], cwd=RAIZ, check=True)
         elif argumentos.accion == 'diagnosticar-ampliacion-tfidf':
             preparar()

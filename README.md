@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** [revisar compatibilidad entre criterios y etiquetas](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md), sin reclasificar automáticamente. La meta300H/300D y las89anotaciones IA nuevas permanecen registradas (base+altos H154/D119). El ensayo TF-IDF con59aumentos no mejoró y el control no se reemplazó. El investigador no necesita volver a completar un Excel para esta auditoría.
+**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Se revisarán las 19 rondas IA (1.352 IDs), las 89 anotaciones IA nuevas y las 306 respuestas humanas: 1.747 IDs distintos. V2 y sus métricas se preservan; no se reentrena hasta cerrar una capa v3 trazable. La [primera revisión dirigida](docs/REVISION_DIRECCION_RESPALDADA_V1.md) encontró 11 cambios propuestos entre 29 etiquetas H/D prioritarias.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.
@@ -12,7 +12,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Criterios importantes para clasificar: postura y relevancia
 
-**Registrados por indicación del investigador el 17-09-2026.** Son la referencia documental para calibrar y auditar consistencia; **no implican reclasificar automáticamente los datos ni sustituir el codebook v2 congelado**.
+**Aprobados por el investigador el 17-09-2026 como [`codebook v3`](docs/codebook_v3.md).** Rigen nuevas anotaciones y la revisión de consistencia. El codebook v2 queda congelado como referencia histórica para reproducir datos y métricas anteriores.
 
 - **Qué medimos:** orientación monetaria para Chile respaldada por el actor o el Consejo en la unidad completa. No mero sentimiento económico, presencia de “TPM”, nivel de una tasa ni ranking entre consejeros. En el plan B se incluyen los nombres históricos del instrumento cuando su función monetaria esté identificada.
 - **H:** respalda endurecer, subir la tasa, retirar estímulo o un sesgo al alza. **D:** respalda relajar, bajar la tasa, ampliar estímulo o un sesgo a la baja. Una oposición a más relajamiento/retirada de estímulo exige justificación sustantiva; no se invierte el signo mecánicamente por discrepar.
@@ -22,16 +22,16 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 - **Historia, expectativas ajenas y mención no equivalen a adhesión.** Identificar quién respalda qué y cuándo. Si falta información esencial o se mezclan asuntos, registrar la limitación y apartar el caso del entrenamiento hasta resolverla; no asignar N de alta confianza para llenar el campo.
 - **Texto y evidencia:** conservar el original, leer la unidad completa y usar cita literal de hasta 300 caracteres. No sustituirlo por correcciones de IA sin cotejo ni completar dirección con otras intervenciones. Agrupar por acta/reunión para evitar contaminación entre train y validación.
 
-Detalle: [criterio acotado para el plan B](docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos y decisiones aún por acordar](docs/DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
+Detalle vigente: [codebook v3](docs/codebook_v3.md). Sus antecedentes son el [criterio acotado para el plan B](docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y la [propuesta conceptual general](docs/DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
 
-**¿Reclasificar lo anterior?** La [auditoría inicial de compatibilidad](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md) confirmó convenciones relativas al menú/fase en parte del entrenamiento IA, no invalidez de toda la colección. La separación N/relevancia ya existía: 878 N relevantes y 269 irrelevantes en los originales. Priorizar las 77 filas de las dos rondas con convenciones documentadas, extender a familias similares en otras rondas y revisar también la ampliación de 89 con el criterio que se acuerde; incluir controles, no solo errores del modelo. No se conoce aún el total de cambios y las 306 respuestas humanas no se reevaluaron. Las reglas nuevas de alcance/pendientes que difieran de v2 requieren una versión explícita. Conservar originales, decisiones humanas aceptadas y resultados; registrar por ID cualquier cambio propuesto. No abrir las antiguas 306 respuestas. Si se aprueba otra referencia, separar el efecto de cambiar etiquetas de evaluación del efecto de volver a entrenar. **Se hizo una auditoría inicial estructural y de 12 textos; no una reclasificación o migración.**
+**Migración en curso.** La [auditoría inicial](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md) confirmó convenciones relativas al menú/fase. La [revisión de las 29 H/D prioritarias](docs/REVISION_DIRECCION_RESPALDADA_V1.md) propuso 11 cambios, pero aún faltan falsos N, otras rondas y las colecciones IA nuevas/humanas. El investigador autorizó revisar también las 306 respuestas humanas; desde esa decisión dejan de ser un test ciego para v3, aunque su versión v2 se conserva intacta. Toda corrección se registrará por ID en una capa nueva. El efecto de recodificar referencias se separará del efecto de reentrenar.
 
 ## Estado real
 
 | Componente | Estado |
 |---|---|
 | Corpus y datos de trabajo | Incluidos: 9.725 intervenciones; desarrollo de 1.352 textos. |
-| Referencias | V2 fijada: seis adjudicaciones anteriores + trece correcciones aceptadas. Originales preservados. |
+| Referencias | V2 histórica fijada y preservada. V3 aprobada; revisión de 1.747 IDs en curso, todavía sin referencia consolidada ni reentrenamiento. |
 | Control TF-IDF | Ejecutado: F1 H/D medio **0,747060**, 51 errores en 793 validaciones corregidas. |
 | Diagnóstico H/D | Diez inversiones examinadas y cinco ambiguas tratadas aparte. |
 | BETO v1 recibido | Cinco folds externos: F1 H/D medio **0,625043**, 66 errores, 25 inversiones. **No mejora; no adoptado.** [Auditoría y resultados](docs/RESULTADOS_BETO_V1.md). |
@@ -71,4 +71,4 @@ FASE_2/
 
 Se mantienen rutas históricas para no romper los manifiestos. `.venv/`, `modelos/`, `data/checkpoints/` y `entregas/` son locales/ignorados. El ZIP portable incluye explícitamente la entrada y los resultados previstos, **no pesos ni dependencias instaladas**.
 
-PR de esta entrega: [#4](https://github.com/joako0o/FASE_2/pull/4). No es necesario cerrarlo para descargar. Para integrar a `main`, distinguir **Merge** de simplemente **Close**.
+Revisión y migración v3 en curso en el [PR #5](https://github.com/joako0o/FASE_2/pull/5).
