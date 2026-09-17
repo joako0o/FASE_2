@@ -1,0 +1,13 @@
+{
+  "origen_github": "main@ca9b80f:anotacion_dirigida_300_v3.xlsx",
+  "sha256_origen": "ce1f6794e5d7fe971428089c17d7b12acd262496644826835270fa44130dd895",
+  "sha256_muestra_ciega": "c4ce9734796984b1c1e86494c270f6bec591a83e57576f37efda92da0517078d",
+  "normalizacion_etiquetas": {
+    "H": "hawkish",
+    "D": "dovish",
+    "N": "neutral"
+  },
+  "reparacion_citas": "solo reextracción literal del texto fuente",
+  "regla_revision": "segunda revisión de las 300 filas bajo dirección propia respaldada, sin predicciones",
+  "entrenamiento_permitido": false
+}
