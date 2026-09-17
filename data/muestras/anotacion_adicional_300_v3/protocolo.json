@@ -1,0 +1,34 @@
+{
+  "operacion": "Muestreo determinista enriquecido por vocabulario, sin consultar etiquetas o predicciones.",
+  "cuotas": {
+    "senal_h_sin_d": 100,
+    "senal_d_sin_h": 100,
+    "senales_mixtas": 50,
+    "contexto_monetario": 50
+  },
+  "topes": {
+    "por_reunion": 4,
+    "por_anio": 32
+  },
+  "muestras_previas_excluidas": [
+    "estrato_enriquecido.csv",
+    "estrato_fases.csv",
+    "estrato_tanda9.csv",
+    "gold_ciego_300.csv",
+    "piloto_300.csv",
+    "test_retest_30.csv"
+  ],
+  "limitacion": "Todas las reuniones de L0 ya aparecen en IA-base; esta muestra no puede ser test independiente por reunión.",
+  "fuentes_sha256": {
+    "data/L0/corpus.csv": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "data/evaluacion/referencia_v3/referencia_v3.csv": "5e8211233bc5338a2bf3a805b321f084bfa838ea2be0f9c4ecfda102eae86d51",
+    "docs/codebook_v3.md": "c41cebf74ea73e57c48fae2c8606e5b555dc17ff1c65608fcf17d362dbbc39cf",
+    "scripts/preparar_anotacion_300_v3.py": "29361b21146dc15886d591d9278fde04d2154ed65bd18e27e8764862acf9a822",
+    "data/muestras/estrato_enriquecido.csv": "22e53da03b2dd3cc11747e68b6f9b91b0cad215bc65c7a78b0599a7fb9305d05",
+    "data/muestras/estrato_fases.csv": "da249cde42139f5c6476cdb680731ed56647e31a553c34e021ba8ce4a6a21e90",
+    "data/muestras/estrato_tanda9.csv": "e19b3bc47577d044852b24417916b845e0c05e5bfe3cdaa06d2b3fe0d55df384",
+    "data/muestras/gold_ciego_300.csv": "209750d54fa26b4a81d776bafad06df8a4c21d6130d998f81b9761cf1d4ae681",
+    "data/muestras/piloto_300.csv": "315d209d6e901ad01d71525359ae59c85f60bb8ea3fc45da1bd4b6d1cf8bdf81",
+    "data/muestras/test_retest_30.csv": "92bb41d114f71fafda9c7a2207115241afdaf088555107dc1683ff752a1b6c7b"
+  }
+}

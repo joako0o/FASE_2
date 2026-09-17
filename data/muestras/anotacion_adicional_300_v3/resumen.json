@@ -1,0 +1,30 @@
+{
+  "filas": 300,
+  "ids_unicos": 300,
+  "cuotas_seleccion_sin_etiquetas": {
+    "senal_h_sin_d": 100,
+    "senal_d_sin_h": 100,
+    "senales_mixtas": 50,
+    "contexto_monetario": 50
+  },
+  "reuniones": 118,
+  "max_por_reunion": 4,
+  "anios": {
+    "2005": 13,
+    "2006": 20,
+    "2007": 32,
+    "2008": 32,
+    "2009": 28,
+    "2010": 25,
+    "2011": 30,
+    "2012": 32,
+    "2013": 32,
+    "2014": 31,
+    "2015": 25
+  },
+  "max_por_anio": 32,
+  "etiquetas_visibles": false,
+  "predicciones_visibles": false,
+  "respuestas_pendientes": 300,
+  "rol": "ampliacion_real_anotada; no test final independiente"
+}
