@@ -1,0 +1,227 @@
+[
+  {
+    "fold": 1,
+    "peso_char": 1.0,
+    "n_train_base": 1178,
+    "n_ia89_incluida": 79,
+    "n_humana300_incluida": 270,
+    "humana_por_clase": {
+      "neutral": 220,
+      "dovish": 26,
+      "hawkish": 24
+    },
+    "dimensiones_c": {
+      "n_train": 1527,
+      "n_train_relevante": 1266,
+      "clases_train": {
+        "neutral": 1239,
+        "hawkish": 182,
+        "dovish": 106
+      },
+      "relevancia_train": {
+        "1": 1266,
+        "0": 261
+      },
+      "vocabulario_a": 5427,
+      "vocabulario_b": 56052,
+      "iteraciones_a": [
+        20
+      ],
+      "iteraciones_b": [
+        22
+      ]
+    },
+    "dimensiones_wc": {
+      "n_train": 1527,
+      "n_relevante": 1266,
+      "features_a": 32785,
+      "features_b": 82476,
+      "iteraciones_a": [
+        11
+      ],
+      "iteraciones_b": [
+        35
+      ]
+    }
+  },
+  {
+    "fold": 2,
+    "peso_char": 0.5,
+    "n_train_base": 1178,
+    "n_ia89_incluida": 79,
+    "n_humana300_incluida": 268,
+    "humana_por_clase": {
+      "neutral": 210,
+      "hawkish": 34,
+      "dovish": 24
+    },
+    "dimensiones_c": {
+      "n_train": 1525,
+      "n_train_relevante": 1279,
+      "clases_train": {
+        "neutral": 1229,
+        "hawkish": 191,
+        "dovish": 105
+      },
+      "relevancia_train": {
+        "1": 1279,
+        "0": 246
+      },
+      "vocabulario_a": 5412,
+      "vocabulario_b": 55957,
+      "iteraciones_a": [
+        15
+      ],
+      "iteraciones_b": [
+        32
+      ]
+    },
+    "dimensiones_wc": {
+      "n_train": 1525,
+      "n_relevante": 1279,
+      "features_a": 32752,
+      "features_b": 82366,
+      "iteraciones_a": [
+        16
+      ],
+      "iteraciones_b": [
+        32
+      ]
+    }
+  },
+  {
+    "fold": 3,
+    "peso_char": 1.0,
+    "n_train_base": 1178,
+    "n_ia89_incluida": 79,
+    "n_humana300_incluida": 266,
+    "humana_por_clase": {
+      "neutral": 214,
+      "hawkish": 31,
+      "dovish": 21
+    },
+    "dimensiones_c": {
+      "n_train": 1523,
+      "n_train_relevante": 1279,
+      "clases_train": {
+        "neutral": 1242,
+        "hawkish": 188,
+        "dovish": 93
+      },
+      "relevancia_train": {
+        "1": 1279,
+        "0": 244
+      },
+      "vocabulario_a": 5479,
+      "vocabulario_b": 56736,
+      "iteraciones_a": [
+        16
+      ],
+      "iteraciones_b": [
+        21
+      ]
+    },
+    "dimensiones_wc": {
+      "n_train": 1523,
+      "n_relevante": 1279,
+      "features_a": 33098,
+      "features_b": 83441,
+      "iteraciones_a": [
+        17
+      ],
+      "iteraciones_b": [
+        32
+      ]
+    }
+  },
+  {
+    "fold": 4,
+    "peso_char": 1.0,
+    "n_train_base": 1183,
+    "n_ia89_incluida": 72,
+    "n_humana300_incluida": 260,
+    "humana_por_clase": {
+      "neutral": 201,
+      "hawkish": 34,
+      "dovish": 25
+    },
+    "dimensiones_c": {
+      "n_train": 1515,
+      "n_train_relevante": 1262,
+      "clases_train": {
+        "neutral": 1225,
+        "hawkish": 186,
+        "dovish": 104
+      },
+      "relevancia_train": {
+        "1": 1262,
+        "0": 253
+      },
+      "vocabulario_a": 5423,
+      "vocabulario_b": 55982,
+      "iteraciones_a": [
+        16
+      ],
+      "iteraciones_b": [
+        24
+      ]
+    },
+    "dimensiones_wc": {
+      "n_train": 1515,
+      "n_relevante": 1262,
+      "features_a": 32818,
+      "features_b": 82509,
+      "iteraciones_a": [
+        17
+      ],
+      "iteraciones_b": [
+        30
+      ]
+    }
+  },
+  {
+    "fold": 5,
+    "peso_char": 1.0,
+    "n_train_base": 1183,
+    "n_ia89_incluida": 76,
+    "n_humana300_incluida": 257,
+    "humana_por_clase": {
+      "neutral": 200,
+      "hawkish": 30,
+      "dovish": 27
+    },
+    "dimensiones_c": {
+      "n_train": 1516,
+      "n_train_relevante": 1263,
+      "clases_train": {
+        "neutral": 1220,
+        "hawkish": 191,
+        "dovish": 105
+      },
+      "relevancia_train": {
+        "1": 1263,
+        "0": 253
+      },
+      "vocabulario_a": 5365,
+      "vocabulario_b": 54692,
+      "iteraciones_a": [
+        17
+      ],
+      "iteraciones_b": [
+        29
+      ]
+    },
+    "dimensiones_wc": {
+      "n_train": 1516,
+      "n_relevante": 1263,
+      "features_a": 32579,
+      "features_b": 81040,
+      "iteraciones_a": [
+        17
+      ],
+      "iteraciones_b": [
+        33
+      ]
+    }
+  }
+]

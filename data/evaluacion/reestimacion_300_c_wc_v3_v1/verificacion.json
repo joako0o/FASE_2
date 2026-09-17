@@ -1,0 +1,17 @@
+{
+  "ancla_c89_reproducida_exactamente": true,
+  "filas_validacion": 793,
+  "ids_validacion_unicos": 793,
+  "filas_humanas": 300,
+  "ids_humanos_unicos": 300,
+  "inclusion_humana_por_fold": [
+    270,
+    268,
+    266,
+    260,
+    257
+  ],
+  "copias_textuales_incluidas": 0,
+  "reuniones_validacion_incluidas": 0,
+  "humanas_fuera_validacion": true
+}

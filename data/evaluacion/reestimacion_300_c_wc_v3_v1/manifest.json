@@ -1,0 +1,12 @@
+{
+  "sha256_salidas": {
+    "predicciones.csv": "5ff2f8bdb5ea03b93ebaaadbe5a0d25843a7817be7318b877db1784c10d249f8",
+    "inclusion_por_fold.csv": "d07fcbf7faaed89b6ecb9e15408c25726d7dd64a081967070ac1230c68dedfdf",
+    "errores_seleccionada.csv": "104bcc5ec4fa1a5a7a4fbe46366398b74b62aeb4dbcef1633c753eb3ffe5038d",
+    "metricas.json": "e22041ae75784b9d7ab2394816f85b142a20938af90b70a8224a8e350e91e322",
+    "ejecucion_folds.json": "087918810b8c1a522e55b2c068e8f8549298c33fcfb0e9c1700cd328e0fbd33b",
+    "protocolo.json": "3fb53d8125d53a6e002544acf3016752a45e7d5cb48c636a2e31ccb68455b9dd",
+    "verificacion.json": "4e66d04951cc03ddab28f8daa27b81d26965dd508e35aa5542c5021710661960",
+    "resumen.md": "4b6da5583439856c0b958555fb1c3f7e14c662186cacdf97f6c11f2584a6ea21"
+  }
+}
