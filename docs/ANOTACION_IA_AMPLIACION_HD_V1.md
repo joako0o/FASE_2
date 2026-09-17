@@ -13,18 +13,24 @@ El 17-09-2026 el investigador pidió «intentemos llevar cada uno a 300». Se en
 | Contador | H | D |
 |---|---:|---:|
 | Base vigente usada por los modelos | 125 | 89 |
-| Nuevos de alta confianza preparados, dos tandas | 17 | 18 |
-| **Base + preparados** | **142** | **107** |
-| **Faltan para 300** | **158** | **193** |
-| Reservas de confianza media, no contadas | 1 | 4 |
+| Nuevos de alta confianza preparados, cuatro tandas | 29 | 30 |
+| **Base + preparados** | **154** | **119** |
+| **Faltan para 300** | **146** | **181** |
+| Reservas de confianza media, no contadas | 1 | 6 |
 
-Los 60 candidatos iniciales ya están leídos: 18 H, 22 D y 20 N según la IA. Solo 35 de los 40 direccionales son de alta confianza. Ninguna nueva anotación está integrada todavía al train activo. El objetivo y el contador auditado están en `data/auditoria/meta_hd_300_v1/objetivo.json` y `progreso.json`.
+Los 60 candidatos iniciales se cerraron en las primeras dos tandas: 18 H, 22 D y 20 N según la IA. Solo 35 de los 40 direccionales son de alta confianza. Ninguna nueva anotación está integrada todavía al train activo. El objetivo y el contador auditado están en `data/auditoria/meta_hd_300_v1/objetivo.json` y `progreso.json`.
 
 **Segunda tanda C31–C60:** 94.993 caracteres / 15.608 palabras; 11 H, 9 D, 10 N. Aporta 11 H y 6 D de alta confianza. C32/C40/C56 son D medios en reserva; C60 es N de baja confianza/duda. Se conservaron las mismas reglas: sesgo al alza con mantención puede ser H (C52/C54), recorte con sesgo neutral sigue siendo D (C53), y descripción de tasas/encuestas extranjeras no es postura chilena. No se alteran las decisiones de la primera tanda.
 
-Próxima cola **E001–E020** ya preparada, sin etiquetas: `data/auditoria/meta_hd_300_v1/seleccion_03/cola.json`. Contiene 20 candidatos nuevos, 14.146 palabras, 17 reuniones y 15 actores, priorizados por patrones de recomendación/voto, sesgo doméstico o acuerdo institucional. Sus canales de búsqueda (9 H / 11 D) **no se suman al contador**. Se excluyeron los 60 ya anotados además de los 1.352/306 originales y sus copias.
+**Avance adicional de las tandas 03 y 04:** 29 intervenciones reales completas, 96.608 caracteres / 15.702 palabras. E001–E020: 7 H, 11 D, 2 N; núcleo utilizable 7 H/8 D. F001–F009: 5 H/4 D, todos de alta confianza. Se completaron 89 nuevas anotaciones en total (30 H/37 D/22 N), de las cuales **59 H/D altos sin descarte** cuentan para la meta. No hay entrenamiento nuevo ni integración al paquete activo.
 
-La búsqueda detectó un conjunto prioritario que todavía requiere lectura; no prueba que existan suficientes casos válidos para alcanzar 300. Un primer intento de cola de 30 solo pudo seleccionar 29 dentro del presupuesto de 20.000 palabras. Se eligió una cola de 20 antes de anotar, dejando registro, sin relajar los controles. Si el corpus no alcanza, hay que informar el límite; no suplirlo con duplicados, sintéticos o etiquetas forzadas. Seguir diversificando textos y revisando contexto, no solo acumular votos fáciles.
+**E009 se excluye aunque su etiqueta D sea clara.** Repite casi la misma plantilla que C35, de otra reunión; el Jaccard de trigramas es 0,80645, por debajo del filtro inicial 0,85. Se conserva la anotación y el vínculo al original, pero no se usa para inflar la variedad ni el contador. Las dos nuevas decisiones D medias E010/E015 quedan en reserva; E012 es N dudoso. No se reescriben tandas anteriores ni referencias de validación.
+
+La tanda breve F001–F009 complementa el lote largo y contiene todos los remanentes de prioridad doméstica de 200–1.600 caracteres que pasaron exclusiones. No es una muestra representativa ni prueba de que solo necesitemos votos fáciles. La suma de palabras leídas en esta continuación permanece bajo 20.000.
+
+**Próxima cola G001–G020**, aún sin etiquetas, en `data/auditoria/meta_hd_300_v1/seleccion_05/cola.json`: 15.056 palabras. Excluye los 89 nuevos casos ya vistos, incluidos N, reservas y duplicados descartados, además de los marcos originales. Para esta nueva selección se endurece explícitamente la exclusión de casi copias a Jaccard ≥0,80, motivada por E009; no se modifican retroactivamente los filtros ni anotaciones anteriores. Los canales 9 H/11 D son búsqueda, no etiquetas. La inspección semántica sigue siendo necesaria.
+
+El usuario mantiene la meta 300/300; no necesita autorizar cada tanda ni anotar el Excel. Si no hay suficientes casos válidos en el corpus, se debe informar el límite en vez de completar con duplicados, sintéticos o etiquetas forzadas.
 
 ## Primera tanda terminada: C01–C30
 
@@ -106,7 +112,7 @@ Se guardan fuera de `data/etiquetas/*.csv` para impedir que un cargador históri
 
 ## Próximos pasos
 
-1. Continuar con E001–E020 de la cola nueva, en `data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/`, aún no creada. Leer cada texto íntegro desde L0 y verificar su hash antes de anotar. No esperar el Excel humano.
+1. Continuar con G001–G020 de la cola nueva, en `data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_05/`, aún no creada. Leer cada texto íntegro desde L0 y verificar su hash antes de anotar. No esperar el Excel humano.
 2. Revisar la calidad y variedad del conjunto ampliado sin forzar casos N o dudosos a H/D. No relajar la confianza para completar cuotas.
 3. Preparar una nueva versión de los insumos de entrenamiento, respetando los folds y las purgas. No pasar estos JSON directamente a 38/39 ni mezclar paquetes.
 4. Comparar contra el mismo control y validación de desarrollo, sin presentar esta ampliación como evaluación independiente. **No se ha realizado un nuevo entrenamiento en esta tanda.**
@@ -118,3 +124,10 @@ Se guardan fuera de `data/etiquetas/*.csv` para impedir que un cargador históri
 Las 30 citas de la segunda tanda se verificaron como subcadenas exactas (máximo 191 caracteres); los 17 textos H/D altos son idénticos a L0. Cero solapes de ID/texto/casi copia con la base, el marco humano y la primera tanda. El plan de 150 filas de esta tanda permitiría 16/15/13/15/16 nuevos casos por fold. Sumadas ambas tandas, serían **32/30/29/32/33**, no 35 en todos los folds. Las incorporaciones efectivas siguen en cero.
 
 Los datos de `tanda_02/` usan el mismo esquema que `tanda_01/`, con decisiones, CSV, payload de textos, plan, resumen, manifiesto y verificación. Se cotejaron ambas tandas y el acumulado de 60 IDs únicos/35 H/D altos. El paquete f7aa1589… no cambia. No se ejecutó un nuevo modelo ni hubo segunda anotación semántica independiente.
+
+
+## Cierre de tandas 03 y 04
+
+Carpetas `data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/` y `tanda_04/`, con el mismo esquema verificable de decisiones, CSV, textos completos, planes, resumen y hashes. Las 29 citas son literales; no hay solapes de IDs/textos normalizados con originales o tandas previas. El control automático Jaccard ≥0,85 no encontró copias, pero la inspección manual sí apartó E009, demostrando el límite de ese filtro.
+
+Los 59 nuevos altos permitirían **53/51/52/50/53** incorporaciones por fold después de purga; las efectivas siguen en cero. Los resultados BETO v1, el control TF-IDF, v2/folds/A y el paquete de entrada permanecen intactos. El contador anterior se conserva en `data/auditoria/meta_hd_300_v1/progreso_tras_tanda02.json`; el actual en `progreso.json`. Esta revisión es IA, no gold humano ni segunda revisión semántica independiente.

@@ -1,0 +1,9 @@
+{
+  "estado": "integridad_aprobada",
+  "citas_exactas": 20,
+  "textos_hd_completos": 15,
+  "planes_comprobados": 100,
+  "validador": "utilidades.errores_anotacion; hashes L0; exclusiones y trigramas; matriz original de folds",
+  "segunda_anotacion_semantica_independiente": false,
+  "no_entrenamiento": true
+}

@@ -13,5 +13,6 @@
   "lectura_ia_por_tandas_max_palabras": 20000,
   "mantener_validacion_v2_folds_y_A": true,
   "entrenamiento_nuevo_realizado": false,
-  "si_el_corpus_no_alcanza": "Informar el límite y no completar con duplicados, etiquetas forzadas o sintéticos."
+  "si_el_corpus_no_alcanza": "Informar el límite y no completar con duplicados, etiquetas forzadas o sintéticos.",
+  "regla_operativa_contador": "Contar los payloads de IDs únicos con uso_propuesto=hd_alta_confianza; excluir también duplicados cercanos detectados manualmente, aunque su etiqueta tenga confianza alta."
 }

@@ -1,44 +1,49 @@
 {
   "version": "meta_hd_300_v1",
   "fecha_local": "2026-09-17",
-  "tandas_cerradas": 2,
-  "intervenciones_nuevas_revisadas": 60,
-  "caracteres_leidos": 202789,
+  "tandas_cerradas": 4,
+  "intervenciones_nuevas_revisadas": 89,
+  "caracteres_leidos": 299397,
   "anotaciones_ia_nuevas_por_clase": {
-    "neutral": 20,
-    "hawkish": 18,
-    "dovish": 22
+    "neutral": 22,
+    "hawkish": 30,
+    "dovish": 37
   },
   "base_vigente": {
     "hawkish": 125,
     "dovish": 89
   },
   "altas_nuevas_preparadas": {
-    "hawkish": 17,
-    "dovish": 18
+    "hawkish": 29,
+    "dovish": 30
   },
   "catalogo_base_mas_preparadas": {
-    "hawkish": 142,
-    "dovish": 107
+    "hawkish": 154,
+    "dovish": 119
   },
   "faltantes_para_300": {
-    "hawkish": 158,
-    "dovish": 193
+    "hawkish": 146,
+    "dovish": 181
   },
   "reservas_medias_no_contadas": {
     "hawkish": 1,
-    "dovish": 4
+    "dovish": 6
   },
+  "duplicados_cercanos_no_contados": [
+    {
+      "caso_id": "E009",
+      "intervencion_id": "RPM-2013-09-12:5802:1",
+      "duplicado_de": "RPM-2013-08-13:5742:1"
+    }
+  ],
   "incorporaciones_efectivas_a_train": 0,
   "alta_potencial_por_fold": {
-    "1": 32,
-    "2": 30,
-    "3": 29,
-    "4": 32,
-    "5": 33
+    "1": 53,
+    "2": 51,
+    "3": 52,
+    "4": 50,
+    "5": 53
   },
-  "pendientes_muestra_60": [],
-  "siguiente": "Buscar nuevos IDs reales fuera de los 1352, 306 y los 60 ya revisados; priorizar recomendación/voto/sesgo doméstico explícito sin perder variedad.",
   "objetivo_alcanzado": false,
   "entrenamiento_realizado": false,
   "evaluacion_independiente": false,
@@ -52,9 +57,18 @@
     "data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/anotaciones_ia.csv": "8e0c1a94ca7dc0f6353bc71fe187f09f7cf999025d1a2caa3576810048ff05c0",
     "data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/documentos_hd_alta.json": "6a1ebb7dcff5b6e58ec90b8b808325afb594a9caa493113937c84f6c621aeb7d",
     "data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/plan_por_fold.csv": "4894e266e5fab82dec1a9bbd36a128c713589204e26b0c5dfb4fd0aded6aa4de",
-    "data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/manifest.json": "73df509ce82b67016c33fab6043e5feca3fbea4260148b788f6184dc8bfdf59d"
+    "data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_02/manifest.json": "73df509ce82b67016c33fab6043e5feca3fbea4260148b788f6184dc8bfdf59d",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/anotaciones_ia.csv": "d26d0ed3dad340f5264d35373af8cb3c75cd0999f54875bf30b9c4b2d36ba909",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/documentos_hd_alta.json": "31ecffe199baa579eec8caf59846595a1b608e76abbe56102976be0acf6c99c7",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/plan_por_fold.csv": "717dcbd2db0a890f6d293a11218898fadd6b789956402da338fe200d3ee22f41",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/manifest.json": "7c565d2b636f9ddea40b7fadc58c74456312cf85e5c883e9c8a0ef126bc05459",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_04/anotaciones_ia.csv": "537ef8d5acff75552e861c85372c4828fffa8d9e764dbc3c32c87b0522cbae61",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_04/documentos_hd_alta.json": "67b58882ba81ddac5c329fba99e474d0217e494c7d8e826a318f9e11bc2eb94f",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_04/plan_por_fold.csv": "c2c4382af66180a1b342409b26ed47e3edbf9d93fcd53debe1e045862da86ce7",
+    "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_04/manifest.json": "948a867973957c912a710289eaa6f1178b1c261cadfcfd1a9897853ef125b535"
   },
-  "cola_preparada": "data/auditoria/meta_hd_300_v1/seleccion_03/cola.json",
+  "cola_preparada": "data/auditoria/meta_hd_300_v1/seleccion_05/cola.json",
   "n_candidatos_pendientes_cola": 20,
-  "cola_sin_incorporar_al_contador": true
+  "cola_sin_incorporar_al_contador": true,
+  "siguiente": "Leer G001–G020 completos y anotar sin heredar canales; luego seguir la ampliación hasta intentar 300 H y 300 D."
 }

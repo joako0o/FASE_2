@@ -525,3 +525,12 @@ Acumulado de dos tandas: 60 nuevos IDs anotados, 18 H/22 D/20 N, con **17 H/18 D
 Cola siguiente E001–E020 preparada sin etiquetas, 14.146 palabras/17 reuniones/15 actores; prioridad a lenguaje de recomendación/voto/sesgo local/acuerdo, evitando exposiciones extranjeras como primera prioridad. Canales 9 H/11 D son pistas y no se suman a la meta. Un intento de 30 solo llegó a 29 con 19.965 palabras; el tamaño de la cola se redujo a 20 antes de anotar, sin relajar controles. Las próximas anotaciones irán en `data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/`, aún inexistente. Leer texto completo y verificar hashes, no asumir etiquetas del buscador.
 
 No esperar trabajo humano en el Excel. Mantener limpio, sin nuevos scripts en esta tanda ni datos duplicados/forzados para aumentar conteos. Limpieza extrema final pendiente e idea sintética no ejecutada.
+
+
+### 9.28 Tandas 03/04 hacia 300 H/D y descarte de plantilla repetida
+
+El investigador reitera «intentemos llevar cada uno a 300,». El agente continúa sin requerir nueva autorización por tanda ni Excel humano. Se leyeron E001–E020 y nueve remanentes breves F001–F009: **96.608 caracteres / 15.702 palabras**, bajo el presupuesto de 20.000. Tanda03: H7/D11/N2, con H7/D8 altos utilizables. Tanda04: H5/D4 altos. E009 D alto casi copia C35, con Jaccard 0,80645: se conserva la etiqueta pero se excluye del núcleo/contador. Dos D medias en reserva; E012 N dudoso.
+
+Acumulado: 89 nuevos IDs anotados, H30/D37/N22; núcleo alto sin descartes H29/D30. Con base H125/D89: **H154/D119**, faltan **H146/D181**. Reservas H1/D6 y un duplicado D no cuentan. Plan acumulado permitiría 53/51/52/50/53 adiciones por fold, pero siguen sin incorporarse. Originales y paquete f7aa1589… intactos. Sin entrenamiento, nuevas métricas, sintéticos ni cambios de scripts.
+
+Cola siguiente G001–G020 sin etiquetas, 15.056 palabras, en `data/auditoria/meta_hd_300_v1/seleccion_05/`. Para la selección nueva se endureció explícitamente Jaccard a ≥0,80 a raíz de E009; no se alteran tandas anteriores. Pistas no son etiquetas y la muestra sigue siendo dirigida, no test representativo. Próxima salida `anotacion_ia_v1/tanda_05/`, aún no creada. Si se agota evidencia válida antes de 300, registrar el límite, no completar con copias o reclasificación forzada.

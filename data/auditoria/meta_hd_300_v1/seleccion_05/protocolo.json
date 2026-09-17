@@ -1,0 +1,35 @@
+{
+  "version": "cola_meta300_05",
+  "fecha_local": "2026-09-17",
+  "semilla": 20260916,
+  "n_candidatos": 20,
+  "cuotas_de_busqueda_no_etiquetas": {
+    "H": 9,
+    "D": 11
+  },
+  "regex_prioridad": [
+    "(?:\\bvot[ao]\\b|\\brecomienda\\b|\\brecomendar\\b|\\bes aconsejable\\b|\\bmi opcion\\b|\\bsu opcion\\b).{0,120}(?:subir|aumentar|elevar|reducir|bajar|rebajar|recortar).{0,80}(?:\\btpm\\b|tasa de (?:interes de )?politica)",
+    "(?:mantener|mantencion).{0,150}sesgo (?:al alza|a la baja|expansivo)"
+  ],
+  "acuerdo_institucional": "Actor Consejo del Banco Central de Chile y acuerdo en los primeros 400 caracteres normalizados",
+  "orden": "Alternar D/H, priorizar año/actor/reunión menos representados y hash meta300_cola05; presentación meta300_presentacion05",
+  "max_por_actor": 5,
+  "max_por_reunion": 2,
+  "max_palabras": 20000,
+  "palabras": 15056,
+  "reuniones": 19,
+  "actores": 12,
+  "n_pool_prioritario": 142,
+  "pool_por_canal": {
+    "D": 58,
+    "H": 84
+  },
+  "n_nuevos_ia_excluidos": 89,
+  "casi_copias_jaccard_umbral": 0.8,
+  "rechazados_casi_copia": 0,
+  "cambio_explicitado": "E009/C35 mostró copia de plantilla a Jaccard 0.80645; el umbral de selección nueva baja de .85 a .80. No se reescriben tandas previas.",
+  "etiquetados": 0,
+  "no_es_muestra_representativa": true,
+  "no_usa_predicciones_modelo_o_respuestas_humanas": true,
+  "advertencia": "Pistas no son etiquetas. La cola no cuenta para 300. El umbral no elimina la necesidad de inspección semántica."
+}
