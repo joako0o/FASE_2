@@ -25,7 +25,8 @@ La opción predeterminada es `suite_pruebas`. Las opciones disponibles son:
 
 - El notebook clona únicamente la rama `arena/01a0b014-fase-2`.
 - No solicita tokens, contraseñas ni acceso de escritura a GitHub.
-- Instala el entorno mediante `scripts/40_gestionar_proyecto.py instalar`.
+- Con Python 3.11/3.12 instala el entorno mediante `scripts/40_gestionar_proyecto.py instalar`.
+- Con el runtime Python 3.13 de Colab crea un `.venv` aislado mediante `virtualenv`, instala allí `requirements-preparacion.txt` y ejecuta `pip check` con ese intérprete.
 - Limita los hilos numéricos para reducir variación y consumo.
 - Cada ZIP incluye `checksums_colab.json`.
 - Los experimentos nuevos deben agregarse al repositorio y preregistrarse antes de incorporarlos al menú.
@@ -35,3 +36,5 @@ El enlace por rama apunta a la versión vigente. Para ejecuciones que deban qued
 ## Reejecución en la misma sesión
 
 El notebook cambia explícitamente el directorio activo a `/content` antes de eliminar una copia anterior de `/content/FASE_2`. Esto permite pulsar **Ejecutar todo** varias veces en la misma sesión sin dejar a Git dentro de un directorio borrado. El mensaje `fatal: Unable to read current working directory` corresponde a una versión anterior del notebook y no a un problema de permisos o visibilidad del repositorio.
+
+Colab puede ejecutar Python 3.13, versión que el gestor portable rechaza deliberadamente fuera de Colab. El notebook detecta ese runtime, crea un entorno aislado compatible mediante `virtualenv` y aplica allí los requisitos fijados. El mensaje `Usa Python 3.11 (recomendado) o 3.12` durante la instalación corresponde también a una versión anterior del notebook.

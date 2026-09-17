@@ -36,8 +36,23 @@ class TestColabExperimentos(unittest.TestCase):
         setup = "".join(self.nb["cells"][2]["source"])
         self.assertLess(setup.index("os.chdir(BASE)"), setup.index("shutil.rmtree(PROYECTO)"))
         self.assertLess(setup.index("shutil.rmtree(PROYECTO)"), setup.index('"git", "clone"'))
-        self.assertIn("cwd=BASE, check=True", setup)
+        self.assertIn("PROYECTO)], BASE)", setup)
         self.assertIn('"--single-branch"', setup)
+
+    def test_python_313_colab_usa_requisitos_fijados(self):
+        setup = "".join(self.nb["cells"][2]["source"])
+        self.assertIn("version == (3, 13)", setup)
+        self.assertIn("requirements-preparacion.txt", setup)
+        self.assertIn('"pip", "check"', setup)
+        self.assertIn('"virtualenv"', setup)
+        self.assertIn('PROYECTO / ".venv/bin/python"', setup)
+        self.assertIn("virtualenv_colab_python_3.13_requisitos_fijados", setup)
+
+    def test_errores_de_instalacion_quedan_visibles(self):
+        setup = "".join(self.nb["cells"][2]["source"])
+        self.assertIn("stderr=subprocess.STDOUT", setup)
+        self.assertIn("proceso.stdout", setup)
+        self.assertIn("proceso.returncode", setup)
 
     def test_no_credenciales(self):
         lower = self.code.lower()
