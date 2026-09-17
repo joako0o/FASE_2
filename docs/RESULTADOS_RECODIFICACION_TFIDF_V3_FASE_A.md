@@ -69,6 +69,8 @@ La implementación usa solo la biblioteca estándar, rechaza sobreescrituras y r
 
 - `predicciones_referencias_v2_v3.csv`: alineación por ID y efecto individual;
 - `cambios_referencia.csv`: los casos cuya etiqueta o relevancia cambió;
+- `errores_v3.csv`: los 64 errores con tipo operativo, prioridad, cita y fundamento v3;
+- `desagregacion_errores.json`: errores por clase, confusión y reunión;
 - `metricas.json`: resultados globales y por fold;
 - `protocolo.json`: operación, limitación y hashes de las entradas;
 - `verificacion.json`: reproducción del ancla histórica;

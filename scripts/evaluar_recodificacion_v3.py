@@ -70,8 +70,9 @@ def guardar_json(ruta, datos):
 
 def evaluar(salida=SALIDA):
     salida = Path(salida)
-    nombres = ['predicciones_referencias_v2_v3.csv', 'cambios_referencia.csv', 'metricas.json',
-               'resumen.md', 'protocolo.json', 'verificacion.json', 'manifest.json']
+    nombres = ['predicciones_referencias_v2_v3.csv', 'cambios_referencia.csv', 'errores_v3.csv',
+               'metricas.json', 'desagregacion_errores.json', 'resumen.md', 'protocolo.json',
+               'verificacion.json', 'manifest.json']
     if any((salida / nombre).exists() for nombre in nombres):
         raise FileExistsError('No sobrescribir la fase A v3')
 
@@ -129,6 +130,58 @@ def evaluar(salida=SALIDA):
         with (salida / nombre).open('x', encoding='utf-8', newline='') as archivo:
             escritor = csv.DictWriter(archivo, fieldnames=list(filas[0]), lineterminator='\n')
             escritor.writeheader(); escritor.writerows(datos)
+    errores_v3 = []
+    for fila in filas:
+        if fila['acierto_v3'] == 'true':
+            continue
+        real, pred = fila['etiqueta_v3'], fila['prediccion_congelada']
+        if {real, pred} == {'hawkish', 'dovish'}:
+            tipo, prioridad = 'inversion_h_d', 1
+        elif real == 'neutral':
+            tipo, prioridad = 'neutral_a_direccion', 2
+        else:
+            tipo, prioridad = 'direccion_a_neutral', 3
+        ref = referencias[fila['intervencion_id']]
+        errores_v3.append({**fila, 'tipo_error_v3': tipo, 'prioridad_revision': prioridad,
+                           'cita_v3': ref['cita_literal_espacios_normalizados'],
+                           'fundamento_v3': ref['fundamento_revision_v3']})
+    with (salida / 'errores_v3.csv').open('x', encoding='utf-8', newline='') as archivo:
+        escritor = csv.DictWriter(archivo, fieldnames=list(errores_v3[0]), lineterminator='\n')
+        escritor.writeheader(); escritor.writerows(errores_v3)
+    reuniones = Counter(f['meeting_id'] for f in errores_v3)
+    desagregacion = {
+        'total_errores_v3': len(errores_v3),
+        'por_clase_real': {
+            clase: {
+                'soporte': metricas_v3['por_clase'][clase]['soporte'],
+                'errores': sum(f['etiqueta_v3'] == clase for f in errores_v3),
+                'tasa_error': 1 - metricas_v3['por_clase'][clase]['recall'],
+                'precision': metricas_v3['por_clase'][clase]['precision'],
+                'recall': metricas_v3['por_clase'][clase]['recall'],
+                'f1': metricas_v3['por_clase'][clase]['f1'],
+            } for clase in CLASES
+        },
+        'confusiones_real_a_prediccion': dict(Counter(
+            f"{f['etiqueta_v3']}->{f['prediccion_congelada']}" for f in errores_v3)),
+        'tipos_operativos': dict(Counter(f['tipo_error_v3'] for f in errores_v3)),
+        'referencia_cambio': {
+            'errores_en_ids_recodificados': sum(f['cambio_etiqueta_referencia'] == 'true' for f in errores_v3),
+            'errores_en_ids_sin_cambio_etiqueta': sum(f['cambio_etiqueta_referencia'] == 'false' for f in errores_v3),
+        },
+        'concentracion_reuniones': {
+            'reuniones_con_error': len(reuniones),
+            'reuniones_con_mas_errores': [
+                {'meeting_id': meeting_id, 'errores': cantidad}
+                for meeting_id, cantidad in sorted(reuniones.items(), key=lambda x: (-x[1], x[0]))
+            ],
+        },
+        'criterio_prioridad_revision': {
+            '1': 'inversion_h_d: dirección opuesta',
+            '2': 'neutral_a_direccion: señal direccional falsa',
+            '3': 'direccion_a_neutral: omisión de una señal direccional',
+        },
+    }
+    guardar_json(salida / 'desagregacion_errores.json', desagregacion)
     metricas = {
         'version': salida.name,
         'fase': 'A_recodificacion_sin_reentrenamiento',

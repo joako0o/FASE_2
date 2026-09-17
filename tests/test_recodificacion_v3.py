@@ -33,6 +33,13 @@ class RecodificacionV3FaseA(unittest.TestCase):
             self.assertEqual(768, metricas['clasificador_relevancia_congelado']['v3']['aciertos'])
             self.assertEqual({'sin_cambio': 768, 'acierto_a_error': 19, 'error_a_acierto': 6},
                              metricas['efecto_en_aciertos'])
+            desglose = json.loads((salida / 'desagregacion_errores.json').read_text(encoding='utf-8'))
+            self.assertEqual({'inversion_h_d': 15, 'direccion_a_neutral': 15,
+                              'neutral_a_direccion': 34}, desglose['tipos_operativos'])
+            self.assertEqual(23, desglose['por_clase_real']['hawkish']['errores'])
+            self.assertEqual(7, desglose['por_clase_real']['dovish']['errores'])
+            self.assertEqual(34, desglose['por_clase_real']['neutral']['errores'])
+            self.assertEqual(37, desglose['concentracion_reuniones']['reuniones_con_error'])
             self.assertFalse(metricas['entrenamiento_ejecutado'])
             with (salida / 'predicciones_referencias_v2_v3.csv').open(encoding='utf-8', newline='') as archivo:
                 filas = list(csv.DictReader(archivo))
