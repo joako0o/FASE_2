@@ -2,6 +2,8 @@
 
 ## Trabajo actual
 
+**Revisión humana pendiente:** [60 candidatos reales](AMPLIACION_HD_60_V1.md), con Excel ya preparado, no etiquetas nuevas ni sintéticos.
+
 **Último resultado:** [BETO v1 recibido y no adoptado](RESULTADOS_BETO_V1.md): cinco folds, métricas verificadas y límites de procedencia.
 
 1. [EMPEZAR_AQUI](../EMPEZAR_AQUI.md): otro PC, instalación y ejecución.

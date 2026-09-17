@@ -490,3 +490,14 @@ Condiciones para una eventual propuesta experimental:
 - No se autorizan ahora generación, etiquetado, entrenamiento, APIs de pago ni nuevos datasets externos. No se cambia el paquete BETO ni se afirma que este enfoque resolverá el deterioro observado.
 
 **Trabajo previo que sigue vigente:** el investigador sí autorizó preparar la selección de 60 candidatos reales H/D mediante «siii». Solo se inició la exploración de fuentes/herramientas; la selección y el Excel todavía no se han generado. Esa autorización no se extiende a generar sintéticos, etiquetar automáticamente o entrenar.
+
+
+### 9.25 Selección de 60 candidatos reales y libro de revisión
+
+Autorizada mediante «siii» y retomada con «sigue». Entregado `revision_60_candidatos.xlsx`, seis bloques de diez con texto íntegro y campos vacíos. Método y límites en `docs/AMPLIACION_HD_60_V1.md`; módulo reutilizable `scripts/muestreo_revision.py`, delegado desde 40 (`preparar-muestra-hd`), no nueva variante de modelo ni script numerado 41.
+
+667 candidatos con pistas tras exclusiones. Selección determinista: 30 por canal lexical, no etiquetas; diez por familia/canal (decisión, trayectoria, contraste), 56 reuniones/29 actores, 2005–2015, 202.789 caracteres y veinte unidades por banda de longitud. Cero solapes con IDs/textos normalizados de 1.352 anotados y marco humano de 306. Casi copias controladas por Jaccard de trigramas ≥0,85; no garantía de deduplicación semántica total. Se registra elegibilidad potencial por fold y exclusión por reunión/texto, sin alterar los folds ni añadir train.
+
+**106 pruebas aprobadas, 0 omitidas**, replay de selección y textos completos del Excel idénticos a L0; sin hojas ocultas, macros, enlaces externos o sugerencias por caso. No se ejecutó Excel/LibreOffice, se verificó su estructura con openpyxl. No leer el archivo técnico de selección antes de responder. Devolver el XLSX parcial/completo; importación posterior requiere validación específica, no reutilizar el importador de 30 casos.
+
+La idea sintética permanece sin ejecutar. No nuevas etiquetas ni métricas/entrenamiento; el paquete BETO y su resultado negativo no cambian. Limpieza extrema final sigue pendiente.

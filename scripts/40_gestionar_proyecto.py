@@ -29,7 +29,7 @@ MANIFIESTO = 'MANIFIESTO_ENTREGA.json'
 ENTRADA = 'data/checkpoints/beto_v1/entrada'
 RESULTADOS = 'data/checkpoints/beto_v1/ejecucion'
 ARCHIVOS_ENTRADA = ['documentos.json', 'folds.json', 'baseline.json', 'checkpoint.json', 'manifest.json']
-PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py']
+PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py']
 PRUEBAS_ANTERIORES_SEGURAS = [
     'test_inversiones_hd.py', 'test_referencias_corregidas.py', 'test_modelo_adjudicado.py',
     'test_revision_cierre_66.py', 'test_revision_neutralidad.py',
@@ -428,6 +428,8 @@ def main(argv=None):
     auditoria = acciones.add_parser('auditar-resultados', help='Verificar ZIP final y recalcular métricas sin GPU ni sobrescribir resultados')
     auditoria.add_argument('archivo', type=Path)
     auditoria.add_argument('--salida', type=Path, help='Archivo JSON nuevo para conservar la auditoría')
+    muestra = acciones.add_parser('preparar-muestra-hd', help='Crear 60 candidatos reales para revisión; no etiqueta ni entrena')
+    muestra.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/ampliacion_hd_60_v1')
     argumentos = parser.parse_args(argv)
     try:
         if argumentos.accion == 'instalar': instalar(argumentos.beto)
@@ -436,6 +438,9 @@ def main(argv=None):
         elif argumentos.accion in ['comprobar', 'smoke', 'comparar']:
             ejecutar_beto({'comprobar':'--comprobar', 'smoke':'--smoke', 'comparar':'--consolidar'}[argumentos.accion])
         elif argumentos.accion == 'entrenar': entrenar()
+        elif argumentos.accion == 'preparar-muestra-hd':
+            preparar()
+            ejecutar_python(['scripts/muestreo_revision.py', '--salida', argumentos.salida.resolve()])
         elif argumentos.accion == 'exportar':
             preparar(); print('Entrega creada:', exportar(salida=argumentos.salida))
         elif argumentos.accion == 'verificar-entrega': verificar_entrega()

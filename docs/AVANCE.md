@@ -1,81 +1,43 @@
 # AVANCE — Proyecto D&H
 
-## Última nota: idea sintética registrada, no ejecutada
+## Estado actual: 60 candidatos reales entregados; esperar respuestas
 
-El investigador plantea que una IA genere frases/intervenciones ficticias a partir del estilo de actas, **solo como idea para evaluar después**. Registrada en PLAN §9.24 con controles de procedencia, fuentes train-only por fold, revisión semántica y comparación sobre datos reales. No se generó ningún texto sintético, no se llamó a modelos/APIs y no se cambió entrenamiento, datos o etiquetas.
+El investigador autorizó preparar una muestra dirigida H/D y pidió continuar. Ya está creado **`data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx`**, con seis bloques de diez, texto completo, guía, enlaces de navegación y celdas amarillas vacías. Puede devolver el mismo XLSX, incluso parcial. **No regenerarlo ni usar el importador de las 30 anotaciones anteriores.**
 
-Antes de esta nota, el investigador autorizó preparar **60 candidatos reales** con «siii». Se exploraron los generadores existentes y las fuentes; el trabajo fue interrumpido antes de crear selección, código nuevo o Excel. **Preparación de los 60 autorizada y pendiente; etiquetado/entrenamiento y sintéticos no autorizados por esa aceptación.** El objetivo de 200 H/200 D sigue orientativo. No confundir esta nota con la entrega de la muestra.
+- Selección reproducible desde 667 candidatos con pistas: dos canales de búsqueda de 30, no clases confirmadas. Por canal, diez patrones de decisión, diez de trayectoria y diez de contraste.
+- **56 reuniones, 29 actores, 2005–2015, 202.789 caracteres íntegros**. Veinte textos cortos, veinte medios y veinte largos; máximo dos por reunión y cinco por actor en esta muestra.
+- Excluidos 1.352 IDs anotados y 306 del marco humano, copias normalizadas y casi copias según Jaccard de trigramas ≥0,85. Cero solapes verificados. Del marco humano solo se usan IDs, no sus respuestas.
+- La muestra es enriquecida para desarrollo/entrenamiento: no es representativa ni un test independiente. H/D/N y dudas se decidirán al revisar; no forzar cuotas.
+- Plan por caso de folds potenciales/prohibidos según reunión/texto, **sin incorporación a train**. La futura recepción deberá validar identidad, citas, pendientes, fecha/ayuda declaradas y purga antes de cualquier ampliación autorizada.
 
-## Actualización: confirmación del usuario y propuesta de ampliar H/D
-
-El investigador confirma que el agente externo **no cambió los scripts**; declaración separada en `data/auditoria/recepcion_beto_v1/confirmacion_usuario.json`. No pedir de nuevo esa confirmación. El entorno completo/CUDA y hashes remotos no fueron aportados, por lo que no se convierten en verificación independiente de binarios.
-
-El investigador propone tentativamente aumentar la muestra buscando H y D. Conteo de referencia v2 comprobado: 125 H, 89 D, 1.138 N; entre los relevantes para B, 125 H, 89 D y 869 N. En los cinco train purgados quedan 106–114 H y 75–81 D. El entrenamiento ya pondera clases: ponderar o duplicar filas no agrega variedad lingüística.
-
-**Propuesta original (la preparación de los 60 fue autorizada después; entrenamiento no):** primera tanda de 60 candidatos del corpus propio, aproximadamente mitad probables H y mitad probables D; revisión del texto completo sin tratar la preselección como verdad. Objetivo orientativo posterior de acercarse a 200 H y 200 D, condicionado a etiquetas realmente confirmadas y utilidad. Incluir decisiones explícitas, postura futura, pausas, negaciones y alternativas; no solo ejemplos fáciles. Conservar N/ambiguos encontrados, sin forzar cuotas. No reutilizar los 1.352 ni las 306 respuestas para simular datos nuevos.
-
-Preservar validación v2/folds/A y purgar de cada train ampliado cualquier reunión/texto de su validación. La muestra enriquecida sería de entrenamiento, no test representativo. Nueva preparación/versionado y comparación controlada solo tras autorización; ninguna selección, etiqueta, entrenamiento o scoring global ejecutado ahora. La revisión de las 20 inversiones nuevas y siete corregidas se inició con lectura de 27 textos completos, pero fue interrumpida antes de cerrar informe/diagnóstico; no declarar causa demostrada. Limpieza extrema final pendiente.
-
-## Cierre actual: resultados BETO externos recibidos, no adoptados
-
-El investigador subió seis ZIP a `main` en `af99d510da75b5a54f63fe46b56af3bcbb55217b`. Son respaldos acumulativos; el final `resultados_beto_20260917T012512_748901Z.zip` contiene cinco folds y comparación. [Informe](RESULTADOS_BETO_V1.md); evidencia en `data/auditoria/recepcion_beto_v1/` y tabla alineada en `data/evaluacion/comparacion_beto_v1/`. No se borraron los originales remotos ni se duplicaron ZIP versionados.
-
-**Métricas recalculadas:** F1 H/D media **0,747060 → 0,625043**; macro-F1 media **0,822250 → 0,739629**; errores **51 → 66**; inversiones **15 → 25** (H→D 6→8, D→H 9→17); H/D→N **12→14**, N→H/D **24→27**. Recall H igual (62/76), D **38/51→26/51**. Solo mejora 1/5 folds; **no cumple criterios y no se adopta**. 19 errores corregidos, 34 nuevos; de las 15 inversiones conocidas corrige 7, lleva 3 a N y conserva 5, pero crea 20 inversiones nuevas en casos antes correctos.
-
-Verificados ZIP/blobs/hashes, cadena acumulativa, IDs/v2/folds/A, probabilidades y argmax, cinco manifiestos, pesos de clase/pasos/épocas, cobertura declarada de 1.352 textos y smoke coherente con los documentos previstos. Reconsolidación exacta como JSON con 39 y cuenta aritmética independiente. Se añadió `auditar-resultados` al gestor 40, **sin script 41 ni cambios en 38/39 o su paquete**. **98 pruebas aprobadas, 0 omitidas** (14 + 20 + 64), sin abrir las 306 respuestas.
-
-Los registros reportan RTX 5060, smoke exitoso y unas 30,59 min sumadas de folds. No se repitió aquí entrenamiento/tokenización oficial. El ZIP no incluye código/pesos remotos y su commit informativo es null: **cerrar procedencia con el agente externo antes de atribuir el resultado a una implementación plenamente auditada**. No confundir el campo estático `hardware.entrenamiento_realizado=false` con el estado del fold.
-
-**Siguiente:** mantener TF-IDF; solicitar cambios/diff, entorno/CUDA y manifiesto usados; diagnosticar nuevas inversiones sin cambiar referencias. No más entrenamiento automático, refit/scoring, datasets externos ni confirmación humana de una mejora inexistente. Limpieza extrema final sigue pendiente. Las notas siguientes describen etapas previas, no sustituyen este cierre.
-
-## Actualización: investigación web mientras BETO se prepara en otro equipo
-
-El investigador informa que un agente Gemini mediante Antigravity está preparando dependencias/modelo y pidió investigar papers, modelos actuales/SOTA y foros. **No se recibieron resultados ni prueba GPU del entorno externo; no podemos verificar su avance automáticamente.** Los bloqueos anteriores describen este entorno, no necesariamente el otro PC.
-
-[Informe único de investigación](INVESTIGACION_SOTA_POSTURA_MONETARIA.md), corte 2026-09-16: 20 registros de fuentes con alcance de lectura. WCB/BIS/Ornithologist/DCS/IMF/CBRT, encoders españoles y multilingües, modelos generativos actuales y discusiones técnicas. Búsqueda dirigida, no revisión exhaustiva ni reproducción de benchmarks; no proclamar un SOTA probado para nuestras actas.
-
-Recomendación documental: terminar BETO primero; **MrBERT-es** como primer candidato nuevo solo si los resultados justifican otro ensayo; clasificación estructurada como alternativa ante errores semánticos persistentes. No adoptar variantes ni comparar F1 ponderada/accuracy externas con nuestra F1 H/D. La lista no es una orden de entrenar todos los modelos.
-
-**Sin cambios de scripts, tests, datos, referencias, folds, A, dependencias o protocolo BETO.** Sin descargas de modelos/datasets para entrenar, pagos, nuevos scripts o apertura de las 306 respuestas. Se verifica que el paquete actual mantiene su identidad. La limpieza extrema final sigue pendiente y no debe ejecutarse en medio de la corrida externa. Informe e índices/continuidad solamente; los ZIP anteriores no se actualizan automáticamente.
-
-## Actualización: limpieza extrema final exigida, todavía pendiente
-
-El investigador indicó que unos 40 scripts no son una entrega adecuada y pidió dejar anotada una limpieza extrema al finalizar. Se incorporó como regla obligatoria en `docs/REGLAS.md` §12 y en AGENTS/CONTINUIDAD/PLAN. No basta con el gestor 40 ni con eliminar caches: hay que reducir de verdad el flujo a una entrada y pocos módulos esenciales, retirar duplicados y separar el histórico recuperable de la entrega operativa. Verificar equivalencia y ejecución limpia antes de declarar cierre.
-
-Esta actualización es documental: no se eliminaron scripts, no se refactorizó todavía ni se cambiaron datos/modelos. Los controles de traslado que siguen describen el cierre anterior; no certifican la limpieza final exigida ahora. Los ZIP ya descargados son instantáneas anteriores y no incorporan automáticamente esta nota.
-
-## Cierre anterior: organización, traslado y continuidad
-
-El investigador pidió ordenar todo el proyecto, eliminar lo innecesario, dejar código/datos y pasos claros para otro PC y permitir que otra sesión continúe. No pidió fusionar ni cerrar el PR. Se mantiene PR #4 y la rama de esta sesión; para otra sesión manda la rama que asigne su entorno.
-
-### Entrega preparada
-
-- **`EMPEZAR_AQUI.md`**: instrucciones breves para el investigador, comandos CPU/GPU, ZIP completo, respaldo y diferencia entre cerrar/fusionar PR.
-- **`AGENTS.md` y `docs/CONTINUIDAD.md`**: estado, decisiones ya tomadas, datos activos, métricas de control, bloqueos y siguiente tarea. No dependen de la memoria del chat.
-- **`scripts/40_gestionar_proyecto.py`**: punto único de entrada. Instalación aislada local, preparación idempotente, pruebas acotadas, delegación al runner congelado y exportación por inventario.
-- **`scripts/README.md`, `data/README.md`, `docs/README.md`**: mapa de código, datos y lectura. Portada README sustituida por una guía corta; retiradas instrucciones repetidas de revisiones ya cerradas. La cronología extensa sigue en PLAN, informes específicos y Git.
-- **`entrega/archivos_proyecto.txt`**: lista explícita de fuentes exportables. ZIP con corpus, etiquetas, referencia v2, evidencia, código y paquete BETO. No `.git`, `.venv`, caches, pesos ni archivos personales no declarados.
-- Se eliminan caches regenerables. No se eliminan/mueven artefactos históricos utilizados por dependencias/manifiestos. Los Excel vacíos obsoletos ya se habían retirado en la limpieza inicial; se conservan originales y devoluciones humanas, sin pedir nuevos formularios.
-- Datos regenerables/resultados bajo `data/checkpoints/` y ZIP bajo `entregas/`, fuera de Git. Un push no basta para respaldar resultados GPU.
+Protocolo: [AMPLIACION_HD_60_V1](AMPLIACION_HD_60_V1.md). Evidencia en la carpeta de muestra: manifiesto, resumen y verificación. El archivo `NO_CONSULTAR_antes_de_responder_seleccion.json` contiene pistas técnicas; no consultarlo ni mostrárselo al investigador antes de que responda.
 
 ### Verificación de esta entrega
 
-**Verificado en Linux/Python 3.11:** instalación limpia desde ZIP, sin `.git` ni entorno previo, ruta con espacios y comandos iniciados fuera de la raíz; **90 pruebas aprobadas, 0 omitidas** (14 preparación + 12 traslado + 64 regresiones). Cinco archivos del paquete reproducidos exactamente, reexportación sin Git verificada y **330 archivos previos protegidos intactos**. Retirados 29 caches (631.950 bytes). Evidencia en `data/auditoria/entrega_portable_v1/`. Las pruebas del gestor usan fixtures para los fallos/respaldos de entrenamiento; no entrenan BETO. Windows/macOS/Colab/GPU no ejecutados.
+**106 pruebas aprobadas, 0 omitidas**: 98 anteriores y ocho de muestreo/libro. Selección idéntica al invertir el orden del corpus; 60 textos recuperados del XLSX idénticos a L0; 240 celdas de respuesta vacías; sin hojas ocultas, macros ni enlaces externos. Se comprobó con openpyxl, **no se ejecutó Excel/LibreOffice**.
 
-## Estado científico que no cambió
+Comando reproducible: `python scripts/40_gestionar_proyecto.py preparar-muestra-hd --salida RUTA_NUEVA`. El gestor delega en `scripts/muestreo_revision.py`, reutilizando utilidades Excel de 29 sin editar etapas congeladas. No nuevo script numerado 41 ni variante de modelo. La muestra ya existe: no hace falta ejecutar código para responder.
 
-- Referencias corregidas v2, cinco folds purgados y puerta A fijos. Seis decisiones previas + trece aceptadas; 19 decisiones / 16 cambios efectivos, 12 ambiguos intactos.
-- Control TF-IDF contra referencia v2: F1 H/D **0,747060**, 51 errores de 793; **15 H↔D, 12 H/D→N, 24 N→H/D**. Desarrollo reutilizado/asistido, no test independiente.
-- Diagnóstico de diez inversiones terminado, cinco ambiguas aparte. No confundir contribuciones léxicas o sondas de primera cita con causalidad/mejora automática.
-- Paquete BETO: **1.352 textos íntegros / 1.997.823 caracteres**, 793 validaciones. ID **`f7aa15894b1c0a4cdcf64a2a5c26e9b5029393e960a44c57f474a90fcc2b681a`**.
-- BETO: ya hay resultados externos negativos y evaluación recalculada (ver cierre actual). Los bloqueos anteriores de este entorno no describen necesariamente el PC externo; no se repitió el encoder localmente.
-- Etapa anterior: 78 pruebas aprobadas (14 sin encoder + 64 regresiones), paquete reproducido y 313 archivos anteriores intactos. La nueva organización añade controles de exportación, no evidencia neuronal.
+## Estado científico vigente
 
-## Siguiente acción concreta
+- Referencia v2 fija: 19 decisiones aceptadas / 16 cambios efectivos; 12 ambiguos originales sin modificar. H125/D89/N1138; relevantes para B: H125/D89/N869.
+- Control TF-IDF vigente: F1 H/D media **0,747060**, 51 errores sobre 793; 15 inversiones H↔D, 12 H/D→N y 24 N→H/D.
+- **BETO v1 recibido y no adoptado:** cinco folds externos, F1 H/D media **0,625043**, 66 errores; 25 H↔D, 14 H/D→N, 27 N→H/D. Solo mejora 1/5 folds. Corrige 19 errores pero pierde 34 aciertos. [Informe y procedencia](RESULTADOS_BETO_V1.md).
+- Métricas externas reconsolidadas exactamente y comprobadas aritméticamente. Registros declaran RTX 5060 y smoke exitoso; no se repitió aquí entrenamiento/tokenización oficial. El investigador confirmó que no se modificaron los scripts; esa declaración está separada en `data/auditoria/recepcion_beto_v1/confirmacion_usuario.json`. No volver a pedirla. Entorno/CUDA completo y hashes remotos siguen sin recibirse, sin exigirlos ahora.
+- Paquete BETO **`f7aa15894b1c0a4cdcf64a2a5c26e9b5029393e960a44c57f474a90fcc2b681a`**, 1.352 textos / 1.997.823 caracteres / 793 validaciones, intacto. Ninguna referencia/fold/A cambió por la selección.
+- Diez inversiones TF-IDF diagnosticadas previamente y cinco ambiguas desglosadas. La lectura posterior de 20 inversiones nuevas BETO y siete corregidas se inició, pero no tiene informe cerrado ni causa demostrada del deterioro.
+- La [investigación web](INVESTIGACION_SOTA_POSTURA_MONETARIA.md) registra 20 fuentes y candidatos, no adopciones ni autorización de entrenar todas las alternativas.
 
-1. Leer RESULTADOS_BETO_V1 y verificar el ZIP final con `auditar-resultados` si se retoma en otro PC.
-2. Cerrar con el agente externo la procedencia del código/entorno; no descargar pesos aquí para esta auditoría.
-3. Conservar TF-IDF. Diagnosticar nuevas inversiones, sin volver a etiquetar ni iniciar otra familia automáticamente.
-4. Respetar la limpieza extrema final pendiente y la continuidad; no cerrar/fusionar PR sin autorización.
+## Qué sigue y qué no
 
-Historia detallada: [PLAN](../PLAN.md), [evaluación v2](EVALUACION_REFERENCIAS_CORREGIDAS_V2.md), [diagnóstico H/D](LECTURA_DIAGNOSTICO_INVERSIONES_HD_V1.md), [protocolo BETO](INVESTIGACION_Y_PROTOCOLO_BETO_V1.md). Las propuestas que aparecen como pendientes en documentos históricos no sustituyen las aceptaciones posteriores.
+1. El investigador puede empezar por **Bloque 1** y devolver avances. No hay etiquetas nuevas aceptadas todavía.
+2. Recibir y verificar este libro como una muestra nueva; no reabrir las 306 respuestas ni rehacer las 30 anotaciones anteriores.
+3. Mantener TF-IDF. No nuevo entrenamiento, refit global, scoring del corpus, cambios de referencias o datasets externos por la mera creación del Excel.
+4. **Idea sintética solo registrada**, PLAN §9.24: no generar ahora. El objetivo de acercarse a 200 H/200 D es orientativo y posterior, no una cuota que imponer a las respuestas.
+5. **Limpieza extrema final obligatoria y pendiente**, REGLAS §12: reducir de verdad la entrega a una entrada y pocos módulos esenciales. El gestor sobre los scripts históricos no cumple por sí solo el cierre.
+
+## Continuidad y publicación
+
+Leer [CONTINUIDAD](CONTINUIDAD.md), [EMPEZAR_AQUI](../EMPEZAR_AQUI.md) y [PLAN](../PLAN.md), especialmente §§9.20–9.25. Se conserva el PR #4, sin cerrarlo/fusionarlo por el agente. Descargar no requiere cerrar; integrar a main requiere Merge. Los ZIP anteriores no se actualizan automáticamente.
+
+La historia y comprobaciones anteriores —incluida la instalación limpia desde ZIP con 90 pruebas— están en PLAN y `data/auditoria/entrega_portable_v1/`; no equivalen a verificar una ejecución GPU ni a terminar la limpieza final.

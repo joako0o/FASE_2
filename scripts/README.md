@@ -19,3 +19,5 @@ La numeración describe el historial metodológico, **no una receta para volver 
 No modificar 38/39 dentro de una corrida iniciada. Un cambio necesario después del primer error GPU requiere nueva versión/paquete y una decisión explícita sobre resultados parciales.
 
 Para resultados recibidos: `python scripts/40_gestionar_proyecto.py auditar-resultados ARCHIVO.zip --salida AUDITORIA_NUEVA.json`. Verifica un ZIP final y recalcula la comparación sin GPU, sin ejecutar código externo ni sobrescribir el original. BETO v1 recibido no superó al control; ver `docs/RESULTADOS_BETO_V1.md`.
+
+Muestreo de revisión: `40_gestionar_proyecto.py preparar-muestra-hd --salida RUTA_NUEVA` delega en `muestreo_revision.py` y reutiliza el formato de 29. **La primera muestra de 60 ya está creada**: no hace falta ejecutar de nuevo para responder el Excel. No etiqueta ni entrena.

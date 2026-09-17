@@ -26,6 +26,11 @@ data/auditoria/2026-09-16/incidencias_gold.csv
 data/auditoria/2026-09-16/incidencias_gold_actual.csv
 data/auditoria/2026-09-16/limpieza.json
 data/auditoria/2026-09-16/procedencia_gold.json
+data/auditoria/ampliacion_hd_60_v1/NO_CONSULTAR_antes_de_responder_seleccion.json
+data/auditoria/ampliacion_hd_60_v1/manifest.json
+data/auditoria/ampliacion_hd_60_v1/resumen.json
+data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx
+data/auditoria/ampliacion_hd_60_v1/verificacion.json
 data/auditoria/entrega_portable_v1/limpieza.json
 data/auditoria/entrega_portable_v1/verificacion.json
 data/auditoria/inversiones_hd_v1/lecturas_agente.json
@@ -243,6 +248,7 @@ data/muestras/piloto_300_tandas.csv
 data/muestras/tandas_resumen.csv
 data/muestras/test_retest_30.csv
 docs/ADJUDICACION_SEIS_DISCREPANCIAS_30_V1.md
+docs/AMPLIACION_HD_60_V1.md
 docs/AVANCE.md
 docs/CONTINUIDAD.md
 docs/CONVENCIONES_ETIQUETADO.md
@@ -329,6 +335,7 @@ scripts/auditoria_datos.py
 scripts/config.py
 scripts/fusionar_gold_llenado.py
 scripts/lexico_ngramas.py
+scripts/muestreo_revision.py
 scripts/plantillas/revision_entrenamiento.html
 scripts/representaciones_contextuales.py
 scripts/utilidades.py
@@ -343,6 +350,7 @@ tests/test_inversiones_hd.py
 tests/test_lexico_ngramas.py
 tests/test_longitud_ngramas.py
 tests/test_modelo_adjudicado.py
+tests/test_muestreo_revision.py
 tests/test_preparacion_beto.py
 tests/test_referencias_corregidas.py
 tests/test_revision_cierre_66.py

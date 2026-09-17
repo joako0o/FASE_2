@@ -13,3 +13,5 @@
 11. Antes de entregar, comprobar el ZIP extraído sin `.git`, su manifiesto y las pruebas seleccionadas. Un respaldo de resultados no es un proyecto completo. No cerrar/fusionar PR sin autorización explícita.
 
 12. **Limpieza final extrema pendiente y obligatoria**: leer `docs/REGLAS.md` §12. La entrega actual con ~40 scripts es provisional; el gestor 40 no cumple por sí solo la limpieza. Refactorizar a una entrada y pocos módulos esenciales, retirar dependencias/material obsoleto y separar el histórico recuperable del paquete operativo. Verificar equivalencia sin alterar datos/etiquetas; no declarar cierre antes de cumplirlo.
+
+13. Muestra real de 60 ya entregada: `data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx`. Esperar/revisar devolución parcial; no regenerar/sobrescribir ni importar con el flujo viejo de 30. Ver `docs/AMPLIACION_HD_60_V1.md`. Pistas de selección separadas, no mostrarlas antes de la decisión humana. Sin sintéticos ni entrenamiento autorizados por la preparación de este libro.
