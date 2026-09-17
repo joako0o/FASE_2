@@ -1,0 +1,26 @@
+{
+  "fecha_utc": "2026-09-16T19:24:48.357024+00:00",
+  "sha256_insumos": {
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/30_anotaciones_humanas.xlsx": "929cd358f2b8a4b9042c8cf9400bb4034e10e92e13f1c569aa026039d74c9e20",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/recepcion.json": "bd81b8971b0d976e638af5592e22548c5823be4f91cb59eb35cb091c716d9a24",
+    "data/auditoria/revision_entrenamiento_30_v1/protocolo.json": "31917ec778b42b20cfea296e977950fba755e3608c7a4aa0624b23400e2823b7",
+    "data/auditoria/revision_entrenamiento_30_v1/archivo_interfaz_v1/index.html": "769bb9ec7a8a04e4e7b049d12ef789162887f25074661620ba30611b8fd87be7",
+    "data/auditoria/revision_entrenamiento_30_v1/NO_ABRIR_hasta_finalizar_clave.csv": "a908c0ed32bdc24cecfd8552f82784bf062d3140c97d1f50dea4435dd663c91d",
+    "data/auditoria/revision_entrenamiento_30_v1/archivo_interfaz_v1/manifest.json": "c11cacf66cdbe925317a95732b982d2a5e4cce41f824d0c9319300e53ade799d",
+    "scripts/30_comparar_revision_humana.py": "a18b02375c83c14311024b969a45d2a0496afa631047d6e58979372c0441b094",
+    "scripts/utilidades.py": "d09fb63d19187af65cd81294638993ee9bd0ac31b111025898584903573d18c9",
+    "scripts/28_reparar_exportacion_revision.py": "62d68ebf80fc0dcda0e32eaf40bf9a5657df0f9c86007ebf4b1a0956c2770004",
+    "tests/test_revision_humana_30.py": "d8a710d5694e754d27527ccf6f18ac41a94c0f9e735f04043f9b131517d3b7f9",
+    "docs/codebook_v2.md": "a0d12dcb3b7dc951440cd015f92ba9960e0ca222f1df2c4250b5dbce83ffbf42",
+    "docs/PROTOCOLO_REVISION_ENTRENAMIENTO_30_V1.md": "407c3cccb0305bde7fda9a461de38be1dfa38f7929640a0d1db979aff80c0473"
+  },
+  "sha256_salidas": {
+    "comparacion.csv": "a89085478f739594311ae22b0e8789cd695845a0fa41b04928e62e4d6fe45303",
+    "desacuerdos.csv": "ab4a2ab73ece282b192579028eb02c15368a481acf179c9284292c969dd50fde",
+    "incidencias_citas.csv": "85b210878ff706782faa7cae42fb55539b6fd09b330ebfdcae8fc6af925bbe29",
+    "resumen.json": "0fd157685989c4a5fecbb43bd5d176d74e77908374ab5477c2506aaf60e18c9a"
+  },
+  "sha256_informe": "1e0162ea83ab7d409042c4d0ab345c2faedb89b5aded6e8d376c1f73334ef188",
+  "original_humano_intacto": true,
+  "entrenamiento_o_importacion": false
+}

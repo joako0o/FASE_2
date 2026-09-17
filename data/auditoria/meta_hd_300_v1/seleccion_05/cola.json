@@ -1,0 +1,513 @@
+[
+  {
+    "caso_id": "G001",
+    "intervencion_id": "RPM-2015-12-17:7216:1",
+    "meeting_id": "RPM-2015-12-17",
+    "actor": "Sebastián Claro Edwards",
+    "fecha": "2015-12-17",
+    "sha256_texto": "f47628d9454d5d7e9a62199d31a7d9b153cbbaef4bd459a710f82962113098f1",
+    "n_caracteres": 5382,
+    "n_palabras": 884,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      4
+    ],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G002",
+    "intervencion_id": "RPM-2010-05-13:3126:1",
+    "meeting_id": "RPM-2010-05-13",
+    "actor": "José De Gregorio Rebeco",
+    "fecha": "2010-05-13",
+    "sha256_texto": "bb44f06b492de27a23adb10e943ef9c6fc73d21167a59bc27635e232de8f561f",
+    "n_caracteres": 2607,
+    "n_palabras": 456,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G003",
+    "intervencion_id": "RPM-2014-04-17:6173:1",
+    "meeting_id": "RPM-2014-04-17",
+    "actor": "Pablo García Silva",
+    "fecha": "2014-04-17",
+    "sha256_texto": "4c1a4460bc8c91f962f8b49c14ccc175c4b694a96fd81f9a247ab4c532bc214e",
+    "n_caracteres": 3701,
+    "n_palabras": 604,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G004",
+    "intervencion_id": "RPM-2012-04-17:4780:1",
+    "meeting_id": "RPM-2012-04-17",
+    "actor": "Luis Óscar Herrera Barriga",
+    "fecha": "2012-04-17",
+    "sha256_texto": "35005aaab5e8e452d9dd148a9f5ef1d13a2ca487b6f66d68ef6ed5902d843964",
+    "n_caracteres": 8050,
+    "n_palabras": 1310,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      3
+    ],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G005",
+    "intervencion_id": "RPM-2008-12-11:2248:1",
+    "meeting_id": "RPM-2008-12-11",
+    "actor": "Sebastián Claro Edwards",
+    "fecha": "2008-12-11",
+    "sha256_texto": "a8404625e4ec0bb3da5163de506ac98ca18cb65a1f0ea86654dc1db6b7048755",
+    "n_caracteres": 4739,
+    "n_palabras": 768,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      1
+    ],
+    "folds_potencialmente_permitidos": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G006",
+    "intervencion_id": "RPM-2006-04-13:652:1",
+    "meeting_id": "RPM-2006-04-13",
+    "actor": "Manuel Marfán Lewis",
+    "fecha": "2006-04-13",
+    "sha256_texto": "90cd199027fcec011c7c439878a5af0389318db4f75f1d975c2eff9659ffc2ed",
+    "n_caracteres": 3142,
+    "n_palabras": 530,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G007",
+    "intervencion_id": "RPM-2005-10-11:445:1",
+    "meeting_id": "RPM-2005-10-11",
+    "actor": "Jorge Desormeaux Jiménez",
+    "fecha": "2005-10-11",
+    "sha256_texto": "93a2d499a7cdf5d6773c4f1613027aacd980eddb60c8b8cf4dcf28b14a30caa9",
+    "n_caracteres": 2915,
+    "n_palabras": 492,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      3
+    ],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G008",
+    "intervencion_id": "RPM-2011-05-12:4049:1",
+    "meeting_id": "RPM-2011-05-12",
+    "actor": "Rodrigo Vergara Montes",
+    "fecha": "2011-05-12",
+    "sha256_texto": "7e7f2ee6c4c449717909327a9b4fbdd0c7ef426b2a4a18188b996719755de4e5",
+    "n_caracteres": 4128,
+    "n_palabras": 678,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G009",
+    "intervencion_id": "RPM-2010-08-12:3341:1",
+    "meeting_id": "RPM-2010-08-12",
+    "actor": "Enrique Marshall Rivera",
+    "fecha": "2010-08-12",
+    "sha256_texto": "3d9b61352682416be5673cb67d290ee314262aed147323bffeac31a70afba35b",
+    "n_caracteres": 3651,
+    "n_palabras": 594,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      1
+    ],
+    "folds_potencialmente_permitidos": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G010",
+    "intervencion_id": "RPM-2006-02-09:594:2",
+    "meeting_id": "RPM-2006-02-09",
+    "actor": "Consejo del Banco Central de Chile",
+    "fecha": "2006-02-09",
+    "sha256_texto": "23ba73de56ff0e0ba4fe9d99b9ec5079c2c3302ae89923492828d768adfe6302",
+    "n_caracteres": 1996,
+    "n_palabras": 317,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "acuerdo_institucional"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      5
+    ],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G011",
+    "intervencion_id": "RPM-2009-01-08:2294:1",
+    "meeting_id": "RPM-2009-01-08",
+    "actor": "Enrique Marshall Rivera",
+    "fecha": "2009-01-08",
+    "sha256_texto": "815b7c48dfb9dc88ffb637c74d400bcf3a73cc7b8c16787dcd624abbe0f2a9dc",
+    "n_caracteres": 7422,
+    "n_palabras": 1189,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G012",
+    "intervencion_id": "RPM-2014-02-18:6047:1",
+    "meeting_id": "RPM-2014-02-18",
+    "actor": "Felipe Larraín Bascuñán",
+    "fecha": "2014-02-18",
+    "sha256_texto": "0dd6a90ffa1873a622fcf98ab3c879cfa9430fa5030d167a48db0ee5fcca6692",
+    "n_caracteres": 4726,
+    "n_palabras": 774,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G013",
+    "intervencion_id": "RPM-2009-02-12:2366:1",
+    "meeting_id": "RPM-2009-02-12",
+    "actor": "Beltrán de Ramón Acevedo",
+    "fecha": "2009-02-12",
+    "sha256_texto": "689a01f3fcd1fc722643e7f4a147f30de6fd110b7dfed7a7292852968e33fbb0",
+    "n_caracteres": 2716,
+    "n_palabras": 464,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G014",
+    "intervencion_id": "RPM-2007-03-15:1166:1",
+    "meeting_id": "RPM-2007-03-15",
+    "actor": "José De Gregorio Rebeco",
+    "fecha": "2007-03-15",
+    "sha256_texto": "c9321802dbc17ec50526f7e489880ff279df68a342f802e02c895076863c92cc",
+    "n_caracteres": 5442,
+    "n_palabras": 902,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "decision_o_recomendacion"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      5
+    ],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G015",
+    "intervencion_id": "RPM-2015-10-15:7098:1",
+    "meeting_id": "RPM-2015-10-15",
+    "actor": "Alberto Naudon Dell'Oro",
+    "fecha": "2015-10-15",
+    "sha256_texto": "53e812b5c7dcb2f2a4a3c16548f737b66e54486b518a5cc0315d987d513e24ee",
+    "n_caracteres": 7483,
+    "n_palabras": 1214,
+    "canal_busqueda": "H",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      4
+    ],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G016",
+    "intervencion_id": "RPM-2013-09-12:5810:1",
+    "meeting_id": "RPM-2013-09-12",
+    "actor": "Manuel Marfán Lewis",
+    "fecha": "2013-09-12",
+    "sha256_texto": "ae8fe8ca501a68b3829bfa1ca6be9446dfda74cbc51425ad107f79fc39b6f837",
+    "n_caracteres": 5940,
+    "n_palabras": 958,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G017",
+    "intervencion_id": "RPM-2007-04-12:1219:1",
+    "meeting_id": "RPM-2007-04-12",
+    "actor": "José De Gregorio Rebeco",
+    "fecha": "2007-04-12",
+    "sha256_texto": "7fab9f15be4c21dbc32d634d464c04ef07f4d1c3e53c2af5e3afd9685e129f83",
+    "n_caracteres": 7698,
+    "n_palabras": 1274,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G018",
+    "intervencion_id": "RPM-2008-12-11:2252:1",
+    "meeting_id": "RPM-2008-12-11",
+    "actor": "Jorge Desormeaux Jiménez",
+    "fecha": "2008-12-11",
+    "sha256_texto": "849383f19fa3cef5c0d47f610504532105307142ed32269eaea543cff774bcf5",
+    "n_caracteres": 5850,
+    "n_palabras": 939,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      1
+    ],
+    "folds_potencialmente_permitidos": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G019",
+    "intervencion_id": "RPM-2011-12-13:4506:1",
+    "meeting_id": "RPM-2011-12-13",
+    "actor": "Beltrán de Ramón Acevedo",
+    "fecha": "2011-12-13",
+    "sha256_texto": "2b813834fd3b5bbbc1eb910405c39bc8e0c6081bf49001f82a323dbf4884df2c",
+    "n_caracteres": 2318,
+    "n_palabras": 405,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "decision_o_recomendacion",
+      "mantencion_con_sesgo"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "incorporado_a_train": false
+  },
+  {
+    "caso_id": "G020",
+    "intervencion_id": "RPM-2013-06-13:5634:3",
+    "meeting_id": "RPM-2013-06-13",
+    "actor": "Consejo del Banco Central de Chile",
+    "fecha": "2013-06-13",
+    "sha256_texto": "3a732e1f123f810478a8d0b8e084a15aebccf3c3415dcdac27681e65c71a763c",
+    "n_caracteres": 1985,
+    "n_palabras": 304,
+    "canal_busqueda": "D",
+    "motivos_busqueda": [
+      "acuerdo_institucional"
+    ],
+    "estado": "pendiente_lectura_ia",
+    "etiqueta": null,
+    "folds_prohibidos": [
+      4
+    ],
+    "folds_potencialmente_permitidos": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "incorporado_a_train": false
+  }
+]

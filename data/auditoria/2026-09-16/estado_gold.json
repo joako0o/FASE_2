@@ -1,0 +1,105 @@
+{
+  "fecha_corte": "2026-09-16",
+  "fecha_ejecucion": "2026-09-16",
+  "version_codebook": "v2",
+  "training": {
+    "corpus_filas": 9725,
+    "corpus_reuniones": 132,
+    "corpus_actores": 55,
+    "archivos_validados": 19,
+    "etiquetas_ia": 1352,
+    "distribucion": {
+      "neutral": 1147,
+      "hawkish": 116,
+      "dovish": 89
+    },
+    "irrelevantes": 269,
+    "duplicados": 0
+  },
+  "gold": {
+    "archivo": "gold_ciego_300_listo.xlsx",
+    "sha256": "320a06c6acbcd8191a4e867cc4fd212de61a6bac9adac82624d3f838fb05eb06",
+    "filas": 306,
+    "ids_unicos": true,
+    "mismo_orden": true,
+    "columnas_completadas": {
+      "etiqueta": 306,
+      "confianza": 306,
+      "es_relevante": 306,
+      "nota": 306,
+      "frase_justificante": 306
+    },
+    "distribucion": {
+      "neutral": 225,
+      "hawkish": 49,
+      "dovish": 32
+    },
+    "confianza": {
+      "alta": 273,
+      "media": 33
+    },
+    "relevancia": {
+      "1": 265,
+      "0": 41
+    },
+    "cambios_columnas_no_editables": {
+      "orden": 0,
+      "fecha_reunion": 0,
+      "actor": 0,
+      "cargo": 0,
+      "texto": 0,
+      "metodo": 0,
+      "ronda": 0,
+      "version_codebook": 0,
+      "fecha": 306,
+      "etiquetador": 0
+    },
+    "filas_con_incidencias": 86,
+    "problemas": {
+      "frase no verbatim": 85,
+      "frase excede 300 caracteres": 1
+    },
+    "incidencias_por_clase": {
+      "neutral": 57,
+      "hawkish": 23,
+      "dovish": 6
+    },
+    "fechas": {
+      "min": "2026-09-15 00:00:00",
+      "max": "2027-07-17 00:00:00",
+      "futuras": 304,
+      "invalidas": 0,
+      "incremento_diario_en_orden": true
+    },
+    "solape_ids_training": 0,
+    "reuniones_gold": 115,
+    "reuniones_compartidas_training": 115,
+    "etiquetas_en_canonico": 0
+  },
+  "baseline": {
+    "filas_desalineadas": 1340,
+    "reuniones_en_varios_folds_guardados": 119,
+    "macro_f1_guardado_recalculado": 0.3510959479683709,
+    "diagnostico_realineado": {
+      "accuracy": 0.9038461538461539,
+      "macro_f1": 0.7173378809309293,
+      "f1_por_clase": {
+        "hawkish": 0.6819923371647509,
+        "dovish": 0.5081081081081081,
+        "neutral": 0.9619131975199291
+      }
+    },
+    "reproduccion_ejecutada": true,
+    "advertencia": "No usar macroF1 0,3511 como piso válido. Corregir script 15 y regenerar artefactos antes de fijar metas. GroupKFold no es evaluación temporal prospectiva.",
+    "predicciones_reproducidas_identicas": true,
+    "scores_reproducidos_identicos": true
+  },
+  "entorno": {
+    "python": "3.11.2",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6",
+    "openpyxl": "3.1.5",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.17.1"
+  }
+}

@@ -1,71 +1,63 @@
-# Instrucciones para el etiquetado gold ciego (~300 intervenciones)
+# Gold recibido: validación y correcciones pendientes
 
-Este instrumento valida el etiquetado automático de la tesis: tú etiquetas
-306 intervenciones **sin ver las etiquetas de la IA** y luego comparamos
-(kappa de Cohen). Es un test puro: ninguna de estas intervenciones está en el
-training set de 1.025.
+## Archivos vigentes
 
-## Archivo
+- **Original devuelto:** `gold_ciego_300_listo.xlsx`. Se conserva intacto.
+- **Marco canónico congelado:** `data/muestras/gold_ciego_300.csv` (306 IDs y textos). Sus respuestas vacías son intencionales; no se rellena ni regenera a mano.
+- **Citas pendientes:** `data/auditoria/2026-09-16/incidencias_gold.csv` (86 filas, incluye orden y fila Excel).
+- **Control actual de citas y fechas:** `data/auditoria/2026-09-16/incidencias_gold_actual.csv` (una fila por incidencia; puede haber varias por intervención).
 
-**`data/muestras/gold_ciego_300.xlsx`** — ábrelo directo en Excel/LibreOffice.
-Hoja `etiquetar`: 306 filas en orden aleatorio (no por fecha ni actor), con
-las 5 columnas a llenar resaltadas en amarillo y desplegables para
-`etiqueta`, `confianza` y `es_relevante`. Hoja `LEEME`: guía mínima.
-Devuelve este mismo `.xlsx` llenado (acepta guardados a medias).
+Las plantillas vacías XLSX/CSV alternativo y sus generadores fueron eliminados tras recibir las respuestas. No hay que volver a rellenar el instrumento desde cero.
 
-> **¿Por qué no el `.csv` canónico?** `gold_ciego_300.csv` es UTF-8 válido
-> con separador coma, pero Excel en español lo abre como ANSI con `;`: las
-> tildes salen mojibake, todo cae en una columna y 13 textos con saltos de
-> línea internos quiebran las filas. Por eso el instrumento de trabajo es
-> el `.xlsx` (se regenera con `python scripts/preparar_gold_xlsx.py`).
-> Alternativa CSV si lo prefieres: `gold_ciego_300_limpio.csv` (UTF-8 con
-> BOM, separador `;`, filas de una sola línea; se regenera con
-> `python scripts/preparar_gold_limpio.py`). Al terminar, reintegra tus 5
-> columnas al formato canónico con
-> `python scripts/fusionar_gold_llenado.py data/muestras/gold_ciego_300.xlsx`
-> (el script también acepta el `.csv` limpio llenado; valida dominios,
-> nota obligatoria con `es_relevante=0` y frase verbatim).
-> El canónico nunca se edita a mano.
+## Evaluación de clases ya realizada
 
-## Columnas que debes llenar (una por fila)
+TF-IDF ya se evaluó contra estas 306 decisiones, después de seleccionar hiperparámetros solo con IA y guardar las predicciones en un proceso sin abrir las respuestas humanas: 260 coincidencias, accuracy 0,8497, macro-F1 0,6775 y κ 0,6458. Ver [informe](EVALUACION_TFIDF_GOLD.md).
 
-| columna | qué anotar |
+La evaluación de clases no fuerza la importación documental ni modifica citas: estas siguen pendientes. No corregir etiquetas para concordar con el modelo. Si las respuestas se revisan sustantivamente, preservar esta versión y reportar el cambio; el test ya se examinó.
+
+## Estado de la devolución
+
+Las 306 filas tienen etiqueta, confianza, relevancia, nota y frase. La importación sigue bloqueada por 85 citas no literales y una cita de 334 caracteres. La columna `fecha` recorre diariamente desde 2026-09-15 hasta 2027-07-17, compatible con autorrelleno. **El usuario confirmó posteriormente que todas las anotaciones fueron el 2026-09-16**; usar esa fecha explícita al importar, sin sobrescribir el libro original. `fecha_reunion` está intacta.
+
+## Procedencia confirmada por el anotador
+
+El usuario declaró que decidió las etiquetas y luego consultó a una IA si estaba de acuerdo y por qué. Confirmó que **mantuvo todas sus etiquetas**. Reportar: «Etiquetado humano inicial con revisión posterior de IA, sin cambios en las etiquetas según declaración del anotador».
+
+Esto permite conservar sus decisiones como referencia humana con esa salvedad; no acredita un protocolo completamente ciego ni autoría humana independiente de notas/citas/confianza. No se han auditado registros de las decisiones previas. Declaración y hash del original: [procedencia_gold.json](../data/auditoria/2026-09-16/procedencia_gold.json).
+
+## Reglas para corregir sin alterar la referencia humana
+
+1. Guardar una **nueva versión** del libro, sin reemplazar el original recibido.
+2. Reemplazar las citas afectadas por fragmentos contiguos **copiados literalmente** del texto, hasta 300 caracteres. No unir fragmentos con `...`; preservar incluso errores OCR. La comparación solo normaliza espacios.
+3. No cambiar silenciosamente etiquetas ni confianza para hacerlas coincidir con IA. Si una decisión humana cambia, registrar la revisión del anotador por separado.
+4. Mantener IDs, orden, textos, actores, cargos y demás metadatos originales. Se permite reordenar filas, no modificar su campo `orden`.
+5. Registrar fecha real de anotación en formato `AAAA-MM-DD`. Si el anotador confirma una única fecha para todas las respuestas, puede proporcionarse explícitamente al importador; no se infiere del autorrelleno.
+6. Incluir la procedencia declarada arriba al reportar κ; la contraparte IA de evaluación sí debe generarse sin acceso a las respuestas humanas.
+
+## Dominios vigentes
+
+| Campo | Regla |
 |---|---|
-| `etiqueta` | `hawkish` / `dovish` / `neutral` (minúsculas, sin tilde) |
-| `confianza` | `alta` o `media` (qué tan seguro estás de tu etiqueta) |
-| `es_relevante` | `1` normalmente; `0` solo si es pura logística (suspensión, apertura de sesión, lista de asistentes, agradecimientos) |
-| `nota` | breve, obligatoria si `es_relevante=0`; opcional en el resto |
-| `frase_justificante` | **verbatim** del texto (copiar-pegar, máx. 300 caracteres) que justifica tu etiqueta; recomendada siempre, obligatoria en hawkish/dovish |
+| `etiqueta` | hawkish / dovish / neutral |
+| `confianza` | alta / media en el instrumento humano |
+| `es_relevante` | 0 / 1 |
+| `nota` | Obligatoria si relevancia 0 |
+| `frase_justificante` | Obligatoria en **todos los relevantes**, incluidos neutral (R10); si se aporta en irrelevantes también debe ser literal |
+| `fecha` | Fecha real, válida y no futura |
 
-No modifiques las demás columnas (`orden`, `intervencion_id`, `metodo`,
-`ronda`, etc.).
+Relevancia 0 implica neutral; diagnóstico económico puede ser relevante 1 y neutral. El criterio de postura está en el [codebook v2](codebook_v2.md). Las [convenciones históricas](CONVENCIONES_ETIQUETADO.md) documentan cómo se produjo el training, no autorizan cambiar el gold retrospectivamente.
 
-## Criterio (resumen del codebook v2)
+## Comandos
 
-- **hawkish**: favorece o justifica política **más restrictiva** de lo que está
-  sobre la mesa: subir la TPM, subirla más o antes, restringir, o mantener una
-  postura restrictiva cuando el menú dominante apunta a relajar. El ancla es
-  **relativa**: lo relevante es la posición frente al menú de opciones del
-  momento, no un umbral absoluto de TPM.
-- **dovish**: lo simétrico hacia lo expansivo (bajar, pausar un ciclo de
-  alzas, mantener en el mínimo, ampliar estímulo).
-- **neutral**: análisis de datos sin posición de política monetaria, diagnóstico
-  descriptivo, o intervenciones logísticas. Cuando dudes entre una clase y
-  neutral, pregunta: ¿el texto argumenta *dirección* de política o solo
-  *describe*? Describir ("la inflación subió") no es halcón; lo halcón es
-  convertirlo en razón para restringir.
-- Los votos explícitos mandan: "voto por subir 25 pb" es hawkish claro.
-  Presentar un **menú de opciones sin recomendación** (staff) es neutral aunque
-  las opciones sean hawkish.
-- Si `es_relevante=0`, igual deja `etiqueta=neutral` y explica en `nota`.
+```bash
+# Solo valida: no escribe ni altera fuentes.
+~/venvs/fase2/bin/python scripts/fusionar_gold_llenado.py gold_ciego_300_listo.xlsx --validar --fecha-anotacion 2026-09-16
 
-## Reglas prácticas
+# Después de corregir las citas: salida NUEVA con la fecha confirmada.
+~/venvs/fase2/bin/python scripts/fusionar_gold_llenado.py ruta/al/gold_corregido.xlsx \
+  --fecha-anotacion 2026-09-16 --salida data/muestras/gold_ciego_300_llenado.csv
+```
 
-- Cada intervención se evalúa **de forma autónoma**: no uses recuerdos de otras
-  reuniones ni lo que creas que piensa ese consejero.
-- La `frase_justificante` debe estar contenida literalmente en el texto (el
-  validador la verificará).
-- No busques las etiquetas de la IA: el ejercicio pierde valor si no es ciego.
-- No hay apuro: conviene hacerlo en sesiones de ~30-40 intervenciones.
+`--fecha-anotacion AAAA-MM-DD` solo se usa con una fecha confirmada por el anotador. `--permitir-parcial` permite una devolución incompleta sin errores en las filas llenadas. No existe `--forzar`; el importador rechaza sobrescrituras y genera un manifiesto `.provenance.json` con hashes y fecha de importación.
 
-Al terminar, avísame y corro el kappa y las curvas de acuerdo por clase.
+La salida es un **instrumento validado**, no el esquema L1 con probabilidades. Para κ basta emparejar clases por ID; no inventar probabilidades humanas. La contraparte TF-IDF ya se obtuvo en un proceso sin acceso a respuestas humanas. Una anotación adicional de IA conversacional sería un control opcional diferente, no un requisito pendiente de este examen.

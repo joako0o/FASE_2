@@ -1,0 +1,34 @@
+{
+  "model_id": "dccuchile/bert-base-spanish-wwm-cased",
+  "revision": "c4d86612f51b4f46759c8390d1798c2febe71b93",
+  "fuente": "https://huggingface.co/api/models/dccuchile/bert-base-spanish-wwm-cased/tree/c4d86612f51b4f46759c8390d1798c2febe71b93?recursive=true",
+  "captura": "Metadatos obtenidos mediante fetch_page; transcripción de los campos necesarios, no descarga de los archivos. Se exige comprobar cada archivo descargado contra su hash antes de usarlo.",
+  "archivos": {
+    "config.json": {
+      "bytes": 648,
+      "git_blob": "9e42f95fc65cf9cf35e7b01be8ec822841c7a5b8"
+    },
+    "vocab.txt": {
+      "bytes": 241796,
+      "git_blob": "65bd352c100c06ab3f3e3fe42ff947bb3e13bf04"
+    },
+    "tokenizer.json": {
+      "bytes": 480199,
+      "git_blob": "12aeef334c4acc5e166ba4114c98169fce1b129c"
+    },
+    "tokenizer_config.json": {
+      "bytes": 364,
+      "git_blob": "212a9fe190f6255e1018d39367b5fb9b333c201a"
+    },
+    "special_tokens_map.json": {
+      "bytes": 134,
+      "git_blob": "6c656089013662905ae065b8e4003eea6e4f83e7"
+    },
+    "pytorch_model.bin": {
+      "bytes": 439621341,
+      "sha256": "e131a95091c777bbd45250fb647fec415010cb8cd1ad6e1d59babeb82a0be360"
+    }
+  },
+  "safetensors_disponible_en_revision": false,
+  "licencia": "Autores declaran intención CC BY 4.0 y advierten compatibilidad no asegurada de los corpus originales; no certificar uso comercial."
+}

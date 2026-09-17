@@ -1,0 +1,21 @@
+{
+  "sha256_insumos": {
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/30_anotaciones_humanas.xlsx": "929cd358f2b8a4b9042c8cf9400bb4034e10e92e13f1c569aa026039d74c9e20",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/recepcion.json": "bd81b8971b0d976e638af5592e22548c5823be4f91cb59eb35cb091c716d9a24",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/comparacion/desacuerdos.csv": "ab4a2ab73ece282b192579028eb02c15368a481acf179c9284292c969dd50fde",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/comparacion/manifest.json": "2740206465f60484c920ffd1cfa0cb8ee33e7fe2dc83e482cd2feab0412d870b",
+    "docs/codebook_v2.md": "a0d12dcb3b7dc951440cd015f92ba9960e0ca222f1df2c4250b5dbce83ffbf42",
+    "docs/LECTURA_DISCREPANCIAS_REVISION_30.md": "3b87e1ed6032d364155beae39fcb7e90d5cd9c394ebdd8feec2872eebfa51ad7"
+  },
+  "sha256_salidas": {
+    "propuestas.json": "3f1e234807f7a7bf07cfe5c4fe091ab67ef44189762280a3e6dae0a557d433b2",
+    "docs/PROPUESTA_SEIS_DISCREPANCIAS_30_V1.md": "0ce5de37586adec49adbddf450357679d546d72f6ab846b8a912aedc9d4ac399"
+  },
+  "controles": {
+    "casos": 6,
+    "citas_literales_espacios_normalizados": 7,
+    "citas_hasta_300": 7,
+    "archivos_previos_devolucion_y_codebook_intactos": 9,
+    "ninguna_propuesta_confirmada_o_aplicada": true
+  }
+}

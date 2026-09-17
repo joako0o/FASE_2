@@ -1,0 +1,22 @@
+{
+  "fecha_verificacion_utc": "2026-09-16T03:36:59.753695+00:00",
+  "metodo": "Reejecución completa scripts 18 y 19, sin cambiar rejilla ni respuestas, en directorio temporal eliminado al terminar.",
+  "csv_identicos_byte_a_byte": {
+    "validacion_cv.csv": "e05af15b3d0e75bcbaf90aaabfe4ab27ccd4a5f7478e58a6264c545c3128dc25",
+    "validacion_folds.csv": "9f35c5efd8c21bbfb75684eb0d09ba43094afa4443173d4bd93306398e10a70e",
+    "asignacion_folds.csv": "5cb95b5c75c1bf7defcfd921405138406079ffb91655b9dddcae9b7b05e5dcab",
+    "predicciones_gold.csv": "41178be18272991fae67ff3b15851b7d744bc99b5233342723bad2c003d204d1",
+    "comparacion_gold.csv": "a32437dfdf4ea852d3ceb842b12e756460ade79909c0d4c60b96aca9eed90feb"
+  },
+  "secciones_metricas_identicas": [
+    "principal",
+    "siempre_neutral",
+    "sin_textos_repetidos_training",
+    "por_senal_decision",
+    "por_fase",
+    "relevancia",
+    "solape",
+    "documentacion"
+  ],
+  "configuracion_no_reajustada_tras_test": true
+}

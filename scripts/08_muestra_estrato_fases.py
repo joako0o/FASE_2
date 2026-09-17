@@ -32,30 +32,22 @@
 
 import glob
 import pandas as pd
+from utilidades import exigir_salidas_nuevas, asignar_tandas
 import config as C
 
-SEMILLA = 20260915
+SEMILLA = C.SEED_MAESTRA
 CUOTA_FASE = 42            # intervenciones por fase (9 fases * 42 = 378)
 TANDA_INICIAL = 5          # la tanda 4 cierra el bloque cronológico 2005
 
 # Fases del ciclo de política monetaria, derivadas de data/L2/macro_por_reunion.csv
 # (transiciones policy_decision; el límite es la fecha de la reunión RPM).
-# (nombre, inicio, fin, descripción)
-FASES = [
-    ("2006_alza_fin",       "2005-07-13", "2006-12-31", "alzas finales del ciclo hasta 5,25%"),
-    ("2007_mixto",          "2007-01-01", "2007-12-31", "baja de enero y cuatro alzas en el semestre 2"),
-    ("2008_crisis_alza",    "2008-01-01", "2008-12-31", "alzas hasta 7,75% en pleno shock inflacionario"),
-    ("2009_bajas",          "2009-01-01", "2009-12-31", "siete bajas agresivas hasta piso 0,5%"),
-    ("2010_alza_emergencia","2010-01-01", "2010-12-31", "salida de la tasa de emergencia hasta 3,0%"),
-    ("2011_alza",           "2011-01-01", "2011-12-31", "alzas hasta 5,0% y pausa en el semestre 2"),
-    ("2012_13_mantiene",    "2012-01-01", "2013-09-30", "mantención prolongada (salvo baja ene-2012)"),
-    ("2013_14_bajas",       "2013-10-01", "2014-12-31", "ciclo de bajas hasta 3,0%"),
-    ("2015_quiebre",        "2015-01-01", "2015-12-31", "mantención 9 meses y primeras alzas del nuevo ciclo"),
-]
+# (nombre, inicio, fin), centralizado en config.
+FASES = [f for f in C.FASES_TPM if f[0] != "2005_alzas"]
 
-CARGA_DANADA = {"flag_texto_danado", "flag_cotejo"}
 
 def main():
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(C.RUTA_MUESTRAS / "estrato_fases.csv", C.RUTA_MUESTRAS / "estrato_fases_resumen.csv")
     uni = pd.read_csv(C.RUTA_MUESTRAS / "escalado_tandas.csv", parse_dates=["fecha"])
     uni = uni[uni.tanda >= TANDA_INICIAL].copy()
 
@@ -65,7 +57,7 @@ def main():
     assert not uni.flag_texto_danado.astype(bool).any(), "el universo de escalado no admite texto dañado"
 
     partes = []
-    for nombre, ini, fin, _ in FASES:
+    for nombre, ini, fin in FASES:
         cand = uni[(uni.fecha >= ini) & (uni.fecha <= fin)]
         n = min(CUOTA_FASE, len(cand))
         sel = cand.sample(n=n, random_state=SEMILLA).assign(fase=nombre)
@@ -79,13 +71,8 @@ def main():
     muestra = (muestra.sample(frac=1, random_state=SEMILLA + 1)
                       .assign(orden_f=lambda d: d.fase.map(orden_fase))
                       .sort_values("orden_f", kind="stable"))
-    tandas, tanda, acum = [], TANDA_INICIAL, 0
-    for palabras in muestra.largo_palabras:
-        if acum + palabras > C.PRESUPUESTO_PALABRAS_TANDA and acum > 0:
-            tanda, acum = tanda + 1, 0
-        tandas.append(tanda)
-        acum += palabras
-    muestra["tanda"] = tandas
+    muestra["tanda"] = asignar_tandas(muestra.largo_palabras, C.PRESUPUESTO_PALABRAS_TANDA, TANDA_INICIAL)
+    tanda = int(muestra.tanda.max())
 
     out = muestra.drop(columns=["orden_f"])
     out.to_csv(C.RUTA_MUESTRAS / "estrato_fases.csv", index=False)
@@ -95,11 +82,8 @@ def main():
                        desde=("fecha", "min"), hasta=("fecha", "max")))
     resumen.to_csv(C.RUTA_MUESTRAS / "estrato_fases_resumen.csv", index=False)
 
-    etiquetadas_ya = len(ya) + 52   # 52 = tanda 4 cronológica (pendiente de etiquetar)
-    total_proy = etiquetadas_ya + len(out)
     print(f"\nestrato_fases: {len(out)} intervenciones / {out.largo_palabras.sum():,} palabras "
           f"en tandas {TANDA_INICIAL}-{tanda}")
-    print(f"proyección training set: {total_proy:,} intervenciones (meta ~1.000)")
     print(resumen.to_string(index=False))
 
 if __name__ == "__main__":

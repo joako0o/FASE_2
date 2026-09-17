@@ -1,0 +1,134 @@
+{
+  "version": "adjudicacion_cierre_66_v1",
+  "registrado_utc": "2026-09-16T21:50:37.458370+00:00",
+  "estado": "aprobada_por_investigador",
+  "mensaje_usuario": "corrige las referencias, e ittenta mandar el modelo en tu entorno",
+  "continuacion_usuario": "sigue",
+  "alcance": "Aplicar las 13 propuestas concretas del cierre de 66; los 12 ambiguos no se cambian. Originales y seis adjudicaciones previas se conservan.",
+  "procedencia": "propuestas_agente_aceptadas_tras_revision_post_prediccion",
+  "ayuda_ia": true,
+  "evaluacion_independiente": false,
+  "fecha_registro_no_es_fecha_anotacion_original": true,
+  "confianza_humana": "no_declarada",
+  "fuente_propuestas": "data/auditoria/revision_errores_adjudicada_v1/tanda_4_largos_v1/resultados/revision_consolidada.csv",
+  "sha256_fuente_propuestas": "ec163cd7d7dc128d5987ede1f11661adf2b4d04f89b5d10f491d9217bc169931",
+  "adjudicaciones": [
+    {
+      "caso_revision": "H02",
+      "intervencion_id": "RPM-2006-05-11:674:1",
+      "etiqueta_ia_original": "dovish",
+      "etiqueta_corregida": "hawkish",
+      "sha256_texto": "c9ce46c4cacfa20a9ceb7e0fdfc547565bbf77428938c060add6902124688fee",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "H08",
+      "intervencion_id": "RPM-2008-02-07:1684:1",
+      "etiqueta_ia_original": "dovish",
+      "etiqueta_corregida": "hawkish",
+      "sha256_texto": "a17b0aca10114d90546604942bf347ca1a8d2dcc030f5bae8692e4dcfe73c877",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "H13",
+      "intervencion_id": "RPM-2011-08-18:4280:1",
+      "etiqueta_ia_original": "dovish",
+      "etiqueta_corregida": "neutral",
+      "sha256_texto": "52aaf99f0d4134abb6df0897725b8a119bb85ff2d1d3fcde7c610152e24b022d",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_2_hd_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "N07",
+      "intervencion_id": "RPM-2005-01-11:39:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "hawkish",
+      "sha256_texto": "1287aaa3350ee8c3ba5cab088ac2a8af0e7c32d26319de0a9d61e6d50b5b4d4a",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_3_neutralidad_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "N16",
+      "intervencion_id": "RPM-2005-03-10:198:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "hawkish",
+      "sha256_texto": "c8d2dedf690bb1e101abb570981d377e26690d9213a084885ed2a21b458ed645",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_3_neutralidad_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "N19",
+      "intervencion_id": "RPM-2015-08-13:6965:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "dovish",
+      "sha256_texto": "2fe2fed24135c473b3990d273f09b85df7497564ef923843c96f584dc6de2576",
+      "confianza_agente": "alta",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_3_neutralidad_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "N21",
+      "intervencion_id": "RPM-2007-05-10:1261:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "hawkish",
+      "sha256_texto": "73906c6c95e18ed132a025cc63f50a6cdd14885b6ffd78ac52864d2573f46e1c",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_3_neutralidad_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "N27",
+      "intervencion_id": "RPM-2005-01-11:5:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "hawkish",
+      "sha256_texto": "3b8b14ab20f39562311eecb73a4ff73db6218e8bf97b9b475dd5bcde570e9737",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_3_neutralidad_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "L02",
+      "intervencion_id": "RPM-2015-06-11:6854:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "dovish",
+      "sha256_texto": "72952d03bd61ce1407f1f3e03d2d91ff05de5b5c7b417c50c62401eeb36a4173",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_4_largos_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "L04",
+      "intervencion_id": "RPM-2005-03-10:178:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "hawkish",
+      "sha256_texto": "8063894ecf313fb608d1fd52ae80cb39e65397c62a0dc7906fc1277f00248ca5",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_4_largos_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "L05",
+      "intervencion_id": "RPM-2013-06-13:5632:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "dovish",
+      "sha256_texto": "0026173ff766fd3aa08e265ac6c8ef17957074e482f4a1125140a72639d2285a",
+      "confianza_agente": "alta",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_4_largos_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "L10",
+      "intervencion_id": "RPM-2008-12-11:2238:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "dovish",
+      "sha256_texto": "c21b7c8a3aa20d17d3c424c6c0ef95ffce1f82c338486296d43076d2a70d2346",
+      "confianza_agente": "alta",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_4_largos_v1/resultados/casos_revisados.json"
+    },
+    {
+      "caso_revision": "L11",
+      "intervencion_id": "RPM-2009-08-13:2681:1",
+      "etiqueta_ia_original": "neutral",
+      "etiqueta_corregida": "dovish",
+      "sha256_texto": "9a328a3a0a0d6e026ceea57c5566651290eabbce11d0ce907a23c678c215c33e",
+      "confianza_agente": "media",
+      "archivo_evidencia": "data/auditoria/revision_errores_adjudicada_v1/tanda_4_largos_v1/resultados/casos_revisados.json"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "n_externos": 100,
+  "n_para_b": 99,
+  "clases_fuente": {
+    "neutral": 41,
+    "dovish": 30,
+    "hawkish": 28,
+    "irrelevant": 1
+  },
+  "anios": {
+    "2018": 13,
+    "2019": 20,
+    "2020": 21,
+    "2021": 17,
+    "2022": 12,
+    "2023": 13,
+    "2024": 4
+  },
+  "duplicados_internos_en_es": 0,
+  "solapes_exactos_ia_en_es": 0,
+  "numeros_signos_porcentajes_preservados": true,
+  "normalizacion_solapes": "Espacios, minúsculas y acentos; no equivalencia semántica.",
+  "test_externo_abierto": false,
+  "otras_semillas_auditadas": false,
+  "traduccion": "Agente IA, no oficial, no ciega; congelada antes del fit.",
+  "fuente": "Captura de columnas de API train 5768, filas 0–99; no descarga binaria Parquet.",
+  "revision_hf_observada": "c1ead3f6011bbc358d3ef94b598238b78b7b45fa"
+}

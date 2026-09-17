@@ -1,0 +1,118 @@
+{
+  "condiciones": {
+    "original": {
+      "media_fold_f1_hd": 0.6914773461832285,
+      "sd_fold_f1_hd": 0.08364747212121898,
+      "media_fold_macro_f1": 0.7835007394857395,
+      "conjunto": {
+        "accuracy": 0.9243379571248423,
+        "macro_f1": 0.7851098582709076,
+        "f1_hawkish": 0.7448275862068966,
+        "f1_dovish": 0.6428571428571429,
+        "f1_neutral": 0.9676448457486833,
+        "recall_hawkish": 0.782608695652174,
+        "recall_dovish": 0.7346938775510204,
+        "recall_neutral": 0.9525925925925925,
+        "precision_hawkish": 0.7105263157894737,
+        "precision_dovish": 0.5714285714285714,
+        "precision_neutral": 0.9831804281345565,
+        "n_hawkish": 69,
+        "n_dovish": 49,
+        "n_neutral": 675,
+        "f1_hd": 0.6938423645320198,
+        "recall_hd_balanceado": 0.7586512866015972,
+        "acierto_sobre_hd": 0.7627118644067796,
+        "n_hd": 118,
+        "errores": 60,
+        "errores_hd": 17,
+        "neutral_a_direccion": 32,
+        "direccion_a_neutral": 11
+      },
+      "matriz_filas_reales_columnas_pred": [
+        [
+          54,
+          7,
+          8
+        ],
+        [
+          10,
+          36,
+          3
+        ],
+        [
+          12,
+          20,
+          643
+        ]
+      ]
+    },
+    "adjudicada": {
+      "media_fold_f1_hd": 0.648821528712833,
+      "sd_fold_f1_hd": 0.06379478969436851,
+      "media_fold_macro_f1": 0.7543110576080306,
+      "conjunto": {
+        "accuracy": 0.9167717528373266,
+        "macro_f1": 0.7551063088184037,
+        "f1_hawkish": 0.7284768211920529,
+        "f1_dovish": 0.5714285714285714,
+        "f1_neutral": 0.9654135338345865,
+        "recall_hawkish": 0.7971014492753623,
+        "recall_dovish": 0.6122448979591837,
+        "recall_neutral": 0.9511111111111111,
+        "precision_hawkish": 0.6707317073170732,
+        "precision_dovish": 0.5357142857142857,
+        "precision_neutral": 0.9801526717557252,
+        "n_hawkish": 69,
+        "n_dovish": 49,
+        "n_neutral": 675,
+        "f1_hd": 0.6499526963103122,
+        "recall_hd_balanceado": 0.704673173617273,
+        "acierto_sobre_hd": 0.7203389830508474,
+        "n_hd": 118,
+        "errores": 66,
+        "errores_hd": 20,
+        "neutral_a_direccion": 33,
+        "direccion_a_neutral": 13
+      },
+      "matriz_filas_reales_columnas_pred": [
+        [
+          55,
+          6,
+          8
+        ],
+        [
+          14,
+          30,
+          5
+        ],
+        [
+          13,
+          20,
+          642
+        ]
+      ]
+    }
+  },
+  "orden_clases": [
+    "hawkish",
+    "dovish",
+    "neutral"
+  ],
+  "delta_f1_hd_medio": -0.042655817470395506,
+  "deltas_f1_hd_por_fold": {
+    "1": 0.0026515151515151825,
+    "2": -0.0892857142857143,
+    "3": -0.04877899877899883,
+    "4": -0.0426927292656194,
+    "5": -0.03517316017316019
+  },
+  "folds_mejora": 1,
+  "predicciones_finales_distintas": 9,
+  "errores_corregidos": 1,
+  "errores_nuevos": 7,
+  "interpretacion": "Desarrollo IA reutilizado; no evidencia de mejora humana ni evaluación BETO.",
+  "entrenamiento_canonico_modificado": false,
+  "modelo_persistido": false,
+  "beto_ejecutado": false,
+  "examen_306_abierto": false
+}

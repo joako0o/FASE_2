@@ -1,0 +1,14 @@
+{
+  "fecha_prediccion_utc": "2026-09-16T03:33:58.559091+00:00",
+  "n_train": 1352,
+  "n_predicciones": 306,
+  "sha256_predicciones": "41178be18272991fae67ff3b15851b7d744bc99b5233342723bad2c003d204d1",
+  "sha256_seleccion": "db44e09819b3bc23299d653e7840d13553e12c73bd335c70ea72dc529da8b34f",
+  "sha256_modelo": "a2350b354f4e596c35b5f0de52a3fb271f0e9f327e617be4e5d8d67c9a4fe464",
+  "modelo_local_no_versionado": "/home/user/FASE_2/modelos/tfidf_gold_v1.joblib",
+  "respuestas_humanas_leidas": false,
+  "textos_repetidos_training": 12,
+  "reuniones_gold": 115,
+  "reuniones_gold_en_training": 115,
+  "probabilidades": "Etapa B tras máscara dura A; no calibradas. A=0 implica neutral=1."
+}

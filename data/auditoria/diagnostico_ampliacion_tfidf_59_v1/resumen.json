@@ -1,0 +1,19 @@
+{
+  "casos": 16,
+  "por_grupo": {
+    "error_nuevo": 9,
+    "error_cambia": 4,
+    "corregido": 3
+  },
+  "caracteres_textos_completos": 57722,
+  "contribuciones": 12005,
+  "vecinos": 48,
+  "predicciones_reproducidas_por_condicion": 793,
+  "todas_a_1": true,
+  "identidad_algebraica_verificada": true,
+  "causalidad_demostrada": false,
+  "nuevas_variantes": false,
+  "nuevas_metricas_de_rendimiento": false,
+  "etiquetas_modificadas": false,
+  "modelos_guardados": false
+}

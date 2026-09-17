@@ -1,0 +1,421 @@
+fold,variante,caso_id,fenomeno,texto,etiqueta,pred_a,pred_b,pred
+1,H0_historica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,H0_historica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,H0_historica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+1,H0_historica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+1,H0_historica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+1,H0_historica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+1,H0_historica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+1,H0_historica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,H0_historica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+1,H0_historica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+1,H0_historica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,H0_historica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,H0_historica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,H0_historica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+1,B0_limpia,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B0_limpia,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,B0_limpia,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+1,B0_limpia,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+1,B0_limpia,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+1,B0_limpia,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+1,B0_limpia,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+1,B0_limpia,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,B0_limpia,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+1,B0_limpia,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+1,B0_limpia,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B0_limpia,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B0_limpia,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B0_limpia,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+1,B1_svm,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B1_svm,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,B1_svm,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+1,B1_svm,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+1,B1_svm,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+1,B1_svm,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+1,B1_svm,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+1,B1_svm,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,B1_svm,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+1,B1_svm,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+1,B1_svm,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B1_svm,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B1_svm,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B1_svm,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+1,B2_lr_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B2_lr_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B2_lr_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+1,B2_lr_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+1,B2_lr_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+1,B2_lr_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+1,B2_lr_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+1,B2_lr_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B2_lr_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+1,B2_lr_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+1,B2_lr_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+1,B2_lr_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+1,B2_lr_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B2_lr_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+1,B3_svm_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B3_svm_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B3_svm_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+1,B3_svm_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+1,B3_svm_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+1,B3_svm_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+1,B3_svm_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+1,B3_svm_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B3_svm_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+1,B3_svm_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+1,B3_svm_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B3_svm_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B3_svm_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+1,B3_svm_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+1,B4_jerarquica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B4_jerarquica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,B4_jerarquica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+1,B4_jerarquica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+1,B4_jerarquica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+1,B4_jerarquica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+1,B4_jerarquica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+1,B4_jerarquica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,B4_jerarquica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+1,B4_jerarquica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+1,B4_jerarquica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B4_jerarquica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+1,B4_jerarquica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+1,B4_jerarquica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+2,H0_historica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,H0_historica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,H0_historica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+2,H0_historica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+2,H0_historica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+2,H0_historica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+2,H0_historica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+2,H0_historica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,H0_historica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+2,H0_historica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+2,H0_historica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,H0_historica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,H0_historica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+2,H0_historica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+2,B0_limpia,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B0_limpia,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B0_limpia,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+2,B0_limpia,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+2,B0_limpia,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+2,B0_limpia,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+2,B0_limpia,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+2,B0_limpia,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B0_limpia,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+2,B0_limpia,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+2,B0_limpia,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B0_limpia,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B0_limpia,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+2,B0_limpia,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+2,B1_svm,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B1_svm,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B1_svm,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+2,B1_svm,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+2,B1_svm,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+2,B1_svm,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+2,B1_svm,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+2,B1_svm,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B1_svm,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+2,B1_svm,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+2,B1_svm,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B1_svm,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B1_svm,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B1_svm,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+2,B2_lr_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B2_lr_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+2,B2_lr_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+2,B2_lr_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+2,B2_lr_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+2,B2_lr_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+2,B2_lr_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+2,B2_lr_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+2,B2_lr_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+2,B2_lr_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+2,B2_lr_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+2,B2_lr_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B2_lr_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+2,B2_lr_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+2,B3_svm_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B3_svm_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B3_svm_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+2,B3_svm_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+2,B3_svm_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+2,B3_svm_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+2,B3_svm_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+2,B3_svm_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+2,B3_svm_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+2,B3_svm_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+2,B3_svm_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B3_svm_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B3_svm_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+2,B3_svm_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+2,B4_jerarquica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B4_jerarquica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B4_jerarquica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+2,B4_jerarquica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+2,B4_jerarquica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+2,B4_jerarquica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+2,B4_jerarquica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+2,B4_jerarquica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B4_jerarquica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+2,B4_jerarquica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+2,B4_jerarquica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B4_jerarquica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+2,B4_jerarquica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+2,B4_jerarquica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+3,H0_historica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,H0_historica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,H0_historica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+3,H0_historica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+3,H0_historica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+3,H0_historica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+3,H0_historica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+3,H0_historica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,H0_historica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+3,H0_historica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+3,H0_historica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,H0_historica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,H0_historica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,H0_historica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+3,B0_limpia,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B0_limpia,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,B0_limpia,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+3,B0_limpia,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+3,B0_limpia,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+3,B0_limpia,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+3,B0_limpia,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+3,B0_limpia,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,B0_limpia,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+3,B0_limpia,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+3,B0_limpia,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B0_limpia,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B0_limpia,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B0_limpia,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+3,B1_svm,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B1_svm,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,B1_svm,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+3,B1_svm,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+3,B1_svm,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+3,B1_svm,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+3,B1_svm,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+3,B1_svm,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,B1_svm,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+3,B1_svm,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+3,B1_svm,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B1_svm,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B1_svm,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B1_svm,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+3,B2_lr_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B2_lr_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B2_lr_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+3,B2_lr_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+3,B2_lr_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+3,B2_lr_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+3,B2_lr_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+3,B2_lr_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B2_lr_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+3,B2_lr_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+3,B2_lr_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+3,B2_lr_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+3,B2_lr_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B2_lr_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+3,B3_svm_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B3_svm_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B3_svm_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+3,B3_svm_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+3,B3_svm_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+3,B3_svm_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+3,B3_svm_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+3,B3_svm_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B3_svm_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+3,B3_svm_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+3,B3_svm_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B3_svm_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B3_svm_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B3_svm_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+3,B4_jerarquica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B4_jerarquica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,B4_jerarquica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+3,B4_jerarquica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+3,B4_jerarquica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+3,B4_jerarquica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+3,B4_jerarquica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+3,B4_jerarquica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+3,B4_jerarquica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+3,B4_jerarquica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+3,B4_jerarquica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B4_jerarquica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+3,B4_jerarquica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+3,B4_jerarquica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+4,H0_historica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,H0_historica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,H0_historica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+4,H0_historica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+4,H0_historica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+4,H0_historica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+4,H0_historica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+4,H0_historica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,H0_historica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+4,H0_historica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+4,H0_historica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,H0_historica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,H0_historica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,H0_historica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+4,B0_limpia,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B0_limpia,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,B0_limpia,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+4,B0_limpia,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+4,B0_limpia,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+4,B0_limpia,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+4,B0_limpia,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+4,B0_limpia,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,B0_limpia,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+4,B0_limpia,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+4,B0_limpia,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B0_limpia,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B0_limpia,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B0_limpia,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+4,B1_svm,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B1_svm,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,B1_svm,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+4,B1_svm,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+4,B1_svm,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+4,B1_svm,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+4,B1_svm,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+4,B1_svm,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,B1_svm,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+4,B1_svm,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+4,B1_svm,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B1_svm,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B1_svm,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B1_svm,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+4,B2_lr_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+4,B2_lr_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B2_lr_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+4,B2_lr_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+4,B2_lr_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+4,B2_lr_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+4,B2_lr_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+4,B2_lr_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B2_lr_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+4,B2_lr_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+4,B2_lr_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+4,B2_lr_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+4,B2_lr_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B2_lr_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+4,B3_svm_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B3_svm_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B3_svm_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+4,B3_svm_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+4,B3_svm_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+4,B3_svm_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+4,B3_svm_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+4,B3_svm_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B3_svm_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+4,B3_svm_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+4,B3_svm_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+4,B3_svm_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B3_svm_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+4,B3_svm_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+4,B4_jerarquica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B4_jerarquica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,B4_jerarquica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+4,B4_jerarquica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+4,B4_jerarquica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+4,B4_jerarquica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+4,B4_jerarquica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+4,B4_jerarquica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,B4_jerarquica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+4,B4_jerarquica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+4,B4_jerarquica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B4_jerarquica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+4,B4_jerarquica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+4,B4_jerarquica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+5,H0_historica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,H0_historica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+5,H0_historica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+5,H0_historica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+5,H0_historica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+5,H0_historica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+5,H0_historica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+5,H0_historica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,H0_historica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+5,H0_historica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+5,H0_historica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,H0_historica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,H0_historica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,H0_historica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+5,B0_limpia,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B0_limpia,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+5,B0_limpia,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+5,B0_limpia,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+5,B0_limpia,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+5,B0_limpia,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+5,B0_limpia,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+5,B0_limpia,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B0_limpia,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+5,B0_limpia,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+5,B0_limpia,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B0_limpia,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B0_limpia,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B0_limpia,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+5,B1_svm,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B1_svm,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+5,B1_svm,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+5,B1_svm,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+5,B1_svm,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+5,B1_svm,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+5,B1_svm,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+5,B1_svm,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,dovish,dovish
+5,B1_svm,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+5,B1_svm,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+5,B1_svm,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B1_svm,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B1_svm,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B1_svm,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+5,B2_lr_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B2_lr_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B2_lr_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+5,B2_lr_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+5,B2_lr_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+5,B2_lr_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+5,B2_lr_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+5,B2_lr_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B2_lr_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+5,B2_lr_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+5,B2_lr_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+5,B2_lr_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,neutral,neutral
+5,B2_lr_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B2_lr_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+5,B3_svm_mixta,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B3_svm_mixta,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,dovish,dovish
+5,B3_svm_mixta,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+5,B3_svm_mixta,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+5,B3_svm_mixta,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+5,B3_svm_mixta,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+5,B3_svm_mixta,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,neutral,neutral
+5,B3_svm_mixta,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B3_svm_mixta,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+5,B3_svm_mixta,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+5,B3_svm_mixta,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B3_svm_mixta,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B3_svm_mixta,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B3_svm_mixta,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral
+5,B4_jerarquica,alza,accion,Propongo subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B4_jerarquica,baja,accion,Propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+5,B4_jerarquica,rechazo_baja,negacion,Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.,hawkish,1,neutral,neutral
+5,B4_jerarquica,objeto,objeto,Propongo reducir el estímulo monetario mediante un aumento de la TPM.,hawkish,1,neutral,neutral
+5,B4_jerarquica,menu,menu,Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.,neutral,1,neutral,neutral
+5,B4_jerarquica,condicional,condicion,"Si persiste la inflación, sería necesario subir la TPM.",hawkish,1,neutral,neutral
+5,B4_jerarquica,contrafactual,tiempo,Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.,dovish,1,dovish,dovish
+5,B4_jerarquica,extranjero,atribucion,La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.,dovish,1,hawkish,hawkish
+5,B4_jerarquica,decimal_coma,numeros,"Mi opción es reducir la TPM desde 5,25% a 5% anual.",dovish,1,neutral,neutral
+5,B4_jerarquica,decimal_punto,numeros,Mi opción es reducir la TPM desde 5.25% a 5% anual.,dovish,1,neutral,neutral
+5,B4_jerarquica,nombre_uno,nombre,Pérez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B4_jerarquica,nombre_dos,nombre,Gómez propone subir la TPM en 25 puntos base.,hawkish,1,hawkish,hawkish
+5,B4_jerarquica,conclusion,longitud,Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.,dovish,1,neutral,neutral
+5,B4_jerarquica,mantener_sesgo,sesgo,"Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",hawkish,1,neutral,neutral

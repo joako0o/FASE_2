@@ -1,0 +1,219 @@
+{
+  "version": "tanda_3_neutralidad_v1",
+  "autor": "agente",
+  "seleccion": "30 pendientes más cortos, ordenados por longitud del texto completo y después ID; permite ampliar cobertura, no es muestreo representativo.",
+  "procedimiento": "Lectura completa de 72.911 caracteres con etiquetas/citas IA y predicciones conocidas. Juicios del agente, sin adjudicación humana nueva.",
+  "cambios_aplicados": false,
+  "lecturas": [
+    {
+      "intervencion_id": "RPM-2008-03-13:1737:2",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "hawkish", "confianza_revision": "alta",
+      "citas_agente": ["mantiene su votación consistente en subir la Tasa de Política Monetaria a 6,50%."],
+      "lectura": "Mantiene su voto, no la tasa: el voto consiste en subir. H está explícita en un texto de 132 caracteres; el neutral del modelo no se justifica por falta de dirección.",
+      "limite_y_accion": "No se infiere la causa léxica del error; conservar H. No necesita completar el contexto de la intervención anterior para identificar la dirección."
+    },
+    {
+      "intervencion_id": "RPM-2005-01-11:56:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "hawkish", "confianza_revision": "alta",
+      "citas_agente": ["Se acuerda aumentar la tasa de interés de política monetaria a 2,5% anual."],
+      "lectura": "Decisión institucional explícita de aumentar la TPM. Mantener los tramos de una línea de liquidez no revoca el alza de la tasa de política.",
+      "limite_y_accion": "Conservar H. El texto es breve y no meramente administrativo; no confundir instrumentos distintos."
+    },
+    {
+      "intervencion_id": "RPM-2013-08-13:5748:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "media",
+      "citas_agente": ["por razones de prudencia, se inclina finalmente por la opción de mantener la Tasa de Política Monetaria en su actual nivel de 5% anual"],
+      "lectura": "Solo registra mantener y conservar el tenor previo del comunicado. La intervención no explicita cuál era ese sesgo ni adopta una dirección futura.",
+      "limite_y_accion": "Conservar N en la unidad disponible. No heredar una postura de comunicados o intervenciones que aquí no se reproducen; prudencia no equivale por sí sola a D."
+    },
+    {
+      "intervencion_id": "RPM-2013-03-14:5443:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["parece prudente mantener la tasa de política monetaria en su nivel actual, validando las expectativas del mercado."],
+      "lectura": "Propone mantener y observar incertidumbres internacionales. No pide estímulo adicional, recorte ni rechazo de una trayectoria alcista concreta.",
+      "limite_y_accion": "Conservar N: riesgo externo y cautela no bastan para D sin conexión con una dirección doméstica."
+    },
+    {
+      "intervencion_id": "RPM-2005-01-11:46:1",
+      "estado_revision": "ambigua", "postura_sugerida_agente": null, "confianza_revision": "baja",
+      "citas_agente": ["apoyan la posibilidad de poder adelantar en algo ese ajuste y dejar la pausa para el período posterior."],
+      "lectura": "Respalda adelantar un ajuste, pero el fragmento autónomo no dice qué tasa, desde qué nivel ni en qué dirección. H es plausible si el ajuste referido es un alza; esa premisa no se explicita aquí.",
+      "limite_y_accion": "No trasladar automáticamente el contenido de otra intervención por la referencia a este tema. N conservadora es posible si no se resuelve el antecedente; no se cambia la etiqueta."
+    },
+    {
+      "intervencion_id": "RPM-2014-07-15:6325:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "dovish", "confianza_revision": "alta",
+      "citas_agente": ["se ha incorporado un sesgo negativo en la política monetaria. En su opinión, hay que mantener este mensaje en tanto no se tenga certeza de lo contrario."],
+      "lectura": "Hace suyo mantener el sesgo negativo de política, no solo describe una cifra económica. D se apoya en ese respaldo y en la debilidad de actividad/demanda.",
+      "limite_y_accion": "Conservar D. Mantener un mensaje direccional no significa una postura neutral ni un recorte ejecutado hoy."
+    },
+    {
+      "intervencion_id": "RPM-2005-01-11:39:1",
+      "estado_revision": "referencia_cuestionable", "postura_sugerida_agente": "hawkish", "confianza_revision": "media",
+      "citas_agente": ["una eventual mantención de la tasa de política monetaria podría reafirmar una percepción errónea de que se persigue una normalización más lenta del estímulo monetario"],
+      "lectura": "Propongo revisar N hacia H: evalúa negativamente la señal de pausar y considera acotados los efectos de un alza de 25 puntos. Hay respaldo argumentado a no retrasar la normalización, no solo un menú descriptivo.",
+      "limite_y_accion": "La preferencia es implícita y táctica, no un voto. Requiere confirmación humana; no se convierte en acierto nuevo del modelo por coincidir con su H."
+    },
+    {
+      "intervencion_id": "RPM-2007-03-15:1149:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "dovish", "confianza_revision": "media",
+      "citas_agente": ["se está en un escenario que es absolutamente simétrico, y que técnicamente estamos por debajo."],
+      "lectura": "Contrasta el entusiasmo por subir si la inflación estuviera sobre la meta con la situación real por debajo y reclama simetría. Es un argumento a favor de responder al déficit inflacionario, coherente con D; las alzas son parte del contrafactual.",
+      "limite_y_accion": "La inferencia es argumentativa, no un voto explícito de recorte. Conservar D con confianza media; la frase sobre simetría aislada no bastaría sin el texto completo."
+    },
+    {
+      "intervencion_id": "RPM-2015-12-17:7207:1",
+      "estado_revision": "ambigua", "postura_sugerida_agente": null, "confianza_revision": "baja",
+      "citas_agente": ["incluso en ese escenario parece razonable llevar la tasa de política a 3,5%, tal como se recomienda en la minuta de opciones."],
+      "lectura": "Respalda un nivel de llegada, pero esta intervención no explicita la tasa de partida ni dice subir o bajar. H requiere conocer que llevarla a 3,5% es un aumento; ese dato no está en la unidad.",
+      "limite_y_accion": "No importar el alza explícita de otra intervención de Naudon en la misma reunión. Hay postura sobre un nivel, pero la dirección no se resuelve con el número aislado. No corregir automáticamente a N."
+    },
+    {
+      "intervencion_id": "RPM-2012-04-17:4790:2",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["Cambios futuros en la TPM dependerán de las implicancias de las condiciones macroeconómicas internas y externas sobre las perspectivas inflacionarias."],
+      "lectura": "Acuerda mantener y condiciona movimientos futuros sin signo. El diagnóstico combina debilidad externa, actividad local e inflación; no define un sesgo doméstico único.",
+      "limite_y_accion": "Conservar N. Ser un acuerdo institucional lo hace relevante, no necesariamente H o D."
+    },
+    {
+      "intervencion_id": "RPM-2007-02-08:1102:1",
+      "estado_revision": "ambigua", "postura_sugerida_agente": null, "confianza_revision": "baja",
+      "citas_agente": ["aunque con un aumento en el riesgo inflacionario hacen que la opción de política de mantener la tasa de política monetaria sea la más apropiada.", "El Comunicado debiese ser en un lenguaje neutral parecido al de enero"],
+      "lectura": "La preocupación inflacionaria dominante puede sostener H, pero la acción es mantener y deja el curso futuro para otra discusión. La nota IA dice mantener contra recorte, aunque esa alternativa no aparece expresamente en el texto.",
+      "limite_y_accion": "No usar la nota del anotador como evidencia que el texto no proporciona. Distinguir riesgo inflacionario, postura monetaria y lenguaje del comunicado; N es alternativa conservadora, no corrección adjudicada."
+    },
+    {
+      "intervencion_id": "RPM-2015-10-15:7097:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "media",
+      "citas_agente": ["se deberá evaluar si su magnitud es la adecuada en el contexto actual."],
+      "lectura": "Valora positivamente la expansividad y explica sus efectos, pero deja abierta la evaluación de su magnitud. No recomienda mantener ese grado, ampliarlo ni reducirlo; el diagnóstico de nivel no fija dirección.",
+      "limite_y_accion": "Conservar N con cautela: elogiar el estímulo puede sugerir una inclinación D débil, pero no hay compromiso como sostener una tasa mínima por un plazo. La decisión de opciones aún no se desarrolla en esta intervención."
+    },
+    {
+      "intervencion_id": "RPM-2005-03-10:190:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "hawkish", "confianza_revision": "alta",
+      "citas_agente": ["cree que es bueno ir soltando el pie del acelerador, como una medida de cautela."],
+      "lectura": "Conecta una TPM por debajo de la neutral y aceleración del gasto con la conveniencia de retirar impulso. La metáfora contiene recomendación, no solo diagnóstico de tasa expansiva.",
+      "limite_y_accion": "Conservar H. La cita IA sobre el nivel expansivo es literal, pero la recomendación final fundamenta mejor la dirección."
+    },
+    {
+      "intervencion_id": "RPM-2006-10-12:941:1",
+      "estado_revision": "ambigua", "postura_sugerida_agente": null, "confianza_revision": "baja",
+      "citas_agente": ["no hay razones para subir ni para bajar la tasa de política monetaria.", "lo más probable es que luego eliminemos el sesgo, pero preferiría que esto se realizara cuando se confirme la caída del precio del petróleo."],
+      "lectura": "La decisión inmediata es equilibrada, pero anticipa eliminar el sesgo más adelante mientras considera prematuro hacerlo ahora. N recoge la espera; D puede recoger la dirección de la revisión futura.",
+      "limite_y_accion": "A diferencia de la petición explícita de Velasco de cambiar ya el sesgo, aquí la fecha/confirmación importa y se mantiene la tensión. No elijo una etiqueta definitiva ni ignoro el contenido futuro."
+    },
+    {
+      "intervencion_id": "RPM-2007-05-10:1261:2",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["Cambios futuros en la TPM para lograr este objetivo dependerán de la nueva información que se acumule y de sus implicancias sobre la inflación proyectada."],
+      "lectura": "Mantiene la tasa y deja abiertos los movimientos futuros, sin adoptar una dirección. Actividad vigorosa y algunos precios altos no equivalen automáticamente a recomendar endurecimiento.",
+      "limite_y_accion": "Conservar N. No trasladar al comunicado la trayectoria que menciona Corbo en una intervención distinta."
+    },
+    {
+      "intervencion_id": "RPM-2005-03-10:198:1",
+      "estado_revision": "referencia_cuestionable", "postura_sugerida_agente": "hawkish", "confianza_revision": "media",
+      "citas_agente": ["siguen validando la estrategia de retiro pausado del estímulo monetario, al no introducir presiones adicionales."],
+      "lectura": "Propongo N→H: Ovalle respalda la normalización y el retiro pausado del estímulo. Mantiene tras dos alzas para ejecutar gradualmente esa trayectoria, no para abandonarla. Es coherente con el criterio aplicado a R12.",
+      "limite_y_accion": "La cita IA solo recoge el voto de mantener. La lectura H incluye el resto de la intervención; es propuesta pendiente, no una regla que convierta toda pausa en H."
+    },
+    {
+      "intervencion_id": "RPM-2015-06-11:6857:2",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "media",
+      "citas_agente": ["mantener la tasa y el sesgo."],
+      "lectura": "Propone mantener, pero no identifica el signo de ese sesgo en esta unidad. Las alzas internacionales y los riesgos chinos no expresan por sí solos una dirección para la TPM chilena.",
+      "limite_y_accion": "Conservar N bajo la evidencia disponible. No inferir la dirección del sesgo leyendo otra intervención o el comunicado externo a esta unidad."
+    },
+    {
+      "intervencion_id": "RPM-2007-01-11:1049:3",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "dovish", "confianza_revision": "alta",
+      "citas_agente": ["lo llevan a considerar positivamente la opción de un recorte de la tasa de política monetaria para esta reunión."],
+      "lectura": "Respalda recortar por baja inflación y brechas, y argumenta por hacerlo pronto. Staff que recomienda una dirección no se clasifica N solo por ser staff.",
+      "limite_y_accion": "La fuente tiene una unión defectuosa en otro tramo; no se reconstruye. Las recomendaciones legibles de recorte son reiteradas y suficientes para sostener D."
+    },
+    {
+      "intervencion_id": "RPM-2015-08-13:6965:1",
+      "estado_revision": "referencia_cuestionable", "postura_sugerida_agente": "dovish", "confianza_revision": "alta",
+      "citas_agente": ["la opción de subir la tasa es confusa y se justificaría únicamente en un contexto de desanclaje, que hoy no está presente."],
+      "lectura": "Propongo N→D: rechaza fundamentadamente considerar un alza en la coyuntura actual. No se limita a describir riesgos o repetir opciones. La lectura cuestiona tanto el N de la referencia como el H del modelo.",
+      "limite_y_accion": "No pide recortar; D se apoya en oposición a endurecer, como en otros casos aceptados. La frase sobre desanclaje no se interpreta como recomendación de subir si él dice que esa condición no existe. Pendiente de aceptación humana."
+    },
+    {
+      "intervencion_id": "RPM-2015-06-11:6856:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["nada sugiere que debamos tener una desviación de la TPM implícita respecto de la estrategia del IPoM."],
+      "lectura": "Sostiene mantener, sin explicitar una dirección futura de la estrategia referida. Pide monitorear datos y no extraer conclusiones de una sorpresa puntual. Las alzas de la Fed son de otra autoridad.",
+      "limite_y_accion": "Conservar N; debilidad económica no basta para D sin recomendación de estímulo o trayectoria doméstica revelada."
+    },
+    {
+      "intervencion_id": "RPM-2007-05-10:1261:1",
+      "estado_revision": "referencia_cuestionable", "postura_sugerida_agente": "hawkish", "confianza_revision": "media",
+      "citas_agente": ["con un alza moderada en la Tasa de Política Monetaria a partir de sus valores actuales."],
+      "lectura": "Propongo N→H: conecta la convergencia de inflación con un alza moderada futura, aunque mantenga hoy. La dirección de la trayectoria está expresada, a diferencia de una mera referencia al IPoM sin signo.",
+      "limite_y_accion": "Se presenta como escenario de proyección sujeto a validación, no alza inmediata ni certeza irrevocable. Es una propuesta interpretativa pendiente; no se extiende al comunicado separado de esa reunión."
+    },
+    {
+      "intervencion_id": "RPM-2015-05-14:6804:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["lo recomendable en estas circunstancias es reafirmar la idea de estabilidad en un horizonte de corto plazo."],
+      "lectura": "Recomienda estabilidad y considera difíciles de sustentar otras opciones. La revisión posterior de proyecciones queda abierta, sin dirección; mantener el sesgo no revela aquí su signo.",
+      "limite_y_accion": "Conservar N. No equiparar estabilidad a estímulo adicional ni asumir que 3% es una tasa mínima por comparación con otras reuniones."
+    },
+    {
+      "intervencion_id": "RPM-2007-03-15:1167:1",
+      "estado_revision": "ambigua", "postura_sugerida_agente": null, "confianza_revision": "baja",
+      "citas_agente": ["un sesgo al alza a las proyecciones de inflación del escenario central", "antes de decidir si es aconsejable retomar el curso de política, considerado como más probable en enero"],
+      "lectura": "La preocupación inflacionaria puede sostener H por dominancia, pero la cita es un sesgo de inflación, no una recomendación de alza de TPM. Mantiene y deja pendiente retomar un curso cuya dirección no explicita.",
+      "limite_y_accion": "La tensión entre diagnóstico y postura no se resuelve contando riesgos al alza. N es una alternativa; no se atribuye un recorte o alza al curso de enero usando información de otra unidad."
+    },
+    {
+      "intervencion_id": "RPM-2007-05-10:1260:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "media",
+      "citas_agente": ["se observan antecedentes que pueden generar tanto aumentos de la inflación, como disminuciones"],
+      "lectura": "Justifica mantener por antecedentes contrapuestos. Valora haber quitado el sesgo a la baja, pero también contempla nuevas presiones desinflacionarias. La conclusión no adopta una dirección única.",
+      "limite_y_accion": "Conservar N por balance, no por el verbo mantener aislado. No convertir la mención de un antiguo aumento de impulso en una recomendación D vigente."
+    },
+    {
+      "intervencion_id": "RPM-2012-11-13:5217:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["la Tasa de Política Monetaria se ubica en una posición que se debe considerar como neutral y el balance de riesgos se mantiene equilibrado"],
+      "lectura": "Propone conservar una tasa que juzga neutral con riesgos equilibrados. El texto sí fundamenta ausencia de dirección dominante, pese a incertidumbres y fortaleza interna.",
+      "limite_y_accion": "Conservar N. No es una regla de coincidencia con la palabra neutral: el balance y la recomendación de no cambiar respaldan la lectura."
+    },
+    {
+      "intervencion_id": "RPM-2006-07-13:774:1",
+      "estado_revision": "ambigua", "postura_sugerida_agente": null, "confianza_revision": "baja",
+      "citas_agente": ["cree que es mejor mantener la tasa de política monetaria.", "cree que hay buenas razones tácticas para subir la tasa en esta oportunidad."],
+      "lectura": "Los fundamentos macro favorecen mantener, mientras las razones tácticas favorecen subir y preservar la normalización. El cierre contiene una formulación difícil sobre hacerlo ahora y preferir esperar; no la simplifico a una preferencia inequívoca.",
+      "limite_y_accion": "N es defendible por tensión; H puede apoyarse en el argumento táctico. No reconstruir por intuición la redacción ni etiquetar como puramente descriptivo un texto que sí evalúa ambas opciones."
+    },
+    {
+      "intervencion_id": "RPM-2005-01-11:5:1",
+      "estado_revision": "referencia_cuestionable", "postura_sugerida_agente": "hawkish", "confianza_revision": "media",
+      "citas_agente": ["el Consejo estima que ello permite continuar con un ritmo pausado de normalización de la política monetaria", "una trayectoria para la tasa de política monetaria que aumenta a un ritmo levemente mayor que la implícita en los precios de activos"],
+      "lectura": "Propongo N→H: el texto no solo describe inflación, también presenta continuidad de normalización y una trayectoria de TPM ascendente. La cita IA sobre riesgos de inflación omite esa parte monetaria.",
+      "limite_y_accion": "Parte es supuesto de proyección y el respaldo se atribuye al Consejo. La propuesta caracteriza la postura expresada en el texto, no inventa un voto personal del gerente; la distinción exposición/respaldo debe confirmarse."
+    },
+    {
+      "intervencion_id": "RPM-2012-11-13:5215:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["lo más adecuado es mantener la Tasa de Política Monetaria en 5% anual y el tenor del Comunicado."],
+      "lectura": "Analiza demanda fuerte, inflación contenida y explicaciones alternativas, y recomienda mantener. No vincula el diagnóstico con una dirección futura doméstica inequívoca.",
+      "limite_y_accion": "Conservar N. Las incertidumbres externas no bastan para convertir su evaluación equilibrada en D."
+    },
+    {
+      "intervencion_id": "RPM-2012-09-13:5089:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "neutral", "confianza_revision": "alta",
+      "citas_agente": ["los riesgos provenientes del escenario externo están compensados por aquellos que provienen del escenario interno, lo que refuerza la conveniencia de no introducir cambios."],
+      "lectura": "Explica la mantención por una posición monetaria neutral y compensación de riesgos. Las medidas de bancos centrales extranjeros no son una recomendación propia de aflojar la política doméstica.",
+      "limite_y_accion": "Conservar N. Hay pequeños defectos de transcripción en el diagnóstico, pero la conclusión es legible y no se reconstruye texto."
+    },
+    {
+      "intervencion_id": "RPM-2010-08-12:3337:1",
+      "estado_revision": "referencia_respaldada", "postura_sugerida_agente": "hawkish", "confianza_revision": "media",
+      "citas_agente": ["lo más adecuado sería continuar con el proceso paulatino y gradual de normalización de la política monetaria."],
+      "lectura": "La conclusión adopta la normalización monetaria gradual en el contexto de recuperación; no se limita a informar inflación y riesgos. H es defendible como continuidad del retiro gradual de estímulo, sin acelerar bruscamente.",
+      "limite_y_accion": "Es una señal menos directa que un voto de subir: no fija magnitud ni tasa de partida. Conservar H con confianza media; no usar normalización como palabra que garantice H en cualquier contexto."
+    }
+  ]
+}

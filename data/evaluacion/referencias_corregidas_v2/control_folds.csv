@@ -1,0 +1,6 @@
+fold,n_train,n_val,correcciones_nuevas_en_train,referencias_corregidas_en_val
+1,1178,158,9,4
+2,1178,159,13,0
+3,1178,159,9,4
+4,1183,159,9,4
+5,1183,158,12,1

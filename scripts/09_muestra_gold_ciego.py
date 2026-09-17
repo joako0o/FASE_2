@@ -37,10 +37,11 @@
 import glob
 
 import pandas as pd
+from utilidades import exigir_salidas_nuevas
 
 import config as C
 
-SEMILLA = 20260916
+SEMILLA = C.SEED_MAESTRA + 1
 CUOTA_FASE = 34                 # 9 fases * 34 = 306 intervenciones
 FRACCION_DECISION = 2 / 3       # 23 con señal + 11 generales por fase
 
@@ -56,6 +57,8 @@ COLUMNAS = ["orden", "intervencion_id", "fecha_reunion", "actor", "cargo",
 
 
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(C.RUTA_MUESTRAS / "gold_ciego_300.csv", C.RUTA_MUESTRAS / "gold_ciego_300_resumen.csv")
     uni = pd.read_csv(C.RUTA_MUESTRAS / "escalado_tandas.csv", parse_dates=["fecha"])
 
     # exclusión dura: cualquier intervención ya etiquetada (training set)

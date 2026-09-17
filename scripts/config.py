@@ -21,7 +21,6 @@ RUTA_EXCEL_MACRO = RUTA_REPO / "consolidado_macro.xlsx"  # descarga local del us
 RUTA_DATOS = RUTA_REPO / "data"
 RUTA_L0 = RUTA_DATOS / "L0"                 # corpus inmutable derivado del Excel
 RUTA_L2 = RUTA_DATOS / "L2"                 # macro, votos, metadata de actores
-RUTA_L2_RAW = RUTA_L2 / "raw"               # JSON crudos descargados de las APIs
 RUTA_MUESTRAS = RUTA_DATOS / "muestras"     # muestras piloto y test-retest
 RUTA_ETIQUETAS = RUTA_DATOS / "etiquetas"   # corridas de etiquetado (append-only)
 
@@ -29,8 +28,6 @@ RUTA_ETIQUETAS = RUTA_DATOS / "etiquetas"   # corridas de etiquetado (append-onl
 # Parametros del corpus
 # -----------------------------------------------------------------------------
 HOJA_TRANSCRIPCION = "Transcripción"  # hoja de datos del Excel consolidado (con tilde)
-ANIO_MIN = 2005
-ANIO_MAX = 2015
 N_REUNIONES_ESPERADAS = 132           # 12 reuniones al año x 11 años
 N_INTERVENCIONES_ESPERADAS = 9725
 
@@ -86,14 +83,3 @@ CARGOS_CONSEJO = (
 # Cargo del staff que presenta la minuta de opciones de politica monetaria
 # (recomendacion del equipo tecnico): pool secundario de enriquecimiento.
 CARGOS_OPCIONES = ("Gerente de División Estudios", "Gerente de División Estudios (S)")
-
-# -----------------------------------------------------------------------------
-# Fuente de datos macroeconomicos
-# -----------------------------------------------------------------------------
-# mindicador.cl: API REST gratuita, sin clave, con series diarias/mensuales
-# desde 2001 a la fecha (TPM, IPC, IMACEC, tasa de desempleo, entre otras).
-URL_MINDICADOR = "https://mindicador.cl/api"
-INDICADORES_DESCARGA = ["tpm", "ipc", "imacec", "tasa_desempleo"]
-
-USER_AGENT_HTTP = "Mozilla/5.0 (proyecto-DyH; uso academico)"
-TIMEOUT_HTTP_SEG = 20

@@ -1,0 +1,266 @@
+{
+  "version": "clasificadores_hd_v1",
+  "fecha_preparacion_utc": "2026-09-16T05:48:01.645875+00:00",
+  "sha256_insumos": {
+    "data/L0/corpus.csv": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "requirements.txt": "7e7352e97e8aee967b509fa3dbbefd6322b569e975517ab97f437414454fb795",
+    "docs/codebook_v2.md": "a0d12dcb3b7dc951440cd015f92ba9960e0ca222f1df2c4250b5dbce83ffbf42",
+    "scripts/lexico_ngramas.py": "6c6a4c00e10bec5db7dad30ec00e3ea6f6fda50959ec8b8768c4b8138e9e6285",
+    "scripts/20_extraer_ngramas.py": "465f820952584e244011dbfc7f35453e76c54fc00d6f3b65fb4e4280db8927a7",
+    "data/etiquetas/etiquetas_escalado_r10.csv": "e874c0bf3ce934c629f87e1b76ef924fbc0a838edd591533353cb7c4b2f13494",
+    "data/etiquetas/etiquetas_escalado_r11.csv": "301c8657c3cd0f6d9b11aefb200cc15f774e09d6a377805339d1758042f955e8",
+    "data/etiquetas/etiquetas_escalado_r12.csv": "4f04199dbf32036e5064652296fc4b5a3065b7844686e6d21459cef7109dfe86",
+    "data/etiquetas/etiquetas_escalado_r13.csv": "ce2a8811e733e2a4dcfaa72e97888fcc3cabbf833ac34310cc1b0226d4c05315",
+    "data/etiquetas/etiquetas_escalado_r14.csv": "52c5fa86a8c4f671ff791cde1fe792e60eae205c801b65f71c3430a455eb7bb4",
+    "data/etiquetas/etiquetas_escalado_r15.csv": "5668c965de7d92a41adce6b8c4235ba516b1b81b03d3ae168043e5ff8d6e5557",
+    "data/etiquetas/etiquetas_escalado_r16.csv": "59527108a0f6699f95d30468b46441abea2ef050aea1a5656113879e7cb1e904",
+    "data/etiquetas/etiquetas_escalado_r17.csv": "c2746dbbb9d926a44bd377cbda45a2bb5676bc5f690c5196e865a926cc007318",
+    "data/etiquetas/etiquetas_escalado_r5.csv": "e4a842c27f42bd81755c49e07b69c9b998e71f4e5de8fdefeb45112c1af82d90",
+    "data/etiquetas/etiquetas_escalado_r6.csv": "98af2b27952bd3cf07079bd81ad3a4e8599d14c08e73e7b70b4e7fe426bb7f40",
+    "data/etiquetas/etiquetas_escalado_r7.csv": "6ef49be8531d1e6a4727a1af64bf6a93d2af18e52783ab26b019cb12b64a4b76",
+    "data/etiquetas/etiquetas_escalado_r8.csv": "a11947b75d93e2ee69340c1bf3a143d3e88fb64c42f8e5fa3a09174a6a0784aa",
+    "data/etiquetas/etiquetas_escalado_r9.csv": "0b200f872b48415dad5f0369106dde8672003a36c7c6927242df88b4cf990738",
+    "data/etiquetas/etiquetas_piloto_r1.csv": "4e2992c0e7f58e2af11fc34d988a6f2bd970f514da4e21fee8a13fd4c6ce85b4",
+    "data/etiquetas/etiquetas_piloto_r2.csv": "29583b95fd5c0f0d59bf60a710199bdae582699becc93335242f0d691cf8a37d",
+    "data/etiquetas/etiquetas_piloto_r3.csv": "b90ca0145e7c04fc65cd9b1c5269a50400f7745bc54610be46b10b95187adbec",
+    "data/etiquetas/etiquetas_piloto_r4.csv": "527105bd4490eaf247edf60cd3c570c18bd06a0b37622c82447dd3fa9ee295d0",
+    "data/etiquetas/etiquetas_r13_tanda09.csv": "bbd7ea0e7ec3940da47ed09e31ac7c2de8e2b38c1b65c3add75da119a7d63ab3",
+    "data/etiquetas/etiquetas_r14_tanda10.csv": "46d1554510606c663c3379cd66e7a8cc042d1612f959772d795764758aefcf9a",
+    "scripts/15_baseline_tfidf.py": "6200d3a41d5be882985bc19be661f1294ab641f2e81736d59a3f88913d39f401",
+    "scripts/18_seleccionar_tfidf.py": "4e16c2e09d3a9e72317b5b1904695b2f8a853df0a72c8ef7b87f8955e5591d12",
+    "scripts/utilidades.py": "d09fb63d19187af65cd81294638993ee9bd0ac31b111025898584903573d18c9",
+    "scripts/config.py": "c6b9afe82ed5d508a110686abae8ef40b3decb645885607239614109ad1685db",
+    "data/muestras/piloto_300_tandas.csv": "7a1784cfd5f4a87ad10928ac4809030a2f9492243cb515233a70bad342cca421",
+    "data/muestras/escalado_tandas.csv": "394acad47606a27f639d8eee54a4419965d8229ba5b68f7610d72005aea50b7a",
+    "data/muestras/gold_ciego_300.csv": "209750d54fa26b4a81d776bafad06df8a4c21d6130d998f81b9761cf1d4ae681",
+    "scripts/01_excel_a_capa_l0.py": "daf23a732127293738db75401b5b105deecb71ace72d094c78dcbc2529e109c8",
+    "scripts/auditoria_datos.py": "793af10f3ee7d09e2872a4c12bbdd5cc8be54b7fb144b5303579b97d6c6276e8",
+    "scripts/03_muestra_piloto.py": "51d70e93ba5da45e1ca310132d4b7f29ca6c6c1ed4eee31bbc10ca30de168693",
+    "scripts/04_tandas_por_presupuesto.py": "911a00cb8bd8c9172db05314b51ad0a9402bbef21be4fecf7684baa34d6a69e7",
+    "scripts/05_validar_etiquetas.py": "9611a4545040465da44dd102c248aefd67fd37a594977397760bebd9e2e09d82",
+    "scripts/06_tandas_escalado.py": "70f0a4ba362d278cd70039b07c7b2aa3082e7946f952188176b20df61550f13e",
+    "scripts/07_macro_desde_excel.py": "96f9ac71fa1ff76e12b97c8e631430d1c9f912db116765320c8ea4dbd5e3268f",
+    "scripts/08_muestra_estrato_fases.py": "1c1c13c64f8bac5b733e52121537ac38879c92ca7bc1ebb9dbf875757d6ba9c5",
+    "scripts/09_muestra_gold_ciego.py": "3bfecb6a1bc5f170b09c8387ba0a01ed38cd0efae5dd838b3e7af05b7e10fae4",
+    "scripts/10_muestra_enriquecida.py": "cc9a616bfa1f9152caeb07a3586c5445ed72ea46164b7f11c128c799f77ce596",
+    "scripts/10_muestra_tanda9_stance.py": "5fc8881f7d95f7e7ee9da40f4a8cba9dc93fc84dcd59037fd0dc9903255445e0",
+    "scripts/16_validacion_serie_stance.py": "57670ace381ec5a336142a4d5c863fc0e9e0c52d3d2044c84cf8577826e6998c",
+    "scripts/fusionar_gold_llenado.py": "bc0b0c78fea0a6934f52ffb3ae2b2985e23106600837a1f21f8779f2c7e80bf8",
+    "scripts/19_evaluar_tfidf_gold.py": "58631e95fec68d21c81c3e81827e4f6bce6d35df376bf11abe3d51b8176b3bc7",
+    "scripts/17_auditar_estado_gold.py": "dc34dcdb216daf841ffc2e374446451a497f88bc11c7bba002e205df30609c5b",
+    "scripts/02_metadata_actores.py": "3b9303df58fbb5283ca6a0c0e02895074c6b1d532f709f9a9a8024d4702027a3",
+    "scripts/21_evaluar_lexico.py": "a557accebe220b23c228fae0b35eecbdb417529aa1291f1b14d729a3691a4155",
+    "scripts/22_seleccionar_longitud_ngramas.py": "9b4ba8db08f4fc32310fd42e4f412aee4b16a1d9f961b978737cebf91bf4b097",
+    "scripts/23_diagnosticar_influencias.py": "fad21576a703292921566b14eba85919de3a87e599f297a91aafb801791fa4ba",
+    "scripts/representaciones_contextuales.py": "b48a3fad34118ced22a26f70754b08de205e763cc423cc7903daf1814d4b2dad",
+    "scripts/24_evaluar_hibrido_contextual.py": "81ac3b795924ce0a20bc0ee385efe9bfdc3f553750450e86ad11b112cf6fccf6",
+    "scripts/25_evaluar_wcb_piloto.py": "bc8400e7e2ca24f173c3607447463d7985aaa38f83d1369480b512c266d1d13a",
+    "scripts/26_comparar_clasificadores_hd.py": "277c0a6f49f64f57053ba31f50a7939a243bff0efd8db464e2377add6f11f582",
+    "docs/PROTOCOLO_CLASIFICADORES_HD_V1.md": "28359b5df554c76a940341b1f8b6ec92df512cedc64bd32e8b4ef1e343a1416e",
+    "tests/test_clasificadores_hd.py": "3231af5c8b196bec2b294ee2c7b0c4de55b012ec82f5c790b8287086b84ecb9b",
+    "data/evaluacion/longitud_ngramas_v1/predicciones_validacion.csv": "13c03f3ce43665adc209cdcd34e62baedabdd6ed3081c8b5ea9501e55b60c32b",
+    "modelos/tfidf_gold_v1.joblib": "a2350b354f4e596c35b5f0de52a3fb271f0e9f327e617be4e5d8d67c9a4fe464",
+    "consolidado_D&H.xlsx": "48432c39615239fa42f491c486d7a788b8a2c07ba2e705c8e0906a3b476b1e6d",
+    "consolidado_macro.xlsx": "b2a3ebb0292696cbcc24e6ddb3a929fbb1ee8f7f73be032c88d3de19c754d94e",
+    "data/L0/eda_intervenciones_por_anio.csv": "105ace4bfbd0407cd2dd7dae99f0d9c8eaf2394a227b4a56ec1753653dfca6e4",
+    "data/L0/eda_intervenciones_por_topico.csv": "f35f4edf128c095b701bb92cb065b23d58ac655a5850c2f5e84ffd9e8070fc1e",
+    "data/L0/eda_top_actores.csv": "42f2a0ab8b4f58c1b27f6a83470086e0c641c41aa01a3b76bdfa48714dc92f20",
+    "data/muestras/escalado_tandas_resumen.csv": "20fc4ff1f8dc9186a126051404b37a0ed24035dca169ce1da7ff9b40d272fb76",
+    "data/muestras/estrato_enriquecido.csv": "22e53da03b2dd3cc11747e68b6f9b91b0cad215bc65c7a78b0599a7fb9305d05",
+    "data/muestras/estrato_enriquecido_resumen.csv": "92ead88e1d1284d8c9eacb7ef10cb10147e6de1774eb053c3c2e7f5fc445664f",
+    "data/muestras/estrato_fases.csv": "da249cde42139f5c6476cdb680731ed56647e31a553c34e021ba8ce4a6a21e90",
+    "data/muestras/estrato_fases_resumen.csv": "38ac43b17810cf7fe1787136c410bee70dd83b1a1565184e1ffe4b5282b61255",
+    "data/muestras/estrato_tanda9.csv": "e19b3bc47577d044852b24417916b845e0c05e5bfe3cdaa06d2b3fe0d55df384",
+    "data/muestras/estrato_tanda9_resumen.csv": "5b4d6157b5c7d5e39ca10f8ec80bc3b083a7008638b548adcacf89b0d5896885",
+    "data/muestras/gold_ciego_300_resumen.csv": "8cab869f7a057fadbb887195506c4dd704d4529a1127215b75b0ea1dbf84123b",
+    "data/muestras/piloto_300.csv": "315d209d6e901ad01d71525359ae59c85f60bb8ea3fc45da1bd4b6d1cf8bdf81",
+    "data/muestras/piloto_300_estratos.csv": "becc8082eed554c9c80386f25f0a8e7e9ba0140105d2d9b45f1d1d210b7bf776",
+    "data/muestras/tandas_resumen.csv": "ebcb94aa0c7bfc8cb89db6d2183cfa7d27058d3006783737585b42abf926de6c",
+    "data/muestras/test_retest_30.csv": "92bb41d114f71fafda9c7a2207115241afdaf088555107dc1683ff752a1b6c7b",
+    "gold_ciego_300_listo.xlsx": "320a06c6acbcd8191a4e867cc4fd212de61a6bac9adac82624d3f838fb05eb06"
+  },
+  "sha256_particiones": {
+    "asignacion_folds.csv": "f452acabbc6befa62493c2a34141d83aa5da055d95e29756a911ddcb8ca61d92",
+    "exclusiones_train.csv": "5eda650fc3006a681f6d9509ec7b25e34d77e7cb2ef2a51c40ae76e9e4f44426",
+    "auditoria_folds.csv": "4edd38441a8db4fe4e99af96ae5cee46492fa3de1d490ee897a003ff7fbcff2b"
+  },
+  "variantes": [
+    "H0_historica",
+    "B0_limpia",
+    "B1_svm",
+    "B2_lr_mixta",
+    "B3_svm_mixta",
+    "B4_jerarquica"
+  ],
+  "candidatas": [
+    "B0_limpia",
+    "B1_svm",
+    "B2_lr_mixta",
+    "B3_svm_mixta",
+    "B4_jerarquica"
+  ],
+  "tolerancias": {
+    "delta_hd": 0.02,
+    "folds_mejora": 3,
+    "perdida_macro": 0.005,
+    "perdida_recall": 0.02,
+    "perdida_conductual": 0.05
+  },
+  "metrica_principal": "Media por fold de (F1_H + F1_D)/2, sobre todas las filas.",
+  "parametros_palabras": {
+    "strip_accents": "unicode",
+    "lowercase": true,
+    "ngram_range": [
+      1,
+      4
+    ],
+    "min_df": 3,
+    "max_df": 0.9,
+    "sublinear_tf": true
+  },
+  "parametros_caracteres": {
+    "strip_accents": "unicode",
+    "lowercase": true,
+    "ngram_range": [
+      3,
+      5
+    ],
+    "min_df": 3,
+    "max_df": 0.9,
+    "sublinear_tf": true,
+    "analyzer": "char_wb",
+    "max_features": 50000
+  },
+  "parametros_lr": {
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "random_state": 20260915,
+    "C": 2.0
+  },
+  "parametros_svm": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "loss": "squared_hinge",
+    "penalty": "l2",
+    "dual": "auto",
+    "max_iter": 10000,
+    "tol": 0.0001,
+    "random_state": 20260915
+  },
+  "bateria_conocida": [
+    [
+      "alza",
+      "accion",
+      "Propongo subir la TPM en 25 puntos base.",
+      "hawkish"
+    ],
+    [
+      "baja",
+      "accion",
+      "Propongo bajar la TPM en 25 puntos base.",
+      "dovish"
+    ],
+    [
+      "rechazo_baja",
+      "negacion",
+      "Rechazo bajar la TPM porque aumentan los riesgos inflacionarios.",
+      "hawkish"
+    ],
+    [
+      "objeto",
+      "objeto",
+      "Propongo reducir el estímulo monetario mediante un aumento de la TPM.",
+      "hawkish"
+    ],
+    [
+      "menu",
+      "menu",
+      "Las opciones son subir o mantener la TPM. Se presentan sin expresar preferencia por ninguna.",
+      "neutral"
+    ],
+    [
+      "condicional",
+      "condicion",
+      "Si persiste la inflación, sería necesario subir la TPM.",
+      "hawkish"
+    ],
+    [
+      "contrafactual",
+      "tiempo",
+      "Habría apoyado subir la TPM si hubiera aumentado la inflación. Eso no ocurrió y mi opción es bajar la tasa de política monetaria.",
+      "dovish"
+    ],
+    [
+      "extranjero",
+      "atribucion",
+      "La Fed elevó su tasa. En Chile propongo bajar la TPM en 25 puntos base.",
+      "dovish"
+    ],
+    [
+      "decimal_coma",
+      "numeros",
+      "Mi opción es reducir la TPM desde 5,25% a 5% anual.",
+      "dovish"
+    ],
+    [
+      "decimal_punto",
+      "numeros",
+      "Mi opción es reducir la TPM desde 5.25% a 5% anual.",
+      "dovish"
+    ],
+    [
+      "nombre_uno",
+      "nombre",
+      "Pérez propone subir la TPM en 25 puntos base.",
+      "hawkish"
+    ],
+    [
+      "nombre_dos",
+      "nombre",
+      "Gómez propone subir la TPM en 25 puntos base.",
+      "hawkish"
+    ],
+    [
+      "conclusion",
+      "longitud",
+      "Se presentó información descriptiva sobre actividad y empleo. Se revisaron las estadísticas del mes. Mi opción es bajar la TPM en 25 puntos base.",
+      "dovish"
+    ],
+    [
+      "mantener_sesgo",
+      "sesgo",
+      "Mi opción es mantener la TPM hoy, conservando un sesgo explícito al alza.",
+      "hawkish"
+    ]
+  ],
+  "pares_invariantes": [
+    [
+      "decimal_coma",
+      "decimal_punto"
+    ],
+    [
+      "nombre_uno",
+      "nombre_dos"
+    ],
+    [
+      "baja",
+      "extranjero"
+    ],
+    [
+      "baja",
+      "conclusion"
+    ]
+  ],
+  "versiones": {
+    "python": "3.11.2",
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.9.1"
+  },
+  "beto_ejecutado": false,
+  "motivo_beto": "Sin pesos locales; petición HF config.json falló TLS EOF; sin GPU.",
+  "gold_abierto_o_predicho": false,
+  "datos_externos_usados": false,
+  "refit_final_o_reemplazo": false
+}

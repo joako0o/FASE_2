@@ -1,0 +1,21 @@
+{
+  "n": 793,
+  "errores_finales": 62,
+  "confusiones_hd": 17,
+  "errores_a": 26,
+  "forzados_neutral_a": 160,
+  "errores_finales_a_cero": 0,
+  "predicciones_iguales_a_seleccion": true,
+  "gold_abierto_o_predicho": false,
+  "hibrido_entrenado": false,
+  "modelo_reemplazado": false,
+  "sha256_salidas": {
+    "aportes_locales.csv": "a70e7d9ea0ed2e5f7dda45b6708586c87d46e28748a533de8077fd8c3da94372",
+    "casos_validacion.csv": "3da2f2ab8bd2c7687e40eeb3ff176fb7c2072de6e2d6a5441e95b3e3e59b5306",
+    "coeficientes_seleccionados.csv": "6a371c31c25340a4585598194a224e33ee0c5d08b748cf6484fbfa61c3ae807d",
+    "estabilidad.csv": "ec15f8c9b446d8957edcf299e26e3a8d06158cd6b0e4d4f28010f62cd83300c3",
+    "margenes.csv": "dbdb24630646bdf6727142adb567e1cb1281207121eae783fc199de8dda63915",
+    "protocolo.json": "6991b7fa415619196b1cb418497b6280a63ee46020d161a01905c122a120156e",
+    "top_global.csv": "b4edc646ab400882ffff1f3fb566e0ce71adc48ed27bf8e0470bc800dec8d8cf"
+  }
+}

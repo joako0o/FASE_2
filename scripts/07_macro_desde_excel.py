@@ -20,6 +20,7 @@ Salvedades conocidas (documentadas en PEN - pendientes_manifest.csv):
   quedan pendientes (fuentes sin descarga automatica: BDE/Adimark/Aduanas).
 """
 import pandas as pd
+from utilidades import exigir_salidas_nuevas
 
 from config import RUTA_EXCEL_MACRO, RUTA_L0, RUTA_L2
 
@@ -58,10 +59,13 @@ def construir_macro_por_reunion(meetings_corpus: set[str]) -> pd.DataFrame:
     assert df["dTPM"].notna().all(), "dTPM faltante"
     assert set(df["policy_decision"].unique()) <= DECISIONES_VALIDAS
     # dTPM coherente con la decision declarada: signo compatible.
-    signos = df.groupby("policy_decision")["dTPM"].unique().to_dict()
-    assert all((s > 0).all() for s in signos["sube"]), "sube con dTPM <= 0"
-    assert all((s == 0).all() for s in signos["mantiene"]), "mantiene con dTPM != 0"
-    assert all((s < 0).all() for s in signos["baja"]), "baja con dTPM >= 0"
+    for decision, signo in [("sube", 1), ("mantiene", 0), ("baja", -1)]:
+        valores = df.loc[df.policy_decision.eq(decision), "dTPM"]
+        assert ((valores > 0) if signo == 1 else (valores < 0) if signo == -1 else (valores == 0)).all()
+    assert df.TPM_post.notna().all(), "TPM_post faltante"
+    assert (df.TPM_post - df.TPM - df.dTPM).abs().lt(1e-8).all(), "dTPM != TPM_post - TPM"
+    fechas = pd.to_datetime(df.fecha).dt.strftime("%Y-%m-%d")
+    assert ("RPM-" + fechas).equals(df.meeting_id), "fecha e ID de reunión inconsistentes"
     return df[COLUMNAS_REUNION].sort_values("fecha").reset_index(drop=True)
 
 
@@ -93,15 +97,18 @@ def construir_macro_mensual() -> pd.DataFrame:
 
 
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(RUTA_L2 / "macro_por_reunion.csv", RUTA_L2 / "macro_mensual.csv")
     corpus = pd.read_csv(RUTA_L0 / "corpus.csv")
     meetings_corpus = set(corpus["meeting_id"].unique())
 
     reunion = construir_macro_por_reunion(meetings_corpus)
+    mensual = construir_macro_mensual()
+    RUTA_L2.mkdir(parents=True, exist_ok=True)
     reunion.to_csv(RUTA_L2 / "macro_por_reunion.csv", index=False)
     decisiones = reunion["policy_decision"].value_counts().to_dict()
     print(f"macro_por_reunion.csv: {len(reunion)} reuniones | {decisiones}")
 
-    mensual = construir_macro_mensual()
     mensual.to_csv(RUTA_L2 / "macro_mensual.csv", index=False)
     print(f"macro_mensual.csv: {len(mensual)} meses "
           f"({mensual['fecha_mes'].min()} -> {mensual['fecha_mes'].max()})")

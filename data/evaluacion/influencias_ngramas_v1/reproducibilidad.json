@@ -1,0 +1,20 @@
+{
+  "fecha_utc": "2026-09-16T04:27:54.174640+00:00",
+  "metodo": "Reejecución completa script 23 en temporal eliminado. Comparación de seis CSV y resumen. No repetición de la revisión interpretativa.",
+  "csv_identicos_byte_a_byte": {
+    "aportes_locales.csv": "a70e7d9ea0ed2e5f7dda45b6708586c87d46e28748a533de8077fd8c3da94372",
+    "casos_validacion.csv": "3da2f2ab8bd2c7687e40eeb3ff176fb7c2072de6e2d6a5441e95b3e3e59b5306",
+    "coeficientes_seleccionados.csv": "6a371c31c25340a4585598194a224e33ee0c5d08b748cf6484fbfa61c3ae807d",
+    "estabilidad.csv": "ec15f8c9b446d8957edcf299e26e3a8d06158cd6b0e4d4f28010f62cd83300c3",
+    "margenes.csv": "dbdb24630646bdf6727142adb567e1cb1281207121eae783fc199de8dda63915",
+    "top_global.csv": "b4edc646ab400882ffff1f3fb566e0ce71adc48ed27bf8e0470bc800dec8d8cf"
+  },
+  "resumen_identico": true,
+  "pruebas_totales": 80,
+  "pruebas_superadas": 79,
+  "prueba_omitida": "test_seleccion_y_test.ExamenCongelado.test_recalculo_independiente_metricas_guardadas",
+  "motivo_omision": "No reabrir respuestas humanas; ya aprobada antes del desarrollo léxico.",
+  "fuentes_protegidas_intactas": 42,
+  "csv_test_anterior_intactos_verificados_solo_por_hash": 5,
+  "gold_abierto_o_predicho": false
+}

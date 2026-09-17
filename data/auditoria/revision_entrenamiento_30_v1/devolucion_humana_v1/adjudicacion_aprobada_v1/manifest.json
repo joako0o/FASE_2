@@ -1,0 +1,23 @@
+{
+  "sha256_insumos": {
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/propuesta_adjudicacion_v1/propuestas.json": "3f1e234807f7a7bf07cfe5c4fe091ab67ef44189762280a3e6dae0a557d433b2",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/propuesta_adjudicacion_v1/manifest.json": "01659c0a207073c69cdba5fe0542cfc1c9acb27ebf9895afd7fe51f7b32843cf",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/30_anotaciones_humanas.xlsx": "929cd358f2b8a4b9042c8cf9400bb4034e10e92e13f1c569aa026039d74c9e20",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/recepcion.json": "bd81b8971b0d976e638af5592e22548c5823be4f91cb59eb35cb091c716d9a24",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/comparacion/comparacion.csv": "a89085478f739594311ae22b0e8789cd695845a0fa41b04928e62e4d6fe45303",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/comparacion/manifest.json": "2740206465f60484c920ffd1cfa0cb8ee33e7fe2dc83e482cd2feab0412d870b",
+    "docs/codebook_v2.md": "a0d12dcb3b7dc951440cd015f92ba9960e0ca222f1df2c4250b5dbce83ffbf42",
+    "docs/PROPUESTA_SEIS_DISCREPANCIAS_30_V1.md": "0ce5de37586adec49adbddf450357679d546d72f6ab846b8a912aedc9d4ac399"
+  },
+  "sha256_salidas": {
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/adjudicacion_aprobada_v1/aceptacion.json": "06a9b0daba63c72e6f69d3e1c84d9aac4e5a640bd438eb3adba6ad4616fb75d6",
+    "data/auditoria/revision_entrenamiento_30_v1/devolucion_humana_v1/adjudicacion_aprobada_v1/adjudicaciones.csv": "66b8325f1667c57b4124b94006cf6223923f7af33620d2d98fe901b5c4323a0f",
+    "docs/ADJUDICACION_SEIS_DISCREPANCIAS_30_V1.md": "7f542a7c66fa6d3296bfddf65548c997a3b4e7920e2d164df1e08126d5c42983"
+  },
+  "controles": {
+    "seis_etiquetas_iguales_a_propuestas_aceptadas": true,
+    "ids_y_textos_vinculados_a_comparacion_original": true,
+    "archivos_previos_intactos": 14,
+    "codigo_o_modelo_entrenado": false
+  }
+}

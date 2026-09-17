@@ -1,0 +1,13 @@
+{
+  "fecha_fin_utc": "2026-09-16T04:12:51.933266+00:00",
+  "sha256_salidas": {
+    "asignacion_folds.csv": "f452acabbc6befa62493c2a34141d83aa5da055d95e29756a911ddcb8ca61d92",
+    "comparacion_longitudes.csv": "d3ecd20a466a56bca0671221f73b78e3b281277a5f512691651879c91876891a",
+    "metricas.json": "97374df3465361d1790a23578b7da0ec40c25d69bf9c09c67feeda541ce2d1fd",
+    "predicciones_validacion.csv": "13c03f3ce43665adc209cdcd34e62baedabdd6ed3081c8b5ea9501e55b60c32b",
+    "protocolo.json": "00fe1213776fd3e3e76b3aeef1025bc889e4713c0dfb6c319989bacf5887bc16",
+    "resultados_folds.csv": "a23299e9cd0c6b2795834f4019c7fcee31b38fe0d758a46586b08ed91e081e39",
+    "seleccion.json": "db872ffb66567d147c3d918bafff61918dba01ed3ed3aad422bfdd6a66b7e032"
+  },
+  "sha256_informe": "e9b657970c8c003f44b6fa654650ad78b3acde2aa68f3ada22921e895f4aaa21"
+}

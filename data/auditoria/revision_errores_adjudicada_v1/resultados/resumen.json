@@ -1,0 +1,14 @@
+{
+  "errores_totales_modelo_adjudicado": 66,
+  "revisados": 7,
+  "pendientes": 59,
+  "referencias_respaldadas": 4,
+  "casos_ambiguos": 3,
+  "caracteres_textos_revisados": 21566,
+  "citas_agente_verificadas": 10,
+  "citas_ia_literales": 7,
+  "etiquetas_modificadas": 0,
+  "metricas_recalculadas_con_lecturas": false,
+  "entrenamiento_realizado": false,
+  "procedencia": "revision_cualitativa_agente_no_ciega_pendiente_adjudicacion"
+}

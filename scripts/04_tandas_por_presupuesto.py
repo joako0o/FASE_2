@@ -21,26 +21,17 @@ Salida:     data/muestras/piloto_300_tandas.csv, data/muestras/tandas_resumen.cs
 """
 
 import pandas as pd
+from utilidades import exigir_salidas_nuevas, asignar_tandas
 
 from config import PRESUPUESTO_PALABRAS_TANDA, RUTA_MUESTRAS
 
 
-def asignar_tandas(df: pd.DataFrame, presupuesto: int) -> pd.Series:
-    """Asignacion greedy secuencial de tandas por acumulacion de palabras."""
-    tandas = []
-    tanda, acumulado = 1, 0
-    for palabras in df["largo_palabras"]:
-        if acumulado > 0 and acumulado + palabras > presupuesto:
-            tanda, acumulado = tanda + 1, 0
-        acumulado += palabras
-        tandas.append(tanda)
-    return pd.Series(tandas, index=df.index, name="tanda")
-
-
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(RUTA_MUESTRAS / "piloto_300_tandas.csv", RUTA_MUESTRAS / "tandas_resumen.csv")
     # ---- 1. Carga y asignacion determinista de tandas ----
     df = pd.read_csv(RUTA_MUESTRAS / "piloto_300.csv")
-    df["tanda"] = asignar_tandas(df, PRESUPUESTO_PALABRAS_TANDA)
+    df["tanda"] = asignar_tandas(df["largo_palabras"], PRESUPUESTO_PALABRAS_TANDA)
 
     # ---- 2. Resumen por tanda (insumo para planificar los turnos) ----
     resumen = (

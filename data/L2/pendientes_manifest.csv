@@ -1,6 +1,6 @@
 serie,por_que,fuente_sugerida
 eee_inflacion_1a,Expectativas de inflacion a 1 ano (Encuesta de Expectativas Economicas),API BDE del BCCh (requiere registro gratuito): si3.bcentral.cl
-ipec,"Indice de Percepcion de la Economia (confianza del consumidor, Adimark)",Adimark / prensa economica (historico parcial, posible scraping)
+ipec,"Indice de Percepcion de la Economia (confianza del consumidor, Adimark)","Adimark / prensa economica (historico parcial, posible scraping)"
 sit_pais_1a,Expectativa sobre la situacion del pais a 1 ano (componente de encuestas),Adimark / CEP segun definicion final de la variable
 pib,Producto Interno Bruto (actividad agregada) sin descarga automatica,Banco Central de Chile / Cuentas Nacionales
 exportaciones,Exportaciones FOB (balanza comercial) sin descarga automatica,Aduanas / Banco Central de Chile

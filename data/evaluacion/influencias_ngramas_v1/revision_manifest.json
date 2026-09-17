@@ -1,0 +1,21 @@
+{
+  "fecha_utc": "2026-09-16T04:25:23.477924+00:00",
+  "revisor": "agente IA, no adjudicación humana",
+  "alcance": "17 confusiones H/D: texto completo y aportes locales. Muestra adicional: 6 aciertos (mediana de longitud por clase en folds 1 y 4, fragmentos si largos) y 4 errores con neutral (menor longitud por dirección). No revisión de todas las ocurrencias ni de todos los errores.",
+  "ids_adicionales": [
+    "RPM-2008-06-10:1904:1",
+    "RPM-2006-05-11:673:1",
+    "RPM-2005-03-10:165:1",
+    "RPM-2005-11-10:500:1",
+    "RPM-2015-12-17:7211:2",
+    "RPM-2015-06-11:6839:2",
+    "RPM-2005-11-10:503:2",
+    "RPM-2012-08-16:5039:2",
+    "RPM-2008-03-13:1737:2",
+    "RPM-2014-07-15:6325:1"
+  ],
+  "sha256_revision": "323b4cadf4303089ea9b8043d83d8051599d22f4e7740d468dd3355fb7dee932",
+  "sha256_casos": "3da2f2ab8bd2c7687e40eeb3ff176fb7c2072de6e2d6a5441e95b3e3e59b5306",
+  "sha256_aportes": "a70e7d9ea0ed2e5f7dda45b6708586c87d46e28748a533de8077fd8c3da94372",
+  "limites": "Interpretaciones post hoc e hipótesis, no errores causales demostrados ni nuevas etiquetas. El híbrido aún no se entrena."
+}

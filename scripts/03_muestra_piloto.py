@@ -26,6 +26,7 @@ Salida:     data/muestras/piloto_300.csv, data/muestras/test_retest_30.csv,
 """
 
 import pandas as pd
+from utilidades import exigir_salidas_nuevas
 
 from config import MIN_POR_ESTRATO, N_PILOTO, N_TEST_RETEST, RUTA_L0, RUTA_MUESTRAS, SEED_MAESTRA
 
@@ -58,7 +59,9 @@ def asignar_cupos(conteos: pd.Series, n_total: int, minimo: int) -> pd.Series:
     """Reparte n_total entre estratos: minimo garantizado + resto proporcional.
 
     Metodo: base = min(minimo, tamano_del_estrato); el resto se reparte en
-    proporcion al tamano y el residuo entero se asigna por decimales mayores.
+    proporcion a la capacidad disponible, con redondeo hacia abajo por paso.
+    Si un paso no asigna ninguna unidad, se asigna una al estrato con mayor
+    capacidad (empates según orden del índice).
     Si algun estrato queda topeado por su tamano, el sobrante se redistribuye
     iterativamente hasta completar n_total exacto.
     """
@@ -80,6 +83,8 @@ def asignar_cupos(conteos: pd.Series, n_total: int, minimo: int) -> pd.Series:
 
 
 def main() -> None:
+    # Fuentes/muestras congeladas: no regenerar sobre selecciones existentes.
+    exigir_salidas_nuevas(RUTA_MUESTRAS / "piloto_300.csv", RUTA_MUESTRAS / "test_retest_30.csv", RUTA_MUESTRAS / "piloto_300_estratos.csv")
     RUTA_MUESTRAS.mkdir(parents=True, exist_ok=True)
 
     # ---- 1. Carga L0 y asignacion de grupo de actor ----

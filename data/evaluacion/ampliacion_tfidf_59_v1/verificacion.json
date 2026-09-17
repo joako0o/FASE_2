@@ -1,0 +1,50 @@
+{
+  "estado": "aprobado",
+  "pruebas_aprobadas": 111,
+  "pruebas_por_modulo": [
+    14,
+    20,
+    8,
+    5,
+    8,
+    12,
+    10,
+    10,
+    8,
+    8,
+    8
+  ],
+  "omitidas": 0,
+  "ancla_control_exacta_793": true,
+  "a_identica_entre_condiciones": true,
+  "validacion_referencias_folds_fijos": true,
+  "archivos_reproducidos_byte_a_byte": [
+    "predicciones.csv",
+    "comparacion_casos.csv",
+    "inclusion_nuevos_por_fold.csv",
+    "metricas.json"
+  ],
+  "protocolo_y_ejecucion_reproducidos_excepto_utc_y_tiempos": true,
+  "matrices_y_f1_verificadas_aritmeticamente": true,
+  "n_ajustes_por_corrida": {
+    "A_original": 5,
+    "B_original": 5,
+    "B_ampliado": 5
+  },
+  "corridas_completas": 2,
+  "entorno_recreado": "Python 3.11.2, requirements-preparacion.txt; pip check correcto. Sin PyTorch/pesos.",
+  "incidencia_resuelta": "Primer intento de suite segura falló por falta de transformers tras recrear solo dependencias CPU; instalada la lista de preparación y suite completa repetida sin errores.",
+  "nuevos_por_fold": [
+    53,
+    51,
+    52,
+    50,
+    53
+  ],
+  "nuevos_unicos": 59,
+  "modelo_persistido": false,
+  "refit_global": false,
+  "examen_306_abierto": false,
+  "beto_ejecutado": false,
+  "sha256_evaluador": "51f24a6abd2892ba6362f4a04a9cf404cc97d2ef5971b56651c521f866d38a58"
+}

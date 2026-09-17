@@ -1,0 +1,62 @@
+{
+  "version": "ampliacion_hd_60_v1",
+  "semilla": 20260916,
+  "n_candidatos": 60,
+  "descartes": {
+    "menos_de_200_caracteres": 1683,
+    "sin_pistas": 5384,
+    "id_o_texto_ya_visto": 1940,
+    "danado_o_xml_invalido": 51
+  },
+  "pool_con_pistas": 667,
+  "casi_copias_descartadas": 0,
+  "pool_por_canal_tipo": {
+    "H_decision": 21,
+    "H_trayectoria": 63,
+    "H_contraste": 294,
+    "D_decision": 17,
+    "D_trayectoria": 63,
+    "D_contraste": 209
+  },
+  "cuotas_efectivas": {
+    "H_decision": 10,
+    "H_trayectoria": 10,
+    "H_contraste": 10,
+    "D_decision": 10,
+    "D_trayectoria": 10,
+    "D_contraste": 10
+  },
+  "por_anio": {
+    "2005": 5,
+    "2006": 5,
+    "2007": 5,
+    "2008": 5,
+    "2009": 6,
+    "2010": 5,
+    "2011": 6,
+    "2012": 6,
+    "2013": 5,
+    "2014": 6,
+    "2015": 6
+  },
+  "por_longitud": {
+    "media": 20,
+    "corta": 20,
+    "larga": 20
+  },
+  "reuniones": 56,
+  "actores": 29,
+  "max_por_reunion": 2,
+  "max_por_actor": 5,
+  "caracteres": 202789,
+  "ids_anotados_excluidos": 1352,
+  "ids_marco_humano_excluidos": 306,
+  "solapes_ids": 0,
+  "solapes_textos_normalizados": 0,
+  "etiquetas_confirmadas": 0,
+  "entrenamiento_realizado": false,
+  "datos_sinteticos": false,
+  "deduplicacion": "IDs, texto normalizado y Jaccard de trigramas >=0.85 frente a excluidos y seleccionados; no equivalencia semántica completa",
+  "muestra_representativa_o_test_independiente": false,
+  "plan_folds_no_ejecutado": true
+}

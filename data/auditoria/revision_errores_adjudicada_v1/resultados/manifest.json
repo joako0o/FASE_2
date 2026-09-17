@@ -1,0 +1,40 @@
+{
+  "registrado_utc": "2026-09-16T20:31:06.163610+00:00",
+  "sha256_insumos": {
+    "data/auditoria/revision_errores_adjudicada_v1/lecturas_agente.json": "03938282b533c87cb90acacf24a4ceaf3757c264fec7ef4f888b6ab67d991541",
+    "scripts/32_revisar_errores_nuevos.py": "e4f9c4a6634128c1c9ab2f7c8caa17acdc34834be514d43d939af77f31163de4",
+    "tests/test_revision_errores_nuevos.py": "44b2ae51aeb80e92a4e91caf14e657883b12b350edb26da7aaf257e4e7bec798",
+    "data/L0/corpus.csv": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "docs/codebook_v2.md": "a0d12dcb3b7dc951440cd015f92ba9960e0ca222f1df2c4250b5dbce83ffbf42",
+    "docs/ADJUDICACION_SEIS_DISCREPANCIAS_30_V1.md": "7f542a7c66fa6d3296bfddf65548c997a3b4e7920e2d164df1e08126d5c42983",
+    "data/evaluacion/adjudicacion_modelo_v1/protocolo.json": "85dce5891419352ecdc02b029c9b3a2483becab9d656051d61a9c4184d3c936b",
+    "data/evaluacion/adjudicacion_modelo_v1/manifest.json": "e3ad47bde60e5c532043b527297cab649d7ddbf219b7e4cd77f9595b952c018f",
+    "data/evaluacion/adjudicacion_modelo_v1/predicciones_validacion.csv": "d4efad36e57d39e93c50a117fb46aacecc63ecdf90dbe6b24992065c6355c70f",
+    "data/etiquetas/etiquetas_escalado_r10.csv": "e874c0bf3ce934c629f87e1b76ef924fbc0a838edd591533353cb7c4b2f13494",
+    "data/etiquetas/etiquetas_escalado_r11.csv": "301c8657c3cd0f6d9b11aefb200cc15f774e09d6a377805339d1758042f955e8",
+    "data/etiquetas/etiquetas_escalado_r12.csv": "4f04199dbf32036e5064652296fc4b5a3065b7844686e6d21459cef7109dfe86",
+    "data/etiquetas/etiquetas_escalado_r13.csv": "ce2a8811e733e2a4dcfaa72e97888fcc3cabbf833ac34310cc1b0226d4c05315",
+    "data/etiquetas/etiquetas_escalado_r14.csv": "52c5fa86a8c4f671ff791cde1fe792e60eae205c801b65f71c3430a455eb7bb4",
+    "data/etiquetas/etiquetas_escalado_r15.csv": "5668c965de7d92a41adce6b8c4235ba516b1b81b03d3ae168043e5ff8d6e5557",
+    "data/etiquetas/etiquetas_escalado_r16.csv": "59527108a0f6699f95d30468b46441abea2ef050aea1a5656113879e7cb1e904",
+    "data/etiquetas/etiquetas_escalado_r17.csv": "c2746dbbb9d926a44bd377cbda45a2bb5676bc5f690c5196e865a926cc007318",
+    "data/etiquetas/etiquetas_escalado_r5.csv": "e4a842c27f42bd81755c49e07b69c9b998e71f4e5de8fdefeb45112c1af82d90",
+    "data/etiquetas/etiquetas_escalado_r6.csv": "98af2b27952bd3cf07079bd81ad3a4e8599d14c08e73e7b70b4e7fe426bb7f40",
+    "data/etiquetas/etiquetas_escalado_r7.csv": "6ef49be8531d1e6a4727a1af64bf6a93d2af18e52783ab26b019cb12b64a4b76",
+    "data/etiquetas/etiquetas_escalado_r8.csv": "a11947b75d93e2ee69340c1bf3a143d3e88fb64c42f8e5fa3a09174a6a0784aa",
+    "data/etiquetas/etiquetas_escalado_r9.csv": "0b200f872b48415dad5f0369106dde8672003a36c7c6927242df88b4cf990738",
+    "data/etiquetas/etiquetas_piloto_r1.csv": "4e2992c0e7f58e2af11fc34d988a6f2bd970f514da4e21fee8a13fd4c6ce85b4",
+    "data/etiquetas/etiquetas_piloto_r2.csv": "29583b95fd5c0f0d59bf60a710199bdae582699becc93335242f0d691cf8a37d",
+    "data/etiquetas/etiquetas_piloto_r3.csv": "b90ca0145e7c04fc65cd9b1c5269a50400f7745bc54610be46b10b95187adbec",
+    "data/etiquetas/etiquetas_piloto_r4.csv": "527105bd4490eaf247edf60cd3c570c18bd06a0b37622c82447dd3fa9ee295d0",
+    "data/etiquetas/etiquetas_r13_tanda09.csv": "bbd7ea0e7ec3940da47ed09e31ac7c2de8e2b38c1b65c3add75da119a7d63ab3",
+    "data/etiquetas/etiquetas_r14_tanda10.csv": "46d1554510606c663c3379cd66e7a8cc042d1612f959772d795764758aefcf9a"
+  },
+  "sha256_salidas": {
+    "casos_revisados.json": "b9fe3c30de880fc34c388937eb69a041cf04764975ded3568560590c310acac5",
+    "inventario_errores.csv": "6dc72cae3796176d718fe05a49730f15806e344b603cd364b4fbff48298008e4",
+    "resumen.json": "8474032761af73a46b5bcbafda49e6776d14fb227cbc5a4b93005f2f1f6715f6"
+  },
+  "sha256_informe": "40f8fc91a3f5780bec2329b32bb14de33b8ea111efb00810b9c7fea8436fac99",
+  "etiquetas_y_modelo_intactos": true
+}

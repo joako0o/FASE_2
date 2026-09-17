@@ -1,0 +1,37 @@
+[
+  {
+    "fold": 2,
+    "termino": "recortar la tpm",
+    "df_control": 2,
+    "df_nuevos": 2,
+    "min_df": 3
+  },
+  {
+    "fold": 4,
+    "termino": "quitado",
+    "df_control": 0,
+    "df_nuevos": 1,
+    "min_df": 3
+  },
+  {
+    "fold": 4,
+    "termino": "sesgo la baja",
+    "df_control": 4,
+    "df_nuevos": 10,
+    "min_df": 3
+  },
+  {
+    "fold": 4,
+    "termino": "el sesgo la baja",
+    "df_control": 1,
+    "df_nuevos": 5,
+    "min_df": 3
+  },
+  {
+    "fold": 4,
+    "termino": "sesgo neutral",
+    "df_control": 9,
+    "df_nuevos": 3,
+    "min_df": 3
+  }
+]

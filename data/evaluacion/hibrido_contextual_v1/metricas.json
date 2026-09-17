@@ -1,0 +1,92 @@
+{
+  "mejor_observado": "B0_base",
+  "variantes_para_confirmar": [],
+  "clases": [
+    "hawkish",
+    "dovish",
+    "neutral"
+  ],
+  "matrices": {
+    "B0_base": [
+      [
+        54,
+        7,
+        8
+      ],
+      [
+        10,
+        36,
+        3
+      ],
+      [
+        13,
+        21,
+        641
+      ]
+    ],
+    "B1_numeros": [
+      [
+        54,
+        7,
+        8
+      ],
+      [
+        11,
+        35,
+        3
+      ],
+      [
+        14,
+        18,
+        643
+      ]
+    ],
+    "B2_contexto": [
+      [
+        54,
+        7,
+        8
+      ],
+      [
+        10,
+        36,
+        3
+      ],
+      [
+        11,
+        23,
+        641
+      ]
+    ],
+    "B3_ambos": [
+      [
+        54,
+        7,
+        8
+      ],
+      [
+        9,
+        37,
+        3
+      ],
+      [
+        13,
+        23,
+        639
+      ]
+    ]
+  },
+  "invariancia": {
+    "B0_base": 0.7,
+    "B1_numeros": 0.7,
+    "B2_contexto": 0.75,
+    "B3_ambos": 0.8
+  },
+  "cobertura_contexto": 345,
+  "fraccion_caracteres": 0.41029877035837414,
+  "textos_numero_ambiguo": 8,
+  "gold_abierto_o_predicho": false,
+  "refit_final_o_reemplazo": false,
+  "ancla_base_identica": true,
+  "textos_validacion_identicos_train": 34
+}
