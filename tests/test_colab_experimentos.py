@@ -32,6 +32,13 @@ class TestColabExperimentos(unittest.TestCase):
         self.assertIn("colab_files.download", self.code)
         self.assertIn("OPENBLAS_NUM_THREADS", self.code)
 
+    def test_rejecucion_sale_del_checkout_antes_de_borrarlo(self):
+        setup = "".join(self.nb["cells"][2]["source"])
+        self.assertLess(setup.index("os.chdir(BASE)"), setup.index("shutil.rmtree(PROYECTO)"))
+        self.assertLess(setup.index("shutil.rmtree(PROYECTO)"), setup.index('"git", "clone"'))
+        self.assertIn("cwd=BASE, check=True", setup)
+        self.assertIn('"--single-branch"', setup)
+
     def test_no_credenciales(self):
         lower = self.code.lower()
         self.assertNotIn("github_token", lower)
