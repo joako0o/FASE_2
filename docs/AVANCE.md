@@ -1,5 +1,15 @@
 # AVANCE — Proyecto D&H
 
+## Actualización: investigación web mientras BETO se prepara en otro equipo
+
+El investigador informa que un agente Gemini mediante Antigravity está preparando dependencias/modelo y pidió investigar papers, modelos actuales/SOTA y foros. **No se recibieron resultados ni prueba GPU del entorno externo; no podemos verificar su avance automáticamente.** Los bloqueos anteriores describen este entorno, no necesariamente el otro PC.
+
+[Informe único de investigación](INVESTIGACION_SOTA_POSTURA_MONETARIA.md), corte 2026-09-16: 20 registros de fuentes con alcance de lectura. WCB/BIS/Ornithologist/DCS/IMF/CBRT, encoders españoles y multilingües, modelos generativos actuales y discusiones técnicas. Búsqueda dirigida, no revisión exhaustiva ni reproducción de benchmarks; no proclamar un SOTA probado para nuestras actas.
+
+Recomendación documental: terminar BETO primero; **MrBERT-es** como primer candidato nuevo solo si los resultados justifican otro ensayo; clasificación estructurada como alternativa ante errores semánticos persistentes. No adoptar variantes ni comparar F1 ponderada/accuracy externas con nuestra F1 H/D. La lista no es una orden de entrenar todos los modelos.
+
+**Sin cambios de scripts, tests, datos, referencias, folds, A, dependencias o protocolo BETO.** Sin descargas de modelos/datasets para entrenar, pagos, nuevos scripts o apertura de las 306 respuestas. Se verifica que el paquete actual mantiene su identidad. La limpieza extrema final sigue pendiente y no debe ejecutarse en medio de la corrida externa. Informe e índices/continuidad solamente; los ZIP anteriores no se actualizan automáticamente.
+
 ## Actualización: limpieza extrema final exigida, todavía pendiente
 
 El investigador indicó que unos 40 scripts no son una entrega adecuada y pidió dejar anotada una limpieza extrema al finalizar. Se incorporó como regla obligatoria en `docs/REGLAS.md` §12 y en AGENTS/CONTINUIDAD/PLAN. No basta con el gestor 40 ni con eliminar caches: hay que reducir de verdad el flujo a una entrada y pocos módulos esenciales, retirar duplicados y separar el histórico recuperable de la entrega operativa. Verificar equivalencia y ejecución limpia antes de declarar cierre.

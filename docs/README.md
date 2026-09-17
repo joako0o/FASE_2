@@ -8,6 +8,8 @@
 4. [Investigación/protocolo BETO](INVESTIGACION_Y_PROTOCOLO_BETO_V1.md): método fijado, límites y prueba GPU pendiente.
 5. [Guía Colab](GUIA_EJECUTAR_BETO_COLAB_V1.md): alternativa si el PC no dispone de GPU.
 
+6. [Investigación web de modelos y postura monetaria](INVESTIGACION_SOTA_POSTURA_MONETARIA.md): papers, candidatos actuales y foros; no cambia la corrida BETO.
+
 ## Reglas y resultados de referencia
 
 - [Reglas de trabajo](REGLAS.md) y [codebook v2](codebook_v2.md).

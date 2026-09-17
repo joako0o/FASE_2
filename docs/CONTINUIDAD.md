@@ -2,7 +2,11 @@
 
 ## 1. Estado que debes asumir — y comprobar
 
-La última tarea del investigador fue **ordenar el proyecto, retirar material innecesario, preparar una entrega con código/datos para otro PC y dejar continuidad antes de cambiar de sesión**. No autorizó cerrar/fusionar el PR ni nuevas anotaciones.
+**Actualización más reciente:** el investigador delegó la preparación/ejecución a un agente Gemini mediante Antigravity y pidió investigación web mientras descarga dependencias/modelo. No se recibieron resultados ni una prueba técnica verificable de ese entorno. No iniciar una corrida duplicada ni modificar el protocolo mientras llega evidencia.
+
+Leer [INVESTIGACION_SOTA_POSTURA_MONETARIA.md](INVESTIGACION_SOTA_POSTURA_MONETARIA.md): revisión dirigida al 2026-09-16, 20 registros de fuentes, sin nuevos scripts/datasets/modelos ejecutados. Terminar BETO primero; MrBERT-es es un candidato posterior condicionado a necesidad, no una decisión de reemplazo. Una clasificación estructurada es alternativa ante errores semánticos persistentes, no una búsqueda indiscriminada de variantes.
+
+Antes se ordenó el proyecto y se preparó una entrega con código/datos para otro PC; la limpieza extrema final sigue pendiente. No se autorizó cerrar/fusionar el PR ni nuevas anotaciones.
 
 - Entrega de origen: rama `arena/01a0a81b-fase-2`, **PR #4**: https://github.com/joako0o/FASE_2/pull/4.
 - Comprobar si el PR está abierto, integrado o cerrado sin integrar. Una nueva sesión desde `main` no recibe cambios de un PR simplemente cerrado.
@@ -15,7 +19,7 @@ La última tarea del investigador fue **ordenar el proyecto, retirar material in
 
 ## 2. Lo pendiente de verdad
 
-**BETO aún no está entrenado. No hay pesos descargados, prueba real GPU aprobada ni comparación neuronal.** Hay scripts, protocolo y notebook preparados, más tests sin encoder. No llamar a eso «BETO ejecutado».
+**Aquí no hay resultados BETO recibidos/verificados ni prueba GPU aprobada.** El investigador informa de una preparación externa; no sabemos si ya terminó o empezó a entrenar. Hay scripts, protocolo y notebook preparados, más tests sin encoder. No llamar a eso «BETO ejecutado» ni dar por fracasada la ejecución externa por los bloqueos del entorno anterior.
 
 Entorno anterior: Linux, Python 3.11, 2 CPU, ~4 GB RAM, sin NVIDIA. GitHub API y PyPI funcionaban; Hugging Face, descarga histórica DCC y ruedas CPU PyTorch fallaban con TLS EOF. No es un problema de contraseña. El navegador de investigación leyó metadatos, pero no transfirió pesos al cómputo.
 
