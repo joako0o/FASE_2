@@ -1,0 +1,22 @@
+{
+  "filas": 257,
+  "ids_unicos": 257,
+  "ratificadas": 233,
+  "corregidas": 18,
+  "pendientes_preservadas": 6,
+  "etiquetas_v3": {
+    "": 7,
+    "dovish": 30,
+    "hawkish": 20,
+    "neutral": 200
+  },
+  "relevancia_v3": {
+    "0": 103,
+    "1": 154
+  },
+  "estados": {
+    "cerrado": 250,
+    "pendiente": 7
+  },
+  "incorporacion_entrenamiento": "solo estado_revision_v3=cerrado"
+}
