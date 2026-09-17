@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Tarea actual del investigador:** [Excel de 60 candidatos reales](data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx), seis bloques de diez. Abrir Inicio y comenzar por Bloque 1; se puede devolver un avance parcial. [Instrucciones](docs/AMPLIACION_HD_60_V1.md).
+**Trabajo actual del agente:** [anotar ejemplos nuevos para entrenamiento](docs/ANOTACION_IA_AMPLIACION_HD_V1.md). Primera tanda de 30 anotada por IA; faltan C31–C60. El investigador **no necesita completar el Excel** para que continúe este trabajo.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.

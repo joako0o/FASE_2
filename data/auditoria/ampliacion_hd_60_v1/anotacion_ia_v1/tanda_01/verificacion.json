@@ -1,0 +1,26 @@
+{
+  "estado": "controles_de_integridad_aprobados",
+  "casos": 30,
+  "citas_exactas": 30,
+  "campos_validos": 30,
+  "documentos_hd_alta_completos": 18,
+  "casos_sinteticos_para_entrenar": 0,
+  "solapes_con_marco_original_o_humano": 0,
+  "casi_copias_jaccard_085": 0,
+  "filas_plan_verificadas": 150,
+  "anotacion_humana": false,
+  "segunda_revision_semantica_independiente": false,
+  "confianza_es_juicio_del_agente": true,
+  "lectura": {
+    "intervenciones": 30,
+    "caracteres": 107796,
+    "palabras": 17674
+  },
+  "validadores_reutilizados": [
+    "scripts/utilidades.py:errores_anotacion",
+    "scripts/muestreo_revision.py:clave,trigramas,casi_copia"
+  ],
+  "metodo": "Cotejo completo de CSV/JSON, cita substring exacta, hashes L0, conjunto de exclusión por ID/texto y Jaccard, plan contrastado con folds originales.",
+  "no_se_modificaron_fuentes_congeladas": true,
+  "no_se_ejecuto_entrenamiento": true
+}

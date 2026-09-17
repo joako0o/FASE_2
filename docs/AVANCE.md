@@ -1,22 +1,22 @@
 # AVANCE — Proyecto D&H
 
-## Estado actual: 60 candidatos reales entregados; esperar respuestas
+## Estado actual: el agente anota ejemplos para entrenamiento; no esperar Excel humano
 
-El investigador autorizó preparar una muestra dirigida H/D y pidió continuar. Ya está creado **`data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx`**, con seis bloques de diez, texto completo, guía, enlaces de navegación y celdas amarillas vacías. Puede devolver el mismo XLSX, incluso parcial. **No regenerarlo ni usar el importador de las 30 anotaciones anteriores.**
+El investigador aclaró que quiere que **la IA busque y puntúe las intervenciones de entrenamiento**, no otra tarea de anotación para él. Esto sustituye la espera de respuestas al Excel de 60 candidatos. El libro vacío se conserva como artefacto de selección, sin hacerlo pasar por una respuesta humana.
 
-- Selección reproducible desde 667 candidatos con pistas: dos canales de búsqueda de 30, no clases confirmadas. Por canal, diez patrones de decisión, diez de trayectoria y diez de contraste.
-- **56 reuniones, 29 actores, 2005–2015, 202.789 caracteres íntegros**. Veinte textos cortos, veinte medios y veinte largos; máximo dos por reunión y cinco por actor en esta muestra.
-- Excluidos 1.352 IDs anotados y 306 del marco humano, copias normalizadas y casi copias según Jaccard de trigramas ≥0,85. Cero solapes verificados. Del marco humano solo se usan IDs, no sus respuestas.
-- La muestra es enriquecida para desarrollo/entrenamiento: no es representativa ni un test independiente. H/D/N y dudas se decidirán al revisar; no forzar cuotas.
-- Plan por caso de folds potenciales/prohibidos según reunión/texto, **sin incorporación a train**. La futura recepción deberá validar identidad, citas, pendientes, fecha/ayuda declaradas y purga antes de cualquier ampliación autorizada.
+**Primera tanda IA terminada, C01–C30:** 30 textos íntegros, **107.796 caracteres / 17.674 palabras**. Resultado: **7 H, 13 D, 10 N**. Núcleo propuesto de alta confianza: **6 H + 12 D = 18 intervenciones completas**. C13 H y C15 D tienen confianza media y quedan en reserva. C03 se registra como N de baja confianza/duda y no se incorpora. No se fuerzan los N a H/D.
 
-Protocolo: [AMPLIACION_HD_60_V1](AMPLIACION_HD_60_V1.md). Evidencia en la carpeta de muestra: manifiesto, resumen y verificación. El archivo `NO_CONSULTAR_antes_de_responder_seleccion.json` contiene pistas técnicas; no consultarlo ni mostrárselo al investigador antes de que responda.
+Archivos en `data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/`: decisiones del agente, CSV de 30 anotaciones, JSON con los 18 textos H/D altos, plan por fold, resumen, manifiesto y verificación. Método `ia_lectura_integra`, no gold humano ni evaluación independiente. [Detalle](ANOTACION_IA_AMPLIACION_HD_V1.md).
 
-### Verificación de esta entrega
+**Pendientes C31–C60**, a leer y anotar por la IA en una segunda tanda respetando el presupuesto de 20.000 palabras. No preguntar al investigador si completó el Excel ni inventar etiquetas de los casos pendientes. No esperar revisión humana para seguir la tarea autorizada; si llega alguna, conservarla como fuente separada y declarar exposición a IA.
 
-**106 pruebas aprobadas, 0 omitidas**: 98 anteriores y ocho de muestreo/libro. Selección idéntica al invertir el orden del corpus; 60 textos recuperados del XLSX idénticos a L0; 240 celdas de respuesta vacías; sin hojas ocultas, macros ni enlaces externos. Se comprobó con openpyxl, **no se ejecutó Excel/LibreOffice**.
+### Controles y límites
 
-Comando reproducible: `python scripts/40_gestionar_proyecto.py preparar-muestra-hd --salida RUTA_NUEVA`. El gestor delega en `scripts/muestreo_revision.py`, reutilizando utilidades Excel de 29 sin editar etapas congeladas. No nuevo script numerado 41 ni variante de modelo. La muestra ya existe: no hace falta ejecutar código para responder.
+30 citas verificadas como subcadenas literales exactas (máximo 260 caracteres), campos válidos con utilidades compartidas, hashes de todos los textos contra L0, cero solapes con 1.352 anotados/306 del marco humano y cero casi copias Jaccard ≥0,85. Payload H/D de alta confianza conserva 18 textos completos, no solo citas. Las 150 filas del plan por fold respetan exclusiones por reunión/texto; permitirían **16/15/16/17/17** de esos 18 casos respectivamente, pero **no se incorporó ninguno a train**.
+
+No se modificó código en esta tanda. El paquete BETO y sus fuentes congeladas se verificaron intactos. Los 106 tests de software pertenecen al cierre previo de selección/Excel; la nueva evidencia es de integridad de anotaciones, **no de entrenamiento ni doble revisión semántica**. La confianza es juicio del agente, no calibración probabilística.
+
+La selección de origen sigue siendo de 60 candidatos reales, 56 reuniones, 29 actores, 202.789 caracteres y dos canales lexicales de 30. Esos canales no eran etiquetas y el muestreo no es representativo. El archivo técnico de selección no debe usarse como verdad. [Protocolo de selección, ahora histórico respecto del encargo humano](AMPLIACION_HD_60_V1.md).
 
 ## Estado científico vigente
 
@@ -30,8 +30,8 @@ Comando reproducible: `python scripts/40_gestionar_proyecto.py preparar-muestra-
 
 ## Qué sigue y qué no
 
-1. El investigador puede empezar por **Bloque 1** y devolver avances. No hay etiquetas nuevas aceptadas todavía.
-2. Recibir y verificar este libro como una muestra nueva; no reabrir las 306 respuestas ni rehacer las 30 anotaciones anteriores.
+1. El agente debe continuar con C31–C60. Ya hay una primera capa de 30 anotaciones IA, sin aceptación humana por caso ni integración al modelo.
+2. Completar y revisar la capa IA de entrenamiento; no reabrir las 306 respuestas ni rehacer las 30 anotaciones humanas anteriores. En una selección futura excluir también los nuevos IDs ya anotados.
 3. Mantener TF-IDF. No nuevo entrenamiento, refit global, scoring del corpus, cambios de referencias o datasets externos por la mera creación del Excel.
 4. **Idea sintética solo registrada**, PLAN §9.24: no generar ahora. El objetivo de acercarse a 200 H/200 D es orientativo y posterior, no una cuota que imponer a las respuestas.
 5. **Limpieza extrema final obligatoria y pendiente**, REGLAS §12: reducir de verdad la entrega a una entrada y pocos módulos esenciales. El gestor sobre los scripts históricos no cumple por sí solo el cierre.

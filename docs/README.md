@@ -2,7 +2,7 @@
 
 ## Trabajo actual
 
-**Revisión humana pendiente:** [60 candidatos reales](AMPLIACION_HD_60_V1.md), con Excel ya preparado, no etiquetas nuevas ni sintéticos.
+**Trabajo vigente:** [anotación IA para ampliar entrenamiento](ANOTACION_IA_AMPLIACION_HD_V1.md), primera tanda terminada y C31–C60 pendientes. El Excel de 60 no es una tarea humana requerida; no hay sintéticos ni nuevo entrenamiento.
 
 **Último resultado:** [BETO v1 recibido y no adoptado](RESULTADOS_BETO_V1.md): cinco folds, métricas verificadas y límites de procedencia.
 

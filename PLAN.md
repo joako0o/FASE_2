@@ -501,3 +501,14 @@ Autorizada mediante «siii» y retomada con «sigue». Entregado `revision_60_ca
 **106 pruebas aprobadas, 0 omitidas**, replay de selección y textos completos del Excel idénticos a L0; sin hojas ocultas, macros, enlaces externos o sugerencias por caso. No se ejecutó Excel/LibreOffice, se verificó su estructura con openpyxl. No leer el archivo técnico de selección antes de responder. Devolver el XLSX parcial/completo; importación posterior requiere validación específica, no reutilizar el importador de 30 casos.
 
 La idea sintética permanece sin ejecutar. No nuevas etiquetas ni métricas/entrenamiento; el paquete BETO y su resultado negativo no cambian. Limpieza extrema final sigue pendiente.
+
+
+### 9.26 Aclaración: la ampliación la etiqueta la IA; primera tanda de entrenamiento propuesto
+
+El investigador aclara: «me referia en que la parte d eentrenamiento deberias tu buscar fragmentos a puntuar y hacelo que sea d y h». Se sustituye la espera de respuestas humanas al Excel por lectura y anotación del agente, identificada como IA para entrenamiento. La unidad sigue siendo la intervención completa; los fragmentos son citas justificantes, no sustitutos de texto. No se generan datos sintéticos ni se fuerzan clases.
+
+C01–C30 leídos íntegramente: 107.796 caracteres / 17.674 palabras, dentro del presupuesto de 20.000 por tanda. **7 H, 13 D, 10 N**; núcleo alto **6 H + 12 D**, H/D de confianza media C13/C15 reservados y C03 dudoso N excluido. 30 citas exactas verificadas; fuente L0, campos/IDs/hashes y exclusiones originales/humanas contrastados. No hay segunda anotación semántica independiente ni aprobación humana por caso.
+
+Datos separados en `data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/`, fuera del glob de etiquetas original: decisiones, anotaciones CSV, 18 documentos H/D completos, plan por fold, resumen/manifiesto/verificación. Los 18 altos permitirían 16/15/16/17/17 incorporaciones por fold tras purga, pero todavía no se integra train ni se cambia el paquete f7aa1589…, las referencias, A o los folds. Sin nuevos scripts, entrenamiento o métricas en esta tanda.
+
+**Pendiente: C31–C60 a cargo de la IA**, no del investigador. Una futura selección excluirá también los nuevos IDs anotados. Preparación de paquete ampliado y comparación controlada serán una etapa posterior. Libro vacío de selección conservado como antecedente, no fabricado como respuesta humana. Limpieza extrema final e idea sintética siguen pendientes.

@@ -27,6 +27,13 @@ data/auditoria/2026-09-16/incidencias_gold_actual.csv
 data/auditoria/2026-09-16/limpieza.json
 data/auditoria/2026-09-16/procedencia_gold.json
 data/auditoria/ampliacion_hd_60_v1/NO_CONSULTAR_antes_de_responder_seleccion.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/anotaciones_ia.csv
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/decisiones.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/documentos_hd_alta.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/manifest.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/plan_por_fold.csv
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/resumen.json
+data/auditoria/ampliacion_hd_60_v1/anotacion_ia_v1/tanda_01/verificacion.json
 data/auditoria/ampliacion_hd_60_v1/manifest.json
 data/auditoria/ampliacion_hd_60_v1/resumen.json
 data/auditoria/ampliacion_hd_60_v1/revision_60_candidatos.xlsx
@@ -249,6 +256,7 @@ data/muestras/tandas_resumen.csv
 data/muestras/test_retest_30.csv
 docs/ADJUDICACION_SEIS_DISCREPANCIAS_30_V1.md
 docs/AMPLIACION_HD_60_V1.md
+docs/ANOTACION_IA_AMPLIACION_HD_V1.md
 docs/AVANCE.md
 docs/CONTINUIDAD.md
 docs/CONVENCIONES_ETIQUETADO.md

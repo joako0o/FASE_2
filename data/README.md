@@ -4,7 +4,7 @@
 
 | Ruta | Contenido / uso |
 |---|---|
-| `auditoria/ampliacion_hd_60_v1/` | Excel de 60 candidatos reales pendiente de respuestas, manifiestos y trazabilidad técnica separada. No incorporado al modelo. |
+| `auditoria/ampliacion_hd_60_v1/` | Selección real de 60 y capa `anotacion_ia_v1/tanda_01/` con 30 etiquetas IA; 18 H/D altos preparados, no incorporados al modelo. No esperar respuestas humanas. |
 | `L0/corpus.csv` | Corpus completo inmutable: 9.725 intervenciones. No corregir OCR ni reconstruir textos manualmente. |
 | `etiquetas/etiquetas_*.csv` | 1.352 anotaciones IA originales, conservadas. No sobrescribirlas. |
 | `evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv` | Vista activa de 1.352 IDs; referencia original, seis adjudicaciones y versión con trece correcciones adicionales. |
