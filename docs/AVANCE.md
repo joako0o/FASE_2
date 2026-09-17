@@ -1,5 +1,13 @@
 # AVANCE — Proyecto D&H
 
+## Consulta vigente: criterio del plan B centrado en tasa de política
+
+El investigador pidió detener la continuación y definir el criterio antes de seguir. Presentó15ejemplos de1995–1999 extraídos por un filtro de TPM. Revisión en `docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md`: extracción más pertinente, pero **N no implica irrelevancia** (31369/32169/32531 deben conservar relevancia monetaria en este criterio); no ranking de H/D entre alternativas (bajar50 frente a70 sigue siendoD); historia de bajas no equivale a postura actual (21910);29595 contiene contenido sustantivo después de la apertura y no admiteN/0alta automática.
+
+Criterio recomendado: orientación monetaria doméstica respaldada, incluyendo los nombres históricos del instrumento/tasa de instancia.31986 puede serHmedia por rechazar estímulo excesivo, no por disenso;33553 no se acepta comoDalta por una espera operativa. Separar acción, sesgo, acto discursivo y unidad por actor/acuerdo. `texto_corregido` no sustituye al original sin cotejo; no son solo tildes en todos los casos.
+
+También quedó guardado el borrador de investigación `docs/DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md`: papers y FMI/BIS, distinción funcional y matiz de que crédito dirigido/refinanciamiento puede ser instrumento monetario histórico. **Ambos son propuestas, no codebook vigente.** No etiquetas finales importadas, datos históricos, entrenamiento, modificación de v2/validación o continuación de anotación del plan A en esta consulta.
+
 ## Consulta más reciente: plan B histórico en calibración, no ejecutado
 
 El investigador presentó fragmentos de actas de 1977/1982/1986/1992 con etiquetas tentativas y pidió opinión antes de comenzar. Se revisó el encaje conceptual en [CALIBRACION_PLAN_B_ACTAS_HISTORICAS](CALIBRACION_PLAN_B_ACTAS_HISTORICAS.md). **No se importó el corpus ni se asignaron etiquetas finales, se entrenó o se modificó el codebook.**

@@ -2,6 +2,8 @@
 
 ## Trabajo actual
 
+**Definición pendiente de acuerdo:** [criterio acotado del plan B](CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos de la propuesta general](DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md). No reemplazan el codebook v2 ni autorizan importar etiquetas.
+
 **Consulta de calibración:** [plan B con actas históricas](CALIBRACION_PLAN_B_ACTAS_HISTORICAS.md), solo opinión; no corpus importado ni etiquetas finales.
 
 **Último análisis:** [por qué se deterioró TF-IDF +59](DIAGNOSTICO_AMPLIACION_TFIDF_59_V1.md), lectura de los 16 cambios y descomposición de márgenes. Sin nueva variante ni etiquetas corregidas.
