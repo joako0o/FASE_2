@@ -29,7 +29,7 @@ MANIFIESTO = 'MANIFIESTO_ENTREGA.json'
 ENTRADA = 'data/checkpoints/beto_v1/entrada'
 RESULTADOS = 'data/checkpoints/beto_v1/ejecucion'
 ARCHIVOS_ENTRADA = ['documentos.json', 'folds.json', 'baseline.json', 'checkpoint.json', 'manifest.json']
-PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py', 'test_compatibilidad_criterios.py', 'test_referencia_v3.py', 'test_recodificacion_v3.py', 'test_tfidf_supervision_v3.py', 'test_ampliacion_ia89_v3.py', 'test_dataset_sintetico.py']
+PRUEBAS_NUEVAS = ['test_preparacion_beto.py', 'test_entrega_portable.py', 'test_muestreo_revision.py', 'test_ampliacion_tfidf.py', 'test_diagnostico_ampliacion.py', 'test_compatibilidad_criterios.py', 'test_referencia_v3.py', 'test_recodificacion_v3.py', 'test_tfidf_supervision_v3.py', 'test_ampliacion_ia89_v3.py', 'test_dataset_sintetico.py', 'test_dosis_sinteticas_v3.py']
 PRUEBAS_ANTERIORES_SEGURAS = [
     'test_inversiones_hd.py', 'test_referencias_corregidas.py', 'test_modelo_adjudicado.py',
     'test_revision_cierre_66.py', 'test_revision_neutralidad.py',
@@ -452,6 +452,10 @@ def main(argv=None):
     sintetico = acciones.add_parser('auditar-dataset-sintetico', help='Auditar duplicados/citas/trazabilidad del CSV sintético; no entrena')
     sintetico.add_argument('--archivo', type=Path, default=RAIZ/'Dataset_Sintetico_Post2020.csv')
     sintetico.add_argument('--salida', type=Path, default=RAIZ/'data/auditoria/dataset_sintetico_post2020_v1')
+    dosis = acciones.add_parser('preparar-dosis-sinteticas', help='Deduplicar y fijar dosis 250/500/750/801; no entrena')
+    dosis.add_argument('--salida', type=Path, default=RAIZ/'data/preparacion/dosis_sinteticas_post2020_v1')
+    ensayo_sintetico = acciones.add_parser('evaluar-dosis-sinteticas-v3', help='Comparar dosis sintéticas sobre B/C con validación real')
+    ensayo_sintetico.add_argument('--salida', type=Path, default=RAIZ/'data/evaluacion/dosis_sinteticas_tfidf_v3_v1')
     argumentos = parser.parse_args(argv)
     try:
         if argumentos.accion == 'instalar': instalar(argumentos.beto)
@@ -486,6 +490,12 @@ def main(argv=None):
             subprocess.run([sys.executable, '-X', 'utf8', 'scripts/auditar_dataset_sintetico.py',
                 '--origen', str(argumentos.archivo.resolve()), '--salida', str(argumentos.salida.resolve())],
                 cwd=RAIZ, check=True)
+        elif argumentos.accion == 'preparar-dosis-sinteticas':
+            subprocess.run([sys.executable, '-X', 'utf8', 'scripts/preparar_dosis_sinteticas_v3.py',
+                '--salida', str(argumentos.salida.resolve())], cwd=RAIZ, check=True)
+        elif argumentos.accion == 'evaluar-dosis-sinteticas-v3':
+            ejecutar_python(['scripts/evaluar_dosis_sinteticas_tfidf_v3.py',
+                '--salida', str(argumentos.salida.resolve())])
         elif argumentos.accion == 'diagnosticar-ampliacion-tfidf':
             preparar()
             ejecutar_python(['scripts/diagnosticar_ampliacion_tfidf.py', '--salida', argumentos.salida.resolve()])

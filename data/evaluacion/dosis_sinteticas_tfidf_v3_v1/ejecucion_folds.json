@@ -1,0 +1,722 @@
+[
+  {
+    "fold": 1,
+    "base_real": "B",
+    "dosis": 250,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 947,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 42250,
+    "iteraciones_b": [
+      34
+    ]
+  },
+  {
+    "fold": 1,
+    "base_real": "B",
+    "dosis": 500,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 947,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 45604,
+    "iteraciones_b": [
+      30
+    ]
+  },
+  {
+    "fold": 1,
+    "base_real": "B",
+    "dosis": 750,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 947,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 47866,
+    "iteraciones_b": [
+      28
+    ]
+  },
+  {
+    "fold": 1,
+    "base_real": "B",
+    "dosis": 801,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 947,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 48496,
+    "iteraciones_b": [
+      27
+    ]
+  },
+  {
+    "fold": 1,
+    "base_real": "C",
+    "dosis": 250,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1026,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 47701,
+    "iteraciones_b": [
+      28
+    ]
+  },
+  {
+    "fold": 1,
+    "base_real": "C",
+    "dosis": 500,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1026,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 51033,
+    "iteraciones_b": [
+      20
+    ]
+  },
+  {
+    "fold": 1,
+    "base_real": "C",
+    "dosis": 750,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1026,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 53271,
+    "iteraciones_b": [
+      24
+    ]
+  },
+  {
+    "fold": 1,
+    "base_real": "C",
+    "dosis": 801,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1026,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 53913,
+    "iteraciones_b": [
+      25
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "B",
+    "dosis": 250,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 960,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 42212,
+    "iteraciones_b": [
+      31
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "B",
+    "dosis": 500,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 960,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 45557,
+    "iteraciones_b": [
+      34
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "B",
+    "dosis": 750,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 960,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 47835,
+    "iteraciones_b": [
+      31
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "B",
+    "dosis": 801,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 960,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 48476,
+    "iteraciones_b": [
+      23
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "C",
+    "dosis": 250,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1039,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 47811,
+    "iteraciones_b": [
+      24
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "C",
+    "dosis": 500,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1039,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 51128,
+    "iteraciones_b": [
+      30
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "C",
+    "dosis": 750,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1039,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 53358,
+    "iteraciones_b": [
+      28
+    ]
+  },
+  {
+    "fold": 2,
+    "base_real": "C",
+    "dosis": 801,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1039,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 54007,
+    "iteraciones_b": [
+      32
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "B",
+    "dosis": 250,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 963,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 43063,
+    "iteraciones_b": [
+      22
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "B",
+    "dosis": 500,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 963,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 46405,
+    "iteraciones_b": [
+      36
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "B",
+    "dosis": 750,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 963,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 48689,
+    "iteraciones_b": [
+      28
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "B",
+    "dosis": 801,
+    "n_real_total": 1178,
+    "n_ia89": 0,
+    "n_train_b_real": 963,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 49316,
+    "iteraciones_b": [
+      23
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "C",
+    "dosis": 250,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1042,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 48732,
+    "iteraciones_b": [
+      24
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "C",
+    "dosis": 500,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1042,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 52054,
+    "iteraciones_b": [
+      31
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "C",
+    "dosis": 750,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1042,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 54324,
+    "iteraciones_b": [
+      31
+    ]
+  },
+  {
+    "fold": 3,
+    "base_real": "C",
+    "dosis": 801,
+    "n_real_total": 1257,
+    "n_ia89": 79,
+    "n_train_b_real": 1042,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 54954,
+    "iteraciones_b": [
+      32
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "B",
+    "dosis": 250,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 42899,
+    "iteraciones_b": [
+      23
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "B",
+    "dosis": 500,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 46246,
+    "iteraciones_b": [
+      25
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "B",
+    "dosis": 750,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 48537,
+    "iteraciones_b": [
+      31
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "B",
+    "dosis": 801,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 49168,
+    "iteraciones_b": [
+      29
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "C",
+    "dosis": 250,
+    "n_real_total": 1255,
+    "n_ia89": 72,
+    "n_train_b_real": 1031,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 48162,
+    "iteraciones_b": [
+      29
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "C",
+    "dosis": 500,
+    "n_real_total": 1255,
+    "n_ia89": 72,
+    "n_train_b_real": 1031,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 51471,
+    "iteraciones_b": [
+      31
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "C",
+    "dosis": 750,
+    "n_real_total": 1255,
+    "n_ia89": 72,
+    "n_train_b_real": 1031,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 53728,
+    "iteraciones_b": [
+      28
+    ]
+  },
+  {
+    "fold": 4,
+    "base_real": "C",
+    "dosis": 801,
+    "n_real_total": 1255,
+    "n_ia89": 72,
+    "n_train_b_real": 1031,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 54359,
+    "iteraciones_b": [
+      22
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "B",
+    "dosis": 250,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 42222,
+    "iteraciones_b": [
+      32
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "B",
+    "dosis": 500,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 45574,
+    "iteraciones_b": [
+      39
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "B",
+    "dosis": 750,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 47852,
+    "iteraciones_b": [
+      26
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "B",
+    "dosis": 801,
+    "n_real_total": 1183,
+    "n_ia89": 0,
+    "n_train_b_real": 959,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 48484,
+    "iteraciones_b": [
+      28
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "C",
+    "dosis": 250,
+    "n_real_total": 1259,
+    "n_ia89": 76,
+    "n_train_b_real": 1035,
+    "n_train_b_sintetico": 250,
+    "clases_sinteticas": {
+      "dovish": 84,
+      "neutral": 83,
+      "hawkish": 83
+    },
+    "vocabulario_b": 47213,
+    "iteraciones_b": [
+      33
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "C",
+    "dosis": 500,
+    "n_real_total": 1259,
+    "n_ia89": 76,
+    "n_train_b_real": 1035,
+    "n_train_b_sintetico": 500,
+    "clases_sinteticas": {
+      "hawkish": 167,
+      "dovish": 167,
+      "neutral": 166
+    },
+    "vocabulario_b": 50550,
+    "iteraciones_b": [
+      27
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "C",
+    "dosis": 750,
+    "n_real_total": 1259,
+    "n_ia89": 76,
+    "n_train_b_real": 1035,
+    "n_train_b_sintetico": 750,
+    "clases_sinteticas": {
+      "hawkish": 254,
+      "dovish": 254,
+      "neutral": 242
+    },
+    "vocabulario_b": 52782,
+    "iteraciones_b": [
+      33
+    ]
+  },
+  {
+    "fold": 5,
+    "base_real": "C",
+    "dosis": 801,
+    "n_real_total": 1259,
+    "n_ia89": 76,
+    "n_train_b_real": 1035,
+    "n_train_b_sintetico": 801,
+    "clases_sinteticas": {
+      "dovish": 285,
+      "hawkish": 274,
+      "neutral": 242
+    },
+    "vocabulario_b": 53425,
+    "iteraciones_b": [
+      35
+    ]
+  }
+]
