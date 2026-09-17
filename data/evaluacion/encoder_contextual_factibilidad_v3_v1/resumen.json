@@ -1,0 +1,18 @@
+{
+  "cpu_logicas": 2,
+  "ram_total_gib": 3.848,
+  "backend_torch": false,
+  "backend_tensorflow": false,
+  "backend_flax": false,
+  "transformers_instalado": true,
+  "pesos_encoder_locales": 0,
+  "gpu_visible": false,
+  "decision": "no_ejecutar_finetuning_contextual_en_este_entorno",
+  "motivos": [
+    "sin backend tensorial",
+    "sin pesos locales",
+    "2 CPU y menos de 4 GiB RAM para CV externa agrupada de cinco folds"
+  ],
+  "modelo_descargado": false,
+  "etiquetas_validacion_consultadas": false
+}
