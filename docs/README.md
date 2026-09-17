@@ -2,7 +2,7 @@
 
 ## Trabajo actual
 
-**Trabajo vigente:** migración al [codebook v3 aprobado](codebook_v3.md). Inventario: 1.352 IA base + 89 IA nuevas + 306 humanas = 1.747 IDs distintos. La primera [revisión direccional](REVISION_DIRECCION_RESPALDADA_V1.md) propone 11 cambios entre 29 H/D prioritarias; falta revisar falsos N y los demás lotes. V2 permanece como historial reproducible y no se entrena hasta consolidar v3.
+**Trabajo vigente:** migración al [codebook v3 aprobado](codebook_v3.md). Inventario: 1.352 IA base + 89 IA nuevas + 306 humanas = 1.747 IDs distintos. Las [dos rondas prioritarias](REVISION_RONDAS_PRIORITARIAS_V3.md) están cerradas 77/77: 11 cambios de etiqueta y uno de relevancia frente a v2 vigente; quedan1.670 IDs. V2 permanece como historial reproducible y no se entrena hasta consolidar v3.
 
 **Antecedentes:** [auditoría inicial de compatibilidad](AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md), [criterio acotado del plan B](CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos generales](DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
 

@@ -1,0 +1,17 @@
+{
+  "codebook": "docs/codebook_v3.md",
+  "alcance": "Las 77 filas completas de r13_tanda09 y r14_tanda10; etiquetas visibles, lectura por agente, no revisión humana independiente.",
+  "fuentes_sha256": {
+    "data/L0/corpus.csv": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "data/etiquetas/etiquetas_r13_tanda09.csv": "bbd7ea0e7ec3940da47ed09e31ac7c2de8e2b38c1b65c3add75da119a7d63ab3",
+    "data/etiquetas/etiquetas_r14_tanda10.csv": "46d1554510606c663c3379cd66e7a8cc042d1612f959772d795764758aefcf9a",
+    "docs/codebook_v3.md": "c41cebf74ea73e57c48fae2c8606e5b555dc17ff1c65608fcf17d362dbbc39cf",
+    "data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv": "dc1336c88cb8f21e40a632d39fefe1b74477660e608045fec49a936865bf3903"
+  },
+  "controles": [
+    "77 IDs únicos",
+    "citas exactas tras normalizar espacios y <=300",
+    "hash por texto",
+    "sin sobrescribir fuentes"
+  ]
+}

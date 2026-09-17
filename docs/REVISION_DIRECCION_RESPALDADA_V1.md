@@ -1,5 +1,7 @@
 # Revisión dirigida de H/D bajo el criterio de dirección respaldada
 
+> **Superada por el cierre de 77 filas:** consultar `REVISION_RONDAS_PRIORITARIAS_V3.md`. Esta primera pantalla comparó las 29 H/D con la etiqueta IA de sus archivos de origen. El cierre posterior compara correctamente con la referencia v2 vigente —que ya había corregido 976:1 y 2238:1— e incorpora las 48 N.
+
 **Fecha:** 17-09-2026  
 **Estado:** auditoría de compatibilidad; no adopta un codebook, no modifica etiquetas y no entrena modelos.
 

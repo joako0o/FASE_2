@@ -36,6 +36,7 @@
     "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_03/anotaciones_ia.csv": "d26d0ed3dad340f5264d35373af8cb3c75cd0999f54875bf30b9c4b2d36ba909",
     "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_04/anotaciones_ia.csv": "537ef8d5acff75552e861c85372c4828fffa8d9e764dbc3c32c87b0522cbae61",
     "data/evaluacion/tfidf_gold_v1/comparacion_gold.csv": "a32437dfdf4ea852d3ceb842b12e756460ade79909c0d4c60b96aca9eed90feb",
-    "data/auditoria/revision_direccion_respaldada_v1/revision_29_hd.csv": "397223e554f3b0666b4b66103470cde14f51caa07d746c715943382225d0208a"
+    "data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv": "dc1336c88cb8f21e40a632d39fefe1b74477660e608045fec49a936865bf3903",
+    "data/auditoria/revision_rondas_prioritarias_v3/revision_77.csv": "9e01c450b62c186249cd1af5a28dedd0034e9123e3c0324022050a43834f62de"
   }
 }

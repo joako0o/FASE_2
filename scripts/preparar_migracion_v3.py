@@ -74,26 +74,38 @@ def preparar(salida=SALIDA):
             'es_relevante_origen': fila['es_relevante_humano'],
         })
 
+    referencias_path = RAIZ / 'data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv'
+    fuentes.append(referencias_path)
+    referencias = {fila['intervencion_id']: fila for fila in leer_csv(referencias_path)}
+    for fila in registros:
+        if fila['coleccion'] == 'ia_base_v2':
+            referencia = referencias[fila['intervencion_id']]
+            fila['etiqueta_previa_v3'] = referencia['etiqueta_corregida_v2']
+            fila['es_relevante_previa_v3'] = referencia['es_relevante']
+        else:
+            fila['etiqueta_previa_v3'] = fila['etiqueta_origen']
+            fila['es_relevante_previa_v3'] = fila['es_relevante_origen']
+
     ids = [fila['intervencion_id'] for fila in registros]
     if len(registros) != 1747 or len(set(ids)) != 1747:
         raise ValueError('El universo v3 debe contener 1.747 IDs distintos')
     if not set(ids) <= set(corpus):
         raise ValueError('Hay IDs de revisión que no existen en L0')
 
-    revision_path = RAIZ / 'data/auditoria/revision_direccion_respaldada_v1/revision_29_hd.csv'
+    revision_path = RAIZ / 'data/auditoria/revision_rondas_prioritarias_v3/revision_77.csv'
     fuentes.append(revision_path)
     revisados = {fila['intervencion_id']: fila for fila in leer_csv(revision_path)}
-    if len(revisados) != 29:
-        raise ValueError('La revisión inicial debe contener 29 IDs')
+    if len(revisados) != 77:
+        raise ValueError('La revisión de rondas prioritarias debe contener 77 IDs')
 
     for fila in registros:
         identidad = fila['intervencion_id']
         texto = corpus[identidad]['texto']
         previo = revisados.get(identidad)
         fila.update({
-            'estado_revision_v3': 'revisado_inicial' if previo else 'pendiente',
-            'etiqueta_v3': previo['etiqueta_segun_criterio_propuesto'] if previo else '',
-            'es_relevante_v3': fila['es_relevante_origen'] if previo else '',
+            'estado_revision_v3': 'revisado' if previo else 'pendiente',
+            'etiqueta_v3': previo['etiqueta_v3'] if previo else '',
+            'es_relevante_v3': previo['es_relevante_v3'] if previo else '',
             'confianza_revision_v3': previo['confianza_revision'] if previo else '',
             'sha256_texto': hashlib.sha256(texto.encode()).hexdigest(),
             'n_caracteres_texto': str(len(texto)),
@@ -104,7 +116,7 @@ def preparar(salida=SALIDA):
     salida.mkdir(parents=True, exist_ok=True)
     columnas = list(registros[0])
     with (salida / 'inventario.csv').open('x', encoding='utf-8', newline='') as archivo:
-        escritor = csv.DictWriter(archivo, fieldnames=columnas)
+        escritor = csv.DictWriter(archivo, fieldnames=columnas, lineterminator='\n')
         escritor.writeheader()
         escritor.writerows(registros)
 

@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Se revisarán las 19 rondas IA (1.352 IDs), las 89 anotaciones IA nuevas y las 306 respuestas humanas: 1.747 IDs distintos. V2 y sus métricas se preservan; no se reentrena hasta cerrar una capa v3 trazable. La [primera revisión dirigida](docs/REVISION_DIRECCION_RESPALDADA_V1.md) encontró 11 cambios propuestos entre 29 etiquetas H/D prioritarias.
+**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; 1.747 IDs distintos. Las [dos rondas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md) están cerradas: 77/77 revisadas, 11 cambios de etiqueta y uno de relevancia frente a v2 vigente. Quedan 1.670 IDs. V2 y sus métricas se preservan; no se reentrena hasta consolidar v3.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.
@@ -24,7 +24,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 Detalle vigente: [codebook v3](docs/codebook_v3.md). Sus antecedentes son el [criterio acotado para el plan B](docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y la [propuesta conceptual general](docs/DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
 
-**Migración en curso.** La [auditoría inicial](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md) confirmó convenciones relativas al menú/fase. La [revisión de las 29 H/D prioritarias](docs/REVISION_DIRECCION_RESPALDADA_V1.md) propuso 11 cambios, pero aún faltan falsos N, otras rondas y las colecciones IA nuevas/humanas. El investigador autorizó revisar también las 306 respuestas humanas; desde esa decisión dejan de ser un test ciego para v3, aunque su versión v2 se conserva intacta. Toda corrección se registrará por ID en una capa nueva. El efecto de recodificar referencias se separará del efecto de reentrenar.
+**Migración en curso.** La [auditoría inicial](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md) confirmó convenciones relativas al menú/fase. El [cierre completo de las 77 filas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md) registra 65 compatibles, 11 cambios de etiqueta y uno de relevancia frente a v2 vigente, incluidos los falsos N. El investigador autorizó revisar también las 306 respuestas humanas; desde esa decisión dejan de ser un test ciego para v3, aunque su versión v2 se conserva intacta. Toda corrección se registra por ID en una capa nueva. El efecto de recodificar referencias se separará del efecto de reentrenar.
 
 ## Estado real
 
