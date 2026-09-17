@@ -1,0 +1,20 @@
+{
+  "filas": 300,
+  "ids_unicos": 300,
+  "periodo": [
+    2005,
+    2015
+  ],
+  "reuniones_cuarentena": 33,
+  "reuniones_por_anio": 3,
+  "estratos_recuperacion_ocultos": {
+    "aleatorio_contextual": 109,
+    "candidato_dovish": 41,
+    "candidato_hawkish": 71,
+    "neutral_dificil": 79
+  },
+  "advertencia": "estratos de recuperación, no etiquetas",
+  "etiquetas_visibles": false,
+  "predicciones_visibles_o_consultadas": false,
+  "rol": "evaluacion ciega challenge agrupada; no train"
+}
