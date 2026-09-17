@@ -85,6 +85,12 @@ Conservar el error completo y la versión del entorno, sin secretos. La implemen
 
 Si hay que modificar 38/39 o el protocolo, hacerlo explícitamente en una etapa nueva, con tests y nueva preparación. El manifiesto captura sus bytes: **no editarlo para saltarse una incompatibilidad**. No mezclar folds completados de paquetes distintos. Un grupo parcial no tiene reanudación de optimizador; conservarlo aparte antes de repetirlo.
 
-## 8. Cierre de la próxima sesión
+## 8. Limpieza final extrema: requisito pendiente del investigador
+
+**No dar por terminada la limpieza con el gestor 40.** El investigador considera incorrecto entregar aproximadamente 40 scripts y exige que, al final, quede solo lo necesario y esencial. La organización para traslado fue provisional. Ver la regla obligatoria [REGLAS §12](REGLAS.md#12-limpieza-extrema-obligatoria-antes-de-la-entrega-final).
+
+Antes de la entrega definitiva: sustituir dependencias de etapas antiguas por una entrada y pocos módulos claros; eliminar duplicación/material muerto; separar del paquete operativo el histórico necesario, dejándolo recuperable. No basta con esconder los 40 scripts detrás de un lanzador ni moverlos sin eliminar la dependencia. Preservar datos/adjudicaciones esenciales y demostrar equivalencia en instalación limpia, con inventario reducido y nuevos manifiestos, sin alterar los históricos. No se ejecuta esa refactorización en esta nota: queda como condición de cierre explícita.
+
+## 9. Cierre de la próxima sesión
 
 Actualizar AVANCE/CONTINUIDAD y el inventario al añadir archivos. Ejecutar controles seleccionados, exportar, extraer y verificar el ZIP. Mantener pesos/venv/caches/ZIP fuera de Git. Informar resultados reales y límites. No borrar referencias/artefactos verificables ni cerrar/fusionar el PR sin autorización.

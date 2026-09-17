@@ -448,3 +448,10 @@ No se cierran/fusionan PR automáticamente. Descargar un ZIP desde GitHub no req
 La organización no aporta métricas nuevas ni ejecución BETO: pesos, prueba real GPU y comparación siguen pendientes. No más anotaciones, cambios de referencias/folds/A, datasets externos, refit final o scoring global. Evidencia de limpieza/instalación/portabilidad y límites en `data/auditoria/entrega_portable_v1/`.
 
 Cierre verificado de 9.20: **90 pruebas aprobadas, 0 omitidas**, instalación limpia desde ZIP sin Git en ruta con espacios, paquete idéntico y reexportación comprobada; **330 archivos anteriores protegidos intactos**. Retirados 29 caches (631.950 bytes). Solo Linux/Python 3.11, sin encoder/GPU ni ejecución Windows/macOS/Colab.
+
+
+### 9.21 Condición de cierre: limpieza extrema y entrega mínima
+
+El investigador exige dejar al final solo lo necesario y esencial; considera inadecuada la colección actual de unos 40 scripts. La organización de 9.20 es provisional y no satisface este requisito. Regla vinculante en `docs/REGLAS.md` §12; pendiente visible en CONTINUIDAD/AGENTS/AVANCE.
+
+Antes de la entrega definitiva: refactorizar las dependencias activas en una entrada y pocos módulos claros; retirar material muerto/duplicado y etapas descartadas del paquete operativo; conservar evidencia histórica necesaria en una versión recuperable separada. No esconder la misma cadena de scripts detrás de un lanzador ni mantenerla como dependencia indirecta. Entregar inventario reducido, registro de retirados/fusionados, pruebas de equivalencia y ejecución en instalación limpia sin depender del archivo histórico. Preservar fuentes/adjudicaciones esenciales y versionar nuevos manifiestos, sin reescribir los antiguos ni cambiar referencias/folds/A. La refactorización aún no se ha ejecutado.

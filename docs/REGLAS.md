@@ -33,7 +33,7 @@
 - No se commitean artefactos grandes (checkpoints, modelos): van fuera de git vía `.gitignore`.
 
 ## 6. Orden del repo
-- Scripts numerados por fase: `scripts/01_...`, `scripts/02_...` → la numeración es el orden de ejecución de la pipeline.
+- La numeración por fase documenta el desarrollo histórico, no obliga a conservar un script por experimento en la entrega final. La estructura final debe cumplir la limpieza obligatoria de §12.
 - Nombres `snake_case`, descriptivos.
 - Documentación en `docs/`; datos en `data/`; este orden no se negocia dentro del proyecto.
 
@@ -60,3 +60,17 @@
 
 ## 11. Cambios a estas reglas
 Se pueden agregar o modificar reglas, siempre: propuesta → acuerdo con el investigador → registro en este archivo con fecha.
+
+## 12. Limpieza extrema obligatoria antes de la entrega final
+
+**Requisito explícito del investigador, 2026-09-16:** «al final tenemos que hace limpieza extrema y de jar lo necesesario y esencial porque 40 scripts no lo veo correcto».
+
+- **La organización actual es provisional.** La limpieza final sigue pendiente y es una condición de cierre del proyecto, no una mejora opcional.
+- No basta con añadir un lanzador que llame a decenas de scripts antiguos, borrar caches, crear índices o cambiar nombres. El investigador no debe recibir una colección de unos 40 scripts experimentales como producto final.
+- Refactorizar el flujo elegido en **una entrada de ejecución y un conjunto pequeño de módulos con responsabilidades claras**. Reducir realmente dependencias históricas, código duplicado y generadores/variantes descartados. No fijar un número arbitrario ni juntar todo en un archivo gigante para aparentar limpieza.
+- Conservar en la entrega operativa únicamente el código usado, datos imprescindibles, configuración/dependencias, pruebas pertinentes y documentación breve necesaria para ejecutar, verificar y continuar.
+- Retirar del árbol activo archivos muertos, plantillas/formularios ya cerrados, copias redundantes, pruebas de rutas retiradas y documentación obsoleta. La evidencia histórica necesaria debe quedar identificada y recuperable mediante una revisión Git o archivo separado; **no incluirla automáticamente toda en el paquete operativo**.
+- Antes de retirar una dependencia, comprobar sus usos y completar su sustitución. Preservar originales irreemplazables, adjudicaciones y procedencia necesarias. La refactorización no autoriza cambiar etiquetas, folds, filtro A, texto ni resultados para hacer pasar pruebas.
+- No falsear manifiestos históricos para ocultar cambios: conservar su versión reproducible aparte y generar manifiestos nuevos para la entrega reducida. Las comprobaciones de equivalencia deben justificar qué se mantiene y qué se retira.
+- **Criterios de aceptación del cierre:** inventario final con función de cada archivo; lista de retirados/fusionados y ubicación del histórico necesario; ejecución desde una instalación limpia usando solo el paquete reducido; pruebas de integridad/equivalencia aprobadas; instrucciones cortas y ausencia de dependencias ocultas de la carpeta histórica.
+- Registrar este cierre en AVANCE/CONTINUIDAD. **No marcar «limpieza final terminada» mientras la solución operativa siga dependiendo de los aproximadamente 40 scripts actuales.** Este requisito prevalece sobre la costumbre de conservar cada etapa en el árbol de entrega.

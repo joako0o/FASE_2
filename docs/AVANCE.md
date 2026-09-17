@@ -1,6 +1,12 @@
 # AVANCE — Proyecto D&H
 
-## Cierre activo: organización, traslado y continuidad
+## Actualización: limpieza extrema final exigida, todavía pendiente
+
+El investigador indicó que unos 40 scripts no son una entrega adecuada y pidió dejar anotada una limpieza extrema al finalizar. Se incorporó como regla obligatoria en `docs/REGLAS.md` §12 y en AGENTS/CONTINUIDAD/PLAN. No basta con el gestor 40 ni con eliminar caches: hay que reducir de verdad el flujo a una entrada y pocos módulos esenciales, retirar duplicados y separar el histórico recuperable de la entrega operativa. Verificar equivalencia y ejecución limpia antes de declarar cierre.
+
+Esta actualización es documental: no se eliminaron scripts, no se refactorizó todavía ni se cambiaron datos/modelos. Los controles de traslado que siguen describen el cierre anterior; no certifican la limpieza final exigida ahora. Los ZIP ya descargados son instantáneas anteriores y no incorporan automáticamente esta nota.
+
+## Cierre anterior: organización, traslado y continuidad
 
 El investigador pidió ordenar todo el proyecto, eliminar lo innecesario, dejar código/datos y pasos claros para otro PC y permitir que otra sesión continúe. No pidió fusionar ni cerrar el PR. Se mantiene PR #4 y la rama de esta sesión; para otra sesión manda la rama que asigne su entorno.
 

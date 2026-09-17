@@ -11,3 +11,5 @@
 9. No pagos, credenciales en chat, TLS desactivado ni datasets externos nuevos. Si no hay GPU/acceso a pesos, registrar el bloqueo honestamente.
 10. Mantener limpio: no commitear `.venv`, pesos, caches o ZIP; conservar evidencia necesaria. Actualizar `docs/AVANCE.md`, `docs/CONTINUIDAD.md` e inventario `entrega/archivos_proyecto.txt` al cerrar trabajo nuevo.
 11. Antes de entregar, comprobar el ZIP extraído sin `.git`, su manifiesto y las pruebas seleccionadas. Un respaldo de resultados no es un proyecto completo. No cerrar/fusionar PR sin autorización explícita.
+
+12. **Limpieza final extrema pendiente y obligatoria**: leer `docs/REGLAS.md` §12. La entrega actual con ~40 scripts es provisional; el gestor 40 no cumple por sí solo la limpieza. Refactorizar a una entrada y pocos módulos esenciales, retirar dependencias/material obsoleto y separar el histórico recuperable del paquete operativo. Verificar equivalencia sin alterar datos/etiquetas; no declarar cierre antes de cumplirlo.
