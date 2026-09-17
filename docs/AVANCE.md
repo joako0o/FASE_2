@@ -1,5 +1,13 @@
 # AVANCE — Proyecto D&H
 
+## Consulta más reciente: formato estructurado del plan B, sin ampliar la revisión
+
+El investigador pide opinión antes de iniciar la revisión ampliada y presenta otra calibración con `tipo_accion`, `instrumento`, Nrelevantes y29595pendiente. Se considera mejor alineada conceptualmente; quedan controles de formato/trazabilidad, no otra redefinición de H/D/N. **No se inició revisión adicional de las77filas, importación o entrenamiento.**
+
+Pendientes: mantener `etiqueta` solo H/D/N y pasar pendiente a `estado_revision`, con etiqueta vacía y uso_entrenamiento=0; completar citas de los Nrelevantes21910/31369/32169/32531; quitar la elipsis insertada de31986; preservar UF cuando se cita el valor de21716 (su cita completa previa tenía291caracteres y cabía). En22078la nota afirma aislamiento pero la salida solo muestra texto original con otro acuerdo: si hay segmentación, registrar texto_unidad/offsets sin borrar el original. Añadir IDdeacta/reunión real para agrupar propuestas, votos y comunicado. No inferir unanimidad en33554solo de “los demás también están de acuerdo”.
+
+`tipo_accion` funciona en realidad como tipo de acto discursivo; acordar vocabulario breve y distinguirlo de subir/bajar/mantener. Esos campos, notas y citas son anotación/auditoría: no suministrarlos automáticamente como entradas del modelo; cualquier uso de rasgos derivados exige disponibilidad/obtención equivalente y sin etiquetas en inferencia. Procedencia IA/fecha de anotación/versión de guía deben quedar registradas. Guías congeladas, resultados y datos previos sin cambios.
+
 ## Cierre actual: compatibilidad original auditada parcialmente, no reclasificada
 
 Se contrastaron v2, las convenciones históricas, documentación del instrumento humano y los19CSV/1.352IA. **Hallazgo confirmado:** parte del training IA usó pausa en alzas=D y mantener contra recorte=Hrelativo, según `CONVENCIONES_ETIQUETADO.md` y cuatro notas explícitas. Esas convenciones no son automáticamente equivalentes a dirección respaldada en la propia unidad. No significa que las1.352estén mal ni que cada caso de esa familia cambie necesariamente de clase.

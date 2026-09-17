@@ -601,3 +601,10 @@ Tras «sigue», se contrastan guías/documentación y estructura de los19CSV/1.3
 Informe `docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md`; datos `data/auditoria/compatibilidad_criterios_v1/`; comando40 `auditar-compatibilidad` con auditor de solo lectura. Replay exacto y122tests/0omitidos. Cero etiquetas nuevas, reclasificación, cambios de referencias/folds o entrenamiento. Las humanas conservadas no son declaradas erróneas ni compatibles sin revisión individual autorizada.
 
 Recomendar acuerdo explícito sobre la convención y luego revisión versionada por familias, no corrección oportunista por score. Mantener originales y decisiones aceptadas; separar efecto de nueva referencia del reentrenamiento. Meta300/300 no cancelada, pero no incorporar nuevas filas mientras se resuelve compatibilidad.
+
+
+### 9.36 Calibración estructurada del plan B: requisitos de recepción
+
+El investigador consulta si se adapta una nueva tabla con tipo_accion/instrumento y29595pendiente, antes de seguir con la revisión. Se acepta como mejor alineación conceptual, no como archivo ya validado/importado o nueva redefinición. Pendiente debe ser estado y no cuarta clase; Nrelevantes necesitan citas;31986debe llevar cita continua sinelipsis;21716puede conservar UF en la cita de291caracteres. Segmentación declarada en22078requiere texto_unidad/offsets y original conservado; agrupación por acta debe existir en datos, no solo en notas.33554no acredita unanimidad por sí solo. Acordar vocabulario de tipo_acto, procedencia/versión/fecha y evitar fuga desde notas/citas/campos manuales al modelo.
+
+Sin nueva auditoría de77filas, importación histórica, cambio de etiquetas, codebook, modelos o resultados. La auditoría inicial anterior sigue siendo de12textos, no de la colección completa.

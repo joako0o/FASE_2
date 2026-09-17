@@ -2,6 +2,8 @@
 
 ## 1. Estado que debes asumir — y comprobar
 
+**Consulta que antecede a retomar la revisión ampliada:** el usuario trae calibración del plan B con tipo_accion/instrumento y pendiente29595. Mejora conceptual; faltan separar estado pendiente de etiqueta, citas Nrelevantes, cita continua31986, segmentación trazable22078 e IDdeacta real. No tomar “los demás” como prueba de unanimidad aislada ni usar campos de anotación como features disponibles por magia en inferencia. No se abrió otra revisión, importó corpus o reentrenó por esta consulta. Las77filas originales siguen pendientes de revisión ampliada; la auditoría inicial de12casos ya realizada se conserva.
+
 **Último cierre: auditoría inicial de compatibilidad**, `docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md`. Convenciones históricas documentadas y notas originales confirman criterios relativos al menú/fase en parte del training IA. No decir solo “es posible”: hay cuatro rastros explícitos (525:1,672:1,1102:1,1218:1), leídos completos, sin asignarles etiquetas nuevas. Dos archivos prioritarios suman77filas, no77errores. Ocho controles adicionales por hash:5compatibles/2fronteras/1evaluabilidad;292:1muestra que el alcance puede ir más allá de esos archivos. No extrapolar porcentajes:12textos/27.887caracteres no son revisión completa de1.352.
 
 Originales ya separaban878Nrelevantes y269Nirrelevantes; v2actual869/269. Las306respuestas humanas **no se leyeron**: no afirmar que estén mal ni que sean100%compatibles con otra definición. Se contrastó documentación, no su aplicación individual. Cero etiquetas, referencias, folds o métricas cambiadas. Auditor en40 `auditar-compatibilidad --salida RUTA_NUEVA`, replay exacto y122tests/0omitidos.
