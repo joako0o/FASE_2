@@ -1,0 +1,9 @@
+{
+  "sha256_salidas": {
+    "anotacion_dirigida_300_v3.csv": "c4ce9734796984b1c1e86494c270f6bec591a83e57576f37efda92da0517078d",
+    "anotacion_dirigida_300_v3.xlsx": "9b625d42db36be9834543f953dc554523ce06ccfd5ffb55c9b1081e4393271e2",
+    "control_muestreo.csv": "ad31c3c2d505ef8528f248f4fe3ccba7aada63a2849534055339148637307de1",
+    "resumen.json": "1cef0cf0904cad9f2d24c60359a503d4ca957447f4f0a15b1c6a6ee4ac665d76",
+    "protocolo.json": "4df73dfa8129f6aa00b25cad4a20cf30f984d15af64c564ae36a4da5607314d9"
+  }
+}
