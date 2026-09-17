@@ -583,3 +583,10 @@ El investigador solicita registrar las definiciones en README y otra parte, y co
 Se recomienda auditar antes de reclasificar: primero las89anotaciones IA recientes, luego familias de riesgo y controles no seleccionados por esas familias en la base de1.352. No solo errores del clasificador; no se supone que todas las etiquetas estén mal ni se sabe aún cuántas cambiarían. Cualquier cambio autorizado se guarda en otra capa con ID/regla/evidencia, preservando originales y adjudicaciones. No abrir306respuestas. Si cambia la referencia, separar su efecto sobre scores del efecto de un modelo reentrenado.
 
 **Actualización documental, no auditoría o reclasificación ejecutada; sin datos/modelos/folds/A modificados, importación histórica o nuevos entrenamientos.**
+
+
+### 9.34 Compatibilidad de etiquetas originales y tercera calibración del plan B
+
+El investigador precisa que consulta si sus~300anotaciones humanas y las~1000IA originales están mal con la definición afinada. Se aclara que no hay auditoría completa ni dictamen de incompatibilidad total: distinguir aplicación errónea de reglas, redefinición de la variable y error de modelo. No invalidar trabajo previo por cambiar después la definición. Preservar1.352IA/306humanas, sin abrir estas últimas ni migrar referencias automáticamente.
+
+El nuevo ejemplo de plan B corrige Nrelevante y varias etiquetas, pero siguen pendientes29595(Nalta por ausencia de voto),31986(Hrelativo y cita conelipsis), citas ausentes paraNrelevantes,33553(justificación de sesgo declarado incompatible conNseguro) y precisión propuesta/adopción en27863. La cita21716 se midió en291caracteres; se corrige la recomendación previa innecesaria de recortarla. Notas en `docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md`. No datos importados, reclasificación, cambio de codebook, entrenamiento o código nuevo.

@@ -1,5 +1,13 @@
 # AVANCE — Proyecto D&H
 
+## Aclaración vigente: compatibilidad de las anotaciones originales y tercera calibración
+
+El investigador aclara que su pregunta sobre “las1000tuyas+300mías” se refería al conjunto original IA/humano, no solo a las89nuevas. **No se puede declarar que las1.352IA y306humanas estén mal en bloque ni que sean totalmente compatibles sin revisión.** Separar errores de aplicación de reglas existentes de cambios de variable/definición; cambiar después el objetivo no convierte automáticamente la etiqueta anterior en equivocada. No se sabe cuántas cambiarían. No se reabrieron306respuestas ni se ejecutó reclasificación.
+
+Nueva salida de calibración histórica mejora Nrelevante=1 y otras distinciones, pero aún requiere:29595noNalta por falta de voto (hay propuestas);31986sin Hrelativo automático ni cita con`[...]`; citas paraNrelevantes;33553sin afirmar sesgo al alza inequívoco mientras se sostiene N;27863propuesta distinta de adopción. Cita21716comprobada en291caracteres: cumple300y no requiere recorte, corrigiendo la sugerencia anterior. Detalle en `docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md`.
+
+Solo evaluación/documentación de fragmentos pegados. No nuevos datos, etiquetas, código o entrenamientos; las propuestas no sustituyen v2 ni las referencias históricas.
+
 ## Última actualización: definiciones destacadas y revisión de etiquetas pendiente
 
 El investigador pidió anotar las definiciones en README y otra parte, destacando su importancia, y preguntó si hay que reclasificar lo anterior. Se añadieron una sección visible en `README.md` y la regla13 en `docs/REGLAS.md`, con enlaces a los borradores: orientación respaldada, **N relevante ≠ irrelevante**, dirección frente a magnitud relativa, mantención contextual, historia/pregunta sin adhesión y texto original.

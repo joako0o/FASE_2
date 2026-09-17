@@ -27,7 +27,7 @@ Son reglas de sesgo comunicado, **no una clasificación mecánica del cambio num
 
 | ID | Lectura recomendada bajo el criterio | Relevancia | Corrección/precaución |
 |---|---|---|---|
-| 21716 | D, alta | 1 | Decisión explícita de relajar y reducir 5,2→5 anual sobre UF. No es una tasa nominal en pesos; conservar tipo de tasa. Acortar la cita larga, no el texto completo |
+| 21716 | D, alta | 1 | Decisión explícita de relajar y reducir 5,2→5 anual sobre UF. No es una tasa nominal en pesos; conservar tipo de tasa. La cita suministrada tiene 291 caracteres y cumple el límite de 300; no necesita recorte |
 | 21910 | N como pronunciamiento actual de relato, con D histórico auxiliar | 1 | Relata decisiones de 1994 y evolución posterior; no formula una nueva preferencia para septiembre1995. D alta correspondería a clasificar el episodio relatado, una tarea distinta |
 | 22078 | H, alta | 1 | Declara consolidar/profundizar restricción y objetivo interbancario. Separar el acuerdo posterior sobre canasta de monedas y cierre de sesión |
 | 27863 | H, alta | 1 | Propuesta de subir 7→8,5 anual sobre UF. Registrar que es propuesta, no resolución final |
@@ -57,3 +57,32 @@ Las reservas de31986/33553 requieren que se cierre explícitamente la regla sobr
 ## Estado y siguiente paso
 
 La extracción nueva está mejor alineada con una tarea centrada en tasa de política que la mezcla de ayudas/multas/regulación anterior. Aun así, **no está aprobada para incorporarla al plan A**. Primero acordar estas reglas y calibrar con ejemplos completos, preservando sus fuentes. El codebook v2, la validación y los datos/modelos existentes permanecen intactos. El investigador pidió detener la continuación hasta aclarar este criterio; no se lanzó ningún entrenamiento ni nueva anotación del plan A en esta consulta.
+
+
+## Tercera salida de calibración: mejoras y pendientes
+
+El investigador presentó una salida revisada sin `texto_corregido`: corrige N relevantes a relevancia1 (incluidos31369/32169/32531),21910a relatoN, evita tratar la baja de50frente70comoH, y reduce confianza de33553. Son avances de coherencia con la propuesta, no validación independiente ni importación al corpus.
+
+Pendientes antes de aceptar esa salida como anotaciones listas:
+
+- **29595:** relevancia1 está mejor, pero Nalta no se justifica por ausencia de voto. El texto propone/anticipa medidas y dice que parece oportuno adoptarlas hoy. Las recomendaciones también cuentan. Separar apertura y asuntos sustantivos; si la dirección no se puede identificar, dejar pendiente y fuera del entrenamiento, no neutralidad segura. No resolver por intuición la diferencia encaje cambiario/bancario.
+- **31986:** Hmedia es defendible por oposición a estímulo que considera excesivo, pero la nota sigue usando una regla de H relativo al menú. Retirar esa justificación automática. La cita contiene `[...]`, que no es una subcadena literal del original: usar un fragmento continuo, como el voto final, o campos separados si se diseñan varias citas.
+- **N relevantes:**21910/31369/32169/32531 aparecen sin cita. La regla de evidencia literal también se aplica a N con relevancia1: una cita puede documentar que se describen mercados, se relata historia o se presentan opciones, y la nota explica la ausencia de orientación tras leer el conjunto.
+- **33553:** no afirmar simultáneamente que hay un sesgo al alza declarado e inequívoco y que no hay dirección. Expresar la ambigüedad: referencia a una corrección eventual y postergación operativa sin trayectoria suficientemente especificada. Si realmente se verificara una subida futura respaldada, mantener hoy no la neutralizaría. Nmedia sigue siendo provisional, no una regla de “postergar siempre=N”.
+- **27863:** es una propuesta del Gerente, suficiente para una lectura H; no afirmar por ello que el Consejo ya la adoptó.
+- **21716:** se verificó el largo de la cita pegada: **291 caracteres**, válido. La sugerencia previa de acortarla no era necesaria y queda corregida aquí.
+- Persisten asuntos/unidades mezclados en22078/30704/31429. Preservar actor/tipo de acto y relación con el acta. No completar finales truncados.
+
+No se añadieron datos, modificaron etiquetas históricas ni se entrenó un modelo con esta salida.
+
+## ¿Esto invalida las anotaciones originales IA y humanas?
+
+**No hay base para afirmar que todas estén mal, ni se ha comprobado que todas sean compatibles con los afinamientos.** La pregunta se refiere a las1.352anotaciones IA originales y a las306humanas, no solo a la ampliación89. No se ha hecho una revisión completa de esas colecciones bajo otra definición; no se conoce la cantidad que cambiaría y no se han reabierto las306respuestas.
+
+Hay que distinguir:
+
+1. **Aplicación inconsistente de reglas ya vigentes**, como confundir N relevante con irrelevante: puede requerir corrección de casos concretos.
+2. **Cambio de variable o de definición**, como clasificar orientación de un episodio relatado frente a postura respaldada en el pronunciamiento: una etiqueta puede ser válida para la primera tarea y no para la segunda. No se declara un error del anotador por cambiar después el objetivo.
+3. **Error del modelo**, que no implica error de referencia: los atajos léxicos ya diagnosticados son un problema distinto.
+
+El agente debió distinguir mejor estas situaciones al explicar la necesidad de revisión. Los originales humanos se conservan como referencia histórica, no se anulan ni se sobrescriben. Cualquier auditoría/migración requiere alcance y reglas fijadas, preservación de decisiones y separación del efecto de recodificar referencias frente a reentrenar. Esta consulta no autoriza una reclasificación masiva ni abrir el examen humano antiguo.
