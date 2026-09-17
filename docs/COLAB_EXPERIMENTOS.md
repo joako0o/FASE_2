@@ -38,3 +38,11 @@ El enlace por rama apunta a la versión vigente. Para ejecuciones que deban qued
 El notebook cambia explícitamente el directorio activo a `/content` antes de eliminar una copia anterior de `/content/FASE_2`. Esto permite pulsar **Ejecutar todo** varias veces en la misma sesión sin dejar a Git dentro de un directorio borrado. El mensaje `fatal: Unable to read current working directory` corresponde a una versión anterior del notebook y no a un problema de permisos o visibilidad del repositorio.
 
 Colab puede ejecutar Python 3.13, versión que el gestor portable rechaza deliberadamente fuera de Colab. El notebook detecta ese runtime, crea un entorno aislado compatible mediante `virtualenv` y aplica allí los requisitos fijados. El mensaje `Usa Python 3.11 (recomendado) o 3.12` durante la instalación corresponde también a una versión anterior del notebook.
+
+## MrBERT-es con las 600 anotaciones humanas
+
+Notebook dedicado: [`colab/FASE_2_MrBERT_600_v3.ipynb`](../colab/FASE_2_MrBERT_600_v3.ipynb)
+
+[![Abrir MrBERT-es en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/joako0o/FASE_2/blob/arena%2F01a0b014-fase-2/colab/FASE_2_MrBERT_600_v3.ipynb)
+
+Este notebook aplica `BSC-LT/MrBERT-es` en los cinco folds agrupados, usando las dos tandas humanas cerradas y purga por reunión/texto. Requiere GPU y monta Google Drive para guardar cada fold, por lo que una ejecución interrumpida puede reanudarse. Al terminar descarga `resultados_mrbert_600_v3.zip`.
