@@ -1,6 +1,6 @@
 # Propuesta de metas de desempeño para clasificación v3
 
-**Estado:** propuesta para aprobación del investigador; no usada todavía para seleccionar modelos.  
+**Estado:** meta aprobada por el investigador el 17-09-2026; no se aplicará retrospectivamente para escoger resultados ya observados.
 **Objeto:** clasificación por intervención del BCCh en hawkish, dovish o neutral bajo dirección monetaria doméstica respaldada.
 
 ## 1. Por qué no usar una única cifra publicada
