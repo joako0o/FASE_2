@@ -1,0 +1,13 @@
+{
+  "origen_github": "main@8f1eedf:anotacion_adicional_300_v3.xlsx",
+  "sha256_origen": "5a4951360c61c8e6e7752706af7880771e9d4399a3e4bf325df628aa5b78dbfa",
+  "sha256_muestra_ciega": "2ab7ae6cc9cee1e65d24677bbe52931cc1ab037003591f438d404a2e7efe0936",
+  "normalizacion_etiquetas": {
+    "H": "hawkish",
+    "D": "dovish",
+    "N": "neutral"
+  },
+  "reparacion_citas": "solo extracción literal del mismo texto; sin cambiar etiqueta ni fundamento",
+  "regla_revision": "100 casos: las 80 H/D y 20 N de riesgo; sin predicciones de modelo",
+  "entrenamiento_permitido": false
+}

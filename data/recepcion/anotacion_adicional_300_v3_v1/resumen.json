@@ -1,0 +1,24 @@
+{
+  "filas": 300,
+  "ids_unicos": 300,
+  "etiquetas_v3": {
+    "neutral": 220,
+    "hawkish": 45,
+    "dovish": 35
+  },
+  "relevancia_v3": {
+    "0": 32,
+    "1": 268
+  },
+  "confianza": {
+    "alta": 216,
+    "media": 82,
+    "baja": 2
+  },
+  "citas_reparadas": 31,
+  "campos_fuente_modificados": 0,
+  "filas_estructuralmente_validas": 300,
+  "filas_semanticamente_cerradas": 0,
+  "cola_segunda_revision": 100,
+  "lista_para_entrenamiento": false
+}
