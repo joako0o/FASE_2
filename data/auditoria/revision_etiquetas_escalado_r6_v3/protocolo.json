@@ -1,0 +1,18 @@
+{
+  "codebook": "docs/codebook_v3.md",
+  "alcance": "Todas las filas de etiquetas_escalado_r6.csv; etiquetas visibles, revisión del agente, no segunda anotación ciega.",
+  "decisiones_manuales": "data/auditoria/revision_etiquetas_escalado_r6_v3/decisiones.json",
+  "fuentes_sha256": {
+    "data/L0/corpus.csv": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "data/etiquetas/etiquetas_escalado_r6.csv": "98af2b27952bd3cf07079bd81ad3a4e8599d14c08e73e7b70b4e7fe426bb7f40",
+    "data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv": "dc1336c88cb8f21e40a632d39fefe1b74477660e608045fec49a936865bf3903",
+    "docs/codebook_v3.md": "c41cebf74ea73e57c48fae2c8606e5b555dc17ff1c65608fcf17d362dbbc39cf",
+    "data/auditoria/revision_etiquetas_escalado_r6_v3/decisiones.json": "12daf36ba820fd3c03a2f74bec0902e4b3ed2d8df586839c9977f749039764b1"
+  },
+  "controles": [
+    "IDs únicos",
+    "citas exactas tras normalizar espacios y <=300",
+    "hash por texto",
+    "sin sobrescribir fuentes"
+  ]
+}

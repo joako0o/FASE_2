@@ -37,9 +37,12 @@
     "data/auditoria/meta_hd_300_v1/anotacion_ia_v1/tanda_04/anotaciones_ia.csv": "537ef8d5acff75552e861c85372c4828fffa8d9e764dbc3c32c87b0522cbae61",
     "data/evaluacion/tfidf_gold_v1/comparacion_gold.csv": "a32437dfdf4ea852d3ceb842b12e756460ade79909c0d4c60b96aca9eed90feb",
     "data/evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv": "dc1336c88cb8f21e40a632d39fefe1b74477660e608045fec49a936865bf3903",
+    "data/auditoria/revision_etiquetas_escalado_r5_v3/revision.csv": "c7aa6cf0be1455852d39f65345642a0466bc8717c71329a66c0b8b9f15c26ad4",
+    "data/auditoria/revision_etiquetas_escalado_r6_v3/revision.csv": "25389eb9b81b9c2d42331b631097d8e98c522f8fd59e7e2ca4cea3c841c8c78b",
     "data/auditoria/revision_etiquetas_piloto_r1_v3/revision.csv": "02c2b62b618a7d6c4d075a9b96e928aaafc64de2cc267d4103792cce52644781",
     "data/auditoria/revision_etiquetas_piloto_r2_v3/revision.csv": "de9e1211d08bce3e085167fb5bbf8a79e310fa66fd48b32a154cfcbb6236babd",
     "data/auditoria/revision_etiquetas_piloto_r3_v3/revision.csv": "344788a17774a134ac7bb44688bc8b504783a28e2539b0f257b681730130450d",
+    "data/auditoria/revision_etiquetas_piloto_r4_v3/revision.csv": "f4e701edccfef3a5bdab9f0abd682653157ed68eddc209e12d0730e627f0ff20",
     "data/auditoria/revision_rondas_prioritarias_v3/revision_77.csv": "9e01c450b62c186249cd1af5a28dedd0034e9123e3c0324022050a43834f62de"
   }
 }

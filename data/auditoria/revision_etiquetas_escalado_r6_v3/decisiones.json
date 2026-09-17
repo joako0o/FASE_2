@@ -1,0 +1,37 @@
+[
+  {
+    "intervencion_id": "RPM-2005-03-10:185:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "estamos mucho más en tinieblas de lo que parece afirmar el Banco",
+    "fundamento": "Cuestiona los supuestos que justificarían alzas y pide revisar datos mes a mes, pero no adopta una expansión ni un sesgo a la baja. No corresponde D: N."
+  },
+  {
+    "intervencion_id": "RPM-2005-03-10:179:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "concuerda con los comentarios y recomendaciones sobre una normalización pausada de la política monetaria",
+    "fundamento": "Hace propia la trayectoria de normalización, aunque admite postergar el alza por táctica. La orientación futura respaldada es H."
+  },
+  {
+    "intervencion_id": "RPM-2005-03-10:186:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "lo que se avizora en el futuro es una reducción gradual del impulso monetario, que le parece además adecuado plantearlo",
+    "fundamento": "Respalda una reducción futura gradual del impulso y solo pide no convertirla en precompromiso mecánico: H."
+  },
+  {
+    "intervencion_id": "RPM-2005-03-10:193:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "importante dar una señal hacia dónde va esa política monetaria en el futuro",
+    "fundamento": "Describe la tasa neutral por encima de la actual y respalda comunicar la trayectoria hacia ella; la orientación futura es H, aunque el momento permanezca abierto."
+  },
+  {
+    "intervencion_id": "RPM-2005-03-10:196:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "una reducción gradual y pausada del pronunciado estímulo monetario",
+    "fundamento": "La minuta respalda mantener la estrategia de retirar gradualmente estímulo aunque pause hoy: H."
+  }
+]

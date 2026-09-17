@@ -1,0 +1,16 @@
+[
+  {
+    "intervencion_id": "RPM-2005-02-10:127:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "la normalización, si bien es adecuada, podría ir a un ritmo más lento",
+    "fundamento": "Respalda la normalización al alza, aunque a menor ritmo, y admite pausa o alza hoy. La trayectoria propia sigue siendo H; no D por ser más lenta."
+  },
+  {
+    "intervencion_id": "RPM-2005-01-11:30:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "es el momento de empezar a reducir pausadamente este estímulo monetario",
+    "fundamento": "Respalda explícitamente comenzar a retirar estímulo: H. Era un falso N."
+  }
+]
