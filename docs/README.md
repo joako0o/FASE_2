@@ -2,7 +2,7 @@
 
 ## Trabajo actual
 
-**Trabajo vigente:** migración al [codebook v3 aprobado](codebook_v3.md). Inventario: 1.352 IA base + 89 IA nuevas + 306 humanas = 1.747 IDs distintos. Cerrados [prioritarias](REVISION_RONDAS_PRIORITARIAS_V3.md), pilotos [r1](REVISION_PILOTO_R1_V3.md), [r2](REVISION_PILOTO_R2_V3.md), [r3](REVISION_PILOTO_R3_V3.md), [r4](REVISION_PILOTO_R4_V3.md) y escalados [r5](REVISION_ESCALADO_R5_V3.md), [r6](REVISION_ESCALADO_R6_V3.md): **569 revisados, 1.178 pendientes**. V2 permanece como historial reproducible y no se entrena hasta consolidar v3.
+**Trabajo vigente:** migración al [codebook v3 aprobado](codebook_v3.md). Inventario: 1.352 IA base + 89 IA nuevas + 306 humanas = 1.747 IDs distintos. Cerrados [prioritarias](REVISION_RONDAS_PRIORITARIAS_V3.md), pilotos [r1](REVISION_PILOTO_R1_V3.md), [r2](REVISION_PILOTO_R2_V3.md), [r3](REVISION_PILOTO_R3_V3.md), [r4](REVISION_PILOTO_R4_V3.md) y escalados [r5](REVISION_ESCALADO_R5_V3.md) a [r10](REVISION_ESCALADO_R10_V3.md): **938 revisados, 809 pendientes**. V2 permanece como historial reproducible y no se entrena hasta consolidar v3.
 
 **Antecedentes:** [auditoría inicial de compatibilidad](AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md), [criterio acotado del plan B](CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y [fundamentos generales](DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
 

@@ -1,0 +1,37 @@
+[
+  {
+    "intervencion_id": "RPM-2005-04-07:215:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "si bien la estrategia de normalización pausada de la tasa de instancia monetaria es la adecuada",
+    "fundamento": "Respalda la normalización y solo prefiere una pausa mensual. Una pausa táctica dentro de una trayectoria propia al alza es H, no D."
+  },
+  {
+    "intervencion_id": "RPM-2005-05-12:225:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "Se ha continuado atenuando el impulso, aún considerable, de la política monetaria.",
+    "fundamento": "La exposición institucional hace propio el retiro en curso del impulso y lo vincula al proceso de alzas pausadas: H."
+  },
+  {
+    "intervencion_id": "RPM-2005-05-12:226:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "este cuadro macroeconómico permite mantener la expectativas de un ritmo pausado de normalización de la política monetaria, acción necesaria para mantener la inflación anual proyectada en torno a 3%",
+    "fundamento": "Considera necesaria la normalización futura y describe una regla desplazada al alza: H. No es un supuesto técnico aislado."
+  },
+  {
+    "intervencion_id": "RPM-2005-05-12:262:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "media",
+    "cita": "No es muy comprensible el por qué el Consejo toma una estrategia tan marcadamente front low",
+    "fundamento": "Cuestiona que la normalización se acelere sin adoptar una expansión ni respaldar inequívocamente una trayectoria propia. Ser menos restrictivo que el Consejo no basta para D: N."
+  },
+  {
+    "intervencion_id": "RPM-2005-05-12:265:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "este cuadro incluye una normalización pausada de la política monetaria, necesaria para mantener una convergencia de la inflación a 3% en el horizonte de política",
+    "fundamento": "Aunque presenta mantener o subir como opciones del mes, respalda como necesaria la trayectoria de normalización futura: H."
+  }
+]

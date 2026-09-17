@@ -1,0 +1,51 @@
+[
+  {
+    "intervencion_id": "RPM-2008-03-13:1731:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "descarta, por de pronto, la opción de bajar la tasa porque la inflación sigue siendo muy alta y, en estas circunstancias, una relajación de la Política Monetaria tendría efectos adversos",
+    "fundamento": "Rechaza sustantivamente relajar por sus efectos inflacionarios y mantiene un sesgo restrictivo: H, no D por escoger mantener frente a subir."
+  },
+  {
+    "intervencion_id": "RPM-2008-04-10:1778:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "continuar con la misma tasa vigente en la actualidad",
+    "fundamento": "Elige mantener y eliminar el sesgo para dejar todas las opciones abiertas. Sin dirección futura propia, corresponde N y no D."
+  },
+  {
+    "intervencion_id": "RPM-2008-04-10:1782:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "mantener la Tasa de Política Monetaria en su nivel actual de 6,25%, eliminando el sesgo de política hacia delante",
+    "fundamento": "Mantención con eliminación explícita del sesgo, sin sesgo a la baja: caso de calibración N."
+  },
+  {
+    "intervencion_id": "RPM-2008-11-13:2171:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "tampoco estima prudente anunciar algún tipo de sesgo en el Comunicado",
+    "fundamento": "Considera menos restrictiva la trayectoria que antes se proyectaba, pero decide mantener y no anunciar sesgo. Menos alzas relativas no equivalen a expansión: N."
+  },
+  {
+    "intervencion_id": "RPM-2009-08-13:2681:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "alta",
+    "cita": "las opciones más plausibles para esta Reunión son la mantención de la actual instancia de política monetaria o su eventual ampliación",
+    "fundamento": "La minuta presenta mantener o ampliar el estímulo y describe instrumentos condicionales, pero no elige una dirección. Menú sin preferencia: N, no D."
+  },
+  {
+    "intervencion_id": "RPM-2009-11-12:2791:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "un retiro gradual de la FLAP es la opción que parece más plausible",
+    "fundamento": "Respalda retirar gradualmente una facilidad monetaria extraordinaria y señalizar una normalización pausada: H."
+  },
+  {
+    "intervencion_id": "RPM-2010-01-14:2870:1",
+    "etiqueta_v3": "dovish",
+    "confianza_revision": "media",
+    "cita": "con la política monetaria se quiere impulsar la demanda y la oferta",
+    "fundamento": "Explicita y hace propio el propósito expansivo de la política vigente, sosteniendo una orientación de estímulo: D."
+  }
+]

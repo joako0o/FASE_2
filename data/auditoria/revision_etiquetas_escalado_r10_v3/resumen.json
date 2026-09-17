@@ -1,0 +1,30 @@
+{
+  "version": "revision_etiquetas_escalado_r10_v3",
+  "fecha": "2026-09-17",
+  "archivo": "data/etiquetas/etiquetas_escalado_r10.csv",
+  "filas_revisadas": 120,
+  "resultado": {
+    "compatible": 113,
+    "cambio_etiqueta": 7
+  },
+  "transiciones_etiqueta": {
+    "dovish->hawkish": 1,
+    "dovish->neutral": 4,
+    "neutral->hawkish": 1,
+    "neutral->dovish": 1
+  },
+  "transiciones_relevancia": {},
+  "conteo_v2": {
+    "neutral": 108,
+    "dovish": 7,
+    "hawkish": 5
+  },
+  "conteo_v3": {
+    "neutral": 110,
+    "hawkish": 7,
+    "dovish": 3
+  },
+  "pendientes": 0,
+  "originales_sobrescritos": 0,
+  "entrenamiento": false
+}

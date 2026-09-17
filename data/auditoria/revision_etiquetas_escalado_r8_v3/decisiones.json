@@ -1,0 +1,58 @@
+[
+  {
+    "intervencion_id": "RPM-2005-05-12:267:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "estima que la estrategia de una normalización gradual y pausada es un punto en que todos estamos de acuerdo",
+    "fundamento": "Hace propia una trayectoria de alzas y solo elige una pausa táctica en mayo: H, no D."
+  },
+  {
+    "intervencion_id": "RPM-2005-05-12:270:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "si fuese 6,5% y no 7,5%, de todos modos requiere una normalización de tasa que no es menor en los próximos meses",
+    "fundamento": "Sostiene que incluso una tasa neutral menor exige normalización en los próximos meses: orientación futura H."
+  },
+  {
+    "intervencion_id": "RPM-2005-06-09:288:7",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "dentro del marco general de normalización pausada de la tasa de interés de política monetaria, una mantención de tasas de interés resulta más coherente",
+    "fundamento": "Prefiere mantener hoy dentro de una normalización al alza que respalda. La acción mensual no convierte la trayectoria en D: H."
+  },
+  {
+    "intervencion_id": "RPM-2005-06-09:289:1",
+    "etiqueta_v3": "neutral",
+    "confianza_revision": "media",
+    "cita": "hacerlo tres veces consecutivas generaría una señal algo extraña",
+    "fundamento": "Cuestiona una tercera alza y una aceleración de la secuencia, pero no adopta una expansión ni resuelve una dirección futura propia: N, no D."
+  },
+  {
+    "intervencion_id": "RPM-2005-06-09:292:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "nuestra estrategia de ajuste gradual de la política monetaria, la cual sigue siendo la mejor opción",
+    "fundamento": "Respalda continuar el ajuste gradual y usa la pausa solo para preservar ese ritmo: H."
+  },
+  {
+    "intervencion_id": "RPM-2005-06-09:292:2",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "media",
+    "cita": "una medida en este sentido es consistente con el ritmo de normalización adoptado",
+    "fundamento": "La mantención mensual se inserta expresamente en el ritmo de normalización adoptado: orientación H."
+  },
+  {
+    "intervencion_id": "RPM-2005-06-09:293:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "no hay razones para desviarnos de la estrategia de retiro gradual y pausado del estímulo monetario",
+    "fundamento": "Respalda explícitamente continuar retirando estímulo y pausa solo para conservar la gradualidad: H."
+  },
+  {
+    "intervencion_id": "RPM-2005-06-09:294:1",
+    "etiqueta_v3": "hawkish",
+    "confianza_revision": "alta",
+    "cita": "requiere el retiro paulatino del excesivo estímulo monetario",
+    "fundamento": "Considera necesario retirar estímulo y mantiene hoy para continuar una normalización pausada: H."
+  }
+]

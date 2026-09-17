@@ -4,7 +4,7 @@
 
 El investigador aprobó el 17-09-2026 la definición de **dirección monetaria respaldada** como `docs/codebook_v3.md` y autorizó revisar IA y humanas. V2, sus etiquetas y métricas quedan preservadas como historial; no se sobrescriben. Las 306 humanas dejan de ser test ciego para la futura referencia v3.
 
-Inventario reproducible: **1.747 IDs distintos en 24 lotes** —19 rondas IA/1.352, cuatro tandas IA nuevas/89 y humanas/306— en `data/auditoria/migracion_v3/`. Cerrados: prioritarias77/77; pilotos r1 110/110, r2 88/88, r3 85/85, r4 17/17; escalados r5 99/99 y r6 93/93. Acumulado **569 revisados/1.178 pendientes**. R4 conserva17/17; r5 cambia2 etiquetas y r6 cambia5; sin cambios de relevancia. Leer los informes `REVISION_*_V3.md`. Gestor40 `preparar-migracion-v3`; pruebas específicas aprobadas. No entrenamiento ni referencia v3 consolidada todavía.
+Inventario reproducible: **1.747 IDs distintos en 24 lotes** —19 rondas IA/1.352, cuatro tandas IA nuevas/89 y humanas/306— en `data/auditoria/migracion_v3/`. Cerrados: prioritarias77/77; pilotos r1 110/110, r2 88/88, r3 85/85, r4 17/17; escalados r5–r10 cerrados (561/561). Acumulado **938 revisados/809 pendientes**. R7 cambia5 etiquetas, r8 cambia8, r9 cambia4 y r10 cambia7; sin cambios de relevancia. Leer los informes `REVISION_*_V3.md`. Gestor40 `preparar-migracion-v3`; pruebas específicas aprobadas. No entrenamiento ni referencia v3 consolidada todavía.
 
 ## Consulta histórica: formato estructurado del plan B, sin ampliar la revisión
 

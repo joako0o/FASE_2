@@ -21,8 +21,8 @@ class MigracionV3(unittest.TestCase):
             self.assertEqual(1747, len({fila['intervencion_id'] for fila in filas}))
             self.assertEqual({'ia_base_v2': 1352, 'ia_nueva_v1': 89, 'humana_v2': 306},
                              resumen['por_coleccion'])
-            self.assertEqual(569, resumen['revisados_iniciales'])
-            self.assertEqual(1178, resumen['pendientes'])
+            self.assertEqual(938, resumen['revisados_iniciales'])
+            self.assertEqual(809, resumen['pendientes'])
 
     def test_no_sobrescribe(self):
         with tempfile.TemporaryDirectory() as temporal:
@@ -52,6 +52,10 @@ class MigracionV3(unittest.TestCase):
             'revision_etiquetas_piloto_r4_v3': (17, 0),
             'revision_etiquetas_escalado_r5_v3': (99, 2),
             'revision_etiquetas_escalado_r6_v3': (93, 5),
+            'revision_etiquetas_escalado_r7_v3': (103, 5),
+            'revision_etiquetas_escalado_r8_v3': (52, 8),
+            'revision_etiquetas_escalado_r9_v3': (94, 4),
+            'revision_etiquetas_escalado_r10_v3': (120, 7),
         }
         for nombre, (total, cambios) in esperados.items():
             carpeta = raiz / 'data/auditoria' / nombre
