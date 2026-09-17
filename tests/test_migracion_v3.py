@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 
+from scripts.extraer_gold_humano import extraer
 from scripts.preparar_migracion_v3 import preparar
 from scripts.registrar_revision_v3 import registrar
 
@@ -21,8 +22,9 @@ class MigracionV3(unittest.TestCase):
             self.assertEqual(1747, len({fila['intervencion_id'] for fila in filas}))
             self.assertEqual({'ia_base_v2': 1352, 'ia_nueva_v1': 89, 'humana_v2': 306},
                              resumen['por_coleccion'])
-            self.assertEqual(1441, resumen['revisados_iniciales'])
-            self.assertEqual(306, resumen['pendientes'])
+            self.assertEqual(1747, resumen['revisados_iniciales'])
+            self.assertEqual(0, resumen['pendientes'])
+            self.assertFalse(resumen['gold_humano_v3_sigue_siendo_ciego'])
 
     def test_no_sobrescribe(self):
         with tempfile.TemporaryDirectory() as temporal:
@@ -78,6 +80,30 @@ class MigracionV3(unittest.TestCase):
             self.assertEqual(total, len(filas))
             self.assertEqual(cambios, len(ids_cambio))
             self.assertEqual({fila['intervencion_id'] for fila in decisiones}, ids_cambio)
+
+    def test_extraccion_humana_reproducible(self):
+        raiz = Path(__file__).resolve().parents[1]
+        esperada = raiz / 'data/auditoria/revision_humana_v3/fuente_humana_v2_extraida.csv'
+        with tempfile.TemporaryDirectory() as temporal:
+            obtenida = Path(temporal) / 'fuente.csv'
+            extraer(raiz / 'gold_ciego_300_listo.xlsx', obtenida)
+            self.assertEqual(esperada.read_bytes(), obtenida.read_bytes())
+
+    def test_revision_humana_completa_y_trazable(self):
+        raiz = Path(__file__).resolve().parents[1]
+        carpeta = raiz / 'data/auditoria/revision_humana_v3'
+        with (carpeta / 'revision.csv').open(encoding='utf-8', newline='') as archivo:
+            filas = list(csv.DictReader(archivo))
+        decisiones = json.loads((carpeta / 'decisiones.json').read_text(encoding='utf-8'))
+        self.assertEqual(306, len(filas))
+        self.assertEqual(306, len(decisiones))  # cobertura explícita, también para compatibles
+        self.assertEqual(306, len({fila['intervencion_id'] for fila in filas}))
+        self.assertEqual(28, sum(fila['resultado_revision'] == 'cambio_etiqueta' for fila in filas))
+        self.assertEqual(1, sum(fila['resultado_revision'] == 'cambio_relevancia' for fila in filas))
+        self.assertTrue(all(fila['cita_literal_espacios_normalizados']
+                            for fila in filas if fila['es_relevante_v3'] == '1'))
+        protocolo = json.loads((carpeta / 'protocolo.json').read_text(encoding='utf-8'))
+        self.assertIn('gold_ciego_300_listo.xlsx', protocolo['fuentes_sha256'])
 
     def test_registro_no_sobrescribe_lote_cerrado(self):
         raiz = Path(__file__).resolve().parents[1]

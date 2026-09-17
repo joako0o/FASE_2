@@ -24,10 +24,12 @@ def guardar_json(ruta, datos):
         archivo.write('\n')
 
 
-def registrar(archivo, decisiones, salida):
+def registrar(archivo, decisiones, salida, fuentes_adicionales=()):
     archivo, decisiones, salida = Path(archivo), Path(decisiones), Path(salida)
     if not archivo.is_absolute(): archivo = RAIZ / archivo
     if not decisiones.is_absolute(): decisiones = RAIZ / decisiones
+    fuentes_adicionales = [Path(ruta) for ruta in fuentes_adicionales]
+    fuentes_adicionales = [ruta if ruta.is_absolute() else RAIZ / ruta for ruta in fuentes_adicionales]
     if not salida.is_absolute(): salida = RAIZ / salida
     nombres = ['revision.csv', 'resumen.json', 'protocolo.json', 'verificacion.json', 'manifest.json']
     if any((salida / nombre).exists() for nombre in nombres):
@@ -122,7 +124,7 @@ def registrar(archivo, decisiones, salida):
         'codebook': 'docs/codebook_v3.md',
         'alcance': f'Todas las filas de {archivo.name}; etiquetas visibles, revisión del agente, no segunda anotación ciega.',
         'decisiones_manuales': str(decisiones.relative_to(RAIZ)),
-        'fuentes_sha256': {str(ruta.relative_to(RAIZ)): sha(ruta) for ruta in [corpus_path, archivo, refs_path, codebook_path, decisiones]},
+        'fuentes_sha256': {str(ruta.relative_to(RAIZ)): sha(ruta) for ruta in [corpus_path, archivo, refs_path, codebook_path, decisiones, *fuentes_adicionales]},
         'controles': ['IDs únicos', 'citas exactas tras normalizar espacios y <=300', 'hash por texto', 'sin sobrescribir fuentes'],
     })
     guardar_json(salida / 'verificacion.json', {
@@ -140,5 +142,6 @@ if __name__ == '__main__':
     parser.add_argument('--archivo', required=True, type=Path)
     parser.add_argument('--decisiones', required=True, type=Path)
     parser.add_argument('--salida', required=True, type=Path)
+    parser.add_argument('--fuente-adicional', action='append', type=Path, default=[])
     args = parser.parse_args()
-    print(json.dumps(registrar(args.archivo, args.decisiones, args.salida), ensure_ascii=False, indent=2))
+    print(json.dumps(registrar(args.archivo, args.decisiones, args.salida, args.fuente_adicional), ensure_ascii=False, indent=2))

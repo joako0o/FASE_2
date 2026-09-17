@@ -4,7 +4,7 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 ## Empezar por aquí
 
-**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; 1.747 IDs distintos. Cerrados: [dos rondas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md), [pilotos r1–r4](docs/REVISION_PILOTO_R4_V3.md) y escalados [r5](docs/REVISION_ESCALADO_R5_V3.md)–[r17](docs/REVISION_ESCALADO_R11_R17_V3.md): **1.441 revisados**, quedan 306. Todas las anotaciones IA —1.352 originales y 89 nuevas— están cerradas; restan las humanas. V2 y sus métricas se preservan; no se reentrena hasta consolidar v3.
+**Trabajo actual del agente:** migración auditada al [codebook v3](docs/codebook_v3.md), aprobado el 17-09-2026. Universo cerrado: 19 rondas IA/1.352 IDs, 89 IA nuevas y 306 humanas; **1.747/1.747 revisados, 0 pendientes**. La [revisión humana](docs/REVISION_HUMANA_V3.md) registró 28 cambios de etiqueta y uno de relevancia. V2, el XLSX humano y las métricas históricas se preservan; no se reentrenó. La capa humana v3 no es un test ciego intacto.
 
 - **[Llevar a otro PC y ejecutar](EMPEZAR_AQUI.md)**: descarga, instalación, datos y comandos, sin tener que leer todo el historial.
 - **[Continuidad para otra sesión](docs/CONTINUIDAD.md)**: estado exacto, decisiones ya tomadas y siguiente tarea.
@@ -24,14 +24,14 @@ Clasificación **hawkish / dovish / neutral por intervención** en actas del Ban
 
 Detalle vigente: [codebook v3](docs/codebook_v3.md). Sus antecedentes son el [criterio acotado para el plan B](docs/CRITERIO_PLAN_B_TASA_POLITICA_PROPUESTA.md) y la [propuesta conceptual general](docs/DEFINICION_POSTURA_MONETARIA_PROPUESTA_V1.md).
 
-**Migración en curso.** La [auditoría inicial](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md) confirmó convenciones relativas al menú/fase. El [cierre completo de las 77 filas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md) registra 65 compatibles, 11 cambios de etiqueta y uno de relevancia frente a v2 vigente, incluidos los falsos N. El investigador autorizó revisar también las 306 respuestas humanas; desde esa decisión dejan de ser un test ciego para v3, aunque su versión v2 se conserva intacta. Toda corrección se registra por ID en una capa nueva. El efecto de recodificar referencias se separará del efecto de reentrenar.
+**Migración cerrada.** La [auditoría inicial](docs/AUDITORIA_COMPATIBILIDAD_CRITERIOS_V1.md) confirmó convenciones relativas al menú/fase. El [cierre de las 77 filas prioritarias](docs/REVISION_RONDAS_PRIORITARIAS_V3.md), las rondas IA y la [revisión de las 306 respuestas humanas](docs/REVISION_HUMANA_V3.md) dejaron los 1.747 IDs revisados en capas separadas, sin sobrescribir v2. El efecto de recodificar referencias deberá separarse del efecto de reentrenar.
 
 ## Estado real
 
 | Componente | Estado |
 |---|---|
 | Corpus y datos de trabajo | Incluidos: 9.725 intervenciones; desarrollo de 1.352 textos. |
-| Referencias | V2 histórica fijada y preservada. V3 aprobada; revisión de 1.747 IDs en curso, todavía sin referencia consolidada ni reentrenamiento. |
+| Referencias | V2 histórica fijada y preservada. Capa de revisión v3 cerrada: 1.747/1.747, sin pendientes ni reentrenamiento. |
 | Control TF-IDF | Ejecutado: F1 H/D medio **0,747060**, 51 errores en 793 validaciones corregidas. |
 | Diagnóstico H/D | Diez inversiones examinadas y cinco ambiguas tratadas aparte. |
 | BETO v1 recibido | Cinco folds externos: F1 H/D medio **0,625043**, 66 errores, 25 inversiones. **No mejora; no adoptado.** [Auditoría y resultados](docs/RESULTADOS_BETO_V1.md). |
@@ -71,4 +71,4 @@ FASE_2/
 
 Se mantienen rutas históricas para no romper los manifiestos. `.venv/`, `modelos/`, `data/checkpoints/` y `entregas/` son locales/ignorados. El ZIP portable incluye explícitamente la entrada y los resultados previstos, **no pesos ni dependencias instaladas**.
 
-Revisión y migración v3 en curso en el [PR #5](https://github.com/joako0o/FASE_2/pull/5).
+Revisión y migración v3 cerradas en la rama del [PR #5](https://github.com/joako0o/FASE_2/pull/5).

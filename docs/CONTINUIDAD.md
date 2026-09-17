@@ -2,9 +2,9 @@
 
 ## 1. Estado que debes asumir — y comprobar
 
-**Última decisión y preparación:** el investigador aprobó el `codebook_v3.md`, basado en dirección monetaria respaldada y no postura relativa al menú/fase, y autorizó revisar **IA + humanas**. Universo inventariado: 19 rondas IA/1.352 IDs, cuatro tandas IA nuevas/89 y humanas v2/306; **1.747 IDs distintos en 24 lotes**. Las humanas dejan de ser test ciego para v3, pero su versión v2 se preserva. Inventario reproducible en `data/auditoria/migracion_v3/`, comando 40 `preparar-migracion-v3`; 12 pruebas específicas aprobadas. No se entrenó ni sobrescribió origen.
+**Último cierre:** el `codebook_v3.md` quedó aplicado a todo el universo autorizado: 19 rondas IA/1.352 IDs, cuatro tandas IA nuevas/89 y humanas v2/306; **1.747/1.747 revisados, 0 pendientes** en 24 lotes. El inventario reproducible está en `data/auditoria/migracion_v3/`. No se entrenó ni se sobrescribieron L0, v2, el XLSX humano, folds o modelos.
 
-Lotes cerrados: prioritarias **77/77** (11cambios de etiqueta+1relevancia); pilotos r1 **110/110** (3cambios), r2 **88/88** (1), r3 **85/85** (0), r4 **17/17** (0); escalados r5 **99/99** (2), r6 **93/93** (5), r7 **103/103** (5), r8 **52/52** (8), r9 **94/94** (4), r10 **120/120** (7) y r11–r17 **414/414** (8). Acumulado **1.441/1.747**, quedan306; todas las anotaciones IA están cerradas. Leer los informes `docs/REVISION_*_V3.md`. Continuar con las 306 humanas, revisando falsos N y sin presentar recodificación como mejora del modelo.
+La [revisión humana](REVISION_HUMANA_V3.md) cubre explícitamente 306/306: 277 compatibles, 28 cambios de etiqueta y uno de relevancia; final H39/D27/N240 y relevancia 266/40. Todas las filas relevantes tienen cita literal validada y hash. La capa humana v3 fue revisada con respuestas visibles: **no es un test ciego independiente**. Las decisiones completas están en `data/auditoria/revision_humana_v3/`. Cualquier paso posterior debe separar recodificación de referencias y cambio de supervisión; no reentrenar automáticamente.
 
 **Vigencia:** los párrafos siguientes conservan la cronología y límites de etapas anteriores. Cuando contradigan el estado v3 anterior, mandan estos primeros párrafos y `docs/codebook_v3.md`.
 
@@ -64,7 +64,9 @@ Antes se ordenó el proyecto y se preparó una entrega con código/datos para ot
 
 ## 2. Lo pendiente de verdad
 
-**Falta cerrar la procedencia remota y explicar el deterioro, no calcular por primera vez las métricas.** Ya se reprodujo exactamente la comparación recibida, se verificaron probabilidades/IDs/cobertura declarada y se hizo una segunda cuenta aritmética. 98 pruebas de software aprobadas, 0 omitidas. No se repitieron entrenamiento ni tokenización oficiales localmente.
+**La revisión v3 definida ya está cerrada.** Lo próximo requiere una decisión nueva del investigador: consolidar una vista de referencia/entrenamiento v3 y diseñar una comparación que separe recodificación de supervisión, o retomar otra línea del proyecto. No reutilizar las 306 humanas v3 como test intacto ni lanzar entrenamiento por defecto.
+
+En la línea BETO histórica falta cerrar la procedencia remota y explicar el deterioro, no calcular por primera vez las métricas. Ya se reprodujo exactamente la comparación recibida, se verificaron probabilidades/IDs/cobertura declarada y se hizo una segunda cuenta aritmética. No se repitieron entrenamiento ni tokenización oficiales localmente.
 
 Entorno anterior: Linux, Python 3.11, 2 CPU, ~4 GB RAM, sin NVIDIA. GitHub API y PyPI funcionaban; Hugging Face, descarga histórica DCC y ruedas CPU PyTorch fallaban con TLS EOF. No es un problema de contraseña. El navegador de investigación leyó metadatos, pero no transfirió pesos al cómputo.
 

@@ -1,0 +1,35 @@
+{
+  "version": "revision_humana_v3",
+  "fecha": "2026-09-17",
+  "archivo": "data/auditoria/revision_humana_v3/fuente_humana_v2_extraida.csv",
+  "filas_revisadas": 306,
+  "resultado": {
+    "cambio_etiqueta": 28,
+    "cambio_relevancia": 1,
+    "compatible": 277
+  },
+  "transiciones_etiqueta": {
+    "hawkish->dovish": 2,
+    "neutral->dovish": 3,
+    "dovish->neutral": 7,
+    "hawkish->neutral": 12,
+    "neutral->hawkish": 1,
+    "dovish->hawkish": 3
+  },
+  "transiciones_relevancia": {
+    "0->1": 1
+  },
+  "conteo_v2": {
+    "hawkish": 49,
+    "neutral": 225,
+    "dovish": 32
+  },
+  "conteo_v3": {
+    "dovish": 27,
+    "neutral": 240,
+    "hawkish": 39
+  },
+  "pendientes": 0,
+  "originales_sobrescritos": 0,
+  "entrenamiento": false
+}
