@@ -1,7 +1,6 @@
-__pycache__/
-*.pyc
-.DS_Store
-modelos/
-data/checkpoints/
 .venv/
-entregas/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+predicciones_corpus.csv
+modelos/

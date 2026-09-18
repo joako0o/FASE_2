@@ -1,9 +1,0 @@
-{
-  "sha256_salidas": {
-    "anotaciones_canonicas.csv": "cb089985d1ba6a22ec2d33b537deba9b757ab7fe93ed660b9765796498b3856b",
-    "incidencias_reparadas.csv": "a00eb48881afe37905a66bfb2b720f8c3751e0c7e0fae6398f1263c6bd0d1e95",
-    "revision_semantica_300.csv": "b4553b39b3d5f6591c426f630bdab41e731547a2fa04577081c2f74619fb90ce",
-    "resumen.json": "6a4d5f47d386e5e3bcaa32353536acc603ab553df3789798deccabb08fb0667f",
-    "protocolo.json": "ee76ab2c63a442d34777b81dd9d98fe736583ed743bac8f51dd239ec24968d1b"
-  }
-}

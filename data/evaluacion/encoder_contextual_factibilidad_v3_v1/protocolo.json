@@ -1,7 +1,0 @@
-{
-  "ronda": "encoder contextual español",
-  "modelo_previsto": "BETO u otro encoder español reproducible",
-  "condicion_reanudacion": "backend, pesos versionados y cómputo suficiente para cinco outer folds con selección solo interna",
-  "python": "3.11.2",
-  "script_sha256": "7a06667d38beecfe33321dc5e1d612fce2f38c058ff25f9afe62a94400947f55"
-}

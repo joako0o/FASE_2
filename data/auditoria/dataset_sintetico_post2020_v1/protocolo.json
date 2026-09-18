@@ -1,9 +1,0 @@
-{
-  "origen": "Dataset_Sintetico_Post2020.csv",
-  "sha256_origen": "f961845e4494b0237f5991fe4a36208213d91513865a9460927ab93382754ff6",
-  "corpus_real": "data/L0/corpus.csv",
-  "sha256_corpus_real": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
-  "operacion": "Auditoría de solo lectura; no corrige, etiqueta ni entrena.",
-  "criterio_cita": "Subcadena continua tras normalizar solo espacios; conserva mayúsculas y puntuación.",
-  "seleccion_candidato": "Primera fila por texto normalizado; etiqueta aún provisional."
-}

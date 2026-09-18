@@ -1,41 +1,14 @@
-# Datos incluidos y fuentes de verdad
+# Datos esenciales
 
-## Para el trabajo actual
+| Archivo | Contenido | Uso |
+|---|---|---|
+| `corpus_bcch_2005_2015.csv` | 9.725 intervenciones del período oficial | Entrada para clasificación |
+| `entrenamiento_wc600.csv` | 1.596 referencias únicas y miembros permitidos | Entrenamiento exacto del modelo final |
+| `evaluacion_ciega_gold.csv` | 300 decisiones validadas; 299 evaluables | Evidencia final, nunca entrenamiento |
+| `predicciones_evaluacion_ciega.csv` | Predicciones congeladas de cuatro condiciones | Reproducción de comparaciones |
+| `resultados_evaluacion_ciega.json` | Métricas primarias completas | Resultado oficial |
+| `analisis_factorial.json` | Factorial, bootstrap y robustez | Interpretación secundaria |
+| `benchmark_modelos.csv/json` | Registro de 14 condiciones y parámetros | Defensa de selección |
+| `manifest.json` | Checksums SHA-256 | Integridad |
 
-| Ruta | Contenido / uso |
-|---|---|
-| `auditoria/ampliacion_hd_60_v1/` | Selección real de 60 y capa `anotacion_ia_v1/tanda_01/` con 60 etiquetas IA en dos tandas; 35 H/D altos preparados, no incorporados al modelo. No esperar respuestas humanas. |
-| `auditoria/meta_hd_300_v1/` | Meta 300 H/300 D, anotaciones adicionales, progreso H154/D119 y cola siguiente G001–G020 sin etiquetas. |
-| `evaluacion/ampliacion_tfidf_59_v1/` | Ensayo CPU original vs +59 altos: protocolo, inclusiones, predicciones, métricas y replay; no adoptado. |
-| `auditoria/diagnostico_ampliacion_tfidf_59_v1/` | Lectura de 16 casos, contribuciones/márgenes/vecinos del ensayo +59; no nuevas etiquetas o métricas. |
-| `auditoria/compatibilidad_criterios_v1/` | Conteos de1.352IA y lectura de12casos sobre compatibilidad de reglas; etapa histórica. |
-| `auditoria/migracion_v3/` | Inventario cerrado de 1.747/1.747 revisiones v3, sin pendientes. |
-| `evaluacion/referencia_v3/` | Vista canónica de las 1.747 decisiones v3 con evidencia, roles y protocolo; todavía sin entrenamiento. |
-| `auditoria/set_pre2000_revision_inicial_v1/` | Auditoría estructural del XLSX de 257 filas; incidencias y exclusión temporal del entrenamiento. |
-| `L0/corpus.csv` | Corpus completo inmutable: 9.725 intervenciones. No corregir OCR ni reconstruir textos manualmente. |
-| `etiquetas/etiquetas_*.csv` | 1.352 anotaciones IA originales, conservadas. No sobrescribirlas. |
-| `evaluacion/referencias_corregidas_v2/referencias_desarrollo_v2.csv` | Vista activa de 1.352 IDs; referencia original, seis adjudicaciones y versión con trece correcciones adicionales. |
-| `evaluacion/referencias_corregidas_v2/predicciones_validacion.csv` | Control de 793 casos por supervisión. Usar **`seis_mas_trece`**, puntuado contra **`etiqueta_corregida_v2`**. |
-| `evaluacion/clasificadores_hd_v1/asignacion_folds.csv` | Asignación fija de validación; el cargador reconstruye/purga el train original. |
-| `auditoria/preparacion_beto_v1/` | Lock del checkpoint, bloqueos reales, protocolo de entrada y pruebas sin encoder. |
-| `checkpoints/beto_v1/entrada/` | `documentos.json`, `folds.json`, `baseline.json`, `checkpoint.json`, `manifest.json`. Paquete listo en ZIP portable; el gestor lo regenera si falta. |
-| `auditoria/recepcion_beto_v1/` | Origen GitHub, auditoría de cinco folds BETO y métricas recalculadas; no adoptado. |
-| `evaluacion/comparacion_beto_v1/predicciones_comparadas.csv` | 793 resultados externos alineados con el control, sin duplicar los textos. |
-| `checkpoints/beto_v1/ejecucion/` | Resultados BETO futuros/recibidos. Verificar manifiestos y procedencia; no presumir entrenamiento por mera presencia de un archivo. |
-
-**Identidad esperada del paquete actual:**
-`f7aa15894b1c0a4cdcf64a2a5c26e9b5029393e960a44c57f474a90fcc2b681a`.
-
-Los 1.352 textos íntegros suman **1.997.823 caracteres**. No se entregan citas aisladas como entrenamiento. El paquete exportado no añade notas de adjudicación al texto. Filtro A y referencias permanecen fijos.
-
-## Evidencia que se conserva, no tareas por repetir
-
-- `auditoria/revision_entrenamiento_30_v1/`: devolución humana, seis decisiones aceptadas e instrumentos históricos. No rellenar de nuevo.
-- `auditoria/revision_errores_adjudicada_v1/`: revisión de 66 desacuerdos, aceptación de 13 correcciones y 12 casos ambiguos sin cambiar.
-- `auditoria/inversiones_hd_v1/`: diez inversiones diagnosticadas, cinco ambiguas aparte y contribuciones del TF-IDF.
-- `evaluacion/` y `lexico/`: resultados de modelos/búsquedas anteriores. Permiten justificar decisiones y no repetir experimentos descartados.
-- `muestras/`: marcos y particiones originales; parte de su contenido se usa para exclusión/integridad. No se vuelve a evaluar el antiguo examen humano.
-- `L2/`: derivados históricos de metadata/macro/series.
-- `externos/`: piloto WCB histórico de alcance limitado, **no incorporarlo al nuevo BETO**.
-
-No se borran estos archivos por ser antiguos: varios son dependencias o evidencia verificable. `checkpoints/` está ignorado por Git; **un push no respalda esa carpeta**. Usar `exportar`/`respaldar` y guardar el ZIP fuera del entorno.
+No agregar `evaluacion_ciega_gold.csv` al entrenamiento. La columna `incluir_evaluacion=false` identifica el único caso no decidible.

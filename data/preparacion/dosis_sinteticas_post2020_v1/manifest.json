@@ -1,8 +1,0 @@
-{
-  "sha256_salidas": {
-    "pool_sintetico_deduplicado.csv": "e033e6263638cd64ee8193d0539e88251cbbbe1f723cb11b1fad140d5db7bcb1",
-    "plan_dosis.csv": "31bf4a5b17ba10ac3e1f9a7d4384cb45d8dae7e510a35914fa533bce3f80e560",
-    "resumen.json": "a545b075d7c4b09a307a06ccd7346acf3c8ae05485e11826aa1f528c5cc5f8dc",
-    "protocolo.json": "b5857a9e486917a26abe657e29ce7f2c11cd67272c4b7a41b1643a307845d5cb"
-  }
-}

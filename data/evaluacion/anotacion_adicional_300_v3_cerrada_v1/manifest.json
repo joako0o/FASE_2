@@ -1,9 +1,0 @@
-{
-  "sha256_salidas": {
-    "adjudicacion_prioritaria_100.csv": "e4d33c80c1fc9cf1ba5f69dd1b77a46d4c55641b7cdc7aa16c53a5aaec7b66b0",
-    "cambios_semanticos.csv": "841bb0341fefa5aaf0d169b8ab6e8668b6d4ea1a3ff99ab6ce8863f50e034de6",
-    "referencia_300_v3.csv": "659627398d6b9dcb3886b61bb0513f408ddacc770295ad5c2441d19bc552c769",
-    "resumen.json": "789317fe2d12bb7425fa4afabf5e99d158a048846c94a3468b32dc013c4940f6",
-    "protocolo.json": "02be46bdfa587d5ae81f90b2084c4875d1889f0ffc3bb5f031e2685e403ca88d"
-  }
-}

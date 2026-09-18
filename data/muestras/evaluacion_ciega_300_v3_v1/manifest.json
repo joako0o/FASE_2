@@ -1,9 +1,0 @@
-{
-  "sha256_salidas": {
-    "evaluacion_ciega_300_v3.csv": "52904fc3e7249622061ec67d49fff1e021c5ca90a0333b1ed4174cc6f034fe17",
-    "evaluacion_ciega_300_v3.xlsx": "7e913b86d98e2b1311b3692220268d63ccc903f51b6913e643101e26d531ce6d",
-    "reuniones_cuarentena.csv": "cc806c5fc2bb6d09e49df3878413e844d4dce037b8513e20de9e80fd91f46bf6",
-    "resumen.json": "7c0f5fafb5df2d8ae23f0967292ef94d780d8d9f7555e9324bc341fe4609241b",
-    "protocolo.json": "1b8177dcdcad885b8f80367d5e26de7ed8c3895ff4e44e3cfafcbaba51d6fef5"
-  }
-}

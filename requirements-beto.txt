@@ -1,7 +1,0 @@
-# Entorno GPU del candidato; no modifica el lock histórico del TF-IDF.
--r requirements.txt
-torch==2.6.0
-transformers==4.57.6
-tokenizers==0.22.2
-huggingface-hub==0.36.2
-safetensors==0.8.0

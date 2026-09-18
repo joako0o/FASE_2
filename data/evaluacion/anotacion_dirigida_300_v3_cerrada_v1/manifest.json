@@ -1,9 +1,0 @@
-{
-  "sha256_salidas": {
-    "adjudicacion_300.csv": "bd727f4f2d2d46d83ebca66ca5b0fc6a7b3e9b21ae535cdc9ec92488862e33fa",
-    "cambios_semanticos.csv": "c546d0d3ed73154938840b1a68cdc60c0d7112e27b71eae22098b044028ff6c3",
-    "referencia_300_v3.csv": "f182c6dc95129519397fa5c7940ad77f7ae319e93a34f220b02e56e1f7d8c20e",
-    "resumen.json": "6cee32af471b97198dedc89ef8ff0f70ec44708b07c65253e504c53783851967",
-    "protocolo.json": "4f9e291e3563a4d77a3ac510c8abf8fdecb3b78292f9037147dabfe22422a14c"
-  }
-}

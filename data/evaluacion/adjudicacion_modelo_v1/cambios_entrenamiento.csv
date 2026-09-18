@@ -1,7 +1,0 @@
-caso_id,intervencion_id,etiqueta_ia_original,etiqueta_experimental,cambia_ia,relevancia_conservada_de_ia,procedencia,fold_validacion
-R01,RPM-2005-06-09:288:4,neutral,hawkish,True,1,adjudicacion_asistida_aprobada,0
-R03,RPM-2006-11-16:976:1,dovish,neutral,True,1,adjudicacion_asistida_aprobada,0
-R08,RPM-2005-05-12:262:1,dovish,dovish,False,1,adjudicacion_asistida_aprobada,0
-R12,RPM-2005-06-09:291:1,dovish,hawkish,True,1,adjudicacion_asistida_aprobada,0
-R17,RPM-2011-10-13:4392:1,dovish,dovish,False,1,adjudicacion_asistida_aprobada,0
-R21,RPM-2010-01-14:2887:1,dovish,dovish,False,1,adjudicacion_asistida_aprobada,0

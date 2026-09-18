@@ -1,6 +1,0 @@
-fold,n_train_original,n_train_limpio,n_retirados,n_descubrimiento_retirados,n_val,n_val_con_copia_previa,n_val_con_copia_despues,n_textos_unicos_val
-1,1194,1178,16,7,158,5,0,158
-2,1193,1178,15,6,159,7,0,159
-3,1193,1178,15,6,159,9,0,158
-4,1193,1183,10,4,159,5,0,159
-5,1194,1183,11,5,158,8,0,157
