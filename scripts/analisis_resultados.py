@@ -128,6 +128,9 @@ def run(out=OUT):
     meeting_institutional_text = institutional.groupby("meeting_id").texto.apply(lambda values: normalize_text(" ".join(values)))
     agreement_type = meeting_institutional_text.map(lambda text: "unanimidad" if "unanimidad" in text or "unanime" in text else ("mayoria" if "mayoria" in text else "no_indicado"))
     agreements["acuerdo_tipo_textual"] = agreements.meeting_id.map(agreement_type)
+    agreements = agreements.sort_values("fecha"); agreements["acuerdo_tpm_previa"] = agreements.acuerdo_tpm_objetivo.shift(1)
+    delta_pb = agreements.acuerdo_tpm_objetivo.diff().abs() * 100
+    agreements["acuerdo_magnitud_pb_final"] = agreements.acuerdo_magnitud_pb.fillna(delta_pb)
     if len(agreements) != valid.meeting_id.nunique(): raise ValueError(f"Acuerdos extraídos: {len(agreements)}; esperados: {valid.meeting_id.nunique()}")
     agreements.to_csv(out / "acuerdo_consejo_por_reunion.csv", index=False, lineterminator="\n")
     # Se mantiene además el proxy de tono institucional usado en el análisis exploratorio de convergencia.
@@ -168,6 +171,20 @@ def run(out=OUT):
     base_votes.loc[reviewed, "voto_accion_final"] = base_votes.loc[reviewed, "voto_accion_revision"]
     base_votes["fuente_voto_final"] = base_votes.fuente_voto
     base_votes.loc[reviewed, "fuente_voto_final"] = "revision_textual_asistida"
+    base_votes["voto_magnitud_pb_final"] = base_votes.voto_magnitud_pb
+    base_votes["voto_tpm_objetivo_final"] = base_votes.voto_tpm_objetivo
+    revision_magnitude = pd.to_numeric(base_votes.magnitud_pb_revision, errors="coerce"); revision_target = pd.to_numeric(base_votes.tpm_objetivo_revision, errors="coerce")
+    base_votes.loc[reviewed & revision_magnitude.notna(), "voto_magnitud_pb_final"] = revision_magnitude
+    base_votes.loc[reviewed & revision_target.notna(), "voto_tpm_objetivo_final"] = revision_target
+    same_as_agreement = base_votes.voto_accion_final.eq(base_votes.acuerdo_accion)
+    base_votes.loc[same_as_agreement & base_votes.voto_magnitud_pb_final.isna(), "voto_magnitud_pb_final"] = base_votes.acuerdo_magnitud_pb_final
+    base_votes.loc[same_as_agreement & base_votes.voto_tpm_objetivo_final.isna(), "voto_tpm_objetivo_final"] = base_votes.acuerdo_tpm_objetivo
+    base_votes.loc[base_votes.voto_accion_final.eq("mantener") & base_votes.voto_magnitud_pb_final.isna(), "voto_magnitud_pb_final"] = 0.0
+    meeting_magnitude = base_votes.groupby("meeting_id").voto_magnitud_pb_final.transform("median")
+    base_votes.loc[same_as_agreement & base_votes.voto_magnitud_pb_final.isna(), "voto_magnitud_pb_final"] = meeting_magnitude
+    missing_target = base_votes.voto_tpm_objetivo_final.isna() & base_votes.voto_accion_final.ne("no_extraido") & base_votes.acuerdo_tpm_previa.notna()
+    direction = base_votes.voto_accion_final.map({"subir":1.0,"bajar":-1.0,"mantener":0.0})
+    base_votes.loc[missing_target, "voto_tpm_objetivo_final"] = base_votes.loc[missing_target, "acuerdo_tpm_previa"] + direction[missing_target] * base_votes.loc[missing_target, "voto_magnitud_pb_final"] / 100
     base_votes["coincide_con_acuerdo"] = np.where(base_votes.voto_accion.eq("no_extraido"), "no_determinado", np.where(base_votes.voto_accion.eq(base_votes.acuerdo_accion), "si", "no"))
     base_votes["coincide_final_con_acuerdo"] = np.where(base_votes.voto_accion_final.eq("no_extraido"), "no_determinado", np.where(base_votes.voto_accion_final.eq(base_votes.acuerdo_accion), "si", "no"))
     base_votes.sort_values(["fecha","orden_habla","actor"]).to_csv(out / "base_votos_acta_actor.csv", index=False, lineterminator="\n")
@@ -220,7 +237,7 @@ def run(out=OUT):
         for _, row in hits.iterrows(): contexts.append({"ngram":term.ngram,"distintivo_de":term.distintivo_de,"intervencion_id":row.intervencion_id,"meeting_id":row.meeting_id,"etiqueta_analisis":row.etiqueta_analisis,"texto":row.texto})
     pd.DataFrame(contexts).to_csv(out / "lexico_contextos_h_d.csv", index=False, lineterminator="\n")
     outputs = sorted(p.name for p in out.iterdir() if p.is_file())
-    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
+    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"votos_finales_con_magnitud_y_tpm":int((base_votes.voto_accion_final.ne("no_extraido") & base_votes.voto_magnitud_pb_final.notna() & base_votes.voto_tpm_objetivo_final.notna()).sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
     save_json(out / "resumen.json", summary); outputs.append("resumen.json")
     sources = [CLASSIFIED, CORPUS, TRAIN, GOLD, VOTE_REVIEW, Path(__file__)]
     save_json(out / "manifest.json", {"fuentes_sha256":{str(p.relative_to(ROOT)):sha(p) for p in sources},"sha256_salidas":{name:sha(out/name) for name in outputs}})

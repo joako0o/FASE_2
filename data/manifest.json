@@ -25,10 +25,10 @@
     "data/predicciones_evaluacion_ciega.csv": "919b3d0b1b4b5a79f8e492c0889989ae7ed0a8d6c7ac0148c9fcce98f556d0db",
     "data/resultados_evaluacion_ciega.json": "1aadd083a4c411de021a0160251c06c13c9fa79ca1e576658c60c13b21784f55",
     "docs/OBJETIVOS_ANALISIS.md": "ea0748d81d01ea598a83f67328f5e3fca29834a4b0a4fc6c1d2ee267a79b96c3",
-    "scripts/analisis_resultados.py": "f7f9d64750e1a2e013f92105c79552ef2d7ac5c068052a9ebe018bc2f7aacaed",
+    "scripts/analisis_resultados.py": "5817ea8998c4c270110025d9e902e4cd565869f098cbfa611f00d18e118c1ed6",
     "data/README.md": "9d79f37294be188fcbc37fd686755f35b40e425b71b689735b9815e9207178fb",
     "data/actores_metadata.csv": "e4c57ff710983ce4f2416289ad788a6ce404c7ac6033ed54d8a472f93f5f34bf",
-    "data/revision_votos_actores.csv": "3dd9cd841cb8ef0c807a975bbd66b650de7e70683dc42f80c454d0b7a17ca444"
+    "data/revision_votos_actores.csv": "99129ef26144683c1fb4a728160fac46f3517679e6e0c791db5ae1e5c4a80f8f"
   },
   "verificaciones": {
     "predicciones_ciegas_reproducidas_por_modelo_final": "300/300 en cada uno de los cinco miembros y voto final",

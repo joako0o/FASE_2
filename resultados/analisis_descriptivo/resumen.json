@@ -27,6 +27,7 @@
   "votos_inferidos_por_unanimidad": 87,
   "votos_revisados_textualmente": 45,
   "votos_no_extraidos": 1,
+  "votos_finales_con_magnitud_y_tpm": 648,
   "casos_convergencia_proxy": 39,
   "nota_convergencia": "Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.",
   "nota_neutrales": "Se conservan en tono general y cobertura; balance direccional usa solo H/D.",

@@ -1,47 +1,47 @@
-meeting_id,actor,voto_accion_revision,confianza_revision,criterio_revision,nota_revision
-RPM-2006-01-12,Jorge Desormeaux Jiménez,subir,alta,referencia_anaforica,"Se inclina por aumentar 25 pb y luego 'vota en tal sentido'."
-RPM-2006-01-12,José De Gregorio Rebeco,mantener,alta,referencia_anaforica,"Dice que la mejor opción es mantener en 4,5% y 'vota en tal sentido'."
-RPM-2007-01-11,José De Gregorio Rebeco,bajar,alta,referencia_anaforica,"Declara adecuado bajar 25 pb y luego 'vota en ese sentido'."
-RPM-2007-04-12,Manuel Marfán Lewis,mantener,alta,adhesion_mayoria,"Declara que su voto se suma a la mayoría; el acuerdo fue mantener."
-RPM-2007-04-12,José De Gregorio Rebeco,mantener,alta,adhesion_mayoria,"Se suma a la mayoría; el acuerdo fue mantener."
-RPM-2007-04-12,Vittorio Corbo Lioi,mantener,alta,accion_explicita_sin_voto,"Señala que lo más adecuado es mantener la tasa."
-RPM-2008-01-10,Sebastián Claro Edwards,subir,alta,referencia_anaforica,"Se suma a la votación para aumentar 25 pb."
-RPM-2008-01-10,Manuel Marfán Lewis,subir,alta,accion_explicita_sin_voto,"Se inclina por un aumento de 25 pb."
-RPM-2008-03-13,Jorge Desormeaux Jiménez,mantener,alta,adhesion_mayoria,"Aunque prefiere subir 25 pb, declara que se suma a la mayoría que mantuvo."
-RPM-2008-04-10,Manuel Marfán Lewis,mantener,alta,contexto_intervencion,"Concluye que la balanza se inclina claramente a mantener en 6,25%."
-RPM-2008-05-08,José De Gregorio Rebeco,mantener,alta,accion_explicita_sin_voto,"Se inclina por mantener la TPM en 6,25%."
-RPM-2008-06-10,José De Gregorio Rebeco,subir,alta,referencia_anaforica,"Reafirma subir 50 pb y luego 'vota en tal sentido'."
-RPM-2008-07-10,Sebastián Claro Edwards,subir,alta,referencia_anaforica,"Se suma a la votación de aumentar 50 pb."
-RPM-2008-09-04,Jorge Desormeaux Jiménez,subir,alta,adhesion_mayoria,"Prefiere 75 pb, pero suma su voto a la mayoría si adopta 50 pb; el acuerdo subió 50 pb."
-RPM-2008-10-09,Sebastián Claro Edwards,mantener,alta,adhesion_mayoria,"Declara estar dispuesto a sumarse a la mayoría por mantener y condiciona ese voto."
-RPM-2009-07-09,José De Gregorio Rebeco,bajar,alta,accion_explicita_sin_voto,"Manifiesta que su decisión es reducir la TPM a 0,5%."
-RPM-2009-09-08,José De Gregorio Rebeco,mantener,alta,accion_explicita_sin_voto,"Vota en consecuencia por mantener la tasa; la grafía no fue capturada por el patrón inicial."
-RPM-2009-11-12,Jorge Desormeaux Jiménez,mantener,alta,contexto_intervencion,"Se inclina por acompañar la decisión de mantener la TPM en 0,50%."
-RPM-2009-11-12,Sebastián Claro Edwards,no_extraido,baja,contexto_insuficiente,"Discute la salida de la FLAP y dice que no cambia su juicio sobre la TPM, pero no formula de modo inequívoco su acción votada."
-RPM-2010-07-15,Sebastián Claro Edwards,subir,alta,accion_explicita_sin_voto,"Se inclina personalmente por el alza de 50 pb."
-RPM-2010-09-16,José De Gregorio Rebeco,subir,alta,accion_explicita_sin_voto,"Manifiesta que parece prudente continuar con un alza de 50 pb."
-RPM-2010-12-16,Enrique Marshall Rivera,subir,alta,accion_explicita_sin_voto,"Manifiesta inclinarse por un alza de 25 pb."
-RPM-2011-06-14,Rodrigo Vergara Montes,subir,alta,accion_explicita_sin_voto,"Se inclina por subir 25 pb hasta 5,25%."
-RPM-2011-07-14,Rodrigo Vergara Montes,mantener,alta,accion_explicita_sin_voto,"Se inclina por mantener la TPM."
-RPM-2011-10-13,Manuel Marfán Lewis,mantener,alta,referencia_anaforica,"Comparte la recomendación de mantener y 'vota en consecuencia'."
-RPM-2011-11-15,Manuel Marfán Lewis,mantener,alta,contexto_intervencion,"Concluye que los riesgos apuntan a la conveniencia de mantener."
-RPM-2011-11-15,Rodrigo Vergara Montes,mantener,alta,accion_explicita_sin_voto,"Se inclina por mantener la TPM."
-RPM-2012-01-12,Sebastián Claro Edwards,bajar,alta,accion_explicita_sin_voto,"Se inclina por bajar la tasa en 25 pb."
-RPM-2012-02-14,Sebastián Claro Edwards,mantener,alta,referencia_anaforica,"Expresa que su voto es por mantenerla en el nivel actual."
-RPM-2012-02-14,Manuel Marfán Lewis,mantener,alta,referencia_anaforica,"Declara prudente mantener y que su voto refleja ese planteamiento."
-RPM-2012-02-14,Joaquín Vial Ruiz-Tagle,mantener,alta,accion_explicita_sin_voto,"Concuerda con la propuesta del staff de mantener en 5%."
-RPM-2012-03-15,Joaquín Vial Ruiz-Tagle,mantener,alta,accion_explicita_sin_voto,"Declara que apoyará mantener la TPM en 5%."
-RPM-2012-03-15,Manuel Marfán Lewis,mantener,alta,adhesion_opcion,"Se suma a la opción única del staff de mantener."
-RPM-2012-03-15,Sebastián Claro Edwards,mantener,alta,accion_explicita_sin_voto,"Manifiesta que lo prudente es mantener y comparte la minuta."
-RPM-2015-07-14,Enrique Marshall Rivera,mantener,alta,accion_explicita_sin_voto,"Manifiesta inclinarse por mantener en 3%."
-RPM-2015-07-14,Joaquín Vial Ruiz-Tagle,mantener,alta,referencia_anaforica,"Concuerda con mantener y vota en consecuencia."
-RPM-2015-07-14,Pablo García Silva,mantener,alta,accion_explicita_sin_voto,"Concuerda con la recomendación de mantener en 3%."
-RPM-2015-07-14,Sebastián Claro Edwards,mantener,alta,accion_explicita_sin_voto,"Vota por mantener la TPM en 3%."
-RPM-2015-08-13,Enrique Marshall Rivera,mantener,alta,referencia_anaforica,"Se inclina por mantener y vota conforme a ello."
-RPM-2015-08-13,Joaquín Vial Ruiz-Tagle,mantener,alta,referencia_anaforica,"Reitera mantener en 3% y vota por ello."
-RPM-2015-08-13,Sebastián Claro Edwards,mantener,alta,referencia_anaforica,"Declara que se impone mantener en 3% y vota por ello."
-RPM-2015-09-15,Rodrigo Vergara Montes,mantener,alta,adhesion_opcion,"Se adhiere a mantener la TPM en 3%."
-RPM-2015-10-15,Pablo García Silva,subir,alta,accion_explicita_sin_voto,"Manifiesta inclinación por subir 25 pb."
-RPM-2015-10-15,Sebastián Claro Edwards,subir,alta,accion_explicita_sin_voto,"Manifiesta preferencia por subir 25 pb."
-RPM-2015-11-12,Sebastián Claro Edwards,mantener,alta,accion_explicita_sin_voto,"Favorece mantener en 3,25%."
-RPM-2015-12-17,Mario Marcel Cullell,subir,alta,accion_explicita_sin_voto,"Plantea incrementar ahora 25 pb hasta 3,5%; el acta dice por error 'puntos porcentuales'."
+meeting_id,actor,voto_accion_revision,confianza_revision,criterio_revision,nota_revision,magnitud_pb_revision,tpm_objetivo_revision
+RPM-2006-01-12,Jorge Desormeaux Jiménez,subir,alta,referencia_anaforica,Se inclina por aumentar 25 pb y luego 'vota en tal sentido'.,25,4.75
+RPM-2006-01-12,José De Gregorio Rebeco,mantener,alta,referencia_anaforica,"Dice que la mejor opción es mantener en 4,5% y 'vota en tal sentido'.",,
+RPM-2007-01-11,José De Gregorio Rebeco,bajar,alta,referencia_anaforica,Declara adecuado bajar 25 pb y luego 'vota en ese sentido'.,,
+RPM-2007-04-12,Manuel Marfán Lewis,mantener,alta,adhesion_mayoria,Declara que su voto se suma a la mayoría; el acuerdo fue mantener.,,
+RPM-2007-04-12,José De Gregorio Rebeco,mantener,alta,adhesion_mayoria,Se suma a la mayoría; el acuerdo fue mantener.,,
+RPM-2007-04-12,Vittorio Corbo Lioi,mantener,alta,accion_explicita_sin_voto,Señala que lo más adecuado es mantener la tasa.,,
+RPM-2008-01-10,Sebastián Claro Edwards,subir,alta,referencia_anaforica,Se suma a la votación para aumentar 25 pb.,,
+RPM-2008-01-10,Manuel Marfán Lewis,subir,alta,accion_explicita_sin_voto,Se inclina por un aumento de 25 pb.,,
+RPM-2008-03-13,Jorge Desormeaux Jiménez,mantener,alta,adhesion_mayoria,"Aunque prefiere subir 25 pb, declara que se suma a la mayoría que mantuvo.",,
+RPM-2008-04-10,Manuel Marfán Lewis,mantener,alta,contexto_intervencion,"Concluye que la balanza se inclina claramente a mantener en 6,25%.",,
+RPM-2008-05-08,José De Gregorio Rebeco,mantener,alta,accion_explicita_sin_voto,"Se inclina por mantener la TPM en 6,25%.",,
+RPM-2008-06-10,José De Gregorio Rebeco,subir,alta,referencia_anaforica,Reafirma subir 50 pb y luego 'vota en tal sentido'.,,
+RPM-2008-07-10,Sebastián Claro Edwards,subir,alta,referencia_anaforica,Se suma a la votación de aumentar 50 pb.,,
+RPM-2008-09-04,Jorge Desormeaux Jiménez,subir,alta,adhesion_mayoria,"Prefiere 75 pb, pero suma su voto a la mayoría si adopta 50 pb; el acuerdo subió 50 pb.",,
+RPM-2008-10-09,Sebastián Claro Edwards,mantener,alta,adhesion_mayoria,Declara estar dispuesto a sumarse a la mayoría por mantener y condiciona ese voto.,,
+RPM-2009-07-09,José De Gregorio Rebeco,bajar,alta,accion_explicita_sin_voto,"Manifiesta que su decisión es reducir la TPM a 0,5%.",,
+RPM-2009-09-08,José De Gregorio Rebeco,mantener,alta,accion_explicita_sin_voto,Vota en consecuencia por mantener la tasa; la grafía no fue capturada por el patrón inicial.,,
+RPM-2009-11-12,Jorge Desormeaux Jiménez,mantener,alta,contexto_intervencion,"Se inclina por acompañar la decisión de mantener la TPM en 0,50%.",,
+RPM-2009-11-12,Sebastián Claro Edwards,no_extraido,baja,contexto_insuficiente,"Discute la salida de la FLAP y dice que no cambia su juicio sobre la TPM, pero no formula de modo inequívoco su acción votada.",,
+RPM-2010-07-15,Sebastián Claro Edwards,subir,alta,accion_explicita_sin_voto,Se inclina personalmente por el alza de 50 pb.,,
+RPM-2010-09-16,José De Gregorio Rebeco,subir,alta,accion_explicita_sin_voto,Manifiesta que parece prudente continuar con un alza de 50 pb.,,
+RPM-2010-12-16,Enrique Marshall Rivera,subir,alta,accion_explicita_sin_voto,Manifiesta inclinarse por un alza de 25 pb.,,
+RPM-2011-06-14,Rodrigo Vergara Montes,subir,alta,accion_explicita_sin_voto,"Se inclina por subir 25 pb hasta 5,25%.",,
+RPM-2011-07-14,Rodrigo Vergara Montes,mantener,alta,accion_explicita_sin_voto,Se inclina por mantener la TPM.,,
+RPM-2011-10-13,Manuel Marfán Lewis,mantener,alta,referencia_anaforica,Comparte la recomendación de mantener y 'vota en consecuencia'.,,
+RPM-2011-11-15,Manuel Marfán Lewis,mantener,alta,contexto_intervencion,Concluye que los riesgos apuntan a la conveniencia de mantener.,,
+RPM-2011-11-15,Rodrigo Vergara Montes,mantener,alta,accion_explicita_sin_voto,Se inclina por mantener la TPM.,,
+RPM-2012-01-12,Sebastián Claro Edwards,bajar,alta,accion_explicita_sin_voto,Se inclina por bajar la tasa en 25 pb.,,
+RPM-2012-02-14,Sebastián Claro Edwards,mantener,alta,referencia_anaforica,Expresa que su voto es por mantenerla en el nivel actual.,,
+RPM-2012-02-14,Manuel Marfán Lewis,mantener,alta,referencia_anaforica,Declara prudente mantener y que su voto refleja ese planteamiento.,,
+RPM-2012-02-14,Joaquín Vial Ruiz-Tagle,mantener,alta,accion_explicita_sin_voto,Concuerda con la propuesta del staff de mantener en 5%.,,
+RPM-2012-03-15,Joaquín Vial Ruiz-Tagle,mantener,alta,accion_explicita_sin_voto,Declara que apoyará mantener la TPM en 5%.,,
+RPM-2012-03-15,Manuel Marfán Lewis,mantener,alta,adhesion_opcion,Se suma a la opción única del staff de mantener.,,
+RPM-2012-03-15,Sebastián Claro Edwards,mantener,alta,accion_explicita_sin_voto,Manifiesta que lo prudente es mantener y comparte la minuta.,,
+RPM-2015-07-14,Enrique Marshall Rivera,mantener,alta,accion_explicita_sin_voto,Manifiesta inclinarse por mantener en 3%.,,
+RPM-2015-07-14,Joaquín Vial Ruiz-Tagle,mantener,alta,referencia_anaforica,Concuerda con mantener y vota en consecuencia.,,
+RPM-2015-07-14,Pablo García Silva,mantener,alta,accion_explicita_sin_voto,Concuerda con la recomendación de mantener en 3%.,,
+RPM-2015-07-14,Sebastián Claro Edwards,mantener,alta,accion_explicita_sin_voto,Vota por mantener la TPM en 3%.,,
+RPM-2015-08-13,Enrique Marshall Rivera,mantener,alta,referencia_anaforica,Se inclina por mantener y vota conforme a ello.,,
+RPM-2015-08-13,Joaquín Vial Ruiz-Tagle,mantener,alta,referencia_anaforica,Reitera mantener en 3% y vota por ello.,,
+RPM-2015-08-13,Sebastián Claro Edwards,mantener,alta,referencia_anaforica,Declara que se impone mantener en 3% y vota por ello.,,
+RPM-2015-09-15,Rodrigo Vergara Montes,mantener,alta,adhesion_opcion,Se adhiere a mantener la TPM en 3%.,,
+RPM-2015-10-15,Pablo García Silva,subir,alta,accion_explicita_sin_voto,Manifiesta inclinación por subir 25 pb.,,
+RPM-2015-10-15,Sebastián Claro Edwards,subir,alta,accion_explicita_sin_voto,Manifiesta preferencia por subir 25 pb.,,
+RPM-2015-11-12,Sebastián Claro Edwards,mantener,alta,accion_explicita_sin_voto,"Favorece mantener en 3,25%.",,
+RPM-2015-12-17,Mario Marcel Cullell,subir,alta,accion_explicita_sin_voto,"Plantea incrementar ahora 25 pb hasta 3,5%; el acta dice por error 'puntos porcentuales'.",,
