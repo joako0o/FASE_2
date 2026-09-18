@@ -1,0 +1,43 @@
+{
+  "objetivo": "Tarjeta tipo FIFA de énfasis temático relativo, no habilidad ni calidad",
+  "ejes_componentes_nmf": {
+    "actividad_demanda": [
+      "tema_nmf_01"
+    ],
+    "mercado_laboral": [
+      "tema_nmf_02"
+    ],
+    "inflacion_expectativas": [
+      "tema_nmf_09"
+    ],
+    "entorno_externo_commodities": [
+      "tema_nmf_03",
+      "tema_nmf_08",
+      "tema_nmf_13"
+    ],
+    "tipo_cambio": [
+      "tema_nmf_10"
+    ],
+    "mercados_estructura_tasas": [
+      "tema_nmf_12"
+    ]
+  },
+  "componentes_excluidos": [
+    "tema_nmf_04",
+    "tema_nmf_05",
+    "tema_nmf_06",
+    "tema_nmf_07",
+    "tema_nmf_11",
+    "tema_nmf_14"
+  ],
+  "razon_exclusion": "Estructura documental o lenguaje común de decisión TPM; usarlo como especialización sería circular o ambiguo.",
+  "universo_percentiles": "Solo miembros del Consejo con al menos 100 intervenciones",
+  "calculo": [
+    "sumar pesos NMF por eje",
+    "promediar por actor",
+    "renormalizar entre seis ejes",
+    "dividir por proporción corpus (base 100)",
+    "convertir a percentil 0-100 entre actores elegibles"
+  ],
+  "advertencia": "Un valor alto indica énfasis relativo. No mide competencia, influencia ni desempeño."
+}

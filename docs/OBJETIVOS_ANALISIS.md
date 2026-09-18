@@ -23,10 +23,12 @@ Entregables:
 - cruce tópico × H/D/N;
 - tópicos con mayor balance y cobertura direccional;
 - evolución temporal del mix de tópicos;
-- comparación futura `topico_humano` frente a `topico_maquina`, si se construye un modelo temático separado;
+- comparación futura entre tópicos humanos y componentes NMF solo como validación externa, sin usar las columnas humanas para ajustar NMF;
 - comparación equivalente de keywords humanas y extraídas automáticamente.
 
-Los tópicos humanos son: acuerdo/comunicado, debate, escenario internacional, mercados financieros, inflación, actividad interna, mercado laboral, decisión TPM, opciones TPM, riesgos, política fiscal, apertura/cierre y otros.
+Los tópicos humanos son: acuerdo/comunicado, debate, escenario internacional, mercados financieros, inflación, actividad interna, mercado laboral, decisión TPM, opciones TPM, riesgos, política fiscal, apertura/cierre y otros. Separadamente, ya existe un modelo no supervisado NMF de 14 componentes ajustado solo con texto. Sus archivos usan el prefijo `topicos_modelo_`; nunca deben atribuirse a W+C+600.
+
+Para visualización tipo FIFA se definieron seis ejes económicos comunes a todos los actores: actividad/demanda, mercado laboral, inflación/expectativas, entorno externo/commodities, tipo de cambio y mercados/estructura de tasas. Se excluyeron política monetaria genérica y puntos base porque todos participan en una RPM y esos ejes serían circulares; también se excluyó estructura documental. El percentil 0–100 se calcula únicamente entre miembros del Consejo con al menos 100 intervenciones y representa énfasis relativo, no habilidad.
 
 ## 3. Palabras y expresiones
 
@@ -70,6 +72,8 @@ Completado en `resultados/analisis_descriptivo/`:
 4. n-gramas 1–4 frecuentes y distintivos H/D y direccional/neutral;
 5. perfiles descriptivos de actores;
 6. probabilidades no calibradas y score continuo H−D;
-7. cinco modelos ajustados persistidos en `modelos/wc600/`.
+7. cinco modelos ajustados persistidos en `modelos/wc600/`;
+8. modelo temático NMF de 14 componentes, asignaciones por intervención y agregados por reunión, año y actor;
+9. insumos largo y ancho para radar temático tipo FIFA, con especificación reproducible.
 
-Pendiente solo si surge una hipótesis nueva: incorporar TPM para validación económica y generar embeddings para análisis temático. No se generaron embeddings ahora porque no forman parte del modelo final y los 13 tópicos humanos permiten comenzar sin otra representación.
+Pendiente solo si surge una hipótesis nueva: validación económica adicional o embeddings densos. NMF ya cubre el análisis temático automático mediante una matriz TF-IDF dispersa y no altera el modelo formal W+C+600.

@@ -58,6 +58,7 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertEqual((summary["filas_validas"], summary["no_decidibles"], summary["reuniones"]), (9724, 1, 132))
         self.assertEqual((summary["decisiones_institucionales_proxy"], summary["casos_convergencia_proxy"]), (132, 39))
         self.assertEqual((summary["topicos_humanos"], summary["topicos_modelo_nmf"], summary["oraciones_ajuste_topicos_modelo"]), (13, 14, 57452))
+        self.assertEqual((summary["ejes_radar_tematico"], summary["actores_aptos_radar"]), (6, 9))
         self.assertEqual(summary["pares_reunion_actor_con_candidato_voto"], 560)
         self.assertEqual((summary["acuerdos_consejo_extraidos"], summary["filas_base_votos_acta_actor"]), (132, 649))
         self.assertEqual((summary["votos_con_accion_extraida"], summary["votos_inferidos_por_unanimidad"], summary["votos_revisados_textualmente"], summary["votos_no_extraidos"], summary["votos_finales_con_magnitud_y_tpm"]), (516, 87, 45, 1, 648))
@@ -68,7 +69,10 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertEqual({r["tipo_actor"] for r in master}, {"miembro_consejo", "staff_tecnico", "hacienda_gobierno", "consejo_institucional"})
         topic_method = json.loads((ROOT / "resultados/analisis_descriptivo/topicos_modelo_metodo.json").read_text(encoding="utf-8"))
         self.assertEqual((topic_method["metodo"], topic_method["n_topicos"], topic_method["columnas_humanas_usadas"]), ("NMF sobre TF-IDF de oraciones", 14, []))
-        for name in ["indices_actor_por_anio.csv", "topicos_por_actor.csv", "topicos_modelo_nmf.csv", "asignacion_topicos_modelo_nmf.csv", "topicos_modelo_por_reunion.csv", "vocabulario_frecuente_por_actor.csv", "vocabulario_distintivo_por_actor.csv", "matriz_votos_candidatos.csv", "acuerdo_consejo_por_reunion.csv", "base_votos_acta_actor.csv", "convergencia_actor_reunion_proxy.csv"]:
+        radar_method = json.loads((ROOT / "resultados/analisis_descriptivo/radar_tematico_metodo.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(radar_method["ejes_componentes_nmf"]), 6)
+        self.assertTrue({"tema_nmf_05", "tema_nmf_14"}.issubset(radar_method["componentes_excluidos"]))
+        for name in ["indices_actor_por_anio.csv", "topicos_por_actor.csv", "topicos_modelo_nmf.csv", "asignacion_topicos_modelo_nmf.csv", "topicos_modelo_por_reunion.csv", "radar_tematico_actores.csv", "radar_tematico_actores_ancho.csv", "radar_tematico_metodo.json", "vocabulario_frecuente_por_actor.csv", "vocabulario_distintivo_por_actor.csv", "matriz_votos_candidatos.csv", "acuerdo_consejo_por_reunion.csv", "base_votos_acta_actor.csv", "convergencia_actor_reunion_proxy.csv"]:
             self.assertTrue((ROOT / "resultados/analisis_descriptivo" / name).is_file())
         with (ROOT / "resultados/analisis_descriptivo/base_votos_acta_actor.csv").open(encoding="utf-8", newline="") as f: votes = list(csv.DictReader(f))
         self.assertEqual(len(votes), 649)

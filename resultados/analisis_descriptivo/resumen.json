@@ -19,6 +19,8 @@
   "topicos_humanos": 13,
   "topicos_modelo_nmf": 14,
   "oraciones_ajuste_topicos_modelo": 57452,
+  "ejes_radar_tematico": 6,
+  "actores_aptos_radar": 9,
   "vocabulario_1_a_4_min_df_5": 127843,
   "actores_con_vocabulario_distintivo": 27,
   "decisiones_institucionales_proxy": 132,
@@ -35,5 +37,5 @@
   "nota_convergencia": "Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.",
   "nota_neutrales": "Se conservan en tono general y cobertura; balance direccional usa solo H/D.",
   "embeddings_generados": false,
-  "razon_embeddings": "No son parte de W+C+600; se reservan para una hipótesis temática posterior."
+  "razon_embeddings": "No son parte de W+C+600 ni necesarios para NMF, que usa TF-IDF disperso; se reservan para otra hipótesis."
 }
