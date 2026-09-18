@@ -56,7 +56,15 @@ class TestProyectoEsencial(unittest.TestCase):
     def test_analisis_y_modelos_persistidos(self):
         summary = json.loads((ROOT / "resultados/analisis_descriptivo/resumen.json").read_text(encoding="utf-8"))
         self.assertEqual((summary["filas_validas"], summary["no_decidibles"], summary["reuniones"]), (9724, 1, 132))
+        self.assertEqual((summary["decisiones_institucionales_proxy"], summary["casos_convergencia_proxy"]), (132, 39))
+        self.assertEqual(summary["pares_reunion_actor_con_candidato_voto"], 560)
         self.assertFalse(summary["embeddings_generados"])
+        with (ROOT / "resultados/analisis_descriptivo/tabla_maestra.csv").open(encoding="utf-8", newline="") as f: master = list(csv.DictReader(f))
+        self.assertEqual(len(master), 9725)
+        self.assertTrue(all(r["orden_habla"] and r["subindice"] and r["tipo_actor"] for r in master))
+        self.assertEqual({r["tipo_actor"] for r in master}, {"miembro_consejo", "staff_tecnico", "hacienda_gobierno", "consejo_institucional"})
+        for name in ["indices_actor_por_anio.csv", "topicos_por_actor.csv", "vocabulario_frecuente_por_actor.csv", "vocabulario_distintivo_por_actor.csv", "matriz_votos_candidatos.csv", "convergencia_actor_reunion_proxy.csv"]:
+            self.assertTrue((ROOT / "resultados/analisis_descriptivo" / name).is_file())
         model_manifest = json.loads((ROOT / "modelos/wc600/manifest.json").read_text(encoding="utf-8"))
         self.assertEqual(len(model_manifest["archivos_sha256"]), 5)
         for name, expected in model_manifest["archivos_sha256"].items(): self.assertEqual(hashlib.sha256((ROOT / "modelos/wc600" / name).read_bytes()).hexdigest(), expected)

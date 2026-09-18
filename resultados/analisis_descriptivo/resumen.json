@@ -17,6 +17,12 @@
   "actores": 55,
   "topicos": 13,
   "vocabulario_1_a_4_min_df_5": 127843,
+  "actores_con_vocabulario_distintivo": 27,
+  "decisiones_institucionales_proxy": 132,
+  "candidatos_votos_explicitos": 581,
+  "pares_reunion_actor_con_candidato_voto": 560,
+  "casos_convergencia_proxy": 39,
+  "nota_convergencia": "Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.",
   "nota_neutrales": "Se conservan en tono general y cobertura; balance direccional usa solo H/D.",
   "embeddings_generados": false,
   "razon_embeddings": "No son parte de W+C+600; se reservan para una hipótesis temática posterior."

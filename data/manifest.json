@@ -7,7 +7,7 @@
   ],
   "commit_historico_pre_condensacion": "7aa63cc",
   "sha256": {
-    "README.md": "4682c6bc020aeaea7a6aee0a61524cc82c7e12ff38606a460cc97c38c064a921",
+    "README.md": "eaff46fcc107a996caf65ae4cea1e3e31254a90991ec8c90f24223aded41f556",
     "requirements.txt": "1f434dbc7b26cd8ba04295593753f98a6e1fc4808f624d3f04b46e411d2b8862",
     "scripts/modelo_final.py": "abea8e1a888be3ea4e7d9ba645f55f542f5c768290f654d6a4465e8c5d0c000f",
     "docs/BENCHMARK_MODELOS.md": "54416643daa6ae8282657d1ae1bca4bbaab7f51953d9476385a0787e3ff371ef",
@@ -19,14 +19,14 @@
     "data/analisis_factorial.json": "5a31991659b4af8664222b7ebb023741c3cad68239d51f7e4441ebbc03c8fa44",
     "data/benchmark_modelos.csv": "0e94eb1dd87188f6f95a0eadce6797a378c7d2b144030bd124078be9e4820653",
     "data/benchmark_modelos.json": "5d136ecef404878b08b6e902799762d06d3229900b16977bc4bc0ffc750e158a",
-    "data/corpus_bcch_2005_2015.csv": "0c4fc07121bc1416e3539360566ebf6eea59dbac298259c61f7159251cb70d9a",
+    "data/corpus_bcch_2005_2015.csv": "6ecf9cc07c2200e75acb6aa73d978e72e5a7aa45d03af16da5d8f913f1c436ac",
     "data/entrenamiento_wc600.csv": "573bea960318d4e1a58cb92f69f93708385ac0166570c2be7cada01f2063d0a2",
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
     "data/predicciones_evaluacion_ciega.csv": "919b3d0b1b4b5a79f8e492c0889989ae7ed0a8d6c7ac0148c9fcce98f556d0db",
     "data/resultados_evaluacion_ciega.json": "1aadd083a4c411de021a0160251c06c13c9fa79ca1e576658c60c13b21784f55",
     "docs/OBJETIVOS_ANALISIS.md": "ea0748d81d01ea598a83f67328f5e3fca29834a4b0a4fc6c1d2ee267a79b96c3",
-    "scripts/analisis_resultados.py": "55d7fc6ed4b49ae209490bad8038818f4cd7811bee38f3f3036f8f522300f84b",
-    "data/README.md": "7d526d48f01c51115795ef544e164f4fd7000d156d9aa2fa7beaa90c9b69d1c1",
+    "scripts/analisis_resultados.py": "d5178b2a327707020b9c834bcfadbf85db93df26fa23ac3acddf1b88d386f0f6",
+    "data/README.md": "311ff51513a982342b0ed4b89b9cc819195c5f34b77f82e13a2efd33ab30f146",
     "data/actores_metadata.csv": "e4c57ff710983ce4f2416289ad788a6ce404c7ac6033ed54d8a472f93f5f34bf"
   },
   "verificaciones": {

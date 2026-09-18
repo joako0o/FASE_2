@@ -103,6 +103,27 @@ Actualmente `resultados/analisis_descriptivo/indices_por_actor.csv` contiene el 
 
 Estos resultados estaban destinados a tablas para investigación, visualizaciones tipo radar/red y eventualmente un *scrollytelling* y un paper. El detalle se encontraba en el antiguo `PLAN.md`, no en el README histórico de manera suficiente; se incorpora aquí para que no vuelva a perderse durante la condensación.
 
+## Análisis rápido de actores
+
+Se recuperaron `orden_habla` y `subindice` para las 9.725 filas, verificando correspondencia exacta de ID y texto con la fuente histórica. El análisis reproducible de `scripts/analisis_resultados.py` ahora entrega:
+
+- `indices_por_tipo_y_actor.csv` e `indices_actor_por_anio.csv`: H/D/N, tono general, balance, cobertura y score medio, separando `miembro_consejo`, `staff_tecnico`, `hacienda_gobierno` y `consejo_institucional`;
+- `variacion_anual_por_actor.csv`: primer y último score anual, cambio, mínimo, máximo, rango y pendiente descriptiva para actores con al menos 20 intervenciones y dos años;
+- `topicos_por_actor.csv`: frecuencia, proporción y ranking de los 13 tópicos dentro de cada actor;
+- `vocabulario_{frecuente,distintivo}_por_actor.csv`: 20 n-gramas sustantivos por actor con al menos 20 intervenciones sustantivas; el segundo usa log-odds contra el resto;
+- `candidatos_votos_explicitos.csv` y `matriz_votos_candidatos.csv`: detección por expresiones como “vota” o “voto”, siempre marcada `candidato_regex_no_validado`;
+- `decision_institucional_proxy.csv`, `convergencia_actor_reunion_proxy.csv` y `convergencia_resumen_actor_proxy.csv`: proxy exploratorio de acercamiento dentro de cada reunión.
+
+### Lectura rápida de resultados
+
+Entre los miembros del Consejo con al menos 100 intervenciones, los scores medios continuos más positivos son Jorge Desormeaux (0,116; $n=221$), Vittorio Corbo (0,052; $n=455$), José De Gregorio (0,037; $n=1.047$) y Manuel Marfán (0,036; $n=855$). Los más negativos son Pablo García (-0,064; $n=100$), Enrique Marshall (-0,036; $n=483$), Rodrigo Vergara (-0,030; $n=1.026$), Joaquín Vial (-0,028; $n=231$) y Sebastián Claro (-0,022; $n=592$). Estas cifras describen tono clasificado, **no votos ni preferencias estructurales**. Siempre deben leerse junto con cobertura direccional: por ejemplo, va de 5,2% para Vial a 23,1% para Desormeaux en este conjunto.
+
+Los tres tópicos principales también varían: De Gregorio y Vergara concentran primero `debate`; Desormeaux y Vial, `escenario_internacional`; Marshall, `debate`; Marfán, `debate` y `mercados_financieros`; Claro, `debate`, `escenario_internacional` y `mercados_financieros`. Las tablas conservan conteos y proporciones para no confundir volumen de habla con especialización. El vocabulario frecuente muestra uso; el distintivo, sobrerrepresentación. Ambos excluyen apertura/cierre, comunicado y decisión final, pero todavía pueden reflejar estilo y función institucional además de contenido económico.
+
+La comparación de primera versus última intervención direccional pertinente produjo solo **39 pares actor-reunión** con al menos dos intervenciones antes de la decisión institucional. En conjunto, la distancia media al proxy final bajó de 0,564 a 0,541: convergencia media 0,0227, mediana 0,0513 y acercamiento en 61,5% de los pares. Solo José De Gregorio y Rodrigo Vergara alcanzaron 11 reuniones cada uno: De Gregorio tuvo convergencia media 0,100 y acercamiento en 9/11; Vergara, 0,0246 y 7/11. Los demás actores tienen cuatro reuniones o menos y **no deben rankearse**. La evidencia sugiere un acercamiento débil en esta muestra seleccionada, pero no permite concluir un patrón general.
+
+La restricción es sustantiva: la decisión proxy es la última fila institucional `Consejo del Banco Central de Chile` clasificada en cada reunión (132/132; 107 N, 18 H y 7 D), no un voto observado. Se detectaron 581 fragmentos candidatos a voto en 560 pares reunión-actor, pero requieren revisión humana y extracción de opción/dirección antes de llamarlos votos explícitos. Las tendencias anuales tampoco separan inclinación personal del ciclo macroeconómico o del cambio en composición temática; `variacion_anual_por_actor.csv` es descriptivo, no la estimación de $\alpha_i$ y $\beta_i$.
+
 ## Fórmulas y procedimiento de cálculo
 
 ### 1. Representación TF-IDF

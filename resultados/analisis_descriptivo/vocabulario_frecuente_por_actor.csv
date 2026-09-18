@@ -1,0 +1,541 @@
+actor,n_intervenciones_sustantivas,ranking,ngram,ocurrencias
+José De Gregorio Rebeco,799,1,politica,237
+José De Gregorio Rebeco,799,2,monetaria,208
+José De Gregorio Rebeco,799,3,politica monetaria,207
+José De Gregorio Rebeco,799,4,escenario,149
+José De Gregorio Rebeco,799,5,analisis,145
+José De Gregorio Rebeco,799,6,inflacion,133
+José De Gregorio Rebeco,799,7,division,114
+José De Gregorio Rebeco,799,8,tasa,110
+José De Gregorio Rebeco,799,9,internacional,100
+José De Gregorio Rebeco,799,10,presentacion,100
+José De Gregorio Rebeco,799,11,la presentacion,98
+José De Gregorio Rebeco,799,12,mes,97
+José De Gregorio Rebeco,799,13,estudios,81
+José De Gregorio Rebeco,799,14,crecimiento,80
+José De Gregorio Rebeco,799,15,division estudios,80
+José De Gregorio Rebeco,799,16,la tasa,78
+José De Gregorio Rebeco,799,17,agradece la presentacion,76
+José De Gregorio Rebeco,799,18,la presentacion del,75
+José De Gregorio Rebeco,799,19,presentacion del,75
+José De Gregorio Rebeco,799,20,comenta,74
+Rodrigo Vergara Montes,734,1,politica,276
+Rodrigo Vergara Montes,734,2,monetaria,249
+Rodrigo Vergara Montes,734,3,politica monetaria,247
+Rodrigo Vergara Montes,734,4,de politica,238
+Rodrigo Vergara Montes,734,5,de politica monetaria,226
+Rodrigo Vergara Montes,734,6,analisis,189
+Rodrigo Vergara Montes,734,7,escenario,175
+Rodrigo Vergara Montes,734,8,presentacion,167
+Rodrigo Vergara Montes,734,9,mes,166
+Rodrigo Vergara Montes,734,10,la presentacion,164
+Rodrigo Vergara Montes,734,11,presentacion del,161
+Rodrigo Vergara Montes,734,12,la presentacion del,159
+Rodrigo Vergara Montes,734,13,agradece la presentacion,151
+Rodrigo Vergara Montes,734,14,agradece la presentacion del,151
+Rodrigo Vergara Montes,734,15,de analisis,134
+Rodrigo Vergara Montes,734,16,gerente de analisis,133
+Rodrigo Vergara Montes,734,17,crecimiento,131
+Rodrigo Vergara Montes,734,18,internacional,120
+Rodrigo Vergara Montes,734,19,inflacion,117
+Rodrigo Vergara Montes,734,20,division,115
+Manuel Marfán Lewis,680,1,tasa,228
+Manuel Marfán Lewis,680,2,politica,194
+Manuel Marfán Lewis,680,3,inflacion,185
+Manuel Marfán Lewis,680,4,cambio,183
+Manuel Marfán Lewis,680,5,la tasa,160
+Manuel Marfán Lewis,680,6,ese,156
+Manuel Marfán Lewis,680,7,tasa de,151
+Manuel Marfán Lewis,680,8,efectos,150
+Manuel Marfán Lewis,680,9,tipo,148
+Manuel Marfán Lewis,680,10,tipo de,134
+Manuel Marfán Lewis,680,11,crecimiento,133
+Manuel Marfán Lewis,680,12,escenario,131
+Manuel Marfán Lewis,680,13,monetaria,129
+Manuel Marfán Lewis,680,14,plazo,127
+Manuel Marfán Lewis,680,15,politica monetaria,125
+Manuel Marfán Lewis,680,16,tasas,124
+Manuel Marfán Lewis,680,17,cual,123
+Manuel Marfán Lewis,680,18,interes,123
+Manuel Marfán Lewis,680,19,cuando,120
+Manuel Marfán Lewis,680,20,de interes,118
+Claudio Soto Gamboa,673,1,mes,649
+Claudio Soto Gamboa,673,2,tasas,540
+Claudio Soto Gamboa,673,3,trimestre,499
+Claudio Soto Gamboa,673,4,inflacion,497
+Claudio Soto Gamboa,673,5,crecimiento,467
+Claudio Soto Gamboa,673,6,proyeccion,378
+Claudio Soto Gamboa,673,7,alza,369
+Claudio Soto Gamboa,673,8,meses,365
+Claudio Soto Gamboa,673,9,cambio,348
+Claudio Soto Gamboa,673,10,bastante,343
+Claudio Soto Gamboa,673,11,consumo,343
+Claudio Soto Gamboa,673,12,precios,337
+Claudio Soto Gamboa,673,13,analisis,326
+Claudio Soto Gamboa,673,14,macroeconomico,320
+Claudio Soto Gamboa,673,15,las tasas,317
+Claudio Soto Gamboa,673,16,sector,316
+Claudio Soto Gamboa,673,17,analisis macroeconomico,309
+Claudio Soto Gamboa,673,18,aumento,309
+Claudio Soto Gamboa,673,19,baja,308
+Claudio Soto Gamboa,673,20,de analisis,308
+Sergio Lehmann Beresi,648,1,economias,824
+Sergio Lehmann Beresi,648,2,estados,721
+Sergio Lehmann Beresi,648,3,unidos,721
+Sergio Lehmann Beresi,648,4,estados unidos,719
+Sergio Lehmann Beresi,648,5,america,659
+Sergio Lehmann Beresi,648,6,precio,616
+Sergio Lehmann Beresi,648,7,mes,544
+Sergio Lehmann Beresi,648,8,de america,513
+Sergio Lehmann Beresi,648,9,las economias,489
+Sergio Lehmann Beresi,648,10,estados unidos de,478
+Sergio Lehmann Beresi,648,11,unidos de,478
+Sergio Lehmann Beresi,648,12,algo,474
+Sergio Lehmann Beresi,648,13,estados unidos de america,469
+Sergio Lehmann Beresi,648,14,unidos de america,469
+Sergio Lehmann Beresi,648,15,crecimiento,421
+Sergio Lehmann Beresi,648,16,caida,391
+Sergio Lehmann Beresi,648,17,ultimo,391
+Sergio Lehmann Beresi,648,18,internacional,387
+Sergio Lehmann Beresi,648,19,mayor,369
+Sergio Lehmann Beresi,648,20,emergentes,368
+Sebastián Claro Edwards,469,1,tasas,172
+Sebastián Claro Edwards,469,2,inflacion,155
+Sebastián Claro Edwards,469,3,crecimiento,108
+Sebastián Claro Edwards,469,4,mayor,108
+Sebastián Claro Edwards,469,5,cambio,101
+Sebastián Claro Edwards,469,6,precios,101
+Sebastián Claro Edwards,469,7,economia,95
+Sebastián Claro Edwards,469,8,las tasas,94
+Sebastián Claro Edwards,469,9,plantea,92
+Sebastián Claro Edwards,469,10,estados,88
+Sebastián Claro Edwards,469,11,estados unidos,88
+Sebastián Claro Edwards,469,12,unidos,88
+Sebastián Claro Edwards,469,13,cuenta,87
+Sebastián Claro Edwards,469,14,paises,87
+Sebastián Claro Edwards,469,15,demanda,83
+Sebastián Claro Edwards,469,16,tanto,83
+Sebastián Claro Edwards,469,17,la inflacion,81
+Sebastián Claro Edwards,469,18,mercado,79
+Sebastián Claro Edwards,469,19,plazo,78
+Sebastián Claro Edwards,469,20,precio,78
+Pablo García Silva,452,1,inflacion,350
+Pablo García Silva,452,2,politica,345
+Pablo García Silva,452,3,monetaria,283
+Pablo García Silva,452,4,crecimiento,273
+Pablo García Silva,452,5,politica monetaria,272
+Pablo García Silva,452,6,division,253
+Pablo García Silva,452,7,de division,242
+Pablo García Silva,452,8,de politica,239
+Pablo García Silva,452,9,tasas,238
+Pablo García Silva,452,10,mayor,236
+Pablo García Silva,452,11,tasa,234
+Pablo García Silva,452,12,gerente de division,224
+Pablo García Silva,452,13,de politica monetaria,210
+Pablo García Silva,452,14,plazo,207
+Pablo García Silva,452,15,el gerente de division,203
+Pablo García Silva,452,16,meses,201
+Pablo García Silva,452,17,trimestre,199
+Pablo García Silva,452,18,estudios,196
+Pablo García Silva,452,19,la inflacion,192
+Pablo García Silva,452,20,division estudios,183
+Enrique Marshall Rivera,334,1,mercado,111
+Enrique Marshall Rivera,334,2,tasas,102
+Enrique Marshall Rivera,334,3,inflacion,97
+Enrique Marshall Rivera,334,4,politica,86
+Enrique Marshall Rivera,334,5,crecimiento,79
+Enrique Marshall Rivera,334,6,bancos,78
+Enrique Marshall Rivera,334,7,economia,77
+Enrique Marshall Rivera,334,8,escenario,75
+Enrique Marshall Rivera,334,9,los bancos,70
+Enrique Marshall Rivera,334,10,situacion,70
+Enrique Marshall Rivera,334,11,monetaria,67
+Enrique Marshall Rivera,334,12,tasas de,67
+Enrique Marshall Rivera,334,13,politica monetaria,65
+Enrique Marshall Rivera,334,14,la economia,64
+Enrique Marshall Rivera,334,15,tasa,62
+Enrique Marshall Rivera,334,16,economias,60
+Enrique Marshall Rivera,334,17,las tasas,60
+Enrique Marshall Rivera,334,18,mayor,60
+Enrique Marshall Rivera,334,19,credito,59
+Enrique Marshall Rivera,334,20,ultimo,58
+Vittorio Corbo Lioi,303,1,politica,106
+Vittorio Corbo Lioi,303,2,monetaria,94
+Vittorio Corbo Lioi,303,3,politica monetaria,91
+Vittorio Corbo Lioi,303,4,don,90
+Vittorio Corbo Lioi,303,5,de politica,86
+Vittorio Corbo Lioi,303,6,de politica monetaria,80
+Vittorio Corbo Lioi,303,7,mes,76
+Vittorio Corbo Lioi,303,8,inflacion,75
+Vittorio Corbo Lioi,303,9,analisis,67
+Vittorio Corbo Lioi,303,10,de analisis,58
+Vittorio Corbo Lioi,303,11,gerente de analisis,58
+Vittorio Corbo Lioi,303,12,precios,55
+Vittorio Corbo Lioi,303,13,de division,53
+Vittorio Corbo Lioi,303,14,division,53
+Vittorio Corbo Lioi,303,15,internacional,51
+Vittorio Corbo Lioi,303,16,la inflacion,50
+Vittorio Corbo Lioi,303,17,de division estudios,48
+Vittorio Corbo Lioi,303,18,division estudios,48
+Vittorio Corbo Lioi,303,19,estudios,48
+Vittorio Corbo Lioi,303,20,nacional,45
+Luis Óscar Herrera Barriga,262,1,inflacion,310
+Luis Óscar Herrera Barriga,262,2,politica,255
+Luis Óscar Herrera Barriga,262,3,crecimiento,226
+Luis Óscar Herrera Barriga,262,4,monetaria,222
+Luis Óscar Herrera Barriga,262,5,division,214
+Luis Óscar Herrera Barriga,262,6,politica monetaria,213
+Luis Óscar Herrera Barriga,262,7,de division,212
+Luis Óscar Herrera Barriga,262,8,economia,209
+Luis Óscar Herrera Barriga,262,9,la economia,193
+Luis Óscar Herrera Barriga,262,10,tasa,192
+Luis Óscar Herrera Barriga,262,11,mercado,187
+Luis Óscar Herrera Barriga,262,12,estudios,184
+Luis Óscar Herrera Barriga,262,13,expectativas,182
+Luis Óscar Herrera Barriga,262,14,de division estudios,181
+Luis Óscar Herrera Barriga,262,15,division estudios,181
+Luis Óscar Herrera Barriga,262,16,gerente de division,181
+Luis Óscar Herrera Barriga,262,17,la inflacion,179
+Luis Óscar Herrera Barriga,262,18,el gerente de division,174
+Luis Óscar Herrera Barriga,262,19,la tasa,174
+Luis Óscar Herrera Barriga,262,20,escenario,164
+Rodrigo Valdés Pulido,191,1,politica,318
+Rodrigo Valdés Pulido,191,2,monetaria,265
+Rodrigo Valdés Pulido,191,3,politica monetaria,265
+Rodrigo Valdés Pulido,191,4,inflacion,260
+Rodrigo Valdés Pulido,191,5,tasa,260
+Rodrigo Valdés Pulido,191,6,de politica,259
+Rodrigo Valdés Pulido,191,7,la tasa,235
+Rodrigo Valdés Pulido,191,8,tasa de,222
+Rodrigo Valdés Pulido,191,9,de politica monetaria,220
+Rodrigo Valdés Pulido,191,10,division,209
+Rodrigo Valdés Pulido,191,11,de division,207
+Rodrigo Valdés Pulido,191,12,gerente de division,206
+Rodrigo Valdés Pulido,191,13,la tasa de,206
+Rodrigo Valdés Pulido,191,14,estudios,175
+Rodrigo Valdés Pulido,191,15,division estudios,171
+Rodrigo Valdés Pulido,191,16,de division estudios,169
+Rodrigo Valdés Pulido,191,17,gerente de division estudios,168
+Rodrigo Valdés Pulido,191,18,escenario,164
+Rodrigo Valdés Pulido,191,19,el gerente de division,163
+Rodrigo Valdés Pulido,191,20,crecimiento,152
+Andrés Velasco Brañes,190,1,ministro,294
+Andrés Velasco Brañes,190,2,senor ministro,211
+Andrés Velasco Brañes,190,3,el senor ministro,206
+Andrés Velasco Brañes,190,4,de hacienda,180
+Andrés Velasco Brañes,190,5,hacienda,180
+Andrés Velasco Brañes,190,6,ministro de,175
+Andrés Velasco Brañes,190,7,ministro de hacienda,175
+Andrés Velasco Brañes,190,8,el senor ministro de,108
+Andrés Velasco Brañes,190,9,senor ministro de,108
+Andrés Velasco Brañes,190,10,senor ministro de hacienda,108
+Andrés Velasco Brañes,190,11,el ministro,82
+Andrés Velasco Brañes,190,12,politica,81
+Andrés Velasco Brañes,190,13,inflacion,75
+Andrés Velasco Brañes,190,14,tanto,70
+Andrés Velasco Brañes,190,15,el ministro de,66
+Andrés Velasco Brañes,190,16,el ministro de hacienda,66
+Andrés Velasco Brañes,190,17,ministro que,65
+Andrés Velasco Brañes,190,18,senor ministro que,65
+Andrés Velasco Brañes,190,19,de hacienda senor,64
+Andrés Velasco Brañes,190,20,hacienda senor,64
+Joaquín Vial Ruiz-Tagle,178,1,plantea,100
+Joaquín Vial Ruiz-Tagle,178,2,inflacion,78
+Joaquín Vial Ruiz-Tagle,178,3,mercado,77
+Joaquín Vial Ruiz-Tagle,178,4,cobre,70
+Joaquín Vial Ruiz-Tagle,178,5,ultimo,66
+Joaquín Vial Ruiz-Tagle,178,6,mayor,65
+Joaquín Vial Ruiz-Tagle,178,7,precios,63
+Joaquín Vial Ruiz-Tagle,178,8,demanda,62
+Joaquín Vial Ruiz-Tagle,178,9,cuenta,56
+Joaquín Vial Ruiz-Tagle,178,10,escenario,56
+Joaquín Vial Ruiz-Tagle,178,11,china,55
+Joaquín Vial Ruiz-Tagle,178,12,conveniencia,55
+Joaquín Vial Ruiz-Tagle,178,13,conveniencia de,55
+Joaquín Vial Ruiz-Tagle,178,14,crecimiento,55
+Joaquín Vial Ruiz-Tagle,178,15,la conveniencia,55
+Joaquín Vial Ruiz-Tagle,178,16,la conveniencia de,55
+Joaquín Vial Ruiz-Tagle,178,17,meses,53
+Joaquín Vial Ruiz-Tagle,178,18,economia,52
+Joaquín Vial Ruiz-Tagle,178,19,juicio,52
+Joaquín Vial Ruiz-Tagle,178,20,paises,51
+Miguel Fuentes Díaz,161,1,mes,291
+Miguel Fuentes Díaz,161,2,inflacion,251
+Miguel Fuentes Díaz,161,3,crecimiento,225
+Miguel Fuentes Díaz,161,4,mes de,219
+Miguel Fuentes Díaz,161,5,mayor,184
+Miguel Fuentes Díaz,161,6,menor,179
+Miguel Fuentes Díaz,161,7,expectativas,160
+Miguel Fuentes Díaz,161,8,la inflacion,143
+Miguel Fuentes Díaz,161,9,trimestre,138
+Miguel Fuentes Díaz,161,10,ultimo,129
+Miguel Fuentes Díaz,161,11,meses,128
+Miguel Fuentes Díaz,161,12,baja,125
+Miguel Fuentes Díaz,161,13,ipom,120
+Miguel Fuentes Díaz,161,14,alza,118
+Miguel Fuentes Díaz,161,15,del mes,117
+Miguel Fuentes Díaz,161,16,sector,116
+Miguel Fuentes Díaz,161,17,proyeccion,114
+Miguel Fuentes Díaz,161,18,consumo,112
+Miguel Fuentes Díaz,161,19,el mes,112
+Miguel Fuentes Díaz,161,20,cambio,107
+Jorge Desormeaux Jiménez,153,1,politica,58
+Jorge Desormeaux Jiménez,153,2,monetaria,52
+Jorge Desormeaux Jiménez,153,3,politica monetaria,52
+Jorge Desormeaux Jiménez,153,4,de politica,46
+Jorge Desormeaux Jiménez,153,5,de politica monetaria,42
+Jorge Desormeaux Jiménez,153,6,tasa,42
+Jorge Desormeaux Jiménez,153,7,economia,41
+Jorge Desormeaux Jiménez,153,8,estados,36
+Jorge Desormeaux Jiménez,153,9,estados unidos,36
+Jorge Desormeaux Jiménez,153,10,unidos,36
+Jorge Desormeaux Jiménez,153,11,america,34
+Jorge Desormeaux Jiménez,153,12,cambio,34
+Jorge Desormeaux Jiménez,153,13,crecimiento,34
+Jorge Desormeaux Jiménez,153,14,la economia,34
+Jorge Desormeaux Jiménez,153,15,precios,34
+Jorge Desormeaux Jiménez,153,16,base,33
+Jorge Desormeaux Jiménez,153,17,de america,33
+Jorge Desormeaux Jiménez,153,18,estados unidos de,33
+Jorge Desormeaux Jiménez,153,19,estados unidos de america,33
+Jorge Desormeaux Jiménez,153,20,la tasa,33
+Beltrán de Ramón Acevedo,146,1,division,137
+Beltrán de Ramón Acevedo,146,2,inflacion,137
+Beltrán de Ramón Acevedo,146,3,operaciones,115
+Beltrán de Ramón Acevedo,146,4,tasa,111
+Beltrán de Ramón Acevedo,146,5,financieras,103
+Beltrán de Ramón Acevedo,146,6,mercado,103
+Beltrán de Ramón Acevedo,146,7,operaciones financieras,101
+Beltrán de Ramón Acevedo,146,8,division operaciones,97
+Beltrán de Ramón Acevedo,146,9,division operaciones financieras,96
+Beltrán de Ramón Acevedo,146,10,puntos,95
+Beltrán de Ramón Acevedo,146,11,meses,90
+Beltrán de Ramón Acevedo,146,12,la tasa,89
+Beltrán de Ramón Acevedo,146,13,base,86
+Beltrán de Ramón Acevedo,146,14,tasas,83
+Beltrán de Ramón Acevedo,146,15,financieras senor,82
+Beltrán de Ramón Acevedo,146,16,operaciones financieras senor,82
+Beltrán de Ramón Acevedo,146,17,puntos base,82
+Beltrán de Ramón Acevedo,146,18,division operaciones financieras senor,78
+Beltrán de Ramón Acevedo,146,19,politica,68
+Beltrán de Ramón Acevedo,146,20,estan,61
+Igal Magendzo Weinberger,120,1,mes,311
+Igal Magendzo Weinberger,120,2,anual,275
+Igal Magendzo Weinberger,120,3,inflacion,235
+Igal Magendzo Weinberger,120,4,crecimiento,233
+Igal Magendzo Weinberger,120,5,tasa,166
+Igal Magendzo Weinberger,120,6,aumento,147
+Igal Magendzo Weinberger,120,7,la inflacion,145
+Igal Magendzo Weinberger,120,8,mes de,145
+Igal Magendzo Weinberger,120,9,trimestre,145
+Igal Magendzo Weinberger,120,10,tasa de,143
+Igal Magendzo Weinberger,120,11,mayor,139
+Igal Magendzo Weinberger,120,12,meses,137
+Igal Magendzo Weinberger,120,13,tasas,131
+Igal Magendzo Weinberger,120,14,expectativas,126
+Igal Magendzo Weinberger,120,15,el mes,125
+Igal Magendzo Weinberger,120,16,la tasa,125
+Igal Magendzo Weinberger,120,17,macroeconomico,123
+Igal Magendzo Weinberger,120,18,analisis,122
+Igal Magendzo Weinberger,120,19,de analisis,122
+Igal Magendzo Weinberger,120,20,gerente de analisis,122
+Consejo del Banco Central de Chile,114,1,politica,133
+Consejo del Banco Central de Chile,114,2,monetaria,128
+Consejo del Banco Central de Chile,114,3,politica monetaria,127
+Consejo del Banco Central de Chile,114,4,horas,106
+Consejo del Banco Central de Chile,114,5,horas se,105
+Consejo del Banco Central de Chile,114,6,horas se reanuda,97
+Consejo del Banco Central de Chile,114,7,horas se reanuda la,97
+Consejo del Banco Central de Chile,114,8,reanuda,97
+Consejo del Banco Central de Chile,114,9,reanuda la,97
+Consejo del Banco Central de Chile,114,10,se reanuda,97
+Consejo del Banco Central de Chile,114,11,se reanuda la,97
+Consejo del Banco Central de Chile,114,12,don,90
+Consejo del Banco Central de Chile,114,13,16,79
+Consejo del Banco Central de Chile,114,14,las 16,79
+Consejo del Banco Central de Chile,114,15,siendo,77
+Consejo del Banco Central de Chile,114,16,siendo las,75
+Consejo del Banco Central de Chile,114,17,00,72
+Consejo del Banco Central de Chile,114,18,00 horas,72
+Consejo del Banco Central de Chile,114,19,00 horas se,72
+Consejo del Banco Central de Chile,114,20,00 horas se reanuda,72
+Alberto Naudon Dell'Oro,107,1,inflacion,255
+Alberto Naudon Dell'Oro,107,2,la inflacion,159
+Alberto Naudon Dell'Oro,107,3,mercado,97
+Alberto Naudon Dell'Oro,107,4,ipom,90
+Alberto Naudon Dell'Oro,107,5,mayor,89
+Alberto Naudon Dell'Oro,107,6,cambio,78
+Alberto Naudon Dell'Oro,107,7,plazo,78
+Alberto Naudon Dell'Oro,107,8,mes,75
+Alberto Naudon Dell'Oro,107,9,meses,74
+Alberto Naudon Dell'Oro,107,10,actividad,72
+Alberto Naudon Dell'Oro,107,11,crecimiento,70
+Alberto Naudon Dell'Oro,107,12,economia,70
+Alberto Naudon Dell'Oro,107,13,division,69
+Alberto Naudon Dell'Oro,107,14,de la inflacion,68
+Alberto Naudon Dell'Oro,107,15,escenario,68
+Alberto Naudon Dell'Oro,107,16,estudios,65
+Alberto Naudon Dell'Oro,107,17,politica,65
+Alberto Naudon Dell'Oro,107,18,expectativas,64
+Alberto Naudon Dell'Oro,107,19,division estudios,63
+Alberto Naudon Dell'Oro,107,20,precio,61
+Kevin Cowan Logan,101,1,politica,127
+Kevin Cowan Logan,101,2,financiera,105
+Kevin Cowan Logan,101,3,division,101
+Kevin Cowan Logan,101,4,de division,100
+Kevin Cowan Logan,101,5,gerente de division,89
+Kevin Cowan Logan,101,6,el gerente de division,86
+Kevin Cowan Logan,101,7,division politica,83
+Kevin Cowan Logan,101,8,de division politica,82
+Kevin Cowan Logan,101,9,politica financiera,82
+Kevin Cowan Logan,101,10,gerente de division politica,81
+Kevin Cowan Logan,101,11,division politica financiera,80
+Kevin Cowan Logan,101,12,de division politica financiera,79
+Kevin Cowan Logan,101,13,financiera senor,70
+Kevin Cowan Logan,101,14,politica financiera senor,70
+Kevin Cowan Logan,101,15,division politica financiera senor,69
+Kevin Cowan Logan,101,16,bancos,60
+Kevin Cowan Logan,101,17,tasas,54
+Kevin Cowan Logan,101,18,condiciones,53
+Kevin Cowan Logan,101,19,demanda,44
+Kevin Cowan Logan,101,20,paises,41
+Esteban Jadresic Marinovic,73,1,de division,99
+Esteban Jadresic Marinovic,73,2,division,99
+Esteban Jadresic Marinovic,73,3,gerente de division,84
+Esteban Jadresic Marinovic,73,4,tasa,77
+Esteban Jadresic Marinovic,73,5,el gerente de division,75
+Esteban Jadresic Marinovic,73,6,inflacion,66
+Esteban Jadresic Marinovic,73,7,financieras,64
+Esteban Jadresic Marinovic,73,8,operaciones,64
+Esteban Jadresic Marinovic,73,9,la tasa,63
+Esteban Jadresic Marinovic,73,10,operaciones financieras,61
+Esteban Jadresic Marinovic,73,11,politica,59
+Esteban Jadresic Marinovic,73,12,de division operaciones,55
+Esteban Jadresic Marinovic,73,13,division operaciones,55
+Esteban Jadresic Marinovic,73,14,gerente de division operaciones,55
+Esteban Jadresic Marinovic,73,15,tasas,55
+Esteban Jadresic Marinovic,73,16,de division operaciones financieras,54
+Esteban Jadresic Marinovic,73,17,division operaciones financieras,54
+Esteban Jadresic Marinovic,73,18,monetaria,48
+Esteban Jadresic Marinovic,73,19,politica monetaria,48
+Esteban Jadresic Marinovic,73,20,riesgo,46
+Nicolás Eyzaguirre Guzmán,71,1,ministro,85
+Nicolás Eyzaguirre Guzmán,71,2,senor ministro,74
+Nicolás Eyzaguirre Guzmán,71,3,el senor ministro,73
+Nicolás Eyzaguirre Guzmán,71,4,de hacienda,52
+Nicolás Eyzaguirre Guzmán,71,5,hacienda,52
+Nicolás Eyzaguirre Guzmán,71,6,ministro de,50
+Nicolás Eyzaguirre Guzmán,71,7,ministro de hacienda,50
+Nicolás Eyzaguirre Guzmán,71,8,el senor ministro de,41
+Nicolás Eyzaguirre Guzmán,71,9,senor ministro de,41
+Nicolás Eyzaguirre Guzmán,71,10,senor ministro de hacienda,41
+Nicolás Eyzaguirre Guzmán,71,11,tasa,29
+Nicolás Eyzaguirre Guzmán,71,12,la tasa,25
+Nicolás Eyzaguirre Guzmán,71,13,sea,23
+Nicolás Eyzaguirre Guzmán,71,14,tasas,23
+Nicolás Eyzaguirre Guzmán,71,15,economia,22
+Nicolás Eyzaguirre Guzmán,71,16,cambio,21
+Nicolás Eyzaguirre Guzmán,71,17,la economia,20
+Nicolás Eyzaguirre Guzmán,71,18,tanto,20
+Nicolás Eyzaguirre Guzmán,71,19,tipo,19
+Nicolás Eyzaguirre Guzmán,71,20,producto,18
+Diego Gianelli Gómez,47,1,america,87
+Diego Gianelli Gómez,47,2,mercado,76
+Diego Gianelli Gómez,47,3,de america,64
+Diego Gianelli Gómez,47,4,tasas,64
+Diego Gianelli Gómez,47,5,economias,62
+Diego Gianelli Gómez,47,6,estados,59
+Diego Gianelli Gómez,47,7,estados unidos,59
+Diego Gianelli Gómez,47,8,estados unidos de,59
+Diego Gianelli Gómez,47,9,estados unidos de america,59
+Diego Gianelli Gómez,47,10,unidos,59
+Diego Gianelli Gómez,47,11,unidos de,59
+Diego Gianelli Gómez,47,12,unidos de america,59
+Diego Gianelli Gómez,47,13,mes,58
+Diego Gianelli Gómez,47,14,niveles,55
+Diego Gianelli Gómez,47,15,precio,55
+Diego Gianelli Gómez,47,16,precios,54
+Diego Gianelli Gómez,47,17,baja,52
+Diego Gianelli Gómez,47,18,la baja,47
+Diego Gianelli Gómez,47,19,crecimiento,46
+Diego Gianelli Gómez,47,20,ultimo,46
+Matías Bernier Bórquez,41,1,mercado,34
+Matías Bernier Bórquez,41,2,mercados,30
+Matías Bernier Bórquez,41,3,de mercados,29
+Matías Bernier Bórquez,41,4,el gerente de mercados,29
+Matías Bernier Bórquez,41,5,gerente de mercados,29
+Matías Bernier Bórquez,41,6,nacionales,29
+Matías Bernier Bórquez,41,7,nacionales senor,27
+Matías Bernier Bórquez,41,8,el mercado,23
+Matías Bernier Bórquez,41,9,tasa,19
+Matías Bernier Bórquez,41,10,bancos,17
+Matías Bernier Bórquez,41,11,de mercados nacionales,17
+Matías Bernier Bórquez,41,12,expectativas,17
+Matías Bernier Bórquez,41,13,gerente de mercados nacionales,17
+Matías Bernier Bórquez,41,14,mercados nacionales,17
+Matías Bernier Bórquez,41,15,de mercados nacionales senor,16
+Matías Bernier Bórquez,41,16,financieros,16
+Matías Bernier Bórquez,41,17,mercados nacionales senor,16
+Matías Bernier Bórquez,41,18,politica,16
+Matías Bernier Bórquez,41,19,flap,15
+Matías Bernier Bórquez,41,20,la tasa,15
+Ricardo Vicuña Poblete,39,1,estadisticas,26
+Ricardo Vicuña Poblete,39,2,division,25
+Ricardo Vicuña Poblete,39,3,division estadisticas,25
+Ricardo Vicuña Poblete,39,4,de division,24
+Ricardo Vicuña Poblete,39,5,de division estadisticas,24
+Ricardo Vicuña Poblete,39,6,el gerente de division,24
+Ricardo Vicuña Poblete,39,7,gerente de division,24
+Ricardo Vicuña Poblete,39,8,gerente de division estadisticas,24
+Ricardo Vicuña Poblete,39,9,de division estadisticas senor,22
+Ricardo Vicuña Poblete,39,10,division estadisticas senor,22
+Ricardo Vicuña Poblete,39,11,estadisticas senor,22
+Ricardo Vicuña Poblete,39,12,informacion,12
+Ricardo Vicuña Poblete,39,13,importacion,9
+Ricardo Vicuña Poblete,39,14,aviones,8
+Ricardo Vicuña Poblete,39,15,us,8
+Ricardo Vicuña Poblete,39,16,aeronaves,7
+Ricardo Vicuña Poblete,39,17,base,7
+Ricardo Vicuña Poblete,39,18,de aeronaves,7
+Ricardo Vicuña Poblete,39,19,esa,7
+Ricardo Vicuña Poblete,39,20,importaciones,7
+Klaus Schmidt-Hebbel Dunker,32,1,politica,129
+Klaus Schmidt-Hebbel Dunker,32,2,de politica,104
+Klaus Schmidt-Hebbel Dunker,32,3,monetaria,90
+Klaus Schmidt-Hebbel Dunker,32,4,politica monetaria,90
+Klaus Schmidt-Hebbel Dunker,32,5,inflacion,88
+Klaus Schmidt-Hebbel Dunker,32,6,tasa,87
+Klaus Schmidt-Hebbel Dunker,32,7,de politica monetaria,71
+Klaus Schmidt-Hebbel Dunker,32,8,base,70
+Klaus Schmidt-Hebbel Dunker,32,9,investigacion,70
+Klaus Schmidt-Hebbel Dunker,32,10,de investigacion,69
+Klaus Schmidt-Hebbel Dunker,32,11,de investigacion economica,69
+Klaus Schmidt-Hebbel Dunker,32,12,economica,69
+Klaus Schmidt-Hebbel Dunker,32,13,gerente de investigacion,69
+Klaus Schmidt-Hebbel Dunker,32,14,gerente de investigacion economica,69
+Klaus Schmidt-Hebbel Dunker,32,15,investigacion economica,69
+Klaus Schmidt-Hebbel Dunker,32,16,la tasa,68
+Klaus Schmidt-Hebbel Dunker,32,17,tasa de,66
+Klaus Schmidt-Hebbel Dunker,32,18,schmidt,63
+Klaus Schmidt-Hebbel Dunker,32,19,hebbel,62
+Klaus Schmidt-Hebbel Dunker,32,20,schmidt hebbel,62
+Luis Felipe Céspedes Cifuentes,20,1,politica,31
+Luis Felipe Céspedes Cifuentes,20,2,escenario,28
+Luis Felipe Céspedes Cifuentes,20,3,inflacion,26
+Luis Felipe Céspedes Cifuentes,20,4,monetaria,23
+Luis Felipe Céspedes Cifuentes,20,5,politica monetaria,23
+Luis Felipe Céspedes Cifuentes,20,6,mayor,18
+Luis Felipe Céspedes Cifuentes,20,7,tpm,18
+Luis Felipe Céspedes Cifuentes,20,8,economia,17
+Luis Felipe Céspedes Cifuentes,20,9,tasa,17
+Luis Felipe Céspedes Cifuentes,20,10,la economia,16
+Luis Felipe Céspedes Cifuentes,20,11,de investigacion,15
+Luis Felipe Céspedes Cifuentes,20,12,de politica,15
+Luis Felipe Céspedes Cifuentes,20,13,gerente de investigacion,15
+Luis Felipe Céspedes Cifuentes,20,14,investigacion,15
+Luis Felipe Céspedes Cifuentes,20,15,de investigacion economica,14
+Luis Felipe Céspedes Cifuentes,20,16,economica,14
+Luis Felipe Céspedes Cifuentes,20,17,gerente de investigacion economica,14
+Luis Felipe Céspedes Cifuentes,20,18,investigacion economica,14
+Luis Felipe Céspedes Cifuentes,20,19,la inflacion,14
+Luis Felipe Céspedes Cifuentes,20,20,la politica,14
