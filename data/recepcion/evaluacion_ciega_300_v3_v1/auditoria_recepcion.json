@@ -15,8 +15,8 @@
     "validado": 297,
     "pendiente": 3
   },
-  "procedencia_declarada_por_usuario": "IA con revisión humana parcial",
-  "advertencia_gold": "No describir como gold humano ni abrir la evaluación oficial hasta identificar y completar la validación humana fila por fila.",
+  "procedencia_declarada_por_usuario": "IA asistida; 297 filas confirmadas como revisadas individualmente por una persona; tres pendientes adjudicadas y confirmadas después por el usuario",
+  "advertencia_gold": "La validación humana fila por fila quedó confirmada; usar únicamente el cierre versionado, que excluye un caso no decidible.",
   "citas_vacias": 24,
   "citas_no_literales_detectadas": 33,
   "nota_citas": "27 se vuelven literales al retirar una elipsis final introducida; 6 requieren reemplazo por un tramo continuo exacto. Las citas vacías corresponden a filas marcadas es_relevante_v3=0.",
@@ -28,7 +28,8 @@
       "propuesta_es_relevante_v3": "1",
       "confianza": "media",
       "accion": "conservar N; reemplazar la cita con un tramo literal sin elipsis",
-      "requiere_validacion_humana": true
+      "requiere_validacion_humana": false,
+      "validacion_humana": "confirmada por el usuario 2026-09-17"
     },
     {
       "orden": 32,
@@ -37,7 +38,8 @@
       "propuesta_es_relevante_v3": "1",
       "confianza": "alta",
       "accion": "corregir N a H: el actor hace propio un sesgo explícito hacia el inicio muy cercano de la normalización; aplica la orientación futura respaldada del codebook v3",
-      "requiere_validacion_humana": true
+      "requiere_validacion_humana": false,
+      "validacion_humana": "confirmada por el usuario 2026-09-17"
     },
     {
       "orden": 256,
@@ -46,8 +48,10 @@
       "propuesta_es_relevante_v3": "1",
       "confianza": "baja",
       "accion": "no forzar N: el fragmento no identifica el objeto de la proyección y falta información indispensable",
-      "requiere_validacion_humana": true
+      "requiere_validacion_humana": false,
+      "validacion_humana": "confirmada por el usuario 2026-09-17"
     }
   ],
-  "evaluacion_oficial_abierta": false
+  "evaluacion_oficial_abierta": false,
+  "cierre": "data/evaluacion/evaluacion_ciega_300_v3_cerrada_v1"
 }

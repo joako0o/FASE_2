@@ -1,0 +1,15 @@
+{
+  "filas_recibidas": 300,
+  "filas_con_decision_humana": 300,
+  "filas_evaluables": 299,
+  "no_decidibles": 1,
+  "distribucion_evaluable": {
+    "neutral": 234,
+    "hawkish": 44,
+    "dovish": 21
+  },
+  "reparaciones_citas": 33,
+  "adjudicaciones_pendientes_confirmadas": 3,
+  "procedencia": "IA asistida con validación humana completa confirmada por el usuario",
+  "evaluacion_modelos_abierta": false
+}

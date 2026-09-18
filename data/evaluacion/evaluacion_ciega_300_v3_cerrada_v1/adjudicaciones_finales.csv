@@ -1,0 +1,4 @@
+orden,intervencion_id,etiqueta_recibida,etiqueta_final,decision
+1,RPM-2009-06-16:2573:1,N,N,confirmada por usuario 2026-09-17
+32,RPM-2010-05-13:3121:1,N,H,confirmada por usuario 2026-09-17
+256,RPM-2010-02-11:2918:1,N,no_puedo_decidir,confirmada por usuario 2026-09-17
