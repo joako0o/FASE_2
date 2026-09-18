@@ -12,7 +12,7 @@ class TestProyectoEsencial(unittest.TestCase):
     def test_inventario_reducido(self):
         scripts = list((ROOT / "scripts").glob("*.py"))
         tests = list((ROOT / "tests").glob("test_*.py"))
-        self.assertEqual({p.name for p in scripts}, {"modelo_final.py", "analisis_resultados.py"})
+        self.assertEqual({p.name for p in scripts}, {"modelo_final.py", "analisis_resultados.py", "preparar_datos_web.py"})
         self.assertEqual([p.name for p in tests], ["test_proyecto_esencial.py"])
         self.assertLessEqual(len(list((ROOT / "docs").glob("*.md"))), 7)
 
@@ -48,6 +48,7 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertTrue(all(r["keywords_humano"] for r in rows))
         self.assertEqual({label: sum(r["prediccion_v3"] == label for r in rows) for label in ["hawkish", "dovish", "neutral"]}, {"hawkish": 513, "dovish": 380, "neutral": 8832})
         self.assertEqual(sum(r["acuerdo_miembros"] == "desacuerdo" for r in rows), 169)
+        self.assertTrue(all(r["pred_relevancia_v3"] in {"0", "1"} and r["prob_relevancia_no_calibrada"] for r in rows))
         for r in rows[:100]: self.assertAlmostEqual(sum(float(r[c]) for c in ["prob_h_no_calibrada", "prob_d_no_calibrada", "prob_n_no_calibrada"]), 1.0)
         manifest = json.loads((ROOT / "resultados/manifest.json").read_text(encoding="utf-8"))["sha256"]
         for name, expected in manifest.items():
@@ -56,6 +57,7 @@ class TestProyectoEsencial(unittest.TestCase):
     def test_analisis_y_modelos_persistidos(self):
         summary = json.loads((ROOT / "resultados/analisis_descriptivo/resumen.json").read_text(encoding="utf-8"))
         self.assertEqual((summary["filas_validas"], summary["no_decidibles"], summary["reuniones"]), (9724, 1, 132))
+        self.assertEqual((summary["relevantes"], summary["irrelevantes"]), (7814, 1911))
         self.assertEqual((summary["decisiones_institucionales_proxy"], summary["casos_convergencia_proxy"]), (132, 39))
         self.assertEqual((summary["topicos_humanos"], summary["topicos_modelo_nmf"], summary["topicos_nombres_auditados"], summary["topicos_nombre_confianza_media"], summary["oraciones_ajuste_topicos_modelo"]), (13, 14, 14, 4, 57452))
         self.assertEqual((summary["segmentacion_k_evaluados"], summary["segmentacion_k_seleccionado"], summary["segmentacion_k6_probado"], summary["segmentacion_k_hasta24_probado"]), ([6,8,10,12,14,16,18,20,22,24], 14, True, True))
@@ -107,6 +109,20 @@ class TestProyectoEsencial(unittest.TestCase):
         for name, expected in model_manifest["archivos_sha256"].items(): self.assertEqual(hashlib.sha256((ROOT / "modelos/wc600" / name).read_bytes()).hexdigest(), expected)
         analysis_manifest = json.loads((ROOT / "resultados/analisis_descriptivo/manifest.json").read_text(encoding="utf-8"))["sha256_salidas"]
         for name, expected in analysis_manifest.items(): self.assertEqual(hashlib.sha256((ROOT / "resultados/analisis_descriptivo" / name).read_bytes()).hexdigest(), expected)
+
+    def test_paquete_web(self):
+        web = ROOT / "datos_web"
+        manifest = json.loads((web / "manifest.json").read_text(encoding="utf-8"))
+        self.assertEqual((manifest["version"], manifest["periodo"]), ("datos_web_v1", [2005, 2015]))
+        for name, metadata in manifest["archivos"].items():
+            path = web / name
+            self.assertEqual((path.stat().st_size, hashlib.sha256(path.read_bytes()).hexdigest()), (metadata["bytes"], metadata["sha256"]))
+        topics = json.loads((web / "topicos.json").read_text(encoding="utf-8"))["topicos"]
+        meetings = json.loads((web / "reuniones.json").read_text(encoding="utf-8"))["reuniones"]
+        act_index = json.loads((web / "actas/index.json").read_text(encoding="utf-8"))["reuniones"]
+        self.assertEqual((len(topics), len(meetings), len(act_index)), (14, 132, 132))
+        self.assertEqual(sum(row["n_intervenciones"] for row in act_index), 9725)
+        self.assertEqual(len(list((web / "actas").glob("20??.json"))), 11)
 
     def test_readme_documenta_formulas(self):
         text = (ROOT / "README.md").read_text(encoding="utf-8")

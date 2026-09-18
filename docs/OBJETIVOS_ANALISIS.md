@@ -83,6 +83,10 @@ Completado en `resultados/analisis_descriptivo/`:
 9. insumos largo y ancho para radar temático tipo FIFA, con especificación reproducible;
 10. evolución de los seis ejes temáticos por reunión y año, media móvil y resumen de extremos;
 11. benchmark de segmentación K=6–24, sensibilidad a unidad textual y radar alternativo K=6;
-12. auditoría de nombres con términos, textos representativos, confianza, alternativa y límite.
+12. auditoría de nombres con términos, textos representativos, confianza, alternativa y límite;
+13. predicción explícita de relevancia con probabilidad y acuerdo del ensamble, separada de H/D/N;
+14. paquete `datos_web/` con tópicos × postura, quintiles documentales, actores, reuniones y 9.725 intervenciones divididas por año para el scrollytelling.
+
+El paquete web es una capa de publicación derivada: se regenera con `scripts/preparar_datos_web.py --sobrescribir` y no se edita manualmente. Sus secuencias describen el acta institucional, no una transcripción literal; la dispersión y las transiciones son textuales, no pruebas de persuasión o causalidad.
 
 Pendiente solo si surge una hipótesis nueva: validación económica adicional o embeddings densos. NMF ya cubre el análisis temático automático mediante una matriz TF-IDF dispersa y no altera el modelo formal W+C+600.

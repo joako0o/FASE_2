@@ -7,9 +7,9 @@
   ],
   "commit_historico_pre_condensacion": "7aa63cc",
   "sha256": {
-    "README.md": "51bd44130d4b738f257ab020020c86e0e20f29c4f7deddf7cd2491a60b295c58",
+    "README.md": "14db6aba779f1e4279e807427e95ee52c5979b3769126d286f7f71702b33ddba",
     "requirements.txt": "1f434dbc7b26cd8ba04295593753f98a6e1fc4808f624d3f04b46e411d2b8862",
-    "scripts/modelo_final.py": "abea8e1a888be3ea4e7d9ba645f55f542f5c768290f654d6a4465e8c5d0c000f",
+    "scripts/modelo_final.py": "8a76abb1a9bdf262ee0d13ac6b9c7d196eee3b537058959174d3100f1c426db9",
     "docs/BENCHMARK_MODELOS.md": "54416643daa6ae8282657d1ae1bca4bbaab7f51953d9476385a0787e3ff371ef",
     "docs/CODEBOOK_ETIQUETADO.md": "c41cebf74ea73e57c48fae2c8606e5b555dc17ff1c65608fcf17d362dbbc39cf",
     "docs/METODOLOGIA_MODELO.md": "2cbe646434ed01913e7f29351dc10e406619c37b3241e16d89d995955ec505fe",
@@ -24,11 +24,12 @@
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
     "data/predicciones_evaluacion_ciega.csv": "919b3d0b1b4b5a79f8e492c0889989ae7ed0a8d6c7ac0148c9fcce98f556d0db",
     "data/resultados_evaluacion_ciega.json": "1aadd083a4c411de021a0160251c06c13c9fa79ca1e576658c60c13b21784f55",
-    "docs/OBJETIVOS_ANALISIS.md": "aefe219b3fd0ea6f49cd644909b3bbd48ffc56b0e87099248e1d8320a473e387",
-    "scripts/analisis_resultados.py": "340aa7bed28b3e7038b7dc95f15cc93ba86f635284f563f9d1a9e32a5a12b252",
+    "docs/OBJETIVOS_ANALISIS.md": "e9a8b49b197130e09bb259ed3cbb65bc3e96d27a786fb42acac17945dacf3652",
+    "scripts/analisis_resultados.py": "d6b1bd29e90d44166d0a8e2ff45176ac08b115b336f49999dfb9c6c64534f259",
     "data/README.md": "9d79f37294be188fcbc37fd686755f35b40e425b71b689735b9815e9207178fb",
     "data/actores_metadata.csv": "e4c57ff710983ce4f2416289ad788a6ce404c7ac6033ed54d8a472f93f5f34bf",
-    "data/revision_votos_actores.csv": "99129ef26144683c1fb4a728160fac46f3517679e6e0c791db5ae1e5c4a80f8f"
+    "data/revision_votos_actores.csv": "99129ef26144683c1fb4a728160fac46f3517679e6e0c791db5ae1e5c4a80f8f",
+    "scripts/preparar_datos_web.py": "ceaa5248793399435def533df0eb4cc8290dfacf20802cad01919219aef44b10"
   },
   "verificaciones": {
     "predicciones_ciegas_reproducidas_por_modelo_final": "300/300 en cada uno de los cinco miembros y voto final",

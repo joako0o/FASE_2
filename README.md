@@ -29,6 +29,8 @@ Superó de forma robusta al modelo anterior C+89. El análisis factorial mostró
 ├── resultados/
 │   ├── clasificacion_wc600_9725.csv
 │   └── analisis_descriptivo/         Índices, tópicos, actores y léxico
+├── datos_web/                         Paquete compacto para el scrollytelling
+│   └── actas/{2005..2015}.json        Actas divididas para carga diferida
 ├── docs/
 │   ├── CODEBOOK_ETIQUETADO.md
 │   ├── METODOLOGIA_MODELO.md
@@ -37,7 +39,8 @@ Superó de forma robusta al modelo anterior C+89. El análisis factorial mostró
 │   └── PROTOCOLO_*.md
 ├── scripts/
 │   ├── modelo_final.py
-│   └── analisis_resultados.py
+│   ├── analisis_resultados.py
+│   └── preparar_datos_web.py
 └── tests/test_proyecto_esencial.py
 ```
 
@@ -51,6 +54,7 @@ python -m venv .venv
 .venv/bin/python scripts/modelo_final.py verificar
 .venv/bin/python scripts/modelo_final.py predecir data/corpus_bcch_2005_2015.csv predicciones_corpus.csv --cargar-modelos modelos/wc600
 .venv/bin/python scripts/analisis_resultados.py
+.venv/bin/python scripts/preparar_datos_web.py --sobrescribir
 ```
 
 Los modelos ajustados están guardados en `modelos/wc600/`; no es necesario reentrenarlos para una nueva predicción. Los agregados con y sin neutrales, tópicos, actores y léxico están en `resultados/analisis_descriptivo/`.
@@ -59,7 +63,7 @@ En Windows, usar `.venv\Scripts\python.exe`. El comando de predicción entrena l
 
 ## Clasificación completa disponible
 
-El modelo ya fue ejecutado sobre las 9.725 intervenciones. El resultado está en `resultados/clasificacion_wc600_9725.csv`, con las cinco predicciones individuales, el voto final, el rol de cada fila y una señal de acuerdo entre miembros. `resultados/resumen_clasificacion.json` contiene distribuciones y conteos por año.
+El modelo ya fue ejecutado sobre las 9.725 intervenciones. El resultado está en `resultados/clasificacion_wc600_9725.csv`, con las cinco predicciones individuales, el voto final, el rol de cada fila y señales de acuerdo entre miembros. También conserva `pred_relevancia_v3`, `prob_relevancia_no_calibrada` y `acuerdo_relevancia_miembros`, lo que permite filtrar relevancia sin inferirla desde H/D/N. `resultados/resumen_clasificacion.json` contiene distribuciones y conteos por año.
 
 ## Objetivo sustantivo y por qué se solicitaron datos de actores
 
@@ -70,7 +74,7 @@ La clasificación H/D/N no era el producto final por sí sola. El plan históric
 
 Por eso se solicitaron nombres, cargos y metadatos de actores. El propósito era distinguir quién habla, en qué calidad y durante qué mandato, en vez de tratar todas las intervenciones como si provinieran de un único actor. Los productos previstos son:
 
-- **perfil temático:** distribución de las intervenciones de cada actor en siete ejes —internacional, financiero, inflación/precios, actividad/demanda, laboral, fiscal y decisión TPM— para un radar comparativo;
+- **perfil temático:** distribución de las intervenciones en seis ejes auditados —actividad/demanda/ciclo, mercado laboral/empleo, inflación/expectativas/meta, entorno externo/commodities/economías, tipo de cambio real/nominal y tasas de interés/plazos— para un radar comparativo;
 - **vocabulario distintivo:** palabras y expresiones sobrerrepresentadas por actor mediante log-odds con prior informativo;
 - **serie individual:** evolución del puntaje $s_{it}=P(H)-P(D)$ de cada actor y media móvil de 12 meses;
 - **postura estructural y coyuntural:** descomposición
@@ -362,6 +366,14 @@ $$
 donde cada fila de $W$ contiene los pesos temáticos y cada fila de $H$ los pesos de términos de un componente. Los pesos por intervención se normalizan para sumar uno; el tópico dominante es el de mayor peso. Este ajuste usa texto, no las columnas humanas, y es exploratorio: el número de componentes y el preprocesamiento siguen siendo decisiones metodológicas, y los términos requieren interpretación posterior.
 
 No se generaron embeddings densos. NMF usa la matriz TF-IDF dispersa y no forma parte del clasificador formal W+C+600.
+
+## Datos preparados para el scrollytelling
+
+`datos_web/` es la interfaz estable entre este repositorio analítico y la página. Se genera exclusivamente con `scripts/preparar_datos_web.py`: no se deben copiar resultados a mano ni editar sus JSON. Contiene resumen, metodología y advertencias, series generales, tópicos auditados, cruce tópico–H/D/N, estructura por quintil documental, perfiles de actores, 132 fichas de reuniones y las 9.725 intervenciones divididas en once archivos anuales para carga diferida.
+
+El explorador puede filtrar por reunión, actor, tipo de actor, relevancia, orientación, procedencia humana/modelo y tópico. Cada intervención mantiene probabilidades no calibradas, acuerdo del ensamble, tópico principal/secundario y los 14 pesos NMF. Las etiquetas humanas históricas viven en un objeto separado y explícito. `datos_web/README.md` documenta qué debe cargar primero el frontend; `datos_web/manifest.json` registra tamaño y SHA-256 de cada archivo.
+
+La estructura por quintiles describe la posición dentro del acta publicada, no duración ni tiempo de palabra. Las actas deben presentarse como **secuencias de intervenciones reconstruidas desde el registro institucional**, nunca como transcripciones estenográficas. El paquete tampoco autoriza inferencias de habilidad, personalidad permanente, persuasión, influencia o causalidad.
 
 ## Lectura recomendada
 

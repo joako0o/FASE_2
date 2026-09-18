@@ -79,7 +79,7 @@
     }
   },
   "reproduccion_evaluacion_ciega": "300/300",
-  "sha256_csv": "141741cd63d898a0a35e1e5a748ee9cb36b0782d166d091b2e6293c2dab2ea94",
+  "sha256_csv": "7f206ada68bacf6d2c6ba8905278e594427f23a7fa8686f1b8665521e5007336",
   "advertencia": "Las predicciones de filas de entrenamiento son in-sample; evaluación_ciega conserva predicciones prospectivas; inferencia_no_etiquetada no tiene gold.",
   "columnas_semanticas_restauradas": [
     "topico_humano",
@@ -89,6 +89,16 @@
     "prob_h_no_calibrada",
     "prob_d_no_calibrada",
     "prob_n_no_calibrada",
-    "score_hd_continuo"
-  ]
+    "score_hd_continuo",
+    "prob_relevancia_no_calibrada"
+  ],
+  "relevancia_modelo": {
+    "relevante": 7806,
+    "irrelevante": 1919
+  },
+  "acuerdo_relevancia_miembros": {
+    "unanime": 9538,
+    "desacuerdo": 187
+  },
+  "advertencia_relevancia": "La relevancia de análisis reemplaza esta predicción por etiqueta humana en entrenamiento y evaluación ciega; consultar tabla_maestra.csv."
 }

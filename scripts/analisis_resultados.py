@@ -6,10 +6,13 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from scipy import sparse
 from scipy.optimize import linear_sum_assignment
 from sklearn.decomposition import NMF
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer, strip_accents_unicode
+from sklearn.feature_extraction.text import (
+    CountVectorizer,
+    TfidfVectorizer,
+    strip_accents_unicode,
+)
 from sklearn.metrics.pairwise import cosine_similarity
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -80,15 +83,18 @@ def run(out=OUT):
     data = pd.read_csv(CLASSIFIED, dtype=str, keep_default_na=False); train = pd.read_csv(TRAIN, dtype=str, keep_default_na=False); gold = pd.read_csv(GOLD, dtype=str, keep_default_na=False)
     order = pd.read_csv(CORPUS, dtype=str, keep_default_na=False, usecols=["intervencion_id", "orden_habla", "subindice"])
     if len(order) != len(data) or order.intervencion_id.nunique() != len(order): raise ValueError("Orden del corpus incompleto o duplicado")
-    data = data.merge(order, on="intervencion_id", how="left", validate="one_to_one")
+    data = data.drop(columns=["orden_habla", "subindice"], errors="ignore").merge(order, on="intervencion_id", how="left", validate="one_to_one")
     if data[["orden_habla", "subindice"]].eq("").any().any(): raise ValueError("Faltan campos de orden tras unir el corpus")
     train_labels = train.set_index("intervencion_id").etiqueta_v3.to_dict(); gold_labels = gold.set_index("intervencion_id").etiqueta_v3.to_dict(); gold_include = gold.set_index("intervencion_id").incluir_evaluacion.to_dict()
+    train_relevance = train.set_index("intervencion_id").relevancia_v3.astype(int).to_dict(); gold_relevance = gold.set_index("intervencion_id").es_relevante_v3.astype(int).to_dict()
     def best(row):
         iid = row.intervencion_id
         if iid in train_labels: return train_labels[iid], "etiqueta_validada_entrenamiento"
         if iid in gold_labels: return (gold_labels[iid], "gold_evaluacion_ciega") if gold_include[iid] == "true" else ("no_puedo_decidir", "gold_no_decidible")
         return row.prediccion_v3, "prediccion_wc600"
     assigned = data.apply(best, axis=1, result_type="expand"); data["etiqueta_analisis"], data["procedencia_etiqueta"] = assigned[0], assigned[1]
+    data["relevancia_analisis"] = data.apply(lambda row: train_relevance.get(row.intervencion_id, gold_relevance.get(row.intervencion_id, int(row.pred_relevancia_v3))), axis=1)
+    data["procedencia_relevancia"] = data.apply(lambda row: "etiqueta_validada_entrenamiento" if row.intervencion_id in train_relevance else ("gold_evaluacion_ciega" if row.intervencion_id in gold_relevance else "prediccion_wc600"), axis=1)
     cargo_lower = data.cargo.str.lower(); data["tipo_actor"] = "staff_tecnico"
     data.loc[cargo_lower.str.contains(r"ministro|ministerio|subsecretario", regex=True), "tipo_actor"] = "hacienda_gobierno"
     data.loc[cargo_lower.str.contains(r"consejer|presidente del banco central|vicepresidente del banco central", regex=True), "tipo_actor"] = "miembro_consejo"
@@ -143,7 +149,7 @@ def run(out=OUT):
             similarity=cosine_similarity(model.components_,alternate.components_); rows_match,cols_match=linear_sum_assignment(-similarity); stability.append(float(similarity[rows_match,cols_match].mean()))
         metrics.update({"unidad":"oracion_min_80","k":k,"estabilidad_media":float(np.mean(stability)),"n_unidades":len(sentence_texts),"vocabulario":len(topic_names)}); benchmark_rows.append(metrics)
         sentence_weights=model.transform(sentence_tfidf); sums=sentence_weights.sum(axis=1,keepdims=True); sentence_weights=np.divide(sentence_weights,sums,out=np.zeros_like(sentence_weights),where=sums>0); prevalence=sentence_weights.mean(axis=0)
-        for local_id,(component,share) in enumerate(zip(model.components_,prevalence),1):
+        for local_id,(component,share) in enumerate(zip(model.components_, prevalence, strict=True), 1):
             terms=topic_names[component.argsort()[::-1][:20]]; benchmark_topics.append({"k":k,"topico_local":f"k{k}_tema_{local_id:02d}","terminos_top5":" | ".join(terms[:5]),"terminos_top20":" | ".join(terms),"prevalencia":float(share)})
     benchmark=pd.DataFrame(benchmark_rows); error_k6=float(benchmark.loc[benchmark.k.eq(6),"error_reconstruccion"].iloc[0]); benchmark["reduccion_error_vs_k6"]=(error_k6-benchmark.error_reconstruccion)/error_k6
     benchmark.to_csv(out / "segmentacion_nmf_benchmark.csv",index=False,lineterminator="\n"); pd.DataFrame(benchmark_topics).to_csv(out / "segmentacion_nmf_topicos_candidatos.csv",index=False,lineterminator="\n")
@@ -167,7 +173,7 @@ def run(out=OUT):
         "tema_nmf_12":("Plazos y tasas de interés","economico_financiero","media","Estructura temporal de tasas y deuda","Incluye tasas cortas/largas y vencimientos de bonos; también menciona horizontes de inflación, por lo que el nombre debe ser amplio."),
         "tema_nmf_13":("Estados Unidos, zona euro y economías avanzadas","economico","alta","Entorno internacional avanzado","Estados Unidos domina, acompañado por zona euro, Europa, Japón y China; no representa todo el escenario internacional."),
         "tema_nmf_14":("Magnitudes en puntos base: TPM y diferenciales","decision_financiero_mixto","media","Cambios de TPM y spreads en puntos base","Aunque predominan 25/50 pb y TPM, los ejemplos también incluyen CDS y spreads; llamarlo solo magnitud de TPM sería incorrecto.")}
-    for topic_id, component, prevalence in zip(topic_ids, components, doc_weights.mean(axis=0)):
+    for topic_id, component, prevalence in zip(topic_ids, components, doc_weights.mean(axis=0), strict=True):
         ordered = component.argsort()[::-1]; terms = topic_names[ordered[:20]]; audited=topic_audit[topic_id]
         topic_rows.append({"topico_modelo":topic_id,"nombre_auditado":audited[0],"tipo_componente":audited[1],"confianza_nombre":audited[2],"etiqueta_automatica_top5":" | ".join(terms[:5]),"terminos_top20":" | ".join(terms),"peso_medio_corpus":float(prevalence),"origen":"NMF_solo_texto_sin_topico_humano_ni_keywords"})
     pd.DataFrame(topic_rows).to_csv(out / "topicos_modelo_nmf.csv", index=False, lineterminator="\n")
@@ -185,14 +191,14 @@ def run(out=OUT):
     # Prueba directa K=6 solicitada para el radar: se conserva aunque no sea la solución recomendada.
     k6_model=benchmark_models[6]; k6_weights=k6_model.transform(topic_vector.transform(valid.texto)); k6_sums=k6_weights.sum(axis=1,keepdims=True); k6_weights=np.divide(k6_weights,k6_sums,out=np.zeros_like(k6_weights),where=k6_sums>0)
     k6_order=np.argsort(k6_weights.mean(axis=0))[::-1]; k6_weights=k6_weights[:,k6_order]; k6_components=k6_model.components_[k6_order]; k6_ids=[f"tema_k6_{i:02d}" for i in range(1,7)]; k6_labels={}; k6_rows=[]
-    for topic_id,component,share in zip(k6_ids,k6_components,k6_weights.mean(axis=0)):
+    for topic_id,component,share in zip(k6_ids, k6_components, k6_weights.mean(axis=0), strict=True):
         terms=topic_names[component.argsort()[::-1][:20]]; label=" | ".join(terms[:5]); k6_labels[topic_id]=label; k6_rows.append({"topico_k6":topic_id,"etiqueta_automatica_top5":label,"terminos_top20":" | ".join(terms),"peso_medio_corpus":float(share)})
     pd.DataFrame(k6_rows).to_csv(out / "segmentacion_nmf_k6_topicos.csv",index=False,lineterminator="\n")
     k6_documents=valid[["tipo_actor","actor"]].reset_index(drop=True).copy()
     for idx,topic_id in enumerate(k6_ids): k6_documents[topic_id]=k6_weights[:,idx]
     k6_actor=k6_documents.groupby(["tipo_actor","actor"],as_index=False)[k6_ids].mean().merge(valid.groupby(["tipo_actor","actor"]).size().rename("n_intervenciones").reset_index(),on=["tipo_actor","actor"],validate="one_to_one")
     k6_long=k6_actor.melt(id_vars=["tipo_actor","actor","n_intervenciones"],value_vars=k6_ids,var_name="topico_k6",value_name="peso_medio"); k6_long["muestra_apta_radar"]=k6_long.tipo_actor.eq("miembro_consejo")&k6_long.n_intervenciones.ge(100); k6_long["percentil_0_100"]=np.nan
-    for topic_id,group in k6_long[k6_long.muestra_apta_radar].groupby("topico_k6"):
+    for _topic_id,group in k6_long[k6_long.muestra_apta_radar].groupby("topico_k6"):
         ranks=group.peso_medio.rank(method="average"); k6_long.loc[group.index,"percentil_0_100"]=100*(ranks-1)/(len(group)-1)
     k6_long["etiqueta_automatica_top5"]=k6_long.topico_k6.map(k6_labels); k6_long.to_csv(out / "radar_nmf_k6_prueba.csv",index=False,lineterminator="\n")
     k6_long.pivot(index=["tipo_actor","actor","n_intervenciones","muestra_apta_radar"],columns="topico_k6",values="percentil_0_100").reset_index().to_csv(out / "radar_nmf_k6_prueba_ancho.csv",index=False,lineterminator="\n")
@@ -207,7 +213,7 @@ def run(out=OUT):
             alternate=NMF(n_components=14,init="nndsvdar",random_state=seed,max_iter=500,alpha_W=0.00005,alpha_H=0.00005).fit(matrix_unit); similarity=cosine_similarity(model_unit.components_,alternate.components_); row_match,col_match=linear_sum_assignment(-similarity); stability.append(float(similarity[row_match,col_match].mean()))
         metrics.update({"unidad":unit,"k":14,"estabilidad_media":float(np.mean(stability)),"n_unidades":len(texts),"vocabulario":len(names_unit),"reduccion_error_vs_k6":np.nan}); unit_rows.append(metrics)
         weights_unit=model_unit.transform(matrix_unit); totals_unit=weights_unit.sum(axis=1,keepdims=True); weights_unit=np.divide(weights_unit,totals_unit,out=np.zeros_like(weights_unit),where=totals_unit>0)
-        for local_id,(component,share) in enumerate(zip(model_unit.components_,weights_unit.mean(axis=0)),1):
+        for local_id,(component,share) in enumerate(zip(model_unit.components_, weights_unit.mean(axis=0), strict=True), 1):
             terms=names_unit[component.argsort()[::-1][:20]]; unit_topics.append({"unidad":unit,"k":14,"topico_local":f"{unit}_tema_{local_id:02d}","terminos_top5":" | ".join(terms[:5]),"terminos_top20":" | ".join(terms),"prevalencia":float(share)})
     pd.DataFrame(unit_rows).to_csv(out / "segmentacion_nmf_unidades.csv",index=False,lineterminator="\n"); pd.DataFrame(unit_topics).to_csv(out / "segmentacion_nmf_unidades_topicos.csv",index=False,lineterminator="\n")
     k6_metrics=benchmark[benchmark.k.eq(6)].iloc[0]; k14_metrics=benchmark[benchmark.k.eq(14)].iloc[0]; k18_metrics=benchmark[benchmark.k.eq(18)].iloc[0]; k20_metrics=benchmark[benchmark.k.eq(20)].iloc[0]; k22_metrics=benchmark[benchmark.k.eq(22)].iloc[0]; k24_metrics=benchmark[benchmark.k.eq(24)].iloc[0]
@@ -233,7 +239,7 @@ def run(out=OUT):
     corpus_axes = {axis:float(radar_documents[axis].mean()) for axis in radar_axes}; corpus_total=sum(corpus_axes.values()); corpus_share={axis:value/corpus_total for axis,value in corpus_axes.items()}
     radar_long["proporcion_corpus"] = radar_long.eje_radar.map(corpus_share); radar_long["indice_especializacion_base100"] = 100*radar_long.proporcion_seis_ejes/radar_long.proporcion_corpus
     radar_long["muestra_apta_radar"] = radar_long.tipo_actor.eq("miembro_consejo") & radar_long.n_intervenciones.ge(100); radar_long["puntaje_fifa_percentil_0_100"] = np.nan
-    for axis, group in radar_long[radar_long.muestra_apta_radar].groupby("eje_radar"):
+    for _axis, group in radar_long[radar_long.muestra_apta_radar].groupby("eje_radar"):
         ranks=group.indice_especializacion_base100.rank(method="average"); radar_long.loc[group.index,"puntaje_fifa_percentil_0_100"] = 100*(ranks-1)/(len(group)-1)
     radar_long["componentes_nmf"] = radar_long.eje_radar.map(lambda axis:"|".join(radar_axes[axis])); radar_long.sort_values(["actor","eje_radar"]).to_csv(out / "radar_tematico_actores.csv", index=False, lineterminator="\n")
     radar_wide = radar_long.pivot(index=["tipo_actor","actor","n_intervenciones","muestra_apta_radar"], columns="eje_radar", values="puntaje_fifa_percentil_0_100").reset_index(); radar_wide.to_csv(out / "radar_tematico_actores_ancho.csv", index=False, lineterminator="\n")
@@ -372,7 +378,7 @@ def run(out=OUT):
         if n_actor < 20: continue
         contrast = log_odds(matrix_substantive, actors_substantive==actor, actors_substantive!=actor, names, "actor", "resto", top=300)
         actor_tokens = set(strip_accents_unicode(actor.lower()).split())
-        meaningful = lambda term: not any(token in actor_tokens for token in term.split()) and any(token not in STOP for token in term.split())
+        meaningful = lambda term, own_tokens=actor_tokens: not any(token in own_tokens for token in term.split()) and any(token not in STOP for token in term.split())
         contrast = contrast[contrast.distintivo_de.eq("actor") & contrast.ngram.map(meaningful)].head(20)
         for rank, (_, term) in enumerate(contrast.iterrows(), 1): actor_vocab.append({"actor":actor,"n_intervenciones_sustantivas":int(n_actor),"ranking":rank,"ngram":term.ngram,"conteo_actor":int(term.conteo_actor),"conteo_resto":int(term.conteo_resto),"log_odds":term.log_odds,"z_score":term.z_score})
         counts = np.asarray(matrix_substantive[actors_substantive==actor].sum(axis=0)).ravel().astype(int)
@@ -384,11 +390,11 @@ def run(out=OUT):
     chosen=pd.concat([hd.head(50),hd.tail(50)]).drop_duplicates("ngram")
     for _, term in chosen.iterrows():
         pattern=re.compile(r"(?<!\w)"+re.escape(term.ngram)+r"(?!\w)")
-        hits=valid[normalized.map(lambda x: bool(pattern.search(x)))].head(3)
+        hits=valid[normalized.map(lambda x, current=pattern: bool(current.search(x)))].head(3)
         for _, row in hits.iterrows(): contexts.append({"ngram":term.ngram,"distintivo_de":term.distintivo_de,"intervencion_id":row.intervencion_id,"meeting_id":row.meeting_id,"etiqueta_analisis":row.etiqueta_analisis,"texto":row.texto})
     pd.DataFrame(contexts).to_csv(out / "lexico_contextos_h_d.csv", index=False, lineterminator="\n")
     outputs = sorted(p.name for p in out.iterdir() if p.is_file())
-    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"topicos_humanos":valid.topico_humano.nunique(),"topicos_modelo_nmf":n_topics,"topicos_nombres_auditados":len(topic_audit),"topicos_nombre_confianza_media":sum(values[2]=="media" for values in topic_audit.values()),"segmentacion_k_evaluados":candidate_ks,"segmentacion_k_seleccionado":n_topics,"segmentacion_k6_probado":True,"segmentacion_k_hasta24_probado":True,"oraciones_ajuste_topicos_modelo":len(sentence_texts),"ejes_radar_tematico":len(radar_axes),"actores_aptos_radar":int(radar_long[radar_long.muestra_apta_radar].actor.nunique()),"filas_evolucion_topicos_reunion":len(evolution_meeting),"filas_evolucion_topicos_anual":len(evolution_year),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"votos_finales_con_magnitud_y_tpm":int((base_votes.voto_accion_final.ne("no_extraido") & base_votes.voto_magnitud_pb_final.notna() & base_votes.voto_tpm_objetivo_final.notna()).sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600 ni necesarios para NMF, que usa TF-IDF disperso; se reservan para otra hipótesis."}
+    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"relevantes":int(data.relevancia_analisis.sum()),"irrelevantes":int((data.relevancia_analisis==0).sum()),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"topicos_humanos":valid.topico_humano.nunique(),"topicos_modelo_nmf":n_topics,"topicos_nombres_auditados":len(topic_audit),"topicos_nombre_confianza_media":sum(values[2]=="media" for values in topic_audit.values()),"segmentacion_k_evaluados":candidate_ks,"segmentacion_k_seleccionado":n_topics,"segmentacion_k6_probado":True,"segmentacion_k_hasta24_probado":True,"oraciones_ajuste_topicos_modelo":len(sentence_texts),"ejes_radar_tematico":len(radar_axes),"actores_aptos_radar":int(radar_long[radar_long.muestra_apta_radar].actor.nunique()),"filas_evolucion_topicos_reunion":len(evolution_meeting),"filas_evolucion_topicos_anual":len(evolution_year),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len({x["actor"] for x in actor_vocab}),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"votos_finales_con_magnitud_y_tpm":int((base_votes.voto_accion_final.ne("no_extraido") & base_votes.voto_magnitud_pb_final.notna() & base_votes.voto_tpm_objetivo_final.notna()).sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600 ni necesarios para NMF, que usa TF-IDF disperso; se reservan para otra hipótesis."}
     save_json(out / "resumen.json", summary); outputs.append("resumen.json")
     sources = [CLASSIFIED, CORPUS, TRAIN, GOLD, VOTE_REVIEW, Path(__file__)]
     save_json(out / "manifest.json", {"fuentes_sha256":{str(p.relative_to(ROOT)):sha(p) for p in sources},"sha256_salidas":{name:sha(out/name) for name in outputs}})

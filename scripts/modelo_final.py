@@ -38,7 +38,7 @@ def verificar():
     data = pd.read_csv(TRAIN, dtype=str, keep_default_na=False)
     if len(data) != 1596 or not data.intervencion_id.is_unique: raise ValueError("Entrenamiento final inválido")
     expected = {1: 1494, 2: 1450, 3: 1453, 4: 1473, 5: 1466}
-    observed = {i: int(data.miembros.str.split("|").map(lambda x: str(i) in x).sum()) for i in range(1, 6)}
+    observed = {i: int(data.miembros.str.split("|").map(lambda x, member=i: str(member) in x).sum()) for i in range(1, 6)}
     if observed != expected: raise ValueError(f"Miembros distintos: {observed}")
     return {"estado": "íntegro", "filas_entrenamiento": len(data), "filas_por_miembro": observed}
 
@@ -56,8 +56,8 @@ def inferir(bundle, texts):
     pa = ma.predict_proba(xa)[:, list(ma.classes_).index(1)]
     pb = mb.predict_proba(xb); class_index = {label: i for i, label in enumerate(mb.classes_)}
     probs = np.column_stack([pa * pb[:, class_index["hawkish"]], pa * pb[:, class_index["dovish"]], (1 - pa) + pa * pb[:, class_index["neutral"]]])
-    hard_b = mb.predict(xb); hard = np.where(ma.predict(xa) == 0, "neutral", hard_b)
-    return hard, probs
+    relevance = ma.predict(xa).astype(int); hard_b = mb.predict(xb); hard = np.where(relevance == 0, "neutral", hard_b)
+    return hard, probs, relevance, pa
 
 
 def predecir(input_path, output_path, models_dir=None, load_dir=None):
@@ -75,18 +75,22 @@ def predecir(input_path, output_path, models_dir=None, load_dir=None):
         if stored["entrenamiento_sha256"] != sha(TRAIN): raise ValueError("Modelos corresponden a otro entrenamiento")
         for name, expected in stored["archivos_sha256"].items():
             if sha(load_dir / name) != expected: raise ValueError(f"Modelo alterado: {name}")
-    train = pd.read_csv(TRAIN, dtype=str, keep_default_na=False); members, probabilities, model_hashes = [], [], {}
+    train = pd.read_csv(TRAIN, dtype=str, keep_default_na=False); members, probabilities, relevance_members, relevance_probabilities, model_hashes = [], [], [], [], {}
     for member, weight in WEIGHTS.items():
-        subset = train[train.miembros.str.split("|").map(lambda x: str(member) in x)]
+        subset = train[train.miembros.str.split("|").map(lambda x, current=member: str(current) in x)]
         bundle = joblib.load(load_dir / f"miembro_{member}.joblib") if load_dir is not None else ajustar(subset, weight)
-        prediction, probs = inferir(bundle, source.texto)
-        members.append(prediction); probabilities.append(probs); source[f"pred_miembro_{member}"] = prediction
+        prediction, probs, relevance, relevance_probability = inferir(bundle, source.texto)
+        members.append(prediction); probabilities.append(probs); relevance_members.append(relevance); relevance_probabilities.append(relevance_probability); source[f"pred_miembro_{member}"] = prediction
         if models_dir is not None:
             path = models_dir / f"miembro_{member}.joblib"; joblib.dump(bundle, path, compress=3); model_hashes[path.name] = sha(path)
     mean_probs = np.mean(probabilities, axis=0)
-    source["prediccion_v3"] = [vote(values) for values in zip(*members)]
+    source["prediccion_v3"] = [vote(values) for values in zip(*members, strict=True)]
     source["prob_h_no_calibrada"], source["prob_d_no_calibrada"], source["prob_n_no_calibrada"] = mean_probs.T
     source["score_hd_continuo"] = source.prob_h_no_calibrada - source.prob_d_no_calibrada
+    relevance_matrix = np.column_stack(relevance_members)
+    source["pred_relevancia_v3"] = (relevance_matrix.sum(axis=1) >= 3).astype(int)
+    source["prob_relevancia_no_calibrada"] = np.mean(relevance_probabilities, axis=0)
+    source["acuerdo_relevancia_miembros"] = np.where(relevance_matrix.min(axis=1) == relevance_matrix.max(axis=1), "unanime", "desacuerdo")
     source["acuerdo_miembros"] = np.where(source[[f"pred_miembro_{i}" for i in WEIGHTS]].nunique(axis=1).eq(1), "unanime", "desacuerdo")
     if "intervencion_id" in source:
         train_ids = set(train.intervencion_id); gold_ids = set(pd.read_csv(GOLD, dtype=str, keep_default_na=False).intervencion_id)
