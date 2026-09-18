@@ -1,4 +1,4 @@
-tipo_actor,actor,n_intervenciones,muestra_apta_radar,actividad_demanda,entorno_externo_commodities,inflacion_expectativas,mercado_laboral,mercados_estructura_tasas,tipo_cambio
+tipo_actor,actor,n_intervenciones,muestra_apta_radar,actividad_demanda_ciclo,entorno_externo_commodities_economias,inflacion_expectativas_meta,mercado_laboral_empleo,tasas_interes_plazos,tipo_cambio_real_nominal
 consejo_institucional,Consejo del Banco Central de Chile,503,False,,,,,,
 hacienda_gobierno,Alberto Arenas de Mesa,21,False,,,,,,
 hacienda_gobierno,Alejandro Micco,12,False,,,,,,

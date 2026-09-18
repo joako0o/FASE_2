@@ -18,6 +18,8 @@
   "topicos": 13,
   "topicos_humanos": 13,
   "topicos_modelo_nmf": 14,
+  "topicos_nombres_auditados": 14,
+  "topicos_nombre_confianza_media": 4,
   "segmentacion_k_evaluados": [
     6,
     8,

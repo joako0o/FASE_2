@@ -7,7 +7,7 @@
   ],
   "commit_historico_pre_condensacion": "7aa63cc",
   "sha256": {
-    "README.md": "a0fd537cb1c72051c4b722aa5b48df1870d0d7a95509029da36b4ff57e7bf250",
+    "README.md": "51bd44130d4b738f257ab020020c86e0e20f29c4f7deddf7cd2491a60b295c58",
     "requirements.txt": "1f434dbc7b26cd8ba04295593753f98a6e1fc4808f624d3f04b46e411d2b8862",
     "scripts/modelo_final.py": "abea8e1a888be3ea4e7d9ba645f55f542f5c768290f654d6a4465e8c5d0c000f",
     "docs/BENCHMARK_MODELOS.md": "54416643daa6ae8282657d1ae1bca4bbaab7f51953d9476385a0787e3ff371ef",
@@ -24,8 +24,8 @@
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
     "data/predicciones_evaluacion_ciega.csv": "919b3d0b1b4b5a79f8e492c0889989ae7ed0a8d6c7ac0148c9fcce98f556d0db",
     "data/resultados_evaluacion_ciega.json": "1aadd083a4c411de021a0160251c06c13c9fa79ca1e576658c60c13b21784f55",
-    "docs/OBJETIVOS_ANALISIS.md": "748cd1d6fbed2afcf9466447e90a70923b66949b116dd16249f9c1c87b3b504e",
-    "scripts/analisis_resultados.py": "82c2da3dba695f439e19f76295255d5f697bf2c78c7139974da08781b39e5fc3",
+    "docs/OBJETIVOS_ANALISIS.md": "aefe219b3fd0ea6f49cd644909b3bbd48ffc56b0e87099248e1d8320a473e387",
+    "scripts/analisis_resultados.py": "340aa7bed28b3e7038b7dc95f15cc93ba86f635284f563f9d1a9e32a5a12b252",
     "data/README.md": "9d79f37294be188fcbc37fd686755f35b40e425b71b689735b9815e9207178fb",
     "data/actores_metadata.csv": "e4c57ff710983ce4f2416289ad788a6ce404c7ac6033ed54d8a472f93f5f34bf",
     "data/revision_votos_actores.csv": "99129ef26144683c1fb4a728160fac46f3517679e6e0c791db5ae1e5c4a80f8f"

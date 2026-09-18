@@ -1,24 +1,24 @@
 {
   "unidad": "Acta/reunión y año",
   "ejes_componentes_nmf": {
-    "actividad_demanda": [
+    "actividad_demanda_ciclo": [
       "tema_nmf_01"
     ],
-    "mercado_laboral": [
+    "mercado_laboral_empleo": [
       "tema_nmf_02"
     ],
-    "inflacion_expectativas": [
+    "inflacion_expectativas_meta": [
       "tema_nmf_09"
     ],
-    "entorno_externo_commodities": [
+    "entorno_externo_commodities_economias": [
       "tema_nmf_03",
       "tema_nmf_08",
       "tema_nmf_13"
     ],
-    "tipo_cambio": [
+    "tipo_cambio_real_nominal": [
       "tema_nmf_10"
     ],
-    "mercados_estructura_tasas": [
+    "tasas_interes_plazos": [
       "tema_nmf_12"
     ]
   },

@@ -1,24 +1,24 @@
 {
   "objetivo": "Tarjeta tipo FIFA de énfasis temático relativo, no habilidad ni calidad",
   "ejes_componentes_nmf": {
-    "actividad_demanda": [
+    "actividad_demanda_ciclo": [
       "tema_nmf_01"
     ],
-    "mercado_laboral": [
+    "mercado_laboral_empleo": [
       "tema_nmf_02"
     ],
-    "inflacion_expectativas": [
+    "inflacion_expectativas_meta": [
       "tema_nmf_09"
     ],
-    "entorno_externo_commodities": [
+    "entorno_externo_commodities_economias": [
       "tema_nmf_03",
       "tema_nmf_08",
       "tema_nmf_13"
     ],
-    "tipo_cambio": [
+    "tipo_cambio_real_nominal": [
       "tema_nmf_10"
     ],
-    "mercados_estructura_tasas": [
+    "tasas_interes_plazos": [
       "tema_nmf_12"
     ]
   },
@@ -31,7 +31,7 @@
     "tema_nmf_11",
     "tema_nmf_14"
   ],
-  "razon_exclusion": "Estructura documental o lenguaje común de decisión TPM; usarlo como especialización sería circular o ambiguo.",
+  "razon_exclusion": "Los temas 04/06/07/11 son estructura documental; 05 es decisión común de TPM; 14 mezcla magnitudes de TPM con spreads y CDS. Usarlos como especialización sería circular, heterogéneo o ambiguo.",
   "universo_percentiles": "Solo miembros del Consejo con al menos 100 intervenciones",
   "calculo": [
     "sumar pesos NMF por eje",
