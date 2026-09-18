@@ -7,7 +7,7 @@
   ],
   "commit_historico_pre_condensacion": "7aa63cc",
   "sha256": {
-    "README.md": "176087c14f6d49eacf5a78ba53ff28579f1c31d50d793e4ac81b51e69ca509e6",
+    "README.md": "be634c25a6b20c8ae97e864aaaeacbfd2751d47a0ad4abdb580b5195531acb16",
     "requirements.txt": "1f434dbc7b26cd8ba04295593753f98a6e1fc4808f624d3f04b46e411d2b8862",
     "scripts/modelo_final.py": "abea8e1a888be3ea4e7d9ba645f55f542f5c768290f654d6a4465e8c5d0c000f",
     "docs/BENCHMARK_MODELOS.md": "54416643daa6ae8282657d1ae1bca4bbaab7f51953d9476385a0787e3ff371ef",

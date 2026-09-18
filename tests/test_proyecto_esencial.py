@@ -63,6 +63,11 @@ class TestProyectoEsencial(unittest.TestCase):
         analysis_manifest = json.loads((ROOT / "resultados/analisis_descriptivo/manifest.json").read_text(encoding="utf-8"))["sha256_salidas"]
         for name, expected in analysis_manifest.items(): self.assertEqual(hashlib.sha256((ROOT / "resultados/analisis_descriptivo" / name).read_bytes()).hexdigest(), expected)
 
+    def test_readme_documenta_formulas(self):
+        text = (ROOT / "README.md").read_text(encoding="utf-8")
+        for formula in ["operatorname{tfidf}", "MacroF1", "F1_{HD}", "tono neto general", "balance direccional", "cobertura direccional", "log-odds", "bootstrap"]:
+            self.assertIn(formula, text)
+
     def test_script_verifica(self):
         spec = importlib.util.spec_from_file_location("modelo_final", ROOT / "scripts/modelo_final.py")
         module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
