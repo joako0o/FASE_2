@@ -4,9 +4,11 @@
     "data/corpus_bcch_2005_2015.csv": "6ecf9cc07c2200e75acb6aa73d978e72e5a7aa45d03af16da5d8f913f1c436ac",
     "data/entrenamiento_wc600.csv": "573bea960318d4e1a58cb92f69f93708385ac0166570c2be7cada01f2063d0a2",
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
-    "scripts/analisis_resultados.py": "d5178b2a327707020b9c834bcfadbf85db93df26fa23ac3acddf1b88d386f0f6"
+    "scripts/analisis_resultados.py": "40053604634ef861ba0ae0c7fbf25874e9fc072cb18dd0fa8b13a2cfa70f35f1"
   },
   "sha256_salidas": {
+    "acuerdo_consejo_por_reunion.csv": "00d908739db19377ffce12d6bf452aa43fd976042325acf4768137d5d4989f8f",
+    "base_votos_acta_actor.csv": "36d3285d16c6630f0e6a6455cc30b5a2a8de2bbdb92c1bb609185f0ffe6ec416",
     "candidatos_votos_explicitos.csv": "0fa16394e2f4c9903eaab531ebc8654625384d7c3205ab31eb89bd595acbd633",
     "convergencia_actor_reunion_proxy.csv": "7324aaa6b9bcb31ed67a913c8b673dd96c658c3ac48a306136d9b293ae8ab8dc",
     "convergencia_resumen_actor_proxy.csv": "dc30544b1e081bcacb11092df233f578ab59b7a41b312f1566f27e2d50c4af26",
@@ -23,13 +25,13 @@
     "lexico_distintivo_h_vs_d.csv": "d66161fecc20e0314be1f09be7f411aa64f5357db295b3a8e9912bc8f7583896",
     "lexico_frecuencia_contenido.csv": "b379e444c44b517406afafd23ff064d8030fb59f9249c17fb6ebec95c9909ef4",
     "lexico_frecuencia_global.csv": "3ab3a09db8279a7aca7a0de4876f4951935136fe499a89bbfba6d8e33350934e",
-    "matriz_votos_candidatos.csv": "20dfe8d17420bc5e391615aba400e1da0562a22acb204de34a8f6194df9e1d7b",
+    "matriz_votos_candidatos.csv": "4d30a8ddf9361a24dcdfd7eb1c29e03b8b0dfe5a989e70089ab8669487486de8",
     "mix_topicos_por_anio.csv": "0031de84f94e54f46f3a5d2d9ef115bdbba2d6d515a5b58540349776d30dbcb5",
     "tabla_maestra.csv": "76510855e256dac3847b586a73876f0e0b3e46b59bfe6991e71ffbf87f347ece",
     "topicos_por_actor.csv": "78d9e654d14c048d1cdb9a37f37b1dead6ad85436344586ae3db3834e48d1bef",
     "variacion_anual_por_actor.csv": "d83a57b345d25848643b81bcaeca5b115a77b2a3db30e18cb03bbe377664370c",
     "vocabulario_distintivo_por_actor.csv": "074d337bce841e1b5ea72960741b4408478dd76b8b21909cc150c2145b2b4ef6",
     "vocabulario_frecuente_por_actor.csv": "115dcb77a803bb4a5ed6383a7ad6a854b674cafe1cd1c04d63a1b599fc9157df",
-    "resumen.json": "eb6ec6dfa79bd9f116ef9c9feaf7c6e976f2375e94c813af4575ba1f754ee346"
+    "resumen.json": "3193af27ff53d65843c2cd0192f6760f7105fbf65559e42d284f8d05a6cf368a"
   }
 }

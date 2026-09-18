@@ -23,6 +23,33 @@ def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def save_json(path, value): path.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
 def safe_div(a, b): return a / b if b else np.nan
 
+def normalize_text(text): return strip_accents_unicode(" ".join(str(text).lower().split()))
+
+ACTION_TERMS = {
+    "subir": r"\b(?:subir|aumentar|elevar|incrementar|alza|aumento)\b",
+    "bajar": r"\b(?:bajar|rebajar|reducir|disminuir|recortar|rebaja|reduccion|recorte)\b",
+    "mantener": r"\b(?:mantener|mantencion|mantenimiento|no innovar|hacer una pausa|dejar(?:la|lo)?\s+(?:la\s+)?tpm\s+en\s+su\s+actual|dejar(?:la|lo)?\s+en\s+su\s+actual)\b",
+}
+
+def action_after(text, anchor_pattern, max_distance=500):
+    """Extrae la primera acción TPM posterior al último ancla; no interpreta referencias vagas."""
+    normalized = normalize_text(text); anchors = list(re.finditer(anchor_pattern, normalized))
+    for anchor in reversed(anchors):
+        window = normalized[anchor.start():anchor.start()+max_distance]
+        found = [(match.start(), action, match) for action, pattern in ACTION_TERMS.items() for match in re.finditer(pattern, window)]
+        if not found: continue
+        _, action, match = min(found, key=lambda item: item[0]); tail = window[match.start():match.start()+350]
+        pb = re.search(r"(\d+(?:[.,]\d+)?)\s*(?:puntos?\s+base|pb)\b", tail)
+        percent_change = re.search(r"\b(?:en|de)\s*(0[.,]\d+)\s*%", tail)
+        rate = re.search(r"\ben\s*(\d+(?:[.,]\d+)?)\s*%", tail) if action == "mantener" else re.search(r"(?:hasta|a|nivel\s+de|para\s+quedar\s+en|situar(?:la|lo)?\s+en|ubicar(?:la|lo)?\s+en|establecer(?:la|lo)?\s+en)\s*(\d+(?:[.,]\d+)?)\s*%", tail)
+        if not rate: rate = re.search(r"\ben\s*(\d+(?:[.,]\d+)?)\s*%", tail)
+        bias = re.search(r"sesgo\s+(?:de\s+politica\s+)?(?:al\s+alza|a\s+la\s+baja|expansivo|contractivo|negativo|positivo|neutral)", tail)
+        snippet = normalized[max(0,anchor.start()-80):min(len(normalized),anchor.start()+500)]
+        linkage = re.search(r"\b(?:por|a favor de|en orden a|en consecuencia|es|seria|tambien)\b", window[:match.start()])
+        confidence = "alta" if match.start() <= 35 or (match.start() <= 140 and linkage) else "media"
+        return {"accion":action,"magnitud_pb":float(pb.group(1).replace(",",".")) if pb else (100*float(percent_change.group(1).replace(",",".")) if percent_change else (0.0 if action=="mantener" else np.nan)),"tpm_objetivo":float(rate.group(1).replace(",",".")) if rate else np.nan,"sesgo":bias.group(0).replace("sesgo ","") if bias else "","fragmento":snippet,"confianza":confidence}
+    return {"accion":"no_extraido","magnitud_pb":np.nan,"tpm_objetivo":np.nan,"sesgo":"","fragmento":"","confianza":"no_resuelto"}
+
 def add_indices(group):
     counts = group.etiqueta_analisis.value_counts()
     h, d, n = (int(counts.get(x, 0)) for x in LABELS); total = h + d + n
@@ -87,18 +114,52 @@ def run(out=OUT):
     valid["orden_habla_num"] = pd.to_numeric(valid.orden_habla, errors="coerce")
     valid["subindice_num"] = pd.to_numeric(valid.subindice, errors="coerce").fillna(0)
     comparable = valid.tipo_actor.eq("miembro_consejo")
-    decision_rows = valid[valid.actor.eq("Consejo del Banco Central de Chile") & valid.topico_humano.isin(["decision_tpm", "acuerdo_comunicado"])].copy()
-    decision_rows = decision_rows.sort_values(["meeting_id", "orden_habla_num", "subindice_num"]).groupby("meeting_id").tail(1)
+    institutional = valid[valid.actor.eq("Consejo del Banco Central de Chile")].sort_values(["meeting_id", "orden_habla_num", "subindice_num"]).copy()
+    agreement_records = []
+    for _, row in institutional.iterrows():
+        extracted = action_after(row.texto, r"\b(?:acord(?:o|a|aron)|acuerd(?:a|an)|resolvio)\b")
+        if extracted["accion"] == "no_extraido" and "tasa de politica monetaria" in normalize_text(row.texto):
+            extracted = action_after(row.texto, r"\b(?:subir|aumentar|elevar|incrementar|bajar|rebajar|reducir|disminuir|recortar|mantener|mantencion)\b")
+        if extracted["accion"] == "no_extraido": continue
+        normalized = normalize_text(row.texto)
+        agreement_records.append({"meeting_id":row.meeting_id,"fecha":row.fecha,"anio":row.anio,"acuerdo_accion":extracted["accion"],"acuerdo_magnitud_pb":extracted["magnitud_pb"],"acuerdo_tpm_objetivo":extracted["tpm_objetivo"],"acuerdo_sesgo":extracted["sesgo"],"acuerdo_tipo_textual":"unanimidad" if "por unanimidad" in normalized else ("mayoria" if "por la mayoria" in normalized or "por mayoria" in normalized else "no_indicado"),"acuerdo_intervencion_id":row.intervencion_id,"acuerdo_orden_habla":row.orden_habla,"acuerdo_subindice":row.subindice,"acuerdo_fragmento":extracted["fragmento"],"acuerdo_texto":row.texto,"prioridad":int("adopta el siguiente acuerdo" in normalized)})
+    agreements = pd.DataFrame(agreement_records).sort_values(["meeting_id", "prioridad", "acuerdo_orden_habla"], ascending=[True,False,True]).groupby("meeting_id").head(1).drop(columns="prioridad")
+    meeting_institutional_text = institutional.groupby("meeting_id").texto.apply(lambda values: normalize_text(" ".join(values)))
+    agreement_type = meeting_institutional_text.map(lambda text: "unanimidad" if "unanimidad" in text or "unanime" in text else ("mayoria" if "mayoria" in text else "no_indicado"))
+    agreements["acuerdo_tipo_textual"] = agreements.meeting_id.map(agreement_type)
+    if len(agreements) != valid.meeting_id.nunique(): raise ValueError(f"Acuerdos extraídos: {len(agreements)}; esperados: {valid.meeting_id.nunique()}")
+    agreements.to_csv(out / "acuerdo_consejo_por_reunion.csv", index=False, lineterminator="\n")
+    # Se mantiene además el proxy de tono institucional usado en el análisis exploratorio de convergencia.
+    decision_rows = institutional[institutional.topico_humano.isin(["decision_tpm", "acuerdo_comunicado"])].groupby("meeting_id").tail(1)
     sign = {"hawkish": 1.0, "dovish": -1.0, "neutral": 0.0}; decision_index = decision_rows.set_index("meeting_id"); decisions = decision_index.etiqueta_analisis.map(sign).to_dict()
     decision_rows[["meeting_id", "intervencion_id", "etiqueta_analisis", "score_hd_continuo", "orden_habla", "subindice", "texto"]].to_csv(out / "decision_institucional_proxy.csv", index=False, lineterminator="\n")
     vote_pattern = r"\b(?:vota|voto|votaria|votaría|votara|votará)\b|\bsu voto\b|\bmi voto\b"
-    votes = valid[comparable & valid.texto.str.lower().str.contains(vote_pattern, regex=True)].copy()
-    votes = votes.sort_values(["meeting_id", "actor", "orden_habla_num", "subindice_num"])
+    votes = valid[comparable & valid.texto.str.lower().str.contains(vote_pattern, regex=True)].copy().sort_values(["meeting_id", "actor", "orden_habla_num", "subindice_num"])
     votes.to_csv(out / "candidatos_votos_explicitos.csv", index=False, lineterminator="\n")
-    votes["n_fragmentos_candidatos"] = votes.groupby(["meeting_id", "actor"]).meeting_id.transform("size")
-    vote_matrix = votes.groupby(["meeting_id", "actor"]).tail(1).copy()
-    vote_matrix["estado_validacion"] = "candidato_regex_no_validado"
-    vote_matrix[["meeting_id", "fecha", "anio", "actor", "intervencion_id", "orden_habla", "subindice", "etiqueta_analisis", "score_hd_continuo", "n_fragmentos_candidatos", "estado_validacion", "texto"]].to_csv(out / "matriz_votos_candidatos.csv", index=False, lineterminator="\n")
+    vote_records = []
+    for _, row in votes.iterrows():
+        extracted = action_after(row.texto, r"\b(?:su voto|mi voto|vota|voto)\b")
+        accepted = extracted["confianza"] == "alta"
+        vote_records.append({**row.to_dict(),"voto_accion":extracted["accion"] if accepted else "no_extraido","voto_accion_sugerida":extracted["accion"] if not accepted else "","voto_magnitud_pb":extracted["magnitud_pb"] if accepted else np.nan,"voto_tpm_objetivo":extracted["tpm_objetivo"] if accepted else np.nan,"voto_sesgo":extracted["sesgo"] if accepted else "","voto_fragmento":extracted["fragmento"],"confianza_extraccion":extracted["confianza"]})
+    extracted_votes = pd.DataFrame(vote_records); extracted_votes["n_fragmentos_candidatos"] = extracted_votes.groupby(["meeting_id", "actor"]).meeting_id.transform("size")
+    selected_votes = []
+    for _, group in extracted_votes.groupby(["meeting_id", "actor"]):
+        resolved = group[group.voto_accion.ne("no_extraido")]
+        selected_votes.append((resolved if len(resolved) else group).iloc[-1])
+    vote_matrix = pd.DataFrame(selected_votes); vote_matrix["estado_validacion"] = np.where(vote_matrix.voto_accion.eq("no_extraido"), "candidato_no_resuelto", "extraido_automaticamente_no_validado")
+    vote_columns = ["meeting_id", "fecha", "anio", "actor", "cargo", "intervencion_id", "orden_habla", "subindice", "voto_accion", "voto_accion_sugerida", "voto_magnitud_pb", "voto_tpm_objetivo", "voto_sesgo", "confianza_extraccion", "etiqueta_analisis", "score_hd_continuo", "n_fragmentos_candidatos", "estado_validacion", "voto_fragmento", "texto"]
+    vote_matrix[vote_columns].to_csv(out / "matriz_votos_candidatos.csv", index=False, lineterminator="\n")
+    participants = valid[comparable].groupby(["meeting_id", "actor"], as_index=False).agg(fecha=("fecha","first"),anio=("anio","first"),cargo=("cargo","first"),n_intervenciones_actor=("intervencion_id","size"))
+    base_votes = participants.merge(vote_matrix[["meeting_id","actor","intervencion_id","orden_habla","subindice","voto_accion","voto_accion_sugerida","voto_magnitud_pb","voto_tpm_objetivo","voto_sesgo","confianza_extraccion","etiqueta_analisis","score_hd_continuo","estado_validacion","voto_fragmento","texto"]], on=["meeting_id","actor"], how="left", validate="one_to_one")
+    base_votes = base_votes.merge(agreements, on=["meeting_id","fecha","anio"], how="left", validate="many_to_one")
+    base_votes["estado_validacion"] = base_votes.estado_validacion.fillna("sin_fragmento_de_voto_detectado")
+    base_votes["voto_accion"] = base_votes.voto_accion.fillna("no_extraido")
+    infer_unanimous = base_votes.voto_accion.eq("no_extraido") & base_votes.acuerdo_tipo_textual.eq("unanimidad")
+    base_votes["voto_accion_con_inferencia"] = base_votes.voto_accion
+    base_votes.loc[infer_unanimous, "voto_accion_con_inferencia"] = base_votes.loc[infer_unanimous, "acuerdo_accion"]
+    base_votes["fuente_voto"] = np.where(base_votes.voto_accion.ne("no_extraido"), "texto_explicito_extraido", np.where(infer_unanimous, "inferido_de_unanimidad_textual", "no_extraido"))
+    base_votes["coincide_con_acuerdo"] = np.where(base_votes.voto_accion.eq("no_extraido"), "no_determinado", np.where(base_votes.voto_accion.eq(base_votes.acuerdo_accion), "si", "no"))
+    base_votes.sort_values(["fecha","orden_habla","actor"]).to_csv(out / "base_votos_acta_actor.csv", index=False, lineterminator="\n")
     convergence = []
     directional_rows = valid[comparable & valid.etiqueta_analisis.isin(["hawkish", "dovish"]) & valid.meeting_id.isin(decisions)].copy()
     for (meeting, actor), group in directional_rows.groupby(["meeting_id", "actor"]):
@@ -148,7 +209,7 @@ def run(out=OUT):
         for _, row in hits.iterrows(): contexts.append({"ngram":term.ngram,"distintivo_de":term.distintivo_de,"intervencion_id":row.intervencion_id,"meeting_id":row.meeting_id,"etiqueta_analisis":row.etiqueta_analisis,"texto":row.texto})
     pd.DataFrame(contexts).to_csv(out / "lexico_contextos_h_d.csv", index=False, lineterminator="\n")
     outputs = sorted(p.name for p in out.iterdir() if p.is_file())
-    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
+    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_no_extraidos":int(base_votes.voto_accion_con_inferencia.eq("no_extraido").sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
     save_json(out / "resumen.json", summary); outputs.append("resumen.json")
     sources = [CLASSIFIED, CORPUS, TRAIN, GOLD, Path(__file__)]
     save_json(out / "manifest.json", {"fuentes_sha256":{str(p.relative_to(ROOT)):sha(p) for p in sources},"sha256_salidas":{name:sha(out/name) for name in outputs}})

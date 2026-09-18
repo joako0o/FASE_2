@@ -7,7 +7,7 @@
   ],
   "commit_historico_pre_condensacion": "7aa63cc",
   "sha256": {
-    "README.md": "eaff46fcc107a996caf65ae4cea1e3e31254a90991ec8c90f24223aded41f556",
+    "README.md": "199bdb08b6cba2d1a6dde021934ec29a925e2c614612f3167b2b633be4e509ca",
     "requirements.txt": "1f434dbc7b26cd8ba04295593753f98a6e1fc4808f624d3f04b46e411d2b8862",
     "scripts/modelo_final.py": "abea8e1a888be3ea4e7d9ba645f55f542f5c768290f654d6a4465e8c5d0c000f",
     "docs/BENCHMARK_MODELOS.md": "54416643daa6ae8282657d1ae1bca4bbaab7f51953d9476385a0787e3ff371ef",
@@ -25,7 +25,7 @@
     "data/predicciones_evaluacion_ciega.csv": "919b3d0b1b4b5a79f8e492c0889989ae7ed0a8d6c7ac0148c9fcce98f556d0db",
     "data/resultados_evaluacion_ciega.json": "1aadd083a4c411de021a0160251c06c13c9fa79ca1e576658c60c13b21784f55",
     "docs/OBJETIVOS_ANALISIS.md": "ea0748d81d01ea598a83f67328f5e3fca29834a4b0a4fc6c1d2ee267a79b96c3",
-    "scripts/analisis_resultados.py": "d5178b2a327707020b9c834bcfadbf85db93df26fa23ac3acddf1b88d386f0f6",
+    "scripts/analisis_resultados.py": "40053604634ef861ba0ae0c7fbf25874e9fc072cb18dd0fa8b13a2cfa70f35f1",
     "data/README.md": "311ff51513a982342b0ed4b89b9cc819195c5f34b77f82e13a2efd33ab30f146",
     "data/actores_metadata.csv": "e4c57ff710983ce4f2416289ad788a6ce404c7ac6033ed54d8a472f93f5f34bf"
   },
