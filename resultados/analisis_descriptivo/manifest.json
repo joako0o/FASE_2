@@ -4,11 +4,12 @@
     "data/corpus_bcch_2005_2015.csv": "6ecf9cc07c2200e75acb6aa73d978e72e5a7aa45d03af16da5d8f913f1c436ac",
     "data/entrenamiento_wc600.csv": "573bea960318d4e1a58cb92f69f93708385ac0166570c2be7cada01f2063d0a2",
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
-    "scripts/analisis_resultados.py": "40053604634ef861ba0ae0c7fbf25874e9fc072cb18dd0fa8b13a2cfa70f35f1"
+    "data/revision_votos_actores.csv": "3dd9cd841cb8ef0c807a975bbd66b650de7e70683dc42f80c454d0b7a17ca444",
+    "scripts/analisis_resultados.py": "f7f9d64750e1a2e013f92105c79552ef2d7ac5c068052a9ebe018bc2f7aacaed"
   },
   "sha256_salidas": {
     "acuerdo_consejo_por_reunion.csv": "00d908739db19377ffce12d6bf452aa43fd976042325acf4768137d5d4989f8f",
-    "base_votos_acta_actor.csv": "36d3285d16c6630f0e6a6455cc30b5a2a8de2bbdb92c1bb609185f0ffe6ec416",
+    "base_votos_acta_actor.csv": "ad6b5b3c663e24cd5a363ec70b74bc02342b38efacb737eb89d5ee4dda7569e5",
     "candidatos_votos_explicitos.csv": "0fa16394e2f4c9903eaab531ebc8654625384d7c3205ab31eb89bd595acbd633",
     "convergencia_actor_reunion_proxy.csv": "7324aaa6b9bcb31ed67a913c8b673dd96c658c3ac48a306136d9b293ae8ab8dc",
     "convergencia_resumen_actor_proxy.csv": "dc30544b1e081bcacb11092df233f578ab59b7a41b312f1566f27e2d50c4af26",
@@ -32,6 +33,6 @@
     "variacion_anual_por_actor.csv": "d83a57b345d25848643b81bcaeca5b115a77b2a3db30e18cb03bbe377664370c",
     "vocabulario_distintivo_por_actor.csv": "074d337bce841e1b5ea72960741b4408478dd76b8b21909cc150c2145b2b4ef6",
     "vocabulario_frecuente_por_actor.csv": "115dcb77a803bb4a5ed6383a7ad6a854b674cafe1cd1c04d63a1b599fc9157df",
-    "resumen.json": "3193af27ff53d65843c2cd0192f6760f7105fbf65559e42d284f8d05a6cf368a"
+    "resumen.json": "95bb22aac6e6573c44f93affd1c09630f7ec0edf2d19d92f6b16fb2028c01464"
   }
 }

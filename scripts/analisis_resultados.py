@@ -14,6 +14,7 @@ CLASSIFIED = ROOT / "resultados/clasificacion_wc600_9725.csv"
 CORPUS = ROOT / "data/corpus_bcch_2005_2015.csv"
 TRAIN = ROOT / "data/entrenamiento_wc600.csv"
 GOLD = ROOT / "data/evaluacion_ciega_gold.csv"
+VOTE_REVIEW = ROOT / "data/revision_votos_actores.csv"
 OUT = ROOT / "resultados/analisis_descriptivo"
 LABELS = ["hawkish", "dovish", "neutral"]
 STOP = set("de la el que en y los las del se por un una con para su al lo como es no más mas ha sus este esta sobre son fue han si ya entre le les o e a ante desde hasta durante mediante señor senor señora senora consejero consejera presidente vicepresidente gerente banco central chile senala indica menciona manifiesta expresa agrega hace presente ano respecto tambien intervencion inicia continua continuacion prosigue aludido referido ofrece palabra agradece comentarios concede consulta opinion tiene porque pero hay ello ser muy puede pueden parte caso punto forma manera bien solo dado reunion sesion".split())
@@ -158,7 +159,17 @@ def run(out=OUT):
     base_votes["voto_accion_con_inferencia"] = base_votes.voto_accion
     base_votes.loc[infer_unanimous, "voto_accion_con_inferencia"] = base_votes.loc[infer_unanimous, "acuerdo_accion"]
     base_votes["fuente_voto"] = np.where(base_votes.voto_accion.ne("no_extraido"), "texto_explicito_extraido", np.where(infer_unanimous, "inferido_de_unanimidad_textual", "no_extraido"))
+    review = pd.read_csv(VOTE_REVIEW, dtype=str, keep_default_na=False)
+    if review.duplicated(["meeting_id","actor"]).any(): raise ValueError("Revisión de votos duplicada")
+    if len(base_votes.merge(review[["meeting_id","actor"]], on=["meeting_id","actor"], how="inner")) != len(review): raise ValueError("Revisión contiene pares ajenos a la base")
+    base_votes = base_votes.merge(review, on=["meeting_id","actor"], how="left", validate="one_to_one")
+    reviewed = base_votes.voto_accion_revision.fillna("").isin(["subir","bajar","mantener"])
+    base_votes["voto_accion_final"] = base_votes.voto_accion_con_inferencia
+    base_votes.loc[reviewed, "voto_accion_final"] = base_votes.loc[reviewed, "voto_accion_revision"]
+    base_votes["fuente_voto_final"] = base_votes.fuente_voto
+    base_votes.loc[reviewed, "fuente_voto_final"] = "revision_textual_asistida"
     base_votes["coincide_con_acuerdo"] = np.where(base_votes.voto_accion.eq("no_extraido"), "no_determinado", np.where(base_votes.voto_accion.eq(base_votes.acuerdo_accion), "si", "no"))
+    base_votes["coincide_final_con_acuerdo"] = np.where(base_votes.voto_accion_final.eq("no_extraido"), "no_determinado", np.where(base_votes.voto_accion_final.eq(base_votes.acuerdo_accion), "si", "no"))
     base_votes.sort_values(["fecha","orden_habla","actor"]).to_csv(out / "base_votos_acta_actor.csv", index=False, lineterminator="\n")
     convergence = []
     directional_rows = valid[comparable & valid.etiqueta_analisis.isin(["hawkish", "dovish"]) & valid.meeting_id.isin(decisions)].copy()
@@ -209,9 +220,9 @@ def run(out=OUT):
         for _, row in hits.iterrows(): contexts.append({"ngram":term.ngram,"distintivo_de":term.distintivo_de,"intervencion_id":row.intervencion_id,"meeting_id":row.meeting_id,"etiqueta_analisis":row.etiqueta_analisis,"texto":row.texto})
     pd.DataFrame(contexts).to_csv(out / "lexico_contextos_h_d.csv", index=False, lineterminator="\n")
     outputs = sorted(p.name for p in out.iterdir() if p.is_file())
-    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_no_extraidos":int(base_votes.voto_accion_con_inferencia.eq("no_extraido").sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
+    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
     save_json(out / "resumen.json", summary); outputs.append("resumen.json")
-    sources = [CLASSIFIED, CORPUS, TRAIN, GOLD, Path(__file__)]
+    sources = [CLASSIFIED, CORPUS, TRAIN, GOLD, VOTE_REVIEW, Path(__file__)]
     save_json(out / "manifest.json", {"fuentes_sha256":{str(p.relative_to(ROOT)):sha(p) for p in sources},"sha256_salidas":{name:sha(out/name) for name in outputs}})
     return summary
 if __name__ == "__main__": print(json.dumps(run(), ensure_ascii=False, indent=2))
