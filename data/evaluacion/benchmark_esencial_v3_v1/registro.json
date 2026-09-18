@@ -4,7 +4,8 @@
   "mejor_numerico_v3": "W+C+600",
   "modelo_formal_vigente": "W+C+600",
   "mrbert_estado": "ejecutado; no adoptado",
-  "ciega_300_estado": "abierta una vez; 299 decidibles; W+C+600 adoptado",
+  "ciega_300_estado": "cerrada tras apertura única; 299 decidibles; W+C+600 adoptado frente a C+89",
+  "analisis_factorial_ciego": "la mejora proviene principalmente de +600; ventaja incremental W+C sobre C+600 pequeña, IC agrupado incluye cero y una omisión adicional",
   "advertencias": [
     "793 casos son desarrollo abierto",
     "la evaluación ciega es challenge enriquecida y no estima prevalencia natural",

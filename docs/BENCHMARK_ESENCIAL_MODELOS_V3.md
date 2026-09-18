@@ -107,7 +107,9 @@ MrBERT-es queda registrado como experimento ejecutado y no adoptado. Su resultad
 
 ## Confirmación ciega agrupada
 
-Tras validación humana fila por fila se evaluaron 299 casos decidibles de las 300 filas. C+89 obtuvo accuracy 0,775920, macro-F1 0,629934 y F1-HD 0,513709; W+C+600 obtuvo accuracy 0,856187, macro-F1 0,746259 y F1-HD 0,663248. W+C redujo errores 67→43 e inversiones 7→3, mantuvo omisiones en 14 y mejoró los ocho controles congelados. Por ello **W+C+600 pasa a ser el modelo formal adoptado**.
+Tras validación humana fila por fila se evaluaron 299 casos decidibles de las 300 filas. C+89 obtuvo accuracy 0,775920, macro-F1 0,629934 y F1-HD 0,513709; W+C+600 obtuvo accuracy 0,856187, macro-F1 0,746259 y F1-HD 0,663248. W+C redujo errores 67→43 e inversiones 7→3, mantuvo omisiones en 14 y mejoró los ocho controles congelados. Por ello **W+C+600 pasa a ser el modelo formal adoptado frente a C+89**.
+
+El análisis factorial secundario mostró que +600 explica casi toda la mejora. Con los mismos +600 datos, C obtuvo macro-F1 0,735642 y W+C 0,746259, pero el intervalo agrupado de la diferencia incluye cero y W+C produjo 14 omisiones frente a 13 de C. Por tanto, no debe afirmarse que caracteres sea inequívocamente superior a palabras a igualdad de datos; C+600 queda como alternativa parsimoniosa para una futura validación independiente.
 
 ## Límites de la defensa
 
