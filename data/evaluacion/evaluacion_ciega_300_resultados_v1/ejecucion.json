@@ -1,0 +1,197 @@
+[
+  {
+    "miembro": 1,
+    "peso_char": 1.0,
+    "n_c89": 1057,
+    "n_wc600": 1494,
+    "dim_c": {
+      "n_train": 1057,
+      "n_train_relevante": 865,
+      "clases_train": {
+        "neutral": 851,
+        "hawkish": 142,
+        "dovish": 64
+      },
+      "relevancia_train": {
+        "1": 865,
+        "0": 192
+      },
+      "vocabulario_a": 4402,
+      "vocabulario_b": 36752,
+      "iteraciones_a": [
+        15
+      ],
+      "iteraciones_b": [
+        20
+      ]
+    },
+    "dim_wc": {
+      "n_train": 1494,
+      "n_relevante": 1274,
+      "features_a": 33978,
+      "features_b": 92674,
+      "iteraciones_a": [
+        17
+      ],
+      "iteraciones_b": [
+        29
+      ]
+    }
+  },
+  {
+    "miembro": 2,
+    "peso_char": 0.5,
+    "n_c89": 1013,
+    "n_wc600": 1450,
+    "dim_c": {
+      "n_train": 1013,
+      "n_train_relevante": 837,
+      "clases_train": {
+        "neutral": 809,
+        "hawkish": 143,
+        "dovish": 61
+      },
+      "relevancia_train": {
+        "1": 837,
+        "0": 176
+      },
+      "vocabulario_a": 4317,
+      "vocabulario_b": 35316,
+      "iteraciones_a": [
+        15
+      ],
+      "iteraciones_b": [
+        20
+      ]
+    },
+    "dim_wc": {
+      "n_train": 1450,
+      "n_relevante": 1246,
+      "features_a": 33766,
+      "features_b": 91304,
+      "iteraciones_a": [
+        12
+      ],
+      "iteraciones_b": [
+        34
+      ]
+    }
+  },
+  {
+    "miembro": 3,
+    "peso_char": 1.0,
+    "n_c89": 1016,
+    "n_wc600": 1453,
+    "dim_c": {
+      "n_train": 1016,
+      "n_train_relevante": 835,
+      "clases_train": {
+        "neutral": 821,
+        "hawkish": 139,
+        "dovish": 56
+      },
+      "relevancia_train": {
+        "1": 835,
+        "0": 181
+      },
+      "vocabulario_a": 4364,
+      "vocabulario_b": 36153,
+      "iteraciones_a": [
+        15
+      ],
+      "iteraciones_b": [
+        21
+      ]
+    },
+    "dim_wc": {
+      "n_train": 1453,
+      "n_relevante": 1244,
+      "features_a": 33971,
+      "features_b": 91986,
+      "iteraciones_a": [
+        19
+      ],
+      "iteraciones_b": [
+        38
+      ]
+    }
+  },
+  {
+    "miembro": 4,
+    "peso_char": 1.0,
+    "n_c89": 1036,
+    "n_wc600": 1473,
+    "dim_c": {
+      "n_train": 1036,
+      "n_train_relevante": 856,
+      "clases_train": {
+        "neutral": 833,
+        "hawkish": 141,
+        "dovish": 62
+      },
+      "relevancia_train": {
+        "1": 856,
+        "0": 180
+      },
+      "vocabulario_a": 4389,
+      "vocabulario_b": 36481,
+      "iteraciones_a": [
+        20
+      ],
+      "iteraciones_b": [
+        20
+      ]
+    },
+    "dim_wc": {
+      "n_train": 1473,
+      "n_relevante": 1265,
+      "features_a": 34074,
+      "features_b": 92633,
+      "iteraciones_a": [
+        13
+      ],
+      "iteraciones_b": [
+        30
+      ]
+    }
+  },
+  {
+    "miembro": 5,
+    "peso_char": 1.0,
+    "n_c89": 1029,
+    "n_wc600": 1466,
+    "dim_c": {
+      "n_train": 1029,
+      "n_train_relevante": 843,
+      "clases_train": {
+        "neutral": 826,
+        "hawkish": 143,
+        "dovish": 60
+      },
+      "relevancia_train": {
+        "1": 843,
+        "0": 186
+      },
+      "vocabulario_a": 4336,
+      "vocabulario_b": 35266,
+      "iteraciones_a": [
+        14
+      ],
+      "iteraciones_b": [
+        22
+      ]
+    },
+    "dim_wc": {
+      "n_train": 1466,
+      "n_relevante": 1252,
+      "features_a": 33674,
+      "features_b": 90900,
+      "iteraciones_a": [
+        17
+      ],
+      "iteraciones_b": [
+        24
+      ]
+    }
+  }
+]

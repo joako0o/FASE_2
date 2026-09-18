@@ -105,12 +105,17 @@ MrBERT-es queda registrado como experimento ejecutado y no adoptado. Su resultad
 6. **Costo:** permite nested CV agrupada y repetición de controles con recursos modestos.
 7. **Desempeño:** W+C+600 alcanza macro-F1 0,825 y F1-HD 0,753 en desarrollo.
 
+## Confirmación ciega agrupada
+
+Tras validación humana fila por fila se evaluaron 299 casos decidibles de las 300 filas. C+89 obtuvo accuracy 0,775920, macro-F1 0,629934 y F1-HD 0,513709; W+C+600 obtuvo accuracy 0,856187, macro-F1 0,746259 y F1-HD 0,663248. W+C redujo errores 67→43 e inversiones 7→3, mantuvo omisiones en 14 y mejoró los ocho controles congelados. Por ello **W+C+600 pasa a ser el modelo formal adoptado**.
+
 ## Límites de la defensa
 
-- El mejor resultado v3 aún no es una evaluación ciega final.
-- W+C+600 aumentó omisiones frente al ancla formal C+89 y por eso no lo reemplazó bajo la regla congelada.
-- La procedencia humana, asistida o automática de cada tanda debe declararse.
-- La conclusión final ya incorpora el resultado de MrBERT-es; aún debe incorporar las 300 evaluaciones ciegas sin reescribir el historial.
+- La evaluación ciega es challenge enriquecida y no estima prevalencia natural.
+- Sus 33 reuniones fueron excluidas totalmente del ajuste prospectivo, pero tuvieron exposición durante el desarrollo histórico.
+- La anotación fue asistida por IA con validación humana fila por fila; una unidad no decidible quedó fuera de métricas.
+- W+C+600 había aumentado omisiones en desarrollo y no se adoptó entonces; la adopción ocurrió solo tras no aumentarlas y superar los ocho controles en la apertura ciega.
+- La conclusión incorpora el resultado negativo de MrBERT-es sin generalizarlo a todos los transformers.
 
 ## Elementos que no deben eliminarse al condensar
 

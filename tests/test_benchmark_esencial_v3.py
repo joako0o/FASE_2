@@ -17,9 +17,10 @@ class TestBenchmarkEsencialV3(unittest.TestCase):
         with (OUT / "tabla_modelos.csv").open(encoding="utf-8", newline="") as f: cls.rows = list(csv.DictReader(f))
 
     def test_modelos_y_estados_clave(self):
-        self.assertEqual(len(self.rows), 12)
+        self.assertEqual(len(self.rows), 14)
         self.assertEqual(self.registry["mejor_numerico_v3"], "W+C+600")
-        self.assertEqual(self.registry["modelo_formal_vigente"], "C+89")
+        self.assertEqual(self.registry["modelo_formal_vigente"], "W+C+600")
+        self.assertIn("W+C+600 adoptado", self.registry["ciega_300_estado"])
         self.assertEqual(self.registry["mrbert_estado"], "ejecutado; no adoptado")
         self.assertEqual({r["modelo"] for r in self.rows} & {"MrBERT-es+600"}, {"MrBERT-es+600"})
 

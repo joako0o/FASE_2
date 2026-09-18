@@ -1,0 +1,24 @@
+{
+  "fuentes_sha256": {
+    "corpus": "f5f767dd2f6247cf7c57b65203627be4d483b11d28550e9f40dac99953e64c9c",
+    "referencia_v3": "5e8211233bc5338a2bf3a805b321f084bfa838ea2be0f9c4ecfda102eae86d51",
+    "referencia_v2": "dc1336c88cb8f21e40a632d39fefe1b74477660e608045fec49a936865bf3903",
+    "folds": "f452acabbc6befa62493c2a34141d83aa5da055d95e29756a911ddcb8ca61d92",
+    "predicciones_historicas": "8b69f49c3cac798fb243cac1c97384b201a2957751d0f894fbbd88f651df02ad",
+    "protocolo_historico": "7fb75b138981b896cfa487b54904f0d09fc33d03b59fc1ad492c9e677a371e6f",
+    "protocolo_v3": "d1e9e79636b3ac3a1b78275651858b1f7458babda684aad01e2644a3c06df32b",
+    "script_fase_b": "f5a581e0731fc1087d5ef01a0644863ee99d6a9edd85b9c5947c9638b7e96ca8",
+    "requirements": "7e7352e97e8aee967b509fa3dbbefd6322b569e975517ab97f437414454fb795",
+    "gold": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
+    "cuarentena": "cc806c5fc2bb6d09e49df3878413e844d4dce037b8513e20de9e80fd91f46bf6",
+    "prerregistro": "84d3ba466b85b5881056f5c94f6067850b6948545392cc3033f8f923d0dee619",
+    "script": "784f144ed4d82899aa8099ecfaee96bf3c04305a5b1af56785beecfbe6fb121b"
+  },
+  "versiones": {
+    "python": "3.11.2",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.1"
+  }
+}

@@ -17,6 +17,8 @@ SPECS = [
     ("C+600", "v3_desarrollo_793", "data/evaluacion/reestimacion_600_c_wc_v3_v1/metricas.json", "c_mas_600", "no_adoptado"),
     ("W+C+600", "v3_desarrollo_793", "data/evaluacion/reestimacion_600_c_wc_v3_v1/metricas.json", "wc_mas_600", "mejor_numerico_challenger"),
     ("MrBERT-es+600", "v3_desarrollo_793", "data/evaluacion/mrbert_600_v3_v1/metricas.json", "mrbert_600", "rechazado_controlado"),
+    ("C+89 ciego", "ciega_challenge_299", "data/evaluacion/evaluacion_ciega_300_resultados_v1/metricas.json", "modelos.c_89", "ancla_ciega"),
+    ("W+C+600 ciego", "ciega_challenge_299", "data/evaluacion/evaluacion_ciega_300_resultados_v1/metricas.json", "modelos.wc_600", "adoptado"),
 ]
 BETO_SOURCE = ROOT / "data/auditoria/recepcion_beto_v1/auditoria.json"
 
@@ -26,7 +28,8 @@ def read_json(path): return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
 def flatten(name, group, source, key, decision):
-    m = read_json(ROOT / source)[key]
+    m = read_json(ROOT / source)
+    for part in key.split("."): m = m[part]
     return {"modelo": name, "grupo_comparabilidad": group, "accuracy": m["accuracy"], "macro_f1": m["macro_f1"], "f1_hd": m["f1_hd"],
         "f1_h": m["por_clase"]["hawkish"]["f1"], "f1_d": m["por_clase"]["dovish"]["f1"], "recall_d": m["por_clase"]["dovish"]["recall"],
         "f1_n": m["por_clase"]["neutral"]["f1"], "errores": m["errores"], "inversiones_hd": m["h_d_cruzados"],
@@ -53,8 +56,8 @@ def run(out=OUT):
         "validacion": {"outer": "5 folds agrupados por meeting_id", "inner": "GroupKFold(3) solo para selección permitida", "purga": "reunión y texto normalizado", "n_validacion": 793}}
     sources = sorted({ROOT / row["fuente"] for row in rows} | {ROOT / "scripts/entrenar_tfidf_supervision_v3.py", ROOT / "scripts/evaluar_palabras_caracteres_v3.py"})
     registry = {"version": "benchmark_esencial_v3_v1", "objetivo": "preservar evidencia, parámetros y decisiones para defender elección TF-IDF",
-        "mejor_numerico_v3": "W+C+600", "modelo_formal_vigente": "C+89", "mrbert_estado": "ejecutado; no adoptado",
-        "advertencias": ["793 casos son desarrollo abierto, no test final", "no comparar directamente grupos v3 y legado v2", "MrBERT-es evaluado no representa a todos los transformers", "una arquitectura rechazada no prueba inferioridad universal"],
+        "mejor_numerico_v3": "W+C+600", "modelo_formal_vigente": "W+C+600", "mrbert_estado": "ejecutado; no adoptado", "ciega_300_estado": "abierta una vez; 299 decidibles; W+C+600 adoptado",
+        "advertencias": ["793 casos son desarrollo abierto", "la evaluación ciega es challenge enriquecida y no estima prevalencia natural", "las reuniones ciegas tuvieron exposición histórica de desarrollo pero fueron excluidas del ajuste prospectivo", "no comparar directamente grupos v3, legado v2 y ciega challenge", "MrBERT-es evaluado no representa a todos los transformers", "una arquitectura rechazada no prueba inferioridad universal"],
         "parametros_tfidf": params, "modelos": rows, "fuentes_sha256": {str(path.relative_to(ROOT)): sha(path) for path in sources}}
     out.mkdir(parents=True); (out / "registro.json").write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     with (out / "tabla_modelos.csv").open("x", encoding="utf-8", newline="") as f:
