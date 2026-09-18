@@ -3,3 +3,5 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 predicciones_corpus.csv
+datos_web/actas/*.json
+datos_web/*.json

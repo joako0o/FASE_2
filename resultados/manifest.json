@@ -1,7 +1,6 @@
 {
-  "modelo": "W+C+600",
   "sha256": {
-    "clasificacion_wc600_9725.csv": "7f206ada68bacf6d2c6ba8905278e594427f23a7fa8686f1b8665521e5007336",
+    "clasificacion_wc600_9725.csv": "5382a00b92362e44d2d8e492d7080ffe6c1756a4d22c496dbcac8bf22ebb9ed8",
     "resumen_clasificacion.json": "c8bcd902077d459f9a2206c88174c8b2cae4ec989e685dc06c100655272e526a"
   }
 }
