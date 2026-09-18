@@ -1,0 +1,22 @@
+{
+  "periodo": [
+    2005,
+    2015
+  ],
+  "modelo_postura": "W+C+600",
+  "unidad_explorador": "intervencion registrada en el acta",
+  "modelo_topicos": "NMF K=14 ajustado sobre oraciones y proyectado a intervenciones",
+  "etiquetas_orientacion": {
+    "H": "respalda dirección relativamente más restrictiva",
+    "D": "respalda dirección relativamente más expansiva",
+    "N": "sin dirección respaldada",
+    "ND": "no puedo decidir"
+  },
+  "advertencias": [
+    "Las actas son registros institucionales, no transcripciones estenográficas.",
+    "H/D/N describe evidencia textual, no identidad política permanente.",
+    "Los nombres NMF son glosas auditadas posteriores al modelo.",
+    "El radar mide énfasis relativo, no habilidad.",
+    "Asociación y secuencia no demuestran influencia ni causalidad."
+  ]
+}

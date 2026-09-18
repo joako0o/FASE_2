@@ -1,9 +1,0 @@
-{
-  "sha256_salidas": {
-    "NO_ABRIR_hasta_finalizar_clave.csv": "a908c0ed32bdc24cecfd8552f82784bf062d3140c97d1f50dea4435dd663c91d",
-    "formulario/index.html": "769bb9ec7a8a04e4e7b049d12ef789162887f25074661620ba30611b8fd87be7",
-    "protocolo.json": "31917ec778b42b20cfea296e977950fba755e3608c7a4aa0624b23400e2823b7"
-  },
-  "muestra_sha256": "d1948c37543cda65ef66e0d0ff2291cc5b7dfb25403e37bb8a165c5f51764daa",
-  "n_casos": 30
-}

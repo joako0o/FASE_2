@@ -1,14 +1,4 @@
-# Los manifiestos verifican SHA256 de bytes, incluidos los finales de línea.
-# No normalizar estos insumos/artefactos al clonar con core.autocrlf activado.
-scripts/** -text
-tests/** -text
-data/** -text
-docs/** -text
-requirements.txt -text
-*.xlsx -text
-
-# Lock adicional del ensayo GPU; también entra en manifiestos SHA256.
-requirements-beto.txt -text
-notebooks/** -text
-requirements-preparacion.txt -text
-entrega/** -text
+*.csv text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf

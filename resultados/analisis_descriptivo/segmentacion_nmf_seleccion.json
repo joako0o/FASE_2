@@ -1,0 +1,54 @@
+{
+  "k_evaluados": [
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24
+  ],
+  "k_seleccionado": 14,
+  "k6_probado": true,
+  "k_hasta_24_probado": true,
+  "conclusion_k6": "Alta coherencia y estabilidad, pero un componente concentra cerca de 46% y solo tres de seis componentes son dominios económicos sustantivos; los demás capturan estructura/decisión. No se recomienda usar sus seis componentes como seis habilidades FIFA.",
+  "razon_k14": "Mantiene estabilidad prácticamente perfecta y diversidad alta, reduce la prevalencia máxima a cerca de 15%, y es el primer candidato que separa actividad, trabajo, inflación, commodities, tipo de cambio y tasas. K=20/22/24 fragmentan actividad, inflación, tasas y escenario externo, y pierden diversidad sin aportar ejes necesarios al radar.",
+  "comparacion_clave": {
+    "k6": {
+      "coherencia_npmi": 0.3495552616804404,
+      "prevalencia_maxima": 0.46103129067084125,
+      "estabilidad": 0.9999997040528599
+    },
+    "k14": {
+      "coherencia_npmi": 0.3041759073384509,
+      "prevalencia_maxima": 0.1479456412908961,
+      "diversidad": 0.9785714285714285,
+      "estabilidad": 0.9999899313603586
+    },
+    "k18": {
+      "coherencia_npmi": 0.3158683777522065,
+      "diversidad": 0.9555555555555556,
+      "estabilidad": 0.9999999573826495
+    },
+    "k20": {
+      "diversidad": 0.93,
+      "estabilidad": 0.9459523117844402
+    },
+    "k22": {
+      "diversidad": 0.9181818181818182,
+      "estabilidad": 0.9256479779044489
+    },
+    "k24": {
+      "coherencia_npmi": 0.30359283848665947,
+      "diversidad": 0.9125,
+      "estabilidad": 0.9999999773493016,
+      "prevalencia_maxima": 0.08484108965367737
+    }
+  },
+  "unidad_seleccionada": "oracion_min_80",
+  "razon_unidad": "Intervención y actor-reunión mezclan contenido económico con fórmulas procedimentales; la oración separa mejor dominios semánticos. La asignación final se proyecta luego a cada intervención.",
+  "criterio": "Selección multicriterio: coherencia, estabilidad, diversidad, redundancia, balance de prevalencia e interpretación; el error de reconstrucción no se usa solo porque siempre mejora al aumentar K."
+}

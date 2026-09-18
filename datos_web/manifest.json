@@ -1,0 +1,90 @@
+{
+  "version": "datos_web_v1",
+  "generado_desde": "resultados/analisis_descriptivo",
+  "periodo": [
+    2005,
+    2015
+  ],
+  "archivos": {
+    "README.md": {
+      "bytes": 1011,
+      "sha256": "56b5a02236e2dda3a3644329c2677c12445e2d8767624838a88d09964e19ff5c"
+    },
+    "actas/2005.json": {
+      "bytes": 1436623,
+      "sha256": "637b0ce86bba4823deb564f8fbe214b3e3c88cd1b292e73e7e64baad103b10af"
+    },
+    "actas/2006.json": {
+      "bytes": 1484599,
+      "sha256": "956931218bfae313077dc48db35dad70c5b4dafd95441c99d86f49312e88eb0f"
+    },
+    "actas/2007.json": {
+      "bytes": 2012745,
+      "sha256": "936d556c43712f2884ac233d9fe81fcbe4f4aaeedc069854c95f773806dfa2b1"
+    },
+    "actas/2008.json": {
+      "bytes": 2107029,
+      "sha256": "e08032be94957dfb334e84f17e2c05ec48cc15473d3b9b2719e31ed87d04abaf"
+    },
+    "actas/2009.json": {
+      "bytes": 2194999,
+      "sha256": "c0c6b26c9d0138b656361677a8079541edc64d75b7f3e870b218acb3e22bea1f"
+    },
+    "actas/2010.json": {
+      "bytes": 2235010,
+      "sha256": "56c3a305dbdc11ca7da47d15d38b8a58b6e55cce6f968da51057f3a328e854e8"
+    },
+    "actas/2011.json": {
+      "bytes": 2095431,
+      "sha256": "52f58f3bfc5846f2328a9664b5f29d74cc50f1ed29410ab5ed4196481722c08d"
+    },
+    "actas/2012.json": {
+      "bytes": 2026862,
+      "sha256": "43a5b811a58ef40dcd50c84824122772b9688f52f723f9fcbbcea02e2afb81b5"
+    },
+    "actas/2013.json": {
+      "bytes": 2019005,
+      "sha256": "616d185280fcee197dd50f3d4fe8ade14e9e64457163aa214baa848cc1c568a0"
+    },
+    "actas/2014.json": {
+      "bytes": 1874100,
+      "sha256": "79bb387ec0167d9679b2a7140bf705eb971c92999da08ca008001d39fc0a7907"
+    },
+    "actas/2015.json": {
+      "bytes": 1792866,
+      "sha256": "6c6bfb90ba34654031af6a78874dcd68d7e7b7a342fb25b81886aba55c3145af"
+    },
+    "actas/index.json": {
+      "bytes": 21818,
+      "sha256": "82febc5b0ac11a51e3d7c97063d496c7e8bfdf4ca6d040e58ffa697a59fa96eb"
+    },
+    "actores.json": {
+      "bytes": 423762,
+      "sha256": "e35205a64553c5d49c1e36ff0446af04f4f4abeee60f52d5fe810d2871b8148f"
+    },
+    "estructura_actas.json": {
+      "bytes": 3697,
+      "sha256": "1f26e89c976f1e99eb63128a82866b07fb05df00b2da86bb87d0707cfb2dc1fd"
+    },
+    "metodologia.json": {
+      "bytes": 822,
+      "sha256": "7a532d10db4377eafd8f80c756bfe180ef766e2dc954d142a2d8c5878c881d3f"
+    },
+    "resumen.json": {
+      "bytes": 1901,
+      "sha256": "ec1f2d9c9ad90eae2558234e32c5e2556e0cc1c40e601d389c93f18f99eb9c81"
+    },
+    "reuniones.json": {
+      "bytes": 1080066,
+      "sha256": "9f7c45ae85fb99eda2e6c86d1cacff6a8e842bedbe3fe1e684d825b3879b6ba4"
+    },
+    "series_generales.json": {
+      "bytes": 32259,
+      "sha256": "7b3df781b57c98dd7ad6ebb6fea9e0acb4900c74804969653e30b33b048ffe42"
+    },
+    "topicos.json": {
+      "bytes": 29878,
+      "sha256": "5b6df9c867719b8fc397ebc4913134534ef388a447dd26f95967278d5f528002"
+    }
+  }
+}

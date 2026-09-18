@@ -1,0 +1,29 @@
+{
+  "unidad": "Acta/reunión y año",
+  "ejes_componentes_nmf": {
+    "actividad_demanda_ciclo": [
+      "tema_nmf_01"
+    ],
+    "mercado_laboral_empleo": [
+      "tema_nmf_02"
+    ],
+    "inflacion_expectativas_meta": [
+      "tema_nmf_09"
+    ],
+    "entorno_externo_commodities_economias": [
+      "tema_nmf_03",
+      "tema_nmf_08",
+      "tema_nmf_13"
+    ],
+    "tipo_cambio_real_nominal": [
+      "tema_nmf_10"
+    ],
+    "tasas_interes_plazos": [
+      "tema_nmf_12"
+    ]
+  },
+  "serie_principal": "proporcion_seis_ejes",
+  "suavizado": "media móvil retrospectiva de 12 reuniones; disponible desde 6 observaciones",
+  "cambio": "diferencia contra 12 reuniones antes o año anterior",
+  "advertencia": "Cambios descriptivos en atención textual; no miden por sí solos importancia económica ni causalidad."
+}

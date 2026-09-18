@@ -1,6 +1,0 @@
-intervencion_id,meeting_id,es_relevante,etiqueta_ia_original,etiqueta_corregida_v2,fold,supervision,pred_a,pred_b,pred,estado_revision_previa
-RPM-2006-05-11:671:1,RPM-2006-05-11,1,dovish,dovish,1,seis_mas_trece,1,hawkish,hawkish,ambigua
-RPM-2005-04-07:215:1,RPM-2005-04-07,1,dovish,dovish,2,seis_mas_trece,1,hawkish,hawkish,ambigua
-RPM-2006-09-07:867:1,RPM-2006-09-07,1,dovish,dovish,3,seis_mas_trece,1,hawkish,hawkish,ambigua
-RPM-2006-12-14:1019:1,RPM-2006-12-14,1,hawkish,hawkish,3,seis_mas_trece,1,dovish,dovish,ambigua
-RPM-2006-03-16:621:1,RPM-2006-03-16,1,dovish,dovish,4,seis_mas_trece,1,hawkish,hawkish,ambigua

@@ -1,0 +1,104 @@
+{
+  "modelo": "W+C+600",
+  "filas": 9725,
+  "ids_unicos": 9725,
+  "distribucion": {
+    "neutral": 8832,
+    "hawkish": 513,
+    "dovish": 380
+  },
+  "porcentaje": {
+    "neutral": 90.8175,
+    "hawkish": 5.2751,
+    "dovish": 3.9075
+  },
+  "roles": {
+    "inferencia_no_etiquetada": 7829,
+    "entrenamiento": 1596,
+    "evaluacion_ciega": 300
+  },
+  "acuerdo_miembros": {
+    "unanime": 9556,
+    "desacuerdo": 169
+  },
+  "por_anio": {
+    "2005": {
+      "dovish": 0,
+      "hawkish": 113,
+      "neutral": 562
+    },
+    "2006": {
+      "dovish": 5,
+      "hawkish": 86,
+      "neutral": 585
+    },
+    "2007": {
+      "dovish": 17,
+      "hawkish": 72,
+      "neutral": 729
+    },
+    "2008": {
+      "dovish": 10,
+      "hawkish": 75,
+      "neutral": 872
+    },
+    "2009": {
+      "dovish": 94,
+      "hawkish": 5,
+      "neutral": 994
+    },
+    "2010": {
+      "dovish": 8,
+      "hawkish": 79,
+      "neutral": 1063
+    },
+    "2011": {
+      "dovish": 15,
+      "hawkish": 57,
+      "neutral": 990
+    },
+    "2012": {
+      "dovish": 18,
+      "hawkish": 0,
+      "neutral": 891
+    },
+    "2013": {
+      "dovish": 66,
+      "hawkish": 1,
+      "neutral": 749
+    },
+    "2014": {
+      "dovish": 113,
+      "hawkish": 0,
+      "neutral": 635
+    },
+    "2015": {
+      "dovish": 34,
+      "hawkish": 25,
+      "neutral": 762
+    }
+  },
+  "reproduccion_evaluacion_ciega": "300/300",
+  "sha256_csv": "7f206ada68bacf6d2c6ba8905278e594427f23a7fa8686f1b8665521e5007336",
+  "advertencia": "Las predicciones de filas de entrenamiento son in-sample; evaluación_ciega conserva predicciones prospectivas; inferencia_no_etiquetada no tiene gold.",
+  "columnas_semanticas_restauradas": [
+    "topico_humano",
+    "keywords_humano"
+  ],
+  "puntajes_continuos": [
+    "prob_h_no_calibrada",
+    "prob_d_no_calibrada",
+    "prob_n_no_calibrada",
+    "score_hd_continuo",
+    "prob_relevancia_no_calibrada"
+  ],
+  "relevancia_modelo": {
+    "relevante": 7806,
+    "irrelevante": 1919
+  },
+  "acuerdo_relevancia_miembros": {
+    "unanime": 9538,
+    "desacuerdo": 187
+  },
+  "advertencia_relevancia": "La relevancia de análisis reemplaza esta predicción por etiqueta humana en entrenamiento y evaluación ciega; consultar tabla_maestra.csv."
+}

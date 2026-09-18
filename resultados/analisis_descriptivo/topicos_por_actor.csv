@@ -1,0 +1,397 @@
+actor,topico_humano,n,proporcion_actor,ranking_actor
+Alberto Arenas de Mesa,debate,7,0.3333333333333333,1
+Alberto Arenas de Mesa,mercados_financieros,6,0.2857142857142857,2
+Alberto Arenas de Mesa,acuerdo_comunicado,2,0.09523809523809523,3
+Alberto Arenas de Mesa,escenario_internacional,2,0.09523809523809523,4
+Alberto Arenas de Mesa,inflacion,2,0.09523809523809523,5
+Alberto Arenas de Mesa,decision_tpm,1,0.047619047619047616,6
+Alberto Arenas de Mesa,politica_fiscal,1,0.047619047619047616,7
+Alberto Naudon Dell'Oro,debate,22,0.1896551724137931,1
+Alberto Naudon Dell'Oro,escenario_internacional,22,0.1896551724137931,2
+Alberto Naudon Dell'Oro,mercados_financieros,20,0.1724137931034483,3
+Alberto Naudon Dell'Oro,mercado_laboral,15,0.12931034482758622,4
+Alberto Naudon Dell'Oro,opciones_tpm,10,0.08620689655172414,5
+Alberto Naudon Dell'Oro,acuerdo_comunicado,9,0.07758620689655173,6
+Alberto Naudon Dell'Oro,actividad_interna,8,0.06896551724137931,7
+Alberto Naudon Dell'Oro,inflacion,8,0.06896551724137931,8
+Alberto Naudon Dell'Oro,otros,1,0.008620689655172414,9
+Alberto Naudon Dell'Oro,politica_fiscal,1,0.008620689655172414,10
+Alejandro Micco,decision_tpm,7,0.5833333333333334,1
+Alejandro Micco,acuerdo_comunicado,3,0.25,2
+Alejandro Micco,escenario_internacional,1,0.08333333333333333,3
+Alejandro Micco,mercados_financieros,1,0.08333333333333333,4
+Alfredo Pistelli,escenario_internacional,1,0.5,1
+Alfredo Pistelli,mercados_financieros,1,0.5,2
+Andrés Velasco Brañes,escenario_internacional,44,0.1981981981981982,1
+Andrés Velasco Brañes,debate,34,0.15315315315315314,2
+Andrés Velasco Brañes,inflacion,32,0.14414414414414414,3
+Andrés Velasco Brañes,mercados_financieros,30,0.13513513513513514,4
+Andrés Velasco Brañes,acuerdo_comunicado,27,0.12162162162162163,5
+Andrés Velasco Brañes,actividad_interna,18,0.08108108108108109,6
+Andrés Velasco Brañes,mercado_laboral,13,0.05855855855855856,7
+Andrés Velasco Brañes,otros,7,0.03153153153153153,8
+Andrés Velasco Brañes,opciones_tpm,6,0.02702702702702703,9
+Andrés Velasco Brañes,decision_tpm,5,0.02252252252252252,10
+Andrés Velasco Brañes,politica_fiscal,4,0.018018018018018018,11
+Andrés Velasco Brañes,riesgos,2,0.009009009009009009,12
+Ari Aisen,escenario_internacional,1,1.0,1
+Beltrán de Ramón Acevedo,mercados_financieros,51,0.2786885245901639,1
+Beltrán de Ramón Acevedo,acuerdo_comunicado,37,0.20218579234972678,2
+Beltrán de Ramón Acevedo,escenario_internacional,32,0.17486338797814208,3
+Beltrán de Ramón Acevedo,debate,25,0.1366120218579235,4
+Beltrán de Ramón Acevedo,inflacion,22,0.12021857923497267,5
+Beltrán de Ramón Acevedo,opciones_tpm,7,0.03825136612021858,6
+Beltrán de Ramón Acevedo,actividad_interna,4,0.02185792349726776,7
+Beltrán de Ramón Acevedo,mercado_laboral,2,0.01092896174863388,8
+Beltrán de Ramón Acevedo,otros,2,0.01092896174863388,9
+Beltrán de Ramón Acevedo,politica_fiscal,1,0.00546448087431694,10
+Camilo Carrasco Alfonso,mercados_financieros,3,0.75,1
+Camilo Carrasco Alfonso,otros,1,0.25,2
+Claudio Raddatz Kiefer,acuerdo_comunicado,4,0.2,1
+Claudio Raddatz Kiefer,opciones_tpm,4,0.2,2
+Claudio Raddatz Kiefer,escenario_internacional,3,0.15,3
+Claudio Raddatz Kiefer,mercados_financieros,3,0.15,4
+Claudio Raddatz Kiefer,debate,2,0.1,5
+Claudio Raddatz Kiefer,inflacion,2,0.1,6
+Claudio Raddatz Kiefer,actividad_interna,1,0.05,7
+Claudio Raddatz Kiefer,mercado_laboral,1,0.05,8
+Claudio Soto Gamboa,actividad_interna,147,0.18193069306930693,1
+Claudio Soto Gamboa,mercados_financieros,146,0.1806930693069307,2
+Claudio Soto Gamboa,acuerdo_comunicado,135,0.1670792079207921,3
+Claudio Soto Gamboa,debate,113,0.13985148514851486,4
+Claudio Soto Gamboa,inflacion,111,0.1373762376237624,5
+Claudio Soto Gamboa,mercado_laboral,95,0.11757425742574257,6
+Claudio Soto Gamboa,escenario_internacional,40,0.04950495049504951,7
+Claudio Soto Gamboa,opciones_tpm,7,0.008663366336633664,8
+Claudio Soto Gamboa,otros,6,0.007425742574257425,9
+Claudio Soto Gamboa,riesgos,6,0.007425742574257425,10
+Claudio Soto Gamboa,politica_fiscal,2,0.0024752475247524753,11
+Consejo del Banco Central de Chile,acuerdo_comunicado,250,0.4970178926441352,1
+Consejo del Banco Central de Chile,apertura_cierre,137,0.27236580516898606,2
+Consejo del Banco Central de Chile,opciones_tpm,73,0.14512922465208747,3
+Consejo del Banco Central de Chile,debate,11,0.02186878727634195,4
+Consejo del Banco Central de Chile,mercados_financieros,8,0.015904572564612324,5
+Consejo del Banco Central de Chile,escenario_internacional,7,0.013916500994035786,6
+Consejo del Banco Central de Chile,inflacion,6,0.011928429423459244,7
+Consejo del Banco Central de Chile,politica_fiscal,4,0.007952286282306162,8
+Consejo del Banco Central de Chile,actividad_interna,2,0.003976143141153081,9
+Consejo del Banco Central de Chile,decision_tpm,2,0.003976143141153081,10
+Consejo del Banco Central de Chile,otros,2,0.003976143141153081,11
+Consejo del Banco Central de Chile,mercado_laboral,1,0.0019880715705765406,12
+Diego Gianelli Gómez,escenario_internacional,23,0.3709677419354839,1
+Diego Gianelli Gómez,acuerdo_comunicado,15,0.24193548387096775,2
+Diego Gianelli Gómez,mercados_financieros,10,0.16129032258064516,3
+Diego Gianelli Gómez,debate,5,0.08064516129032258,4
+Diego Gianelli Gómez,actividad_interna,3,0.04838709677419355,5
+Diego Gianelli Gómez,inflacion,3,0.04838709677419355,6
+Diego Gianelli Gómez,mercado_laboral,3,0.04838709677419355,7
+Elías Albagli Iruretagoyena,mercado_laboral,1,0.5,1
+Elías Albagli Iruretagoyena,riesgos,1,0.5,2
+Enrique Marshall Rivera,debate,98,0.2028985507246377,1
+Enrique Marshall Rivera,acuerdo_comunicado,81,0.16770186335403728,2
+Enrique Marshall Rivera,decision_tpm,68,0.14078674948240166,3
+Enrique Marshall Rivera,escenario_internacional,62,0.12836438923395446,4
+Enrique Marshall Rivera,mercados_financieros,56,0.11594202898550725,5
+Enrique Marshall Rivera,inflacion,40,0.08281573498964803,6
+Enrique Marshall Rivera,mercado_laboral,30,0.062111801242236024,7
+Enrique Marshall Rivera,actividad_interna,22,0.045548654244306416,8
+Enrique Marshall Rivera,riesgos,8,0.016563146997929608,9
+Enrique Marshall Rivera,opciones_tpm,7,0.014492753623188406,10
+Enrique Marshall Rivera,otros,7,0.014492753623188406,11
+Enrique Marshall Rivera,politica_fiscal,4,0.008281573498964804,12
+Enrique Orellana Cifuentes,inflacion,3,0.42857142857142855,1
+Enrique Orellana Cifuentes,mercados_financieros,3,0.42857142857142855,2
+Enrique Orellana Cifuentes,actividad_interna,1,0.14285714285714285,3
+Esteban Jadresic Marinovic,escenario_internacional,20,0.22988505747126436,1
+Esteban Jadresic Marinovic,mercados_financieros,16,0.1839080459770115,2
+Esteban Jadresic Marinovic,acuerdo_comunicado,14,0.16091954022988506,3
+Esteban Jadresic Marinovic,inflacion,9,0.10344827586206896,4
+Esteban Jadresic Marinovic,otros,8,0.09195402298850575,5
+Esteban Jadresic Marinovic,actividad_interna,6,0.06896551724137931,6
+Esteban Jadresic Marinovic,mercado_laboral,6,0.06896551724137931,7
+Esteban Jadresic Marinovic,debate,4,0.04597701149425287,8
+Esteban Jadresic Marinovic,opciones_tpm,3,0.034482758620689655,9
+Esteban Jadresic Marinovic,riesgos,1,0.011494252873563218,10
+Felipe Jaque,mercados_financieros,8,0.4,1
+Felipe Jaque,escenario_internacional,7,0.35,2
+Felipe Jaque,acuerdo_comunicado,2,0.1,3
+Felipe Jaque,debate,1,0.05,4
+Felipe Jaque,inflacion,1,0.05,5
+Felipe Jaque,opciones_tpm,1,0.05,6
+Felipe Larraín Bascuñán,acuerdo_comunicado,37,0.6607142857142857,1
+Felipe Larraín Bascuñán,escenario_internacional,4,0.07142857142857142,2
+Felipe Larraín Bascuñán,mercados_financieros,4,0.07142857142857142,3
+Felipe Larraín Bascuñán,debate,3,0.05357142857142857,4
+Felipe Larraín Bascuñán,apertura_cierre,2,0.03571428571428571,5
+Felipe Larraín Bascuñán,decision_tpm,2,0.03571428571428571,6
+Felipe Larraín Bascuñán,opciones_tpm,2,0.03571428571428571,7
+Felipe Larraín Bascuñán,inflacion,1,0.017857142857142856,8
+Felipe Larraín Bascuñán,riesgos,1,0.017857142857142856,9
+Gloria Peña Tapia,actividad_interna,2,1.0,1
+Igal Magendzo Weinberger,mercados_financieros,34,0.24285714285714285,1
+Igal Magendzo Weinberger,acuerdo_comunicado,20,0.14285714285714285,2
+Igal Magendzo Weinberger,inflacion,16,0.11428571428571428,3
+Igal Magendzo Weinberger,actividad_interna,15,0.10714285714285714,4
+Igal Magendzo Weinberger,mercado_laboral,14,0.1,5
+Igal Magendzo Weinberger,debate,13,0.09285714285714286,6
+Igal Magendzo Weinberger,escenario_internacional,13,0.09285714285714286,7
+Igal Magendzo Weinberger,otros,13,0.09285714285714286,8
+Igal Magendzo Weinberger,opciones_tpm,1,0.007142857142857143,9
+Igal Magendzo Weinberger,politica_fiscal,1,0.007142857142857143,10
+Joaquín Vial Ruiz-Tagle,escenario_internacional,55,0.23809523809523808,1
+Joaquín Vial Ruiz-Tagle,debate,45,0.19480519480519481,2
+Joaquín Vial Ruiz-Tagle,acuerdo_comunicado,38,0.1645021645021645,3
+Joaquín Vial Ruiz-Tagle,mercado_laboral,25,0.10822510822510822,4
+Joaquín Vial Ruiz-Tagle,mercados_financieros,22,0.09523809523809523,5
+Joaquín Vial Ruiz-Tagle,inflacion,17,0.0735930735930736,6
+Joaquín Vial Ruiz-Tagle,decision_tpm,14,0.06060606060606061,7
+Joaquín Vial Ruiz-Tagle,actividad_interna,10,0.04329004329004329,8
+Joaquín Vial Ruiz-Tagle,opciones_tpm,3,0.012987012987012988,9
+Joaquín Vial Ruiz-Tagle,apertura_cierre,1,0.004329004329004329,10
+Joaquín Vial Ruiz-Tagle,politica_fiscal,1,0.004329004329004329,11
+Jorge Desormeaux Jiménez,escenario_internacional,48,0.2171945701357466,1
+Jorge Desormeaux Jiménez,acuerdo_comunicado,46,0.2081447963800905,2
+Jorge Desormeaux Jiménez,mercados_financieros,26,0.11764705882352941,3
+Jorge Desormeaux Jiménez,debate,25,0.11312217194570136,4
+Jorge Desormeaux Jiménez,decision_tpm,22,0.09954751131221719,5
+Jorge Desormeaux Jiménez,actividad_interna,18,0.08144796380090498,6
+Jorge Desormeaux Jiménez,inflacion,12,0.05429864253393665,7
+Jorge Desormeaux Jiménez,mercado_laboral,9,0.04072398190045249,8
+Jorge Desormeaux Jiménez,otros,9,0.04072398190045249,9
+Jorge Desormeaux Jiménez,riesgos,4,0.01809954751131222,10
+Jorge Desormeaux Jiménez,opciones_tpm,1,0.004524886877828055,11
+Jorge Desormeaux Jiménez,politica_fiscal,1,0.004524886877828055,12
+Jorge Pérez Etchegaray,mercados_financieros,2,0.6666666666666666,1
+Jorge Pérez Etchegaray,politica_fiscal,1,0.3333333333333333,2
+José De Gregorio Rebeco,debate,275,0.2626552053486151,1
+José De Gregorio Rebeco,escenario_internacional,187,0.17860553963705827,2
+José De Gregorio Rebeco,acuerdo_comunicado,151,0.14422158548233047,3
+José De Gregorio Rebeco,mercados_financieros,91,0.08691499522445081,4
+José De Gregorio Rebeco,decision_tpm,90,0.08595988538681948,5
+José De Gregorio Rebeco,inflacion,70,0.06685768863419293,6
+José De Gregorio Rebeco,opciones_tpm,67,0.06399235912129896,7
+José De Gregorio Rebeco,actividad_interna,47,0.044890162368672396,8
+José De Gregorio Rebeco,mercado_laboral,26,0.024832855778414518,9
+José De Gregorio Rebeco,otros,16,0.015281757402101241,10
+José De Gregorio Rebeco,riesgos,12,0.011461318051575931,11
+José De Gregorio Rebeco,politica_fiscal,8,0.007640878701050621,12
+José De Gregorio Rebeco,apertura_cierre,7,0.0066857688634192934,13
+Juan Pablo Araya Marco,decision_tpm,1,1.0,1
+Julio Dittborn Cordua,acuerdo_comunicado,1,0.5,1
+Julio Dittborn Cordua,escenario_internacional,1,0.5,2
+Kevin Cowan Logan,mercados_financieros,27,0.23275862068965517,1
+Kevin Cowan Logan,debate,21,0.1810344827586207,2
+Kevin Cowan Logan,escenario_internacional,19,0.16379310344827586,3
+Kevin Cowan Logan,acuerdo_comunicado,15,0.12931034482758622,4
+Kevin Cowan Logan,actividad_interna,12,0.10344827586206896,5
+Kevin Cowan Logan,inflacion,8,0.06896551724137931,6
+Kevin Cowan Logan,opciones_tpm,5,0.04310344827586207,7
+Kevin Cowan Logan,otros,4,0.034482758620689655,8
+Kevin Cowan Logan,mercado_laboral,3,0.02586206896551724,9
+Kevin Cowan Logan,politica_fiscal,1,0.008620689655172414,10
+Kevin Cowan Logan,riesgos,1,0.008620689655172414,11
+Klaus Schmidt-Hebbel Dunker,escenario_internacional,10,0.25,1
+Klaus Schmidt-Hebbel Dunker,opciones_tpm,7,0.175,2
+Klaus Schmidt-Hebbel Dunker,mercados_financieros,6,0.15,3
+Klaus Schmidt-Hebbel Dunker,acuerdo_comunicado,4,0.1,4
+Klaus Schmidt-Hebbel Dunker,apertura_cierre,4,0.1,5
+Klaus Schmidt-Hebbel Dunker,otros,4,0.1,6
+Klaus Schmidt-Hebbel Dunker,inflacion,2,0.05,7
+Klaus Schmidt-Hebbel Dunker,actividad_interna,1,0.025,8
+Klaus Schmidt-Hebbel Dunker,mercado_laboral,1,0.025,9
+Klaus Schmidt-Hebbel Dunker,riesgos,1,0.025,10
+Leonardo Hernández Tagle,acuerdo_comunicado,2,0.6666666666666666,1
+Leonardo Hernández Tagle,mercados_financieros,1,0.3333333333333333,2
+Luis Alberto Álvarez Vallejos,acuerdo_comunicado,1,0.5,1
+Luis Alberto Álvarez Vallejos,debate,1,0.5,2
+Luis Felipe Céspedes Cifuentes,inflacion,8,0.3333333333333333,1
+Luis Felipe Céspedes Cifuentes,escenario_internacional,5,0.20833333333333334,2
+Luis Felipe Céspedes Cifuentes,acuerdo_comunicado,4,0.16666666666666666,3
+Luis Felipe Céspedes Cifuentes,mercado_laboral,3,0.125,4
+Luis Felipe Céspedes Cifuentes,actividad_interna,1,0.041666666666666664,5
+Luis Felipe Céspedes Cifuentes,debate,1,0.041666666666666664,6
+Luis Felipe Céspedes Cifuentes,mercados_financieros,1,0.041666666666666664,7
+Luis Felipe Céspedes Cifuentes,opciones_tpm,1,0.041666666666666664,8
+Luis Opazo Roco,acuerdo_comunicado,3,0.2727272727272727,1
+Luis Opazo Roco,debate,2,0.18181818181818182,2
+Luis Opazo Roco,inflacion,2,0.18181818181818182,3
+Luis Opazo Roco,mercados_financieros,2,0.18181818181818182,4
+Luis Opazo Roco,escenario_internacional,1,0.09090909090909091,5
+Luis Opazo Roco,mercado_laboral,1,0.09090909090909091,6
+Luis Óscar Herrera Barriga,escenario_internacional,98,0.32450331125827814,1
+Luis Óscar Herrera Barriga,debate,55,0.18211920529801323,2
+Luis Óscar Herrera Barriga,acuerdo_comunicado,39,0.1291390728476821,3
+Luis Óscar Herrera Barriga,mercados_financieros,36,0.11920529801324503,4
+Luis Óscar Herrera Barriga,inflacion,17,0.056291390728476824,5
+Luis Óscar Herrera Barriga,mercado_laboral,13,0.04304635761589404,6
+Luis Óscar Herrera Barriga,riesgos,13,0.04304635761589404,7
+Luis Óscar Herrera Barriga,actividad_interna,11,0.03642384105960265,8
+Luis Óscar Herrera Barriga,opciones_tpm,11,0.03642384105960265,9
+Luis Óscar Herrera Barriga,otros,7,0.023178807947019868,10
+Luis Óscar Herrera Barriga,decision_tpm,1,0.0033112582781456954,11
+Luis Óscar Herrera Barriga,politica_fiscal,1,0.0033112582781456954,12
+Manuel Marfán Lewis,debate,158,0.1847953216374269,1
+Manuel Marfán Lewis,mercados_financieros,133,0.15555555555555556,2
+Manuel Marfán Lewis,acuerdo_comunicado,132,0.1543859649122807,3
+Manuel Marfán Lewis,escenario_internacional,125,0.14619883040935672,4
+Manuel Marfán Lewis,actividad_interna,74,0.08654970760233918,5
+Manuel Marfán Lewis,inflacion,65,0.07602339181286549,6
+Manuel Marfán Lewis,mercado_laboral,44,0.05146198830409357,7
+Manuel Marfán Lewis,decision_tpm,42,0.04912280701754386,8
+Manuel Marfán Lewis,otros,31,0.03625730994152047,9
+Manuel Marfán Lewis,riesgos,21,0.02456140350877193,10
+Manuel Marfán Lewis,politica_fiscal,16,0.01871345029239766,11
+Manuel Marfán Lewis,opciones_tpm,13,0.0152046783625731,12
+Manuel Marfán Lewis,apertura_cierre,1,0.0011695906432748538,13
+Mario Marcel Cullell,mercado_laboral,4,0.26666666666666666,1
+Mario Marcel Cullell,acuerdo_comunicado,3,0.2,2
+Mario Marcel Cullell,escenario_internacional,2,0.13333333333333333,3
+Mario Marcel Cullell,mercados_financieros,2,0.13333333333333333,4
+Mario Marcel Cullell,actividad_interna,1,0.06666666666666667,5
+Mario Marcel Cullell,debate,1,0.06666666666666667,6
+Mario Marcel Cullell,otros,1,0.06666666666666667,7
+Mario Marcel Cullell,politica_fiscal,1,0.06666666666666667,8
+María Elena Ovalle Molina,decision_tpm,6,0.35294117647058826,1
+María Elena Ovalle Molina,acuerdo_comunicado,4,0.23529411764705882,2
+María Elena Ovalle Molina,otros,4,0.23529411764705882,3
+María Elena Ovalle Molina,escenario_internacional,1,0.058823529411764705,4
+María Elena Ovalle Molina,mercado_laboral,1,0.058823529411764705,5
+María Elena Ovalle Molina,politica_fiscal,1,0.058823529411764705,6
+María Eugenia Wagner Brizzi,acuerdo_comunicado,1,1.0,1
+María Olivia Recart Herrera,debate,4,0.2857142857142857,1
+María Olivia Recart Herrera,inflacion,3,0.21428571428571427,2
+María Olivia Recart Herrera,acuerdo_comunicado,2,0.14285714285714285,3
+María Olivia Recart Herrera,decision_tpm,1,0.07142857142857142,4
+María Olivia Recart Herrera,escenario_internacional,1,0.07142857142857142,5
+María Olivia Recart Herrera,mercados_financieros,1,0.07142857142857142,6
+María Olivia Recart Herrera,opciones_tpm,1,0.07142857142857142,7
+María Olivia Recart Herrera,politica_fiscal,1,0.07142857142857142,8
+Matías Bernier Bórquez,debate,13,0.28888888888888886,1
+Matías Bernier Bórquez,mercados_financieros,13,0.28888888888888886,2
+Matías Bernier Bórquez,escenario_internacional,5,0.1111111111111111,3
+Matías Bernier Bórquez,acuerdo_comunicado,4,0.08888888888888889,4
+Matías Bernier Bórquez,inflacion,4,0.08888888888888889,5
+Matías Bernier Bórquez,opciones_tpm,4,0.08888888888888889,6
+Matías Bernier Bórquez,actividad_interna,2,0.044444444444444446,7
+Miguel Fuentes Díaz,acuerdo_comunicado,44,0.2146341463414634,1
+Miguel Fuentes Díaz,mercados_financieros,38,0.18536585365853658,2
+Miguel Fuentes Díaz,debate,33,0.16097560975609757,3
+Miguel Fuentes Díaz,mercado_laboral,32,0.15609756097560976,4
+Miguel Fuentes Díaz,escenario_internacional,21,0.1024390243902439,5
+Miguel Fuentes Díaz,actividad_interna,17,0.08292682926829269,6
+Miguel Fuentes Díaz,inflacion,15,0.07317073170731707,7
+Miguel Fuentes Díaz,opciones_tpm,2,0.00975609756097561,8
+Miguel Fuentes Díaz,otros,2,0.00975609756097561,9
+Miguel Fuentes Díaz,politica_fiscal,1,0.004878048780487805,10
+Miguel Ricaurte Bermúdez,acuerdo_comunicado,8,0.38095238095238093,1
+Miguel Ricaurte Bermúdez,escenario_internacional,7,0.3333333333333333,2
+Miguel Ricaurte Bermúdez,inflacion,3,0.14285714285714285,3
+Miguel Ricaurte Bermúdez,mercados_financieros,3,0.14285714285714285,4
+Miguel Ángel Nacrur Gazali,politica_fiscal,3,0.42857142857142855,1
+Miguel Ángel Nacrur Gazali,escenario_internacional,2,0.2857142857142857,2
+Miguel Ángel Nacrur Gazali,mercados_financieros,1,0.14285714285714285,3
+Miguel Ángel Nacrur Gazali,opciones_tpm,1,0.14285714285714285,4
+Nicolás Eyzaguirre Guzmán,inflacion,14,0.1794871794871795,1
+Nicolás Eyzaguirre Guzmán,actividad_interna,13,0.16666666666666666,2
+Nicolás Eyzaguirre Guzmán,otros,12,0.15384615384615385,3
+Nicolás Eyzaguirre Guzmán,escenario_internacional,10,0.1282051282051282,4
+Nicolás Eyzaguirre Guzmán,mercados_financieros,8,0.10256410256410256,5
+Nicolás Eyzaguirre Guzmán,acuerdo_comunicado,6,0.07692307692307693,6
+Nicolás Eyzaguirre Guzmán,debate,5,0.0641025641025641,7
+Nicolás Eyzaguirre Guzmán,mercado_laboral,4,0.05128205128205128,8
+Nicolás Eyzaguirre Guzmán,opciones_tpm,2,0.02564102564102564,9
+Nicolás Eyzaguirre Guzmán,riesgos,2,0.02564102564102564,10
+Nicolás Eyzaguirre Guzmán,apertura_cierre,1,0.01282051282051282,11
+Nicolás Eyzaguirre Guzmán,politica_fiscal,1,0.01282051282051282,12
+Pablo García Silva,acuerdo_comunicado,101,0.17876106194690267,1
+Pablo García Silva,debate,88,0.15575221238938053,2
+Pablo García Silva,escenario_internacional,75,0.13274336283185842,3
+Pablo García Silva,mercados_financieros,75,0.13274336283185842,4
+Pablo García Silva,inflacion,69,0.12212389380530973,5
+Pablo García Silva,mercado_laboral,54,0.09557522123893805,6
+Pablo García Silva,actividad_interna,48,0.08495575221238938,7
+Pablo García Silva,opciones_tpm,16,0.02831858407079646,8
+Pablo García Silva,otros,16,0.02831858407079646,9
+Pablo García Silva,decision_tpm,10,0.017699115044247787,10
+Pablo García Silva,politica_fiscal,10,0.017699115044247787,11
+Pablo García Silva,apertura_cierre,2,0.0035398230088495575,12
+Pablo García Silva,riesgos,1,0.0017699115044247787,13
+Pablo Mattar Oyarzún,acuerdo_comunicado,1,1.0,1
+Pablo Pincheira Brown,escenario_internacional,1,1.0,1
+Ricardo Vicuña Poblete,debate,25,0.5681818181818182,1
+Ricardo Vicuña Poblete,acuerdo_comunicado,5,0.11363636363636363,2
+Ricardo Vicuña Poblete,actividad_interna,3,0.06818181818181818,3
+Ricardo Vicuña Poblete,mercado_laboral,3,0.06818181818181818,4
+Ricardo Vicuña Poblete,escenario_internacional,2,0.045454545454545456,5
+Ricardo Vicuña Poblete,otros,2,0.045454545454545456,6
+Ricardo Vicuña Poblete,politica_fiscal,2,0.045454545454545456,7
+Ricardo Vicuña Poblete,inflacion,1,0.022727272727272728,8
+Ricardo Vicuña Poblete,mercados_financieros,1,0.022727272727272728,9
+Rodrigo Alfaro,escenario_internacional,1,1.0,1
+Rodrigo Cerda Norambuena,acuerdo_comunicado,10,0.5,1
+Rodrigo Cerda Norambuena,debate,4,0.2,2
+Rodrigo Cerda Norambuena,mercado_laboral,4,0.2,3
+Rodrigo Cerda Norambuena,escenario_internacional,2,0.1,4
+Rodrigo Valdés Pulido,mercados_financieros,34,0.15813953488372093,1
+Rodrigo Valdés Pulido,otros,28,0.13023255813953488,2
+Rodrigo Valdés Pulido,escenario_internacional,26,0.12093023255813953,3
+Rodrigo Valdés Pulido,acuerdo_comunicado,24,0.11162790697674418,4
+Rodrigo Valdés Pulido,opciones_tpm,23,0.10697674418604651,5
+Rodrigo Valdés Pulido,mercado_laboral,21,0.09767441860465116,6
+Rodrigo Valdés Pulido,debate,19,0.08837209302325581,7
+Rodrigo Valdés Pulido,actividad_interna,18,0.08372093023255814,8
+Rodrigo Valdés Pulido,inflacion,18,0.08372093023255814,9
+Rodrigo Valdés Pulido,politica_fiscal,2,0.009302325581395349,10
+Rodrigo Valdés Pulido,riesgos,2,0.009302325581395349,11
+Rodrigo Vergara Montes,debate,330,0.3216374269005848,1
+Rodrigo Vergara Montes,acuerdo_comunicado,190,0.18518518518518517,2
+Rodrigo Vergara Montes,escenario_internacional,153,0.14912280701754385,3
+Rodrigo Vergara Montes,opciones_tpm,87,0.0847953216374269,4
+Rodrigo Vergara Montes,decision_tpm,75,0.07309941520467836,5
+Rodrigo Vergara Montes,mercados_financieros,59,0.057504873294346975,6
+Rodrigo Vergara Montes,inflacion,38,0.037037037037037035,7
+Rodrigo Vergara Montes,apertura_cierre,27,0.02631578947368421,8
+Rodrigo Vergara Montes,actividad_interna,23,0.022417153996101363,9
+Rodrigo Vergara Montes,mercado_laboral,21,0.02046783625730994,10
+Rodrigo Vergara Montes,riesgos,15,0.014619883040935672,11
+Rodrigo Vergara Montes,politica_fiscal,5,0.004873294346978557,12
+Rodrigo Vergara Montes,otros,3,0.0029239766081871343,13
+Rodrigo Álvarez Zenteno,decision_tpm,1,1.0,1
+Sebastián Claro Edwards,debate,113,0.19087837837837837,1
+Sebastián Claro Edwards,escenario_internacional,97,0.16385135135135134,2
+Sebastián Claro Edwards,mercados_financieros,88,0.14864864864864866,3
+Sebastián Claro Edwards,acuerdo_comunicado,74,0.125,4
+Sebastián Claro Edwards,inflacion,55,0.0929054054054054,5
+Sebastián Claro Edwards,actividad_interna,53,0.08952702702702703,6
+Sebastián Claro Edwards,decision_tpm,49,0.08277027027027027,7
+Sebastián Claro Edwards,mercado_laboral,29,0.048986486486486486,8
+Sebastián Claro Edwards,riesgos,24,0.04054054054054054,9
+Sebastián Claro Edwards,politica_fiscal,5,0.008445945945945946,10
+Sebastián Claro Edwards,otros,3,0.005067567567567568,11
+Sebastián Claro Edwards,opciones_tpm,2,0.0033783783783783786,12
+Sergio Lehmann Beresi,escenario_internacional,362,0.45764854614412137,1
+Sergio Lehmann Beresi,mercados_financieros,147,0.18584070796460178,2
+Sergio Lehmann Beresi,acuerdo_comunicado,140,0.17699115044247787,3
+Sergio Lehmann Beresi,debate,72,0.09102402022756005,4
+Sergio Lehmann Beresi,inflacion,18,0.022756005056890013,5
+Sergio Lehmann Beresi,actividad_interna,15,0.018963337547408345,6
+Sergio Lehmann Beresi,mercado_laboral,13,0.01643489254108723,7
+Sergio Lehmann Beresi,riesgos,13,0.01643489254108723,8
+Sergio Lehmann Beresi,otros,5,0.006321112515802781,9
+Sergio Lehmann Beresi,decision_tpm,2,0.0025284450063211127,10
+Sergio Lehmann Beresi,politica_fiscal,2,0.0025284450063211127,11
+Sergio Lehmann Beresi,apertura_cierre,1,0.0012642225031605564,12
+Sergio Lehmann Beresi,opciones_tpm,1,0.0012642225031605564,13
+Vittorio Corbo Lioi,acuerdo_comunicado,72,0.15824175824175823,1
+Vittorio Corbo Lioi,escenario_internacional,60,0.13186813186813187,2
+Vittorio Corbo Lioi,debate,57,0.12527472527472527,3
+Vittorio Corbo Lioi,opciones_tpm,54,0.11868131868131868,4
+Vittorio Corbo Lioi,decision_tpm,47,0.10329670329670329,5
+Vittorio Corbo Lioi,mercados_financieros,46,0.1010989010989011,6
+Vittorio Corbo Lioi,apertura_cierre,33,0.07252747252747253,7
+Vittorio Corbo Lioi,otros,31,0.06813186813186813,8
+Vittorio Corbo Lioi,inflacion,22,0.04835164835164835,9
+Vittorio Corbo Lioi,mercado_laboral,13,0.02857142857142857,10
+Vittorio Corbo Lioi,actividad_interna,12,0.026373626373626374,11
+Vittorio Corbo Lioi,politica_fiscal,7,0.015384615384615385,12
+Vittorio Corbo Lioi,riesgos,1,0.002197802197802198,13

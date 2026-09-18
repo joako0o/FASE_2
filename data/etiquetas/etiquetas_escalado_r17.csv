@@ -1,8 +1,0 @@
-intervencion_id,metodo,etiqueta,prob_hawkish,prob_dovish,prob_neutral,score,frase_justificante,confianza,es_relevante,nota,ronda,version_codebook,fecha,etiquetador
-RPM-2007-04-12:1220:1,ia_ronda,neutral,0.00,0.00,1.00,0.00,le parece que lo más adecuado es mantener la tasa de política y establecer un sesgo neutral para el futuro de la política monetaria,alta,1,,escalado_t13_r17,v2,2026-09-15,ia_agente
-RPM-2013-06-13:5626:1,ia_ronda,neutral,0.00,0.00,1.00,0.00,concordar con la recomendación de la Gerencia de División Estudios en orden a mantener la TPM en 5% anual,alta,1,,escalado_t13_r17,v2,2026-09-15,ia_agente
-RPM-2013-01-17:5302:1,ia_ronda,neutral,0.00,0.00,1.00,0.00,"el tema inflacionario es un riesgo que ha sido minimizado hasta ahora, pero que comienza a aparecer con una fuerza algo mayor",alta,1,,escalado_t13_r17,v2,2026-09-15,ia_agente
-RPM-2011-04-12:3958:1,ia_ronda,neutral,0.00,0.00,1.00,0.00,"la mayoría de los agentes piensa que se acordará un alza de la TPM de 50 puntos base y que esta llegaría a un nivel de entre 5,5 y 6% a mediados de año",alta,1,,escalado_t13_r17,v2,2026-09-15,ia_agente
-RPM-2009-05-07:2537:8,ia_ronda,neutral,0.00,0.00,1.00,0.00,"muy por encima de lo que daba la ecuación sobre todo el periodo de boom, con una reversión muy brusca en los últimos meses",alta,1,,escalado_t13_r17,v2,2026-09-15,ia_agente
-RPM-2011-12-13:4469:1,ia_ronda,neutral,0.00,0.00,1.00,0.00,pregunta por el porcentaje de la desaceleración de la producción industrial que puede ser explicada por las exportaciones,alta,1,,escalado_t13_r17,v2,2026-09-15,ia_agente
-RPM-2012-04-17:4779:1,ia_ronda,neutral,0.00,0.00,1.00,0.00,,alta,0,ofrecimiento de la palabra al staff (logistica),escalado_t13_r17,v2,2026-09-15,ia_agente
