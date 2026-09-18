@@ -65,8 +65,11 @@ class TestProyectoEsencial(unittest.TestCase):
 
     def test_readme_documenta_formulas(self):
         text = (ROOT / "README.md").read_text(encoding="utf-8")
-        for formula in ["operatorname{tfidf}", "MacroF1", "F1_{HD}", "tono neto general", "balance direccional", "cobertura direccional", "log-odds", "bootstrap"]:
+        for formula in ["operatorname{tfidf}", "MacroF1", "F1_{HD}", "tono neto general", "balance direccional", "cobertura direccional", "log-odds", "bootstrap", "Convergencia_{it}", "Disenso_{it}", "s_{it}=\\alpha_i"]:
             self.assertIn(formula, text)
+        with (ROOT / "data/actores_metadata.csv").open(encoding="utf-8", newline="") as f: actors = list(csv.DictReader(f))
+        self.assertEqual(len(actors), 55)
+        self.assertEqual(sum(r["verificado"] == "True" for r in actors), 3)
 
     def test_script_verifica(self):
         spec = importlib.util.spec_from_file_location("modelo_final", ROOT / "scripts/modelo_final.py")

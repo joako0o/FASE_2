@@ -61,6 +61,48 @@ En Windows, usar `.venv\Scripts\python.exe`. El comando de predicción entrena l
 
 El modelo ya fue ejecutado sobre las 9.725 intervenciones. El resultado está en `resultados/clasificacion_wc600_9725.csv`, con las cinco predicciones individuales, el voto final, el rol de cada fila y una señal de acuerdo entre miembros. `resultados/resumen_clasificacion.json` contiene distribuciones y conteos por año.
 
+## Objetivo sustantivo y por qué se solicitaron datos de actores
+
+La clasificación H/D/N no era el producto final por sí sola. El plan histórico definió dos resultados principales:
+
+1. construir una serie 2005–2015 de postura agregada del Consejo y contrastarla con la TPM;
+2. estudiar cómo se forma esa postura a través de los participantes: especialización temática, posiciones persistentes o coyunturales, convergencia, disenso y afinidad.
+
+Por eso se solicitaron nombres, cargos y metadatos de actores. El propósito era distinguir quién habla, en qué calidad y durante qué mandato, en vez de tratar todas las intervenciones como si provinieran de un único actor. Los productos previstos son:
+
+- **perfil temático:** distribución de las intervenciones de cada actor en siete ejes —internacional, financiero, inflación/precios, actividad/demanda, laboral, fiscal y decisión TPM— para un radar comparativo;
+- **vocabulario distintivo:** palabras y expresiones sobrerrepresentadas por actor mediante log-odds con prior informativo;
+- **serie individual:** evolución del puntaje $s_{it}=P(H)-P(D)$ de cada actor y media móvil de 12 meses;
+- **postura estructural y coyuntural:** descomposición
+
+$$
+s_{it}=\alpha_i+\beta_i\,ciclo_t+\varepsilon_{it},
+$$
+
+  donde $\alpha_i$ representa la inclinación media persistente del actor y $\beta_i$ su sensibilidad al ciclo común. Esta interpretación solo es válida con cobertura temporal suficiente y controles adecuados;
+- **matriz de votos:** voto explícito por reunión y actor, con dirección, magnitud, fuente y confianza. Los votos deben extraerse del texto; una predicción de tono no equivale automáticamente a un voto;
+- **convergencia dentro de la reunión:** si $s_{i,t}^{primera}$ y $s_{i,t}^{ultima}$ son los puntajes de la primera y última intervención pertinente y $d_t$ representa la decisión final:
+
+$$
+Convergencia_{it}=|s_{i,t}^{primera}-d_t|-|s_{i,t}^{ultima}-d_t|.
+$$
+
+  Un valor positivo indica acercamiento al resultado final durante la reunión;
+- **disenso:** distancia entre el puntaje del actor y el consenso de su reunión:
+
+$$
+Disenso_{it}=|s_{it}-\bar{s}_t|;
+$$
+
+- **red de afinidad:** para cada par de actores, proporción de votos coincidentes o correlación de sus puntajes en reuniones compartidas. Esto permite explorar coaliciones y la posición del Presidente;
+- **controles biográficos e institucionales:** mandato, presidencia o vicepresidencia, autoridad nominadora, formación y trayectoria profesional, siempre que existan fuentes verificables.
+
+Convergencia, disenso y afinidad deben restringirse a miembros comparables del Consejo y reuniones con solapamiento suficiente. Staff, ministros y la fila institucional “Consejo del Banco Central de Chile” no deben mezclarse automáticamente con consejeros individuales.
+
+Actualmente `resultados/analisis_descriptivo/indices_por_actor.csv` contiene el primer perfil cuantitativo: intervenciones, H/D/N, tono general, balance, cobertura y score continuo medio para 55 actores. `data/actores_metadata.csv` recupera la tabla histórica de nombres, cargos y fechas observadas, pero debe tratarse como **incompleta**: solo tres filas tenían verificación externa y los campos de nominación, formación y trayectoria permanecían vacíos. No se deben completar automáticamente ni usar como controles hasta documentarlos con fuentes confiables.
+
+Estos resultados estaban destinados a tablas para investigación, visualizaciones tipo radar/red y eventualmente un *scrollytelling* y un paper. El detalle se encontraba en el antiguo `PLAN.md`, no en el README histórico de manera suficiente; se incorpora aquí para que no vuelva a perderse durante la condensación.
+
 ## Fórmulas y procedimiento de cálculo
 
 ### 1. Representación TF-IDF
