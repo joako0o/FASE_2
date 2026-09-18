@@ -48,6 +48,10 @@ python -m venv .venv
 
 En Windows, usar `.venv\Scripts\python.exe`. El comando de predicción entrena los cinco miembros con parámetros congelados y crea un CSV nuevo; nunca sobrescribe una salida existente.
 
+## Clasificación completa disponible
+
+El modelo ya fue ejecutado sobre las 9.725 intervenciones. El resultado está en `resultados/clasificacion_wc600_9725.csv`, con las cinco predicciones individuales, el voto final, el rol de cada fila y una señal de acuerdo entre miembros. `resultados/resumen_clasificacion.json` contiene distribuciones y conteos por año.
+
 ## Lectura recomendada
 
 1. [`docs/METODOLOGIA_MODELO.md`](docs/METODOLOGIA_MODELO.md)

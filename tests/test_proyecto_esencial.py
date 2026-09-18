@@ -40,6 +40,16 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertEqual(len(benchmark["modelos"]), 14)
         self.assertEqual(benchmark["modelo_formal_vigente"], "W+C+600")
 
+    def test_clasificacion_completa(self):
+        with (ROOT / "resultados/clasificacion_wc600_9725.csv").open(encoding="utf-8", newline="") as f: rows = list(csv.DictReader(f))
+        self.assertEqual(len(rows), 9725)
+        self.assertEqual(len({r["intervencion_id"] for r in rows}), 9725)
+        self.assertEqual({label: sum(r["prediccion_v3"] == label for r in rows) for label in ["hawkish", "dovish", "neutral"]}, {"hawkish": 513, "dovish": 380, "neutral": 8832})
+        self.assertEqual(sum(r["acuerdo_miembros"] == "desacuerdo" for r in rows), 169)
+        manifest = json.loads((ROOT / "resultados/manifest.json").read_text(encoding="utf-8"))["sha256"]
+        for name, expected in manifest.items():
+            self.assertEqual(hashlib.sha256((ROOT / "resultados" / name).read_bytes()).hexdigest(), expected)
+
     def test_script_verifica(self):
         spec = importlib.util.spec_from_file_location("modelo_final", ROOT / "scripts/modelo_final.py")
         module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
