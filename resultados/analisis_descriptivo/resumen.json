@@ -25,10 +25,14 @@
     12,
     14,
     16,
-    18
+    18,
+    20,
+    22,
+    24
   ],
   "segmentacion_k_seleccionado": 14,
   "segmentacion_k6_probado": true,
+  "segmentacion_k_hasta24_probado": true,
   "oraciones_ajuste_topicos_modelo": 57452,
   "ejes_radar_tematico": 6,
   "actores_aptos_radar": 9,

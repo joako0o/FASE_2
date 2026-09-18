@@ -129,11 +129,11 @@ Para responder una pregunta distinta se ajustó un modelo **NMF no supervisado**
 
 #### Selección de la segmentación y prueba K=6
 
-Ya no se supone que 14 sea correcto por definición. `segmentacion_nmf_benchmark.csv` compara $K=6,8,10,12,14,16,18$ mediante error de reconstrucción, coherencia NPMI, diversidad de términos, redundancia coseno, estabilidad entre inicializaciones y concentración de prevalencia. También se contrastan oración, intervención y actor–reunión en `segmentacion_nmf_unidades.csv`.
+Ya no se supone que 14 sea correcto por definición. `segmentacion_nmf_benchmark.csv` compara $K=6,8,10,12,14,16,18,20,22,24$ mediante error de reconstrucción, coherencia NPMI, diversidad de términos, redundancia coseno, estabilidad entre inicializaciones y concentración de prevalencia. También se contrastan oración, intervención y actor–reunión en `segmentacion_nmf_unidades.csv`.
 
 K=6 obtiene la mayor coherencia NPMI (0,350) y estabilidad prácticamente perfecta, pero un solo componente concentra 46,1% de la masa temática. Sus seis componentes son: actividad/crecimiento; División Estudios/estructura; inflación mezclada con tipo de cambio; política monetaria genérica; Estados Unidos/internacional; y puntos base. Por tanto, solo unos tres son dominios económicos sustantivos comparables y los seis no funcionan como seis atributos FIFA. La prueba completa y el radar directo K=6 se preservan en `segmentacion_nmf_k6_topicos.csv` y `radar_nmf_k6_prueba*.csv`; no se oculta el resultado negativo.
 
-K=14 mantiene estabilidad de 0,99999, diversidad top-10 de 0,979 y reduce la prevalencia máxima a 14,8%; además es el primer candidato que separa de manera simultánea actividad, trabajo, inflación, commodities, tipo de cambio y tasas. K=16 pierde estabilidad relativa (0,961) y K=18 reduce diversidad (0,956) y agrega particiones solapadas. El error de reconstrucción mejora mecánicamente al aumentar $K$ —solo 1,1% de K=6 a K=14—, por lo que no se utilizó solo.
+K=14 mantiene estabilidad de 0,99999, diversidad top-10 de 0,979 y reduce la prevalencia máxima a 14,8%; además es el primer candidato que separa de manera simultánea actividad, trabajo, inflación, commodities, tipo de cambio y tasas. K=16 pierde estabilidad relativa (0,961) y K=18 reduce diversidad (0,956). La extensión confirma la fragmentación: K=20 baja a 0,930 de diversidad y 0,946 de estabilidad; K=22 a 0,918 y 0,926; K=24 recupera estabilidad, pero la diversidad cae a 0,913 y divide actividad/crecimiento, inflación/expectativas, horizontes de tasas y escenario externo en pares parcialmente solapados. El error de reconstrucción mejora mecánicamente —solo 1,1% de K=6 a K=14 y 2,0% hasta K=24—, por lo que no se utilizó solo.
 
 La oración se conserva como unidad de ajuste. La intervención completa tiene menor diversidad (0,836) y produce más componentes de apertura, votación y cierre; actor–reunión eleva la redundancia temática a 0,234. La selección formal queda entonces en **K=14 sobre oraciones**, mediante criterio multicriterio y no porque coincida con el número deseado de ejes gráficos.
 
@@ -353,7 +353,7 @@ Se producen dos contrastes: H frente a D y direccional H/D frente a N. Los resul
 
 `topico_humano` y `keywords_humano` son anotaciones históricas preservadas en el corpus. Los archivos `indices_por_topico.csv`, `indices_por_keywords.csv`, `mix_topicos_por_anio.csv` y `topicos_por_actor.csv` se calculan directamente desde esas columnas y, por tanto, **no son temas descubiertos por W+C+600**.
 
-El análisis independiente NMF forma una matriz TF-IDF de oraciones con n-gramas de una y dos palabras, `min_df=12`, `max_df=0,5` y máximo 20.000 características. Tras el benchmark de siete valores de $K$ y tres unidades textuales, se seleccionan 14 componentes sobre oraciones. Con inicialización `nndsvda` y semilla 20260918, factoriza aproximadamente:
+El análisis independiente NMF forma una matriz TF-IDF de oraciones con n-gramas de una y dos palabras, `min_df=12`, `max_df=0,5` y máximo 20.000 características. Tras el benchmark de diez valores de $K$ y tres unidades textuales, se seleccionan 14 componentes sobre oraciones. Con inicialización `nndsvda` y semilla 20260918, factoriza aproximadamente:
 
 $$
 X\approx WH,\qquad W\ge 0,\quad H\ge 0,

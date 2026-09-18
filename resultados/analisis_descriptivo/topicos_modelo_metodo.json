@@ -1,7 +1,7 @@
 {
   "metodo": "NMF sobre TF-IDF de oraciones",
   "n_topicos": 14,
-  "seleccion": "Benchmark K=6,8,10,12,14,16,18; se selecciona K=14 por balance multicriterio",
+  "seleccion": "Benchmark K=6,8,10,12,14,16,18,20,22,24; se selecciona K=14 por balance multicriterio",
   "benchmark": "segmentacion_nmf_benchmark.csv",
   "sensibilidad_unidad": "segmentacion_nmf_unidades.csv",
   "n_oraciones_ajuste": 57452,

@@ -5,7 +5,7 @@
     "data/entrenamiento_wc600.csv": "573bea960318d4e1a58cb92f69f93708385ac0166570c2be7cada01f2063d0a2",
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
     "data/revision_votos_actores.csv": "99129ef26144683c1fb4a728160fac46f3517679e6e0c791db5ae1e5c4a80f8f",
-    "scripts/analisis_resultados.py": "1d7b1adce100effb7644019f99190d71ea48c3b4881237e1d432e602c97b0ad2"
+    "scripts/analisis_resultados.py": "82c2da3dba695f439e19f76295255d5f697bf2c78c7139974da08781b39e5fc3"
   },
   "sha256_salidas": {
     "acuerdo_consejo_por_reunion.csv": "51f994d51e44b9a17a4721a38e37b5bdb9172d46e49ce6c3ff1b434e58d037e9",
@@ -38,14 +38,14 @@
     "radar_tematico_actores.csv": "d64b75fd6196e25e7132c9c0495b59ae79184cde30c9f3c203c72cd8c9250427",
     "radar_tematico_actores_ancho.csv": "77bcf86d764adcc27beb187064b88167b87a95c4bfe5e694bda3fc4cf6055f11",
     "radar_tematico_metodo.json": "ae36e3bf267935b0f136a689ac77a5ffc5d57f3869adee1142289b175211dff5",
-    "segmentacion_nmf_benchmark.csv": "07e366ea2d7ee1a140ac833f275a1d0a8cf6a869a702177f364673ef5ef8d20f",
+    "segmentacion_nmf_benchmark.csv": "84dba3cf429f6e152f607a43e9394035f1681b167935b134698e5e0d31e82bd5",
     "segmentacion_nmf_k6_topicos.csv": "31f33b28551f2ac131701571ba9aac7cf1c017ab7dc20fc9733143e8ee46ac4d",
-    "segmentacion_nmf_seleccion.json": "678c246d5d98b61b99dc0affc1c076b0ec8ed1a6d287c4b773af306f961971d3",
-    "segmentacion_nmf_topicos_candidatos.csv": "f8af9f4b5f52d3bcf4baa606f6d54af397fd278dd8283904437c15809d082b16",
+    "segmentacion_nmf_seleccion.json": "e000306f8495680115fbb3c5781aa297f273790219fcd521ab27bacbe798d673",
+    "segmentacion_nmf_topicos_candidatos.csv": "d38bc61e54f66e6af34fdb57bcbe4b104ac88b7c46b826f514d736bda09e6261",
     "segmentacion_nmf_unidades.csv": "509e4bf17525b9f6b8d77654799e14feecb1de5f6b589752ac823fd6e29a6cf6",
     "segmentacion_nmf_unidades_topicos.csv": "9b29c78810e9a0e0796a6701ca9ab9e836b5189bd0a5636c8abc8c1d9855fe5b",
     "tabla_maestra.csv": "76510855e256dac3847b586a73876f0e0b3e46b59bfe6991e71ffbf87f347ece",
-    "topicos_modelo_metodo.json": "b925234f1eb19c4b760a0f7d1abe41aa30e4b7699351d25996441c803a70bf96",
+    "topicos_modelo_metodo.json": "939abfdf50ed88ae8a932d1f90f04b82dfac9ecf9c1e38cb493b4f4e803a8150",
     "topicos_modelo_nmf.csv": "f2ca2b5eaa7a18e57cc858b6db4f48455f07ad2da2a508de2cedcf0234445035",
     "topicos_modelo_por_actor.csv": "3d42789e9006b1c032848bd9c2701207c366abaf01a2bf5223a500f6f816a094",
     "topicos_modelo_por_anio.csv": "d2cbda1b16b210ab087507bfbd1068842afb8814de6a463fd3bc232fd8767ff6",
@@ -54,6 +54,6 @@
     "variacion_anual_por_actor.csv": "d83a57b345d25848643b81bcaeca5b115a77b2a3db30e18cb03bbe377664370c",
     "vocabulario_distintivo_por_actor.csv": "074d337bce841e1b5ea72960741b4408478dd76b8b21909cc150c2145b2b4ef6",
     "vocabulario_frecuente_por_actor.csv": "115dcb77a803bb4a5ed6383a7ad6a854b674cafe1cd1c04d63a1b599fc9157df",
-    "resumen.json": "4266de5dee60f622eeceabc3036993d3189fd00ce368f3790d08e7f30a1055bf"
+    "resumen.json": "dd27224aff41674dbbb6117038ee3c53bb94366d987258b8d843e170d8eea83b"
   }
 }
