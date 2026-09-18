@@ -1,0 +1,23 @@
+{
+  "filas": 9725,
+  "filas_validas": 9724,
+  "no_decidibles": 1,
+  "procedencia": {
+    "prediccion_wc600": 7829,
+    "etiqueta_validada_entrenamiento": 1596,
+    "gold_evaluacion_ciega": 299,
+    "gold_no_decidible": 1
+  },
+  "distribucion_etiqueta_analisis": {
+    "neutral": 8865,
+    "hawkish": 499,
+    "dovish": 360
+  },
+  "reuniones": 132,
+  "actores": 55,
+  "topicos": 13,
+  "vocabulario_1_a_4_min_df_5": 127843,
+  "nota_neutrales": "Se conservan en tono general y cobertura; balance direccional usa solo H/D.",
+  "embeddings_generados": false,
+  "razon_embeddings": "No son parte de W+C+600; se reservan para una hipótesis temática posterior."
+}

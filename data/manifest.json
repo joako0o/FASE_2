@@ -7,12 +7,12 @@
   ],
   "commit_historico_pre_condensacion": "7aa63cc",
   "sha256": {
-    "README.md": "8290934c1be6960b2532ec64907d53438303bf315b4a5efd6578750e553a2ce1",
+    "README.md": "176087c14f6d49eacf5a78ba53ff28579f1c31d50d793e4ac81b51e69ca509e6",
     "requirements.txt": "1f434dbc7b26cd8ba04295593753f98a6e1fc4808f624d3f04b46e411d2b8862",
-    "scripts/modelo_final.py": "9fbe2717c22dad6b5b17c66c4942009c7df9de9655c88115eabecfbf09d22e87",
+    "scripts/modelo_final.py": "abea8e1a888be3ea4e7d9ba645f55f542f5c768290f654d6a4465e8c5d0c000f",
     "docs/BENCHMARK_MODELOS.md": "54416643daa6ae8282657d1ae1bca4bbaab7f51953d9476385a0787e3ff371ef",
     "docs/CODEBOOK_ETIQUETADO.md": "c41cebf74ea73e57c48fae2c8606e5b555dc17ff1c65608fcf17d362dbbc39cf",
-    "docs/METODOLOGIA_MODELO.md": "b5a7d8fea683ce71629ce9b7bcc7e3a530111ff47d91afb547f9721feacbe2c3",
+    "docs/METODOLOGIA_MODELO.md": "2cbe646434ed01913e7f29351dc10e406619c37b3241e16d89d995955ec505fe",
     "docs/PROTOCOLO_ANALISIS_SECUNDARIO.md": "ca32747228b8e61f2fe00cc057093faefa77ee7e7c40ccc003e234224c8053b5",
     "docs/PROTOCOLO_EVALUACION_CIEGA.md": "84d3ba466b85b5881056f5c94f6067850b6948545392cc3033f8f923d0dee619",
     "docs/RESULTADOS_Y_ROBUSTEZ.md": "9df7b5447dbb2b9b51b7926420442ed6f148c5bf985fccade9448eb9f43d1a41",
@@ -24,7 +24,8 @@
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
     "data/predicciones_evaluacion_ciega.csv": "919b3d0b1b4b5a79f8e492c0889989ae7ed0a8d6c7ac0148c9fcce98f556d0db",
     "data/resultados_evaluacion_ciega.json": "1aadd083a4c411de021a0160251c06c13c9fa79ca1e576658c60c13b21784f55",
-    "docs/OBJETIVOS_ANALISIS.md": "a79acd476ea4bf481fe4817c49518f8620b001ae860e60cba0471b4a45df8e93"
+    "docs/OBJETIVOS_ANALISIS.md": "ea0748d81d01ea598a83f67328f5e3fca29834a4b0a4fc6c1d2ee267a79b96c3",
+    "scripts/analisis_resultados.py": "55d7fc6ed4b49ae209490bad8038818f4cd7811bee38f3f3036f8f522300f84b"
   },
   "verificaciones": {
     "predicciones_ciegas_reproducidas_por_modelo_final": "300/300 en cada uno de los cinco miembros y voto final",

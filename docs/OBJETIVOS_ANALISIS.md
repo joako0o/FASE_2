@@ -60,11 +60,16 @@ Para análisis descriptivo se utilizará la mejor evidencia disponible:
 
 La fila ciega no decidible permanece separada. Las predicciones in-sample no deben presentarse como validación del modelo.
 
-## 6. Orden recomendado
+## 6. Estado de ejecución
 
-1. construir la tabla maestra con etiqueta y procedencia;
-2. producir agregados por reunión y año;
-3. producir tablas de tópicos y keywords;
-4. extraer palabras/n-gramas frecuentes y distintivos;
-5. producir perfiles de actores;
-6. incorporar TPM y validación económica en una etapa separada.
+Completado en `resultados/analisis_descriptivo/`:
+
+1. tabla maestra con etiqueta y procedencia;
+2. agregados por reunión y año, con y sin neutrales;
+3. tablas de tópicos y keywords;
+4. n-gramas 1–4 frecuentes y distintivos H/D y direccional/neutral;
+5. perfiles descriptivos de actores;
+6. probabilidades no calibradas y score continuo H−D;
+7. cinco modelos ajustados persistidos en `modelos/wc600/`.
+
+Pendiente solo si surge una hipótesis nueva: incorporar TPM para validación económica y generar embeddings para análisis temático. No se generaron embeddings ahora porque no forman parte del modelo final y los 13 tópicos humanos permiten comenzar sin otra representación.

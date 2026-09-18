@@ -43,8 +43,11 @@ Python 3.11 recomendado:
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python scripts/modelo_final.py verificar
-.venv/bin/python scripts/modelo_final.py predecir data/corpus_bcch_2005_2015.csv predicciones_corpus.csv
+.venv/bin/python scripts/modelo_final.py predecir data/corpus_bcch_2005_2015.csv predicciones_corpus.csv --cargar-modelos modelos/wc600
+.venv/bin/python scripts/analisis_resultados.py
 ```
+
+Los modelos ajustados están guardados en `modelos/wc600/`; no es necesario reentrenarlos para una nueva predicción. Los agregados con y sin neutrales, tópicos, actores y léxico están en `resultados/analisis_descriptivo/`.
 
 En Windows, usar `.venv\Scripts\python.exe`. El comando de predicción entrena los cinco miembros con parámetros congelados y crea un CSV nuevo; nunca sobrescribe una salida existente.
 

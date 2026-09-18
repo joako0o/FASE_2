@@ -12,7 +12,7 @@ class TestProyectoEsencial(unittest.TestCase):
     def test_inventario_reducido(self):
         scripts = list((ROOT / "scripts").glob("*.py"))
         tests = list((ROOT / "tests").glob("test_*.py"))
-        self.assertEqual([p.name for p in scripts], ["modelo_final.py"])
+        self.assertEqual({p.name for p in scripts}, {"modelo_final.py", "analisis_resultados.py"})
         self.assertEqual([p.name for p in tests], ["test_proyecto_esencial.py"])
         self.assertLessEqual(len(list((ROOT / "docs").glob("*.md"))), 7)
 
@@ -48,9 +48,20 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertTrue(all(r["keywords_humano"] for r in rows))
         self.assertEqual({label: sum(r["prediccion_v3"] == label for r in rows) for label in ["hawkish", "dovish", "neutral"]}, {"hawkish": 513, "dovish": 380, "neutral": 8832})
         self.assertEqual(sum(r["acuerdo_miembros"] == "desacuerdo" for r in rows), 169)
+        for r in rows[:100]: self.assertAlmostEqual(sum(float(r[c]) for c in ["prob_h_no_calibrada", "prob_d_no_calibrada", "prob_n_no_calibrada"]), 1.0)
         manifest = json.loads((ROOT / "resultados/manifest.json").read_text(encoding="utf-8"))["sha256"]
         for name, expected in manifest.items():
             self.assertEqual(hashlib.sha256((ROOT / "resultados" / name).read_bytes()).hexdigest(), expected)
+
+    def test_analisis_y_modelos_persistidos(self):
+        summary = json.loads((ROOT / "resultados/analisis_descriptivo/resumen.json").read_text(encoding="utf-8"))
+        self.assertEqual((summary["filas_validas"], summary["no_decidibles"], summary["reuniones"]), (9724, 1, 132))
+        self.assertFalse(summary["embeddings_generados"])
+        model_manifest = json.loads((ROOT / "modelos/wc600/manifest.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(model_manifest["archivos_sha256"]), 5)
+        for name, expected in model_manifest["archivos_sha256"].items(): self.assertEqual(hashlib.sha256((ROOT / "modelos/wc600" / name).read_bytes()).hexdigest(), expected)
+        analysis_manifest = json.loads((ROOT / "resultados/analisis_descriptivo/manifest.json").read_text(encoding="utf-8"))["sha256_salidas"]
+        for name, expected in analysis_manifest.items(): self.assertEqual(hashlib.sha256((ROOT / "resultados/analisis_descriptivo" / name).read_bytes()).hexdigest(), expected)
 
     def test_script_verifica(self):
         spec = importlib.util.spec_from_file_location("modelo_final", ROOT / "scripts/modelo_final.py")

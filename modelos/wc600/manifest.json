@@ -1,0 +1,70 @@
+{
+  "modelo": "W+C+600",
+  "archivos_sha256": {
+    "miembro_1.joblib": "a79b7046da22b47a9b72c1873245f7e5609cf6dd607863bbe5821f4d56470baa",
+    "miembro_2.joblib": "c163820fe92eb2bf73b477b3061b142db98511bf57ed9838737f6875e87f2404",
+    "miembro_3.joblib": "fb0e1cccdebe4643f750cc08e8379f4beeb35b0ae4198dc292b5df60eb047a9c",
+    "miembro_4.joblib": "5e6390965369bf4058c752ef62900bac87824349d475d25086a0ef41f3238808",
+    "miembro_5.joblib": "d0b2b34e03f9a9d9441a76adb88cc0d28595bbba70cb3fe5aa51402230962f16"
+  },
+  "entrenamiento_sha256": "573bea960318d4e1a58cb92f69f93708385ac0166570c2be7cada01f2063d0a2",
+  "parametros": {
+    "word_a": {
+      "strip_accents": "unicode",
+      "lowercase": true,
+      "ngram_range": [
+        1,
+        1
+      ],
+      "min_df": 3,
+      "max_df": 0.9,
+      "sublinear_tf": true
+    },
+    "word_b": {
+      "strip_accents": "unicode",
+      "lowercase": true,
+      "ngram_range": [
+        1,
+        4
+      ],
+      "min_df": 3,
+      "max_df": 0.9,
+      "sublinear_tf": true
+    },
+    "char": {
+      "analyzer": "char_wb",
+      "ngram_range": [
+        3,
+        5
+      ],
+      "min_df": 3,
+      "max_df": 0.98,
+      "sublinear_tf": true,
+      "strip_accents": "unicode",
+      "lowercase": true,
+      "max_features": 120000
+    },
+    "lr": {
+      "class_weight": "balanced",
+      "C": 2.0,
+      "max_iter": 2000,
+      "random_state": 20260915
+    },
+    "pesos": {
+      "1": 1.0,
+      "2": 0.5,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 1.0
+    }
+  },
+  "versiones": {
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.17.1",
+    "joblib": "1.6.0"
+  },
+  "script_sha256": "abea8e1a888be3ea4e7d9ba645f55f542f5c768290f654d6a4465e8c5d0c000f"
+}

@@ -56,3 +56,9 @@ Los orígenes únicos disponibles son 1.092 referencias base v3, 67 de la amplia
 - menor costo y dependencia externa que un encoder remoto.
 
 Esto no demuestra que todos los transformers sean inferiores. El benchmark completo y sus decisiones negativas están en `BENCHMARK_MODELOS.md` y `data/benchmark_modelos.json`.
+
+## Artefactos guardados
+
+Los cinco miembros ajustados se conservan en `modelos/wc600/` con hashes y versiones. La clasificación completa incluye probabilidades no calibradas H/D/N y `score_hd_continuo = P(H)-P(D)`. Estas probabilidades sirven para agregación descriptiva, no deben presentarse como probabilidades calibradas.
+
+No se guardó una tabla explotada de tokens: el vocabulario, IDF y modelos persistidos contienen la representación necesaria, y las frecuencias/n-gramas agregados están en `resultados/analisis_descriptivo/`. Tampoco se generaron embeddings densos, porque no intervienen en W+C+600; quedan reservados para una hipótesis temática posterior.
