@@ -28,6 +28,8 @@ Entregables:
 
 Los tópicos humanos son: acuerdo/comunicado, debate, escenario internacional, mercados financieros, inflación, actividad interna, mercado laboral, decisión TPM, opciones TPM, riesgos, política fiscal, apertura/cierre y otros. Separadamente, ya existe un modelo no supervisado NMF de 14 componentes ajustado solo con texto. Sus archivos usan el prefijo `topicos_modelo_`; nunca deben atribuirse a W+C+600.
 
+La segmentación fue revisada con $K=6,8,10,12,14,16,18$, dos reinicializaciones adicionales y tres unidades —oración, intervención y actor–reunión—. K=6 se conserva como prueba y como radar alternativo, pero mezcla dominios económicos con estructura institucional y concentra 46,1% en un solo componente. Se retiene K=14 sobre oraciones por estabilidad, diversidad, menor concentración y capacidad de separar los seis dominios económicos. El radar principal agrupa seis ejes desde K=14; no equivale a afirmar que NMF descubrió exactamente seis habilidades.
+
 Para visualización tipo FIFA se definieron seis ejes económicos comunes a todos los actores: actividad/demanda, mercado laboral, inflación/expectativas, entorno externo/commodities, tipo de cambio y mercados/estructura de tasas. Se excluyeron política monetaria genérica y puntos base porque todos participan en una RPM y esos ejes serían circulares; también se excluyó estructura documental. El percentil 0–100 se calcula únicamente entre miembros del Consejo con al menos 100 intervenciones y representa énfasis relativo, no habilidad.
 
 La evolución temporal reutiliza exactamente esos seis ejes. Se entrega por las 132 reuniones, por año y como resumen de extremos/tendencia. La serie principal es la proporción de atención condicionada a los seis ejes; la vista suavizada es una media móvil retrospectiva de 12 reuniones. Esto evita cambiar la definición entre la tarjeta de actor y el gráfico temporal.
@@ -77,6 +79,7 @@ Completado en `resultados/analisis_descriptivo/`:
 7. cinco modelos ajustados persistidos en `modelos/wc600/`;
 8. modelo temático NMF de 14 componentes, asignaciones por intervención y agregados por reunión, año y actor;
 9. insumos largo y ancho para radar temático tipo FIFA, con especificación reproducible;
-10. evolución de los seis ejes temáticos por reunión y año, media móvil y resumen de extremos.
+10. evolución de los seis ejes temáticos por reunión y año, media móvil y resumen de extremos;
+11. benchmark de segmentación K=6–18, sensibilidad a unidad textual y radar alternativo K=6.
 
 Pendiente solo si surge una hipótesis nueva: validación económica adicional o embeddings densos. NMF ya cubre el análisis temático automático mediante una matriz TF-IDF dispersa y no altera el modelo formal W+C+600.

@@ -125,9 +125,19 @@ Según las **anotaciones humanas históricas**, los tres tópicos principales va
 
 ### Tópicos descubiertos por un modelo, sin anotaciones humanas
 
-Para responder una pregunta distinta se ajustó un modelo **NMF no supervisado** sobre TF-IDF de 57.452 oraciones de al menos 80 caracteres. Recibe solo texto: la lista de columnas humanas utilizadas está vacía y se registra así en `topicos_modelo_metodo.json`. El número de componentes se fijó en 14 y los IDs no llevan nombres sustantivos impuestos; `etiqueta_automatica_top5` concatena literalmente los cinco términos de mayor peso.
+Para responder una pregunta distinta se ajustó un modelo **NMF no supervisado** sobre TF-IDF de 57.452 oraciones de al menos 80 caracteres. Recibe solo texto: la lista de columnas humanas utilizadas está vacía y se registra así en `topicos_modelo_metodo.json`. Los IDs no llevan nombres sustantivos impuestos; `etiqueta_automatica_top5` concatena literalmente los cinco términos de mayor peso.
 
-Los componentes obtenidos separan diez patrones económicos reconocibles por sus términos principales: actividad, crecimiento y demanda interna; mercado laboral y empleo; precios de petróleo, cobre y otros commodities; política monetaria y TPM; economías emergentes y desarrolladas; inflación y expectativas; tipo de cambio real, apreciación y depreciación; tasas de interés por plazo; Estados Unidos, Europa y China; y magnitud de ajustes en puntos base. Otros cuatro componentes capturan la estructura documental de las actas —Hacienda/Ministro, presentaciones del staff, opciones de la División Estudios y actualizaciones mensuales/IPoM—, lo que constituye también un resultado del modelo y no se ocultó ni reasignó manualmente.
+#### Selección de la segmentación y prueba K=6
+
+Ya no se supone que 14 sea correcto por definición. `segmentacion_nmf_benchmark.csv` compara $K=6,8,10,12,14,16,18$ mediante error de reconstrucción, coherencia NPMI, diversidad de términos, redundancia coseno, estabilidad entre inicializaciones y concentración de prevalencia. También se contrastan oración, intervención y actor–reunión en `segmentacion_nmf_unidades.csv`.
+
+K=6 obtiene la mayor coherencia NPMI (0,350) y estabilidad prácticamente perfecta, pero un solo componente concentra 46,1% de la masa temática. Sus seis componentes son: actividad/crecimiento; División Estudios/estructura; inflación mezclada con tipo de cambio; política monetaria genérica; Estados Unidos/internacional; y puntos base. Por tanto, solo unos tres son dominios económicos sustantivos comparables y los seis no funcionan como seis atributos FIFA. La prueba completa y el radar directo K=6 se preservan en `segmentacion_nmf_k6_topicos.csv` y `radar_nmf_k6_prueba*.csv`; no se oculta el resultado negativo.
+
+K=14 mantiene estabilidad de 0,99999, diversidad top-10 de 0,979 y reduce la prevalencia máxima a 14,8%; además es el primer candidato que separa de manera simultánea actividad, trabajo, inflación, commodities, tipo de cambio y tasas. K=16 pierde estabilidad relativa (0,961) y K=18 reduce diversidad (0,956) y agrega particiones solapadas. El error de reconstrucción mejora mecánicamente al aumentar $K$ —solo 1,1% de K=6 a K=14—, por lo que no se utilizó solo.
+
+La oración se conserva como unidad de ajuste. La intervención completa tiene menor diversidad (0,836) y produce más componentes de apertura, votación y cierre; actor–reunión eleva la redundancia temática a 0,234. La selección formal queda entonces en **K=14 sobre oraciones**, mediante criterio multicriterio y no porque coincida con el número deseado de ejes gráficos.
+
+Los componentes obtenidos con K=14 separan diez patrones económicos reconocibles por sus términos principales: actividad, crecimiento y demanda interna; mercado laboral y empleo; precios de petróleo, cobre y otros commodities; política monetaria y TPM; economías emergentes y desarrolladas; inflación y expectativas; tipo de cambio real, apreciación y depreciación; tasas de interés por plazo; Estados Unidos, Europa y China; y magnitud de ajustes en puntos base. Otros cuatro componentes capturan la estructura documental de las actas —Hacienda/Ministro, presentaciones del staff, opciones de la División Estudios y actualizaciones mensuales/IPoM—, lo que constituye también un resultado del modelo y no se ocultó ni reasignó manualmente.
 
 NMF permite mezclas: cada intervención conserva pesos para los 14 componentes, además del primero y segundo más fuertes y una medida de entropía. Por eso estos resultados deben describirse como **tópicos del modelo NMF**, no como tópicos de W+C+600: W+C+600 clasifica postura H/D/N y nunca fue entrenado para detectar temas.
 
@@ -343,7 +353,7 @@ Se producen dos contrastes: H frente a D y direccional H/D frente a N. Los resul
 
 `topico_humano` y `keywords_humano` son anotaciones históricas preservadas en el corpus. Los archivos `indices_por_topico.csv`, `indices_por_keywords.csv`, `mix_topicos_por_anio.csv` y `topicos_por_actor.csv` se calculan directamente desde esas columnas y, por tanto, **no son temas descubiertos por W+C+600**.
 
-El análisis independiente NMF forma una matriz TF-IDF de oraciones con n-gramas de una y dos palabras, `min_df=12`, `max_df=0,5` y máximo 20.000 características. Con inicialización `nndsvda`, 14 componentes y semilla 20260918, factoriza aproximadamente:
+El análisis independiente NMF forma una matriz TF-IDF de oraciones con n-gramas de una y dos palabras, `min_df=12`, `max_df=0,5` y máximo 20.000 características. Tras el benchmark de siete valores de $K$ y tres unidades textuales, se seleccionan 14 componentes sobre oraciones. Con inicialización `nndsvda` y semilla 20260918, factoriza aproximadamente:
 
 $$
 X\approx WH,\qquad W\ge 0,\quad H\ge 0,

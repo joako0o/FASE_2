@@ -22,6 +22,7 @@
       "tema_nmf_12"
     ]
   },
+  "alternativa_k6_evaluada": "radar_nmf_k6_prueba.csv; descartada como principal porque mezcla tres ejes económicos con estructura/decisión y tiene concentración excesiva",
   "componentes_excluidos": [
     "tema_nmf_04",
     "tema_nmf_05",
