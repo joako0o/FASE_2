@@ -77,13 +77,16 @@ def log_odds(matrix, mask_a, mask_b, names, label_a, label_b, top=500):
     positive = frame.nlargest(top, "z_score").assign(distintivo_de=label_a); negative = frame.nsmallest(top, "z_score").assign(distintivo_de=label_b)
     return pd.concat([positive, negative], ignore_index=True)
 
-def run(out=OUT):
+def run(out=OUT, overwrite=False):
     out = Path(out)
-    if out.exists(): raise FileExistsError(f"No sobrescribir: {out}")
+    if out.exists():
+        if not overwrite: raise FileExistsError(f"No sobrescribir: {out}")
+    else:
+        out.mkdir(parents=True)
     data = pd.read_csv(CLASSIFIED, dtype=str, keep_default_na=False); train = pd.read_csv(TRAIN, dtype=str, keep_default_na=False); gold = pd.read_csv(GOLD, dtype=str, keep_default_na=False)
-    order = pd.read_csv(CORPUS, dtype=str, keep_default_na=False, usecols=["intervencion_id", "orden_habla", "subindice"])
-    if len(order) != len(data) or order.intervencion_id.nunique() != len(order): raise ValueError("Orden del corpus incompleto o duplicado")
-    data = data.drop(columns=["orden_habla", "subindice"], errors="ignore").merge(order, on="intervencion_id", how="left", validate="one_to_one")
+    corpus = pd.read_csv(CORPUS, dtype=str, keep_default_na=False, usecols=["intervencion_id", "texto", "orden_habla", "subindice"])
+    if len(corpus) != len(data) or corpus.intervencion_id.nunique() != len(corpus): raise ValueError("Orden del corpus incompleto o duplicado")
+    data = data.drop(columns=["texto", "orden_habla", "subindice"], errors="ignore").merge(corpus, on="intervencion_id", how="left", validate="one_to_one")
     if data[["orden_habla", "subindice"]].eq("").any().any(): raise ValueError("Faltan campos de orden tras unir el corpus")
     train_labels = train.set_index("intervencion_id").etiqueta_v3.to_dict(); gold_labels = gold.set_index("intervencion_id").etiqueta_v3.to_dict(); gold_include = gold.set_index("intervencion_id").incluir_evaluacion.to_dict()
     train_relevance = train.set_index("intervencion_id").relevancia_v3.astype(int).to_dict(); gold_relevance = gold.set_index("intervencion_id").es_relevante_v3.astype(int).to_dict()
@@ -99,12 +102,10 @@ def run(out=OUT):
     data.loc[cargo_lower.str.contains(r"ministro|ministerio|subsecretario", regex=True), "tipo_actor"] = "hacienda_gobierno"
     data.loc[cargo_lower.str.contains(r"consejer|presidente del banco central|vicepresidente del banco central", regex=True), "tipo_actor"] = "miembro_consejo"
     data.loc[data.actor.eq("Consejo del Banco Central de Chile"), "tipo_actor"] = "consejo_institucional"
-    valid = data[data.etiqueta_analisis.isin(LABELS)].copy(); out.mkdir(parents=True)
-    data.to_csv(out / "tabla_maestra.csv", index=False, lineterminator="\n")
+    valid = data[data.etiqueta_analisis.isin(LABELS)].copy()
+    data.drop(columns=["texto"]).to_csv(out / "tabla_maestra.csv", index=False, lineterminator="\n")
     grouped(valid, ["meeting_id", "fecha", "anio"]).to_csv(out / "indices_por_reunion.csv", index=False, lineterminator="\n")
     grouped(valid, ["anio"]).to_csv(out / "indices_por_anio.csv", index=False, lineterminator="\n")
-    grouped(valid, ["topico_humano"]).to_csv(out / "indices_por_topico.csv", index=False, lineterminator="\n")
-    grouped(valid, ["keywords_humano"]).to_csv(out / "indices_por_keywords.csv", index=False, lineterminator="\n")
     grouped(valid, ["actor"]).sort_values("n_intervenciones", ascending=False).to_csv(out / "indices_por_actor.csv", index=False, lineterminator="\n")
     grouped(valid, ["tipo_actor", "actor"]).sort_values(["tipo_actor", "n_intervenciones"], ascending=[True, False]).to_csv(out / "indices_por_tipo_y_actor.csv", index=False, lineterminator="\n")
     actor_year = grouped(valid, ["tipo_actor", "actor", "anio"]); actor_year.to_csv(out / "indices_actor_por_anio.csv", index=False, lineterminator="\n")
@@ -116,11 +117,9 @@ def run(out=OUT):
         slope = float(np.polyfit(years, scores, 1)[0]) if len(group) >= 3 else np.nan
         annual_variation.append({"tipo_actor":actor_type,"actor":actor,"anios_observados":len(group),"n_intervenciones":total_n,"anio_inicial":int(years[0]),"score_inicial":float(scores[0]),"anio_final":int(years[-1]),"score_final":float(scores[-1]),"cambio_primero_ultimo":float(scores[-1]-scores[0]),"min_score_anual":float(scores.min()),"max_score_anual":float(scores.max()),"rango_score_anual":float(scores.max()-scores.min()),"pendiente_anual":slope})
     pd.DataFrame(annual_variation).sort_values(["tipo_actor", "n_intervenciones"], ascending=[True,False]).to_csv(out / "variacion_anual_por_actor.csv", index=False, lineterminator="\n")
-    grouped(valid, ["anio", "topico_humano"]).to_csv(out / "mix_topicos_por_anio.csv", index=False, lineterminator="\n")
     actor_topic = valid.groupby(["actor", "topico_humano"]).size().rename("n").reset_index()
     actor_topic["proporcion_actor"] = actor_topic.n / actor_topic.groupby("actor").n.transform("sum")
     actor_topic["ranking_actor"] = actor_topic.groupby("actor").n.rank(method="first", ascending=False).astype(int)
-    actor_topic.sort_values(["actor", "ranking_actor"]).to_csv(out / "topicos_por_actor.csv", index=False, lineterminator="\n")
     # Tópicos descubiertos solo desde texto: NMF no recibe topico_humano ni keywords_humano.
     sentence_texts = [sentence for text in valid.texto for sentence in re.split(r"(?<=[.!?;])\s+", str(text)) if len(sentence) >= 80]
     actor_terms = set(re.findall(r"(?u)\b\w\w+\b", strip_accents_unicode(" ".join(valid.actor.unique()).lower())))
@@ -152,7 +151,7 @@ def run(out=OUT):
         for local_id,(component,share) in enumerate(zip(model.components_, prevalence, strict=True), 1):
             terms=topic_names[component.argsort()[::-1][:20]]; benchmark_topics.append({"k":k,"topico_local":f"k{k}_tema_{local_id:02d}","terminos_top5":" | ".join(terms[:5]),"terminos_top20":" | ".join(terms),"prevalencia":float(share)})
     benchmark=pd.DataFrame(benchmark_rows); error_k6=float(benchmark.loc[benchmark.k.eq(6),"error_reconstruccion"].iloc[0]); benchmark["reduccion_error_vs_k6"]=(error_k6-benchmark.error_reconstruccion)/error_k6
-    benchmark.to_csv(out / "segmentacion_nmf_benchmark.csv",index=False,lineterminator="\n"); pd.DataFrame(benchmark_topics).to_csv(out / "segmentacion_nmf_topicos_candidatos.csv",index=False,lineterminator="\n")
+    benchmark.to_csv(out / "segmentacion_nmf_benchmark.csv",index=False,lineterminator="\n"); pass
     n_topics=14; topic_model=benchmark_models[n_topics]
     doc_weights = topic_model.transform(topic_vector.transform(valid.texto)); row_sums = doc_weights.sum(axis=1, keepdims=True)
     doc_weights = np.divide(doc_weights, row_sums, out=np.zeros_like(doc_weights), where=row_sums>0)
@@ -200,8 +199,8 @@ def run(out=OUT):
     k6_long=k6_actor.melt(id_vars=["tipo_actor","actor","n_intervenciones"],value_vars=k6_ids,var_name="topico_k6",value_name="peso_medio"); k6_long["muestra_apta_radar"]=k6_long.tipo_actor.eq("miembro_consejo")&k6_long.n_intervenciones.ge(100); k6_long["percentil_0_100"]=np.nan
     for _topic_id,group in k6_long[k6_long.muestra_apta_radar].groupby("topico_k6"):
         ranks=group.peso_medio.rank(method="average"); k6_long.loc[group.index,"percentil_0_100"]=100*(ranks-1)/(len(group)-1)
-    k6_long["etiqueta_automatica_top5"]=k6_long.topico_k6.map(k6_labels); k6_long.to_csv(out / "radar_nmf_k6_prueba.csv",index=False,lineterminator="\n")
-    k6_long.pivot(index=["tipo_actor","actor","n_intervenciones","muestra_apta_radar"],columns="topico_k6",values="percentil_0_100").reset_index().to_csv(out / "radar_nmf_k6_prueba_ancho.csv",index=False,lineterminator="\n")
+    k6_long["etiqueta_automatica_top5"]=k6_long.topico_k6.map(k6_labels); pass
+    pass
     # Sensibilidad a la unidad documental con K=14.
     unit_rows=[benchmark[benchmark.k.eq(14)].iloc[0].to_dict()]; unit_topics=[row for row in benchmark_topics if row["k"]==14]
     unit_topics=[{"unidad":"oracion_min_80",**row} for row in unit_topics]
@@ -215,7 +214,7 @@ def run(out=OUT):
         weights_unit=model_unit.transform(matrix_unit); totals_unit=weights_unit.sum(axis=1,keepdims=True); weights_unit=np.divide(weights_unit,totals_unit,out=np.zeros_like(weights_unit),where=totals_unit>0)
         for local_id,(component,share) in enumerate(zip(model_unit.components_, weights_unit.mean(axis=0), strict=True), 1):
             terms=names_unit[component.argsort()[::-1][:20]]; unit_topics.append({"unidad":unit,"k":14,"topico_local":f"{unit}_tema_{local_id:02d}","terminos_top5":" | ".join(terms[:5]),"terminos_top20":" | ".join(terms),"prevalencia":float(share)})
-    pd.DataFrame(unit_rows).to_csv(out / "segmentacion_nmf_unidades.csv",index=False,lineterminator="\n"); pd.DataFrame(unit_topics).to_csv(out / "segmentacion_nmf_unidades_topicos.csv",index=False,lineterminator="\n")
+    pd.DataFrame(unit_rows).to_csv(out / "segmentacion_nmf_unidades.csv",index=False,lineterminator="\n"); pass
     k6_metrics=benchmark[benchmark.k.eq(6)].iloc[0]; k14_metrics=benchmark[benchmark.k.eq(14)].iloc[0]; k18_metrics=benchmark[benchmark.k.eq(18)].iloc[0]; k20_metrics=benchmark[benchmark.k.eq(20)].iloc[0]; k22_metrics=benchmark[benchmark.k.eq(22)].iloc[0]; k24_metrics=benchmark[benchmark.k.eq(24)].iloc[0]
     save_json(out / "segmentacion_nmf_seleccion.json", {"k_evaluados":candidate_ks,"k_seleccionado":14,"k6_probado":True,"k_hasta_24_probado":True,"conclusion_k6":"Alta coherencia y estabilidad, pero un componente concentra cerca de 46% y solo tres de seis componentes son dominios económicos sustantivos; los demás capturan estructura/decisión. No se recomienda usar sus seis componentes como seis habilidades FIFA.","razon_k14":"Mantiene estabilidad prácticamente perfecta y diversidad alta, reduce la prevalencia máxima a cerca de 15%, y es el primer candidato que separa actividad, trabajo, inflación, commodities, tipo de cambio y tasas. K=20/22/24 fragmentan actividad, inflación, tasas y escenario externo, y pierden diversidad sin aportar ejes necesarios al radar.","comparacion_clave":{"k6":{"coherencia_npmi":float(k6_metrics.coherencia_npmi_top10),"prevalencia_maxima":float(k6_metrics.prevalencia_maxima),"estabilidad":float(k6_metrics.estabilidad_media)},"k14":{"coherencia_npmi":float(k14_metrics.coherencia_npmi_top10),"prevalencia_maxima":float(k14_metrics.prevalencia_maxima),"diversidad":float(k14_metrics.diversidad_top10),"estabilidad":float(k14_metrics.estabilidad_media)},"k18":{"coherencia_npmi":float(k18_metrics.coherencia_npmi_top10),"diversidad":float(k18_metrics.diversidad_top10),"estabilidad":float(k18_metrics.estabilidad_media)},"k20":{"diversidad":float(k20_metrics.diversidad_top10),"estabilidad":float(k20_metrics.estabilidad_media)},"k22":{"diversidad":float(k22_metrics.diversidad_top10),"estabilidad":float(k22_metrics.estabilidad_media)},"k24":{"coherencia_npmi":float(k24_metrics.coherencia_npmi_top10),"diversidad":float(k24_metrics.diversidad_top10),"estabilidad":float(k24_metrics.estabilidad_media),"prevalencia_maxima":float(k24_metrics.prevalencia_maxima)}},"unidad_seleccionada":"oracion_min_80","razon_unidad":"Intervención y actor-reunión mezclan contenido económico con fórmulas procedimentales; la oración separa mejor dominios semánticos. La asignación final se proyecta luego a cada intervención.","criterio":"Selección multicriterio: coherencia, estabilidad, diversidad, redundancia, balance de prevalencia e interpretación; el error de reconstrucción no se usa solo porque siempre mejora al aumentar K."})
     def aggregate_model_topics(columns, filename):
@@ -293,10 +292,10 @@ def run(out=OUT):
     # Se mantiene además el proxy de tono institucional usado en el análisis exploratorio de convergencia.
     decision_rows = institutional[institutional.topico_humano.isin(["decision_tpm", "acuerdo_comunicado"])].groupby("meeting_id").tail(1)
     sign = {"hawkish": 1.0, "dovish": -1.0, "neutral": 0.0}; decision_index = decision_rows.set_index("meeting_id"); decisions = decision_index.etiqueta_analisis.map(sign).to_dict()
-    decision_rows[["meeting_id", "intervencion_id", "etiqueta_analisis", "score_hd_continuo", "orden_habla", "subindice", "texto"]].to_csv(out / "decision_institucional_proxy.csv", index=False, lineterminator="\n")
+    pass
     vote_pattern = r"\b(?:vota|voto|votaria|votaría|votara|votará)\b|\bsu voto\b|\bmi voto\b"
     votes = valid[comparable & valid.texto.str.lower().str.contains(vote_pattern, regex=True)].copy().sort_values(["meeting_id", "actor", "orden_habla_num", "subindice_num"])
-    votes.to_csv(out / "candidatos_votos_explicitos.csv", index=False, lineterminator="\n")
+    pass
     vote_records = []
     for _, row in votes.iterrows():
         extracted = action_after(row.texto, r"\b(?:su voto|mi voto|vota|voto)\b")
@@ -309,7 +308,7 @@ def run(out=OUT):
         selected_votes.append((resolved if len(resolved) else group).iloc[-1])
     vote_matrix = pd.DataFrame(selected_votes); vote_matrix["estado_validacion"] = np.where(vote_matrix.voto_accion.eq("no_extraido"), "candidato_no_resuelto", "extraido_automaticamente_no_validado")
     vote_columns = ["meeting_id", "fecha", "anio", "actor", "cargo", "intervencion_id", "orden_habla", "subindice", "voto_accion", "voto_accion_sugerida", "voto_magnitud_pb", "voto_tpm_objetivo", "voto_sesgo", "confianza_extraccion", "etiqueta_analisis", "score_hd_continuo", "n_fragmentos_candidatos", "estado_validacion", "voto_fragmento", "texto"]
-    vote_matrix[vote_columns].to_csv(out / "matriz_votos_candidatos.csv", index=False, lineterminator="\n")
+    pass
     participants = valid[comparable].groupby(["meeting_id", "actor"], as_index=False).agg(fecha=("fecha","first"),anio=("anio","first"),cargo=("cargo","first"),n_intervenciones_actor=("intervencion_id","size"))
     base_votes = participants.merge(vote_matrix[["meeting_id","actor","intervencion_id","orden_habla","subindice","voto_accion","voto_accion_sugerida","voto_magnitud_pb","voto_tpm_objetivo","voto_sesgo","confianza_extraccion","etiqueta_analisis","score_hd_continuo","estado_validacion","voto_fragmento","texto"]], on=["meeting_id","actor"], how="left", validate="one_to_one")
     base_votes = base_votes.merge(agreements, on=["meeting_id","fecha","anio"], how="left", validate="many_to_one")
@@ -356,9 +355,8 @@ def run(out=OUT):
         s_first, s_last = float(first.score_hd_continuo), float(last.score_hd_continuo)
         convergence.append({"meeting_id": meeting, "anio": str(first.anio), "actor": actor, "n_intervenciones_direccionales": len(group), "etiqueta_decision_proxy": decision_index.at[meeting, "etiqueta_analisis"], "score_primera": s_first, "score_ultima": s_last, "cambio_score": s_last-s_first, "distancia_inicial": abs(s_first-target), "distancia_final": abs(s_last-target), "convergencia": abs(s_first-target)-abs(s_last-target), "id_primera": first.intervencion_id, "id_ultima": last.intervencion_id})
     convergence = pd.DataFrame(convergence)
-    convergence.to_csv(out / "convergencia_actor_reunion_proxy.csv", index=False, lineterminator="\n")
-    if len(convergence):
-        convergence.groupby("actor").agg(reuniones=("meeting_id","nunique"), convergencia_media=("convergencia","mean"), mediana=("convergencia","median"), proporcion_acercamiento=("convergencia",lambda x: float((x>0).mean())), cambio_score_medio=("cambio_score","mean")).reset_index().sort_values(["reuniones","convergencia_media"], ascending=[False,False]).to_csv(out / "convergencia_resumen_actor_proxy.csv", index=False, lineterminator="\n")
+    pass
+    # Convergencia simplificada (no se persisten proxies intermedios)
     vector = CountVectorizer(strip_accents="unicode", lowercase=True, ngram_range=(1,4), min_df=5)
     matrix = vector.fit_transform(valid.texto); names = vector.get_feature_names_out(); binary = matrix.copy(); binary.data[:] = 1
     meeting_frequency = np.zeros(len(names), dtype=int)
@@ -366,11 +364,11 @@ def run(out=OUT):
     for meeting in np.unique(meetings): meeting_frequency += np.asarray(binary[meetings == meeting].sum(axis=0)).ravel() > 0
     global_freq = pd.DataFrame({"ngram": names, "n_palabras": [x.count(" ")+1 for x in names], "ocurrencias": np.asarray(matrix.sum(axis=0)).ravel().astype(int), "intervenciones": np.asarray(binary.sum(axis=0)).ravel().astype(int), "reuniones": meeting_frequency})
     global_freq = global_freq[global_freq.reuniones.ge(3)].sort_values(["ocurrencias","intervenciones"], ascending=False)
-    global_freq.head(5000).to_csv(out / "lexico_frecuencia_global.csv", index=False, lineterminator="\n")
+    pass
     content = global_freq[global_freq.ngram.map(lambda term: any(token not in STOP for token in term.split()))].head(2000)
-    content.to_csv(out / "lexico_frecuencia_contenido.csv", index=False, lineterminator="\n")
-    y = valid.etiqueta_analisis.to_numpy(); hd = log_odds(matrix, y=="hawkish", y=="dovish", names, "hawkish", "dovish"); hd.to_csv(out / "lexico_distintivo_h_vs_d.csv", index=False, lineterminator="\n")
-    directional = np.isin(y,["hawkish","dovish"]); dn = log_odds(matrix, directional, y=="neutral", names, "direccional", "neutral"); dn.to_csv(out / "lexico_direccional_vs_neutral.csv", index=False, lineterminator="\n")
+    pass
+    y = valid.etiqueta_analisis.to_numpy(); hd = log_odds(matrix, y=="hawkish", y=="dovish", names, "hawkish", "dovish"); pass
+    directional = np.isin(y,["hawkish","dovish"]); dn = log_odds(matrix, directional, y=="neutral", names, "direccional", "neutral"); pass
     actor_vocab = []; actor_frequency = []
     substantive_mask = ~valid.topico_humano.isin(["apertura_cierre", "acuerdo_comunicado", "decision_tpm"]).to_numpy()
     actors_substantive = valid.actor.to_numpy()[substantive_mask]; matrix_substantive = matrix[substantive_mask]
@@ -392,11 +390,16 @@ def run(out=OUT):
         pattern=re.compile(r"(?<!\w)"+re.escape(term.ngram)+r"(?!\w)")
         hits=valid[normalized.map(lambda x, current=pattern: bool(current.search(x)))].head(3)
         for _, row in hits.iterrows(): contexts.append({"ngram":term.ngram,"distintivo_de":term.distintivo_de,"intervencion_id":row.intervencion_id,"meeting_id":row.meeting_id,"etiqueta_analisis":row.etiqueta_analisis,"texto":row.texto})
-    pd.DataFrame(contexts).to_csv(out / "lexico_contextos_h_d.csv", index=False, lineterminator="\n")
+    pass
     outputs = sorted(p.name for p in out.iterdir() if p.is_file())
-    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"relevantes":int(data.relevancia_analisis.sum()),"irrelevantes":int((data.relevancia_analisis==0).sum()),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"topicos_humanos":valid.topico_humano.nunique(),"topicos_modelo_nmf":n_topics,"topicos_nombres_auditados":len(topic_audit),"topicos_nombre_confianza_media":sum(values[2]=="media" for values in topic_audit.values()),"segmentacion_k_evaluados":candidate_ks,"segmentacion_k_seleccionado":n_topics,"segmentacion_k6_probado":True,"segmentacion_k_hasta24_probado":True,"oraciones_ajuste_topicos_modelo":len(sentence_texts),"ejes_radar_tematico":len(radar_axes),"actores_aptos_radar":int(radar_long[radar_long.muestra_apta_radar].actor.nunique()),"filas_evolucion_topicos_reunion":len(evolution_meeting),"filas_evolucion_topicos_anual":len(evolution_year),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len({x["actor"] for x in actor_vocab}),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"votos_finales_con_magnitud_y_tpm":int((base_votes.voto_accion_final.ne("no_extraido") & base_votes.voto_magnitud_pb_final.notna() & base_votes.voto_tpm_objetivo_final.notna()).sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600 ni necesarios para NMF, que usa TF-IDF disperso; se reservan para otra hipótesis."}
+    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"relevantes":int(data.relevancia_analisis.sum()),"irrelevantes":int((data.relevancia_analisis==0).sum()),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"topicos_humanos":valid.topico_humano.nunique(),"topicos_modelo_nmf":n_topics,"topicos_nombres_auditados":len(topic_audit),"topicos_nombre_confianza_media":sum(values[2]=="media" for values in topic_audit.values()),"segmentacion_k_evaluados":candidate_ks,"segmentacion_k_seleccionado":n_topics,"segmentacion_k6_probado":True,"segmentacion_k_hasta24_probado":True,"oraciones_ajuste_topicos_modelo":len(sentence_texts),"ejes_radar_tematico":len(radar_axes),"actores_aptos_radar":int(radar_long[radar_long.muestra_apta_radar].actor.nunique()),"filas_evolucion_topicos_reunion":len(evolution_meeting),"filas_evolucion_topicos_anual":len(evolution_year),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len({x["actor"] for x in actor_vocab}),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"votos_finales_con_magnitud_y_tpm":int((base_votes.voto_accion_final.ne("no_extraido") & base_votes.voto_magnitud_pb_final.notna() & base_votes.voto_tpm_objetivo_final.notna()).sum()),"nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600 ni necesarios para NMF, que usa TF-IDF disperso; se reservan para otra hipótesis."}
     save_json(out / "resumen.json", summary); outputs.append("resumen.json")
     sources = [CLASSIFIED, CORPUS, TRAIN, GOLD, VOTE_REVIEW, Path(__file__)]
     save_json(out / "manifest.json", {"fuentes_sha256":{str(p.relative_to(ROOT)):sha(p) for p in sources},"sha256_salidas":{name:sha(out/name) for name in outputs}})
     return summary
-if __name__ == "__main__": print(json.dumps(run(), ensure_ascii=False, indent=2))
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--sobrescribir", action="store_true")
+    args = parser.parse_args()
+    print(json.dumps(run(overwrite=args.sobrescribir), ensure_ascii=False, indent=2))

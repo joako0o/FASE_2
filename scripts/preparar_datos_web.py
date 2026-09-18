@@ -14,6 +14,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 ANALYSIS = ROOT / "resultados/analisis_descriptivo"
+CORPUS = ROOT / "data/corpus_bcch_2005_2015.csv"
 DEFAULT_OUT = ROOT / "datos_web"
 TOPIC_IDS = [f"tema_nmf_{i:02d}" for i in range(1, 15)]
 RADAR_AXES = {
@@ -60,6 +61,8 @@ def prepare(out=DEFAULT_OUT, overwrite=False):
     out.mkdir(parents=True)
 
     master = pd.read_csv(ANALYSIS / "tabla_maestra.csv", keep_default_na=False)
+    corpus = pd.read_csv(CORPUS, keep_default_na=False, usecols=["intervencion_id", "texto"])
+    master = master.merge(corpus, on="intervencion_id", how="left", validate="one_to_one")
     assignments = pd.read_csv(ANALYSIS / "asignacion_topicos_modelo_nmf.csv", keep_default_na=False)
     assignments = assignments.rename(columns={f"peso_{topic}": topic for topic in TOPIC_IDS})
     data = master.merge(assignments[["intervencion_id", "topico_modelo_1", "peso_topico_1", "topico_modelo_2", "peso_topico_2", "entropia_topicos"] + TOPIC_IDS], on="intervencion_id", how="left", validate="one_to_one")

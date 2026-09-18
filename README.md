@@ -15,28 +15,25 @@ Superó de forma robusta al modelo anterior C+89. El análisis factorial mostró
 ## Estructura
 
 ```text
-├── README.md
-├── requirements.txt
+├── README.md                          Guía principal, arquitectura y fórmulas
+├── requirements.txt                   Dependencias mínimas reproducibles
 ├── data/
-│   ├── corpus_bcch_2005_2015.csv       Corpus que se quiere clasificar
-│   ├── entrenamiento_wc600.csv         Entrenamiento final, ya purgado
-│   ├── evaluacion_ciega_gold.csv       Referencia humana final
+│   ├── corpus_bcch_2005_2015.csv       Fuente canónica única del texto del corpus
+│   ├── entrenamiento_wc600.csv         Entrenamiento final (1.596 filas)
+│   ├── evaluacion_ciega_gold.csv       Gold estándar ciego (300 filas)
 │   ├── predicciones_evaluacion_ciega.csv
 │   ├── resultados_evaluacion_ciega.json
 │   ├── analisis_factorial.json
 │   └── benchmark_modelos.{csv,json}
 ├── modelos/wc600/                    Cinco miembros persistidos y manifiesto
 ├── resultados/
-│   ├── clasificacion_wc600_9725.csv
-│   └── analisis_descriptivo/         Índices, tópicos, actores y léxico
-├── datos_web/                         Paquete compacto para el scrollytelling
-│   └── actas/{2005..2015}.json        Actas divididas para carga diferida
+│   ├── clasificacion_wc600_9725.csv  Predicciones y probabilidades sin texto duplicado
+│   └── analisis_descriptivo/         Índices, acuerdos, votos, tópicos K=14 y radar
+├── datos_web/                         Paquete generado bajo demanda para scrollytelling
 ├── docs/
-│   ├── CODEBOOK_ETIQUETADO.md
-│   ├── METODOLOGIA_MODELO.md
-│   ├── RESULTADOS_Y_ROBUSTEZ.md
-│   ├── BENCHMARK_MODELOS.md
-│   └── PROTOCOLO_*.md
+│   ├── CODEBOOK.md                   Criterios formales de postura H/D/N
+│   ├── METODOLOGIA_Y_BENCHMARK.md    Pipeline W+C+600, análisis factorial y benchmark
+│   └── RESULTADOS_LIMITACIONES.md    Tópicos NMF K=14, dinámica y límites inferenciales
 ├── scripts/
 │   ├── modelo_final.py
 │   ├── analisis_resultados.py

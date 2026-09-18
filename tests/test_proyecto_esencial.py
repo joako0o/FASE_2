@@ -14,7 +14,8 @@ class TestProyectoEsencial(unittest.TestCase):
         tests = list((ROOT / "tests").glob("test_*.py"))
         self.assertEqual({p.name for p in scripts}, {"modelo_final.py", "analisis_resultados.py", "preparar_datos_web.py"})
         self.assertEqual([p.name for p in tests], ["test_proyecto_esencial.py"])
-        self.assertLessEqual(len(list((ROOT / "docs").glob("*.md"))), 7)
+        # Cuatro documentos principales en el repositorio: README.md en raíz + 3 en docs/
+        self.assertEqual(len(list((ROOT / "docs").glob("*.md"))), 3)
 
     def test_integridad(self):
         manifest = json.loads((ROOT / "data/manifest.json").read_text(encoding="utf-8"))["sha256"]
@@ -50,6 +51,8 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertEqual(sum(r["acuerdo_miembros"] == "desacuerdo" for r in rows), 169)
         self.assertTrue(all(r["pred_relevancia_v3"] in {"0", "1"} and r["prob_relevancia_no_calibrada"] for r in rows))
         for r in rows[:100]: self.assertAlmostEqual(sum(float(r[c]) for c in ["prob_h_no_calibrada", "prob_d_no_calibrada", "prob_n_no_calibrada"]), 1.0)
+        # El texto no debe estar duplicado en clasificacion_wc600_9725.csv
+        self.assertNotIn("texto", rows[0])
         manifest = json.loads((ROOT / "resultados/manifest.json").read_text(encoding="utf-8"))["sha256"]
         for name, expected in manifest.items():
             self.assertEqual(hashlib.sha256((ROOT / "resultados" / name).read_bytes()).hexdigest(), expected)
@@ -58,12 +61,10 @@ class TestProyectoEsencial(unittest.TestCase):
         summary = json.loads((ROOT / "resultados/analisis_descriptivo/resumen.json").read_text(encoding="utf-8"))
         self.assertEqual((summary["filas_validas"], summary["no_decidibles"], summary["reuniones"]), (9724, 1, 132))
         self.assertEqual((summary["relevantes"], summary["irrelevantes"]), (7814, 1911))
-        self.assertEqual((summary["decisiones_institucionales_proxy"], summary["casos_convergencia_proxy"]), (132, 39))
         self.assertEqual((summary["topicos_humanos"], summary["topicos_modelo_nmf"], summary["topicos_nombres_auditados"], summary["topicos_nombre_confianza_media"], summary["oraciones_ajuste_topicos_modelo"]), (13, 14, 14, 4, 57452))
         self.assertEqual((summary["segmentacion_k_evaluados"], summary["segmentacion_k_seleccionado"], summary["segmentacion_k6_probado"], summary["segmentacion_k_hasta24_probado"]), ([6,8,10,12,14,16,18,20,22,24], 14, True, True))
         self.assertEqual((summary["ejes_radar_tematico"], summary["actores_aptos_radar"]), (6, 9))
         self.assertEqual((summary["filas_evolucion_topicos_reunion"], summary["filas_evolucion_topicos_anual"]), (792, 66))
-        self.assertEqual(summary["pares_reunion_actor_con_candidato_voto"], 560)
         self.assertEqual((summary["acuerdos_consejo_extraidos"], summary["filas_base_votos_acta_actor"]), (132, 649))
         self.assertEqual((summary["votos_con_accion_extraida"], summary["votos_inferidos_por_unanimidad"], summary["votos_revisados_textualmente"], summary["votos_no_extraidos"], summary["votos_finales_con_magnitud_y_tpm"]), (516, 87, 45, 1, 648))
         self.assertFalse(summary["embeddings_generados"])
@@ -71,6 +72,8 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertEqual(len(master), 9725)
         self.assertTrue(all(r["orden_habla"] and r["subindice"] and r["tipo_actor"] for r in master))
         self.assertEqual({r["tipo_actor"] for r in master}, {"miembro_consejo", "staff_tecnico", "hacienda_gobierno", "consejo_institucional"})
+        # El texto no debe estar duplicado en tabla_maestra.csv
+        self.assertNotIn("texto", master[0])
         topic_method = json.loads((ROOT / "resultados/analisis_descriptivo/topicos_modelo_metodo.json").read_text(encoding="utf-8"))
         self.assertEqual((topic_method["metodo"], topic_method["n_topicos"], topic_method["columnas_humanas_usadas"]), ("NMF sobre TF-IDF de oraciones", 14, []))
         with (ROOT / "resultados/analisis_descriptivo/auditoria_nombres_topicos_nmf.csv").open(encoding="utf-8", newline="") as f: audited_topics = list(csv.DictReader(f))
@@ -88,7 +91,7 @@ class TestProyectoEsencial(unittest.TestCase):
         self.assertLess(float(segmentation_rows[-1]["diversidad_top10"]), 0.92)
         evolution_method = json.loads((ROOT / "resultados/analisis_descriptivo/evolucion_topicos_modelo_metodo.json").read_text(encoding="utf-8"))
         self.assertEqual((evolution_method["unidad"], len(evolution_method["ejes_componentes_nmf"])), ("Acta/reunión y año", 6))
-        for name in ["indices_actor_por_anio.csv", "topicos_por_actor.csv", "topicos_modelo_nmf.csv", "asignacion_topicos_modelo_nmf.csv", "topicos_modelo_por_reunion.csv", "auditoria_nombres_topicos_nmf.csv", "segmentacion_nmf_benchmark.csv", "segmentacion_nmf_k6_topicos.csv", "segmentacion_nmf_unidades.csv", "radar_nmf_k6_prueba_ancho.csv", "radar_tematico_actores.csv", "radar_tematico_actores_ancho.csv", "radar_tematico_metodo.json", "evolucion_topicos_modelo_por_reunion.csv", "evolucion_topicos_modelo_anual.csv", "evolucion_topicos_modelo_resumen.csv", "vocabulario_frecuente_por_actor.csv", "vocabulario_distintivo_por_actor.csv", "matriz_votos_candidatos.csv", "acuerdo_consejo_por_reunion.csv", "base_votos_acta_actor.csv", "convergencia_actor_reunion_proxy.csv"]:
+        for name in ["indices_actor_por_anio.csv", "topicos_modelo_nmf.csv", "asignacion_topicos_modelo_nmf.csv", "topicos_modelo_por_reunion.csv", "auditoria_nombres_topicos_nmf.csv", "segmentacion_nmf_benchmark.csv", "segmentacion_nmf_k6_topicos.csv", "segmentacion_nmf_unidades.csv", "radar_tematico_actores.csv", "radar_tematico_actores_ancho.csv", "radar_tematico_metodo.json", "evolucion_topicos_modelo_por_reunion.csv", "evolucion_topicos_modelo_anual.csv", "evolucion_topicos_modelo_resumen.csv", "vocabulario_frecuente_por_actor.csv", "vocabulario_distintivo_por_actor.csv", "acuerdo_consejo_por_reunion.csv", "base_votos_acta_actor.csv"]:
             self.assertTrue((ROOT / "resultados/analisis_descriptivo" / name).is_file())
         with (ROOT / "resultados/analisis_descriptivo/base_votos_acta_actor.csv").open(encoding="utf-8", newline="") as f: votes = list(csv.DictReader(f))
         self.assertEqual(len(votes), 649)
