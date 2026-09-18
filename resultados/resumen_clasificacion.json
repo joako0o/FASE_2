@@ -79,6 +79,10 @@
     }
   },
   "reproduccion_evaluacion_ciega": "300/300",
-  "sha256_csv": "013de4e9d0536acd0ce346d0fdf47142e01e17b28d0b5afdcb08191466d1874f",
-  "advertencia": "Las predicciones de filas de entrenamiento son in-sample; evaluación_ciega conserva predicciones prospectivas; inferencia_no_etiquetada no tiene gold."
+  "sha256_csv": "53bb7584bca0cf3193a610deb6a6ef10df23490df302ce3f5ca2616e38c9b103",
+  "advertencia": "Las predicciones de filas de entrenamiento son in-sample; evaluación_ciega conserva predicciones prospectivas; inferencia_no_etiquetada no tiene gold.",
+  "columnas_semanticas_restauradas": [
+    "topico_humano",
+    "keywords_humano"
+  ]
 }

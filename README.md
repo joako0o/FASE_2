@@ -58,6 +58,7 @@ El modelo ya fue ejecutado sobre las 9.725 intervenciones. El resultado está en
 2. [`docs/RESULTADOS_Y_ROBUSTEZ.md`](docs/RESULTADOS_Y_ROBUSTEZ.md)
 3. [`docs/BENCHMARK_MODELOS.md`](docs/BENCHMARK_MODELOS.md)
 4. [`docs/CODEBOOK_ETIQUETADO.md`](docs/CODEBOOK_ETIQUETADO.md)
+5. [`docs/OBJETIVOS_ANALISIS.md`](docs/OBJETIVOS_ANALISIS.md)
 
 ## Límites
 

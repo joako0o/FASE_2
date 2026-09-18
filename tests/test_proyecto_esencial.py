@@ -14,7 +14,7 @@ class TestProyectoEsencial(unittest.TestCase):
         tests = list((ROOT / "tests").glob("test_*.py"))
         self.assertEqual([p.name for p in scripts], ["modelo_final.py"])
         self.assertEqual([p.name for p in tests], ["test_proyecto_esencial.py"])
-        self.assertLessEqual(len(list((ROOT / "docs").glob("*.md"))), 6)
+        self.assertLessEqual(len(list((ROOT / "docs").glob("*.md"))), 7)
 
     def test_integridad(self):
         manifest = json.loads((ROOT / "data/manifest.json").read_text(encoding="utf-8"))["sha256"]
@@ -44,6 +44,8 @@ class TestProyectoEsencial(unittest.TestCase):
         with (ROOT / "resultados/clasificacion_wc600_9725.csv").open(encoding="utf-8", newline="") as f: rows = list(csv.DictReader(f))
         self.assertEqual(len(rows), 9725)
         self.assertEqual(len({r["intervencion_id"] for r in rows}), 9725)
+        self.assertEqual(len({r["topico_humano"] for r in rows}), 13)
+        self.assertTrue(all(r["keywords_humano"] for r in rows))
         self.assertEqual({label: sum(r["prediccion_v3"] == label for r in rows) for label in ["hawkish", "dovish", "neutral"]}, {"hawkish": 513, "dovish": 380, "neutral": 8832})
         self.assertEqual(sum(r["acuerdo_miembros"] == "desacuerdo" for r in rows), 169)
         manifest = json.loads((ROOT / "resultados/manifest.json").read_text(encoding="utf-8"))["sha256"]

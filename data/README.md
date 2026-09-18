@@ -2,7 +2,7 @@
 
 | Archivo | Contenido | Uso |
 |---|---|---|
-| `corpus_bcch_2005_2015.csv` | 9.725 intervenciones del período oficial | Entrada para clasificación |
+| `corpus_bcch_2005_2015.csv` | 9.725 intervenciones, tópico y keywords humanos del período oficial | Entrada para clasificación y análisis semántico |
 | `entrenamiento_wc600.csv` | 1.596 referencias únicas y miembros permitidos | Entrenamiento exacto del modelo final |
 | `evaluacion_ciega_gold.csv` | 300 decisiones validadas; 299 evaluables | Evidencia final, nunca entrenamiento |
 | `predicciones_evaluacion_ciega.csv` | Predicciones congeladas de cuatro condiciones | Reproducción de comparaciones |
