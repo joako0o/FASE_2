@@ -1,0 +1,16 @@
+{
+  "metodo": "NMF sobre TF-IDF de oraciones",
+  "n_topicos": 14,
+  "n_oraciones_ajuste": 57452,
+  "longitud_minima_oracion": 80,
+  "ngram_range": [
+    1,
+    2
+  ],
+  "min_df": 12,
+  "max_df": 0.5,
+  "max_features": 20000,
+  "semilla": 20260918,
+  "columnas_humanas_usadas": [],
+  "advertencia": "Los IDs y términos son patrones estadísticos exploratorios, no categorías humanas ni salida de W+C+600."
+}

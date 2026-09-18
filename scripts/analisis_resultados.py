@@ -7,7 +7,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from scipy import sparse
-from sklearn.feature_extraction.text import CountVectorizer, strip_accents_unicode
+from sklearn.decomposition import NMF
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer, strip_accents_unicode
 
 ROOT = Path(__file__).resolve().parents[1]
 CLASSIFIED = ROOT / "resultados/clasificacion_wc600_9725.csv"
@@ -18,6 +19,7 @@ VOTE_REVIEW = ROOT / "data/revision_votos_actores.csv"
 OUT = ROOT / "resultados/analisis_descriptivo"
 LABELS = ["hawkish", "dovish", "neutral"]
 STOP = set("de la el que en y los las del se por un una con para su al lo como es no más mas ha sus este esta sobre son fue han si ya entre le les o e a ante desde hasta durante mediante señor senor señora senora consejero consejera presidente vicepresidente gerente banco central chile senala indica menciona manifiesta expresa agrega hace presente ano respecto tambien intervencion inicia continua continuacion prosigue aludido referido ofrece palabra agradece comentarios concede consulta opinion tiene porque pero hay ello ser muy puede pueden parte caso punto forma manera bien solo dado reunion sesion".split())
+TOPIC_STOP = STOP | set("asimismo estos estas ese esa esos esas esto cual cuales cada otro otra otros otras luego aun tanto todo toda todos todas mismo misma dentro fuera vez dos tras segun siendo hacer hecho hacia donde cuando quienes quien mientras aunque embargo cuanto encuentra considera sostiene plantea parece juicio terminos general actual oportunidad antecedentes informacion analisis situacion contexto escenario don doña dona horas staff".split())
 
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -111,6 +113,38 @@ def run(out=OUT):
     actor_topic["proporcion_actor"] = actor_topic.n / actor_topic.groupby("actor").n.transform("sum")
     actor_topic["ranking_actor"] = actor_topic.groupby("actor").n.rank(method="first", ascending=False).astype(int)
     actor_topic.sort_values(["actor", "ranking_actor"]).to_csv(out / "topicos_por_actor.csv", index=False, lineterminator="\n")
+    # Tópicos descubiertos solo desde texto: NMF no recibe topico_humano ni keywords_humano.
+    sentence_texts = [sentence for text in valid.texto for sentence in re.split(r"(?<=[.!?;])\s+", str(text)) if len(sentence) >= 80]
+    actor_terms = set(re.findall(r"(?u)\b\w\w+\b", strip_accents_unicode(" ".join(valid.actor.unique()).lower())))
+    topic_stop = sorted(TOPIC_STOP | actor_terms)
+    topic_vector = TfidfVectorizer(strip_accents="unicode", lowercase=True, ngram_range=(1,2), min_df=12, max_df=0.5, max_features=20000, stop_words=topic_stop, sublinear_tf=True)
+    sentence_tfidf = topic_vector.fit_transform(sentence_texts); n_topics = 14
+    topic_model = NMF(n_components=n_topics, init="nndsvda", random_state=20260918, max_iter=500, alpha_W=0.00005, alpha_H=0.00005)
+    topic_model.fit(sentence_tfidf)
+    doc_weights = topic_model.transform(topic_vector.transform(valid.texto)); row_sums = doc_weights.sum(axis=1, keepdims=True)
+    doc_weights = np.divide(doc_weights, row_sums, out=np.zeros_like(doc_weights), where=row_sums>0)
+    prevalence_order = np.argsort(doc_weights.mean(axis=0))[::-1]; doc_weights = doc_weights[:,prevalence_order]; components = topic_model.components_[prevalence_order]
+    topic_ids = [f"tema_nmf_{i:02d}" for i in range(1,n_topics+1)]; topic_names = topic_vector.get_feature_names_out(); topic_rows=[]
+    for topic_id, component, prevalence in zip(topic_ids, components, doc_weights.mean(axis=0)):
+        ordered = component.argsort()[::-1]; terms = topic_names[ordered[:20]]
+        topic_rows.append({"topico_modelo":topic_id,"etiqueta_automatica_top5":" | ".join(terms[:5]),"terminos_top20":" | ".join(terms),"peso_medio_corpus":float(prevalence),"origen":"NMF_solo_texto_sin_topico_humano_ni_keywords"})
+    pd.DataFrame(topic_rows).to_csv(out / "topicos_modelo_nmf.csv", index=False, lineterminator="\n")
+    top_order = np.argsort(doc_weights, axis=1)[:,::-1]; topic_assignment = valid[["intervencion_id","meeting_id","fecha","anio","actor"]].reset_index(drop=True).copy()
+    topic_assignment["topico_modelo_1"] = [topic_ids[i] for i in top_order[:,0]]; topic_assignment["peso_topico_1"] = doc_weights[np.arange(len(valid)),top_order[:,0]]
+    topic_assignment["topico_modelo_2"] = [topic_ids[i] for i in top_order[:,1]]; topic_assignment["peso_topico_2"] = doc_weights[np.arange(len(valid)),top_order[:,1]]
+    topic_assignment["entropia_topicos"] = -(np.where(doc_weights>0, doc_weights*np.log(doc_weights+1e-15), 0).sum(axis=1))/np.log(n_topics)
+    for index, topic_id in enumerate(topic_ids): topic_assignment[f"peso_{topic_id}"] = doc_weights[:,index]
+    topic_assignment.to_csv(out / "asignacion_topicos_modelo_nmf.csv", index=False, lineterminator="\n")
+    def aggregate_model_topics(columns, filename):
+        weights = topic_assignment[columns].join(pd.DataFrame(doc_weights, columns=topic_ids)); long = weights.melt(id_vars=columns, var_name="topico_modelo", value_name="peso")
+        dominant = topic_assignment.groupby(columns+["topico_modelo_1"]).size().rename("n_dominante").reset_index().rename(columns={"topico_modelo_1":"topico_modelo"})
+        result = long.groupby(columns+["topico_modelo"], as_index=False).agg(peso_medio=("peso","mean"),peso_total=("peso","sum")).merge(dominant, on=columns+["topico_modelo"], how="left")
+        result["n_dominante"] = result.n_dominante.fillna(0).astype(int); result["ranking"] = result.groupby(columns).peso_medio.rank(method="first", ascending=False).astype(int)
+        result.sort_values(columns+["ranking"]).to_csv(out / filename, index=False, lineterminator="\n")
+    aggregate_model_topics(["meeting_id","fecha","anio"], "topicos_modelo_por_reunion.csv")
+    aggregate_model_topics(["anio"], "topicos_modelo_por_anio.csv")
+    aggregate_model_topics(["actor"], "topicos_modelo_por_actor.csv")
+    save_json(out / "topicos_modelo_metodo.json", {"metodo":"NMF sobre TF-IDF de oraciones", "n_topicos":n_topics, "n_oraciones_ajuste":len(sentence_texts), "longitud_minima_oracion":80, "ngram_range":[1,2], "min_df":12, "max_df":0.5, "max_features":20000, "semilla":20260918, "columnas_humanas_usadas":[], "advertencia":"Los IDs y términos son patrones estadísticos exploratorios, no categorías humanas ni salida de W+C+600."})
     # Convergencia rápida: usa postura direccional y decisión institucional clasificadas como proxies, no votos certificados.
     valid["orden_habla_num"] = pd.to_numeric(valid.orden_habla, errors="coerce")
     valid["subindice_num"] = pd.to_numeric(valid.subindice, errors="coerce").fillna(0)
@@ -237,7 +271,7 @@ def run(out=OUT):
         for _, row in hits.iterrows(): contexts.append({"ngram":term.ngram,"distintivo_de":term.distintivo_de,"intervencion_id":row.intervencion_id,"meeting_id":row.meeting_id,"etiqueta_analisis":row.etiqueta_analisis,"texto":row.texto})
     pd.DataFrame(contexts).to_csv(out / "lexico_contextos_h_d.csv", index=False, lineterminator="\n")
     outputs = sorted(p.name for p in out.iterdir() if p.is_file())
-    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"votos_finales_con_magnitud_y_tpm":int((base_votes.voto_accion_final.ne("no_extraido") & base_votes.voto_magnitud_pb_final.notna() & base_votes.voto_tpm_objetivo_final.notna()).sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
+    summary = {"filas":len(data),"filas_validas":len(valid),"no_decidibles":len(data)-len(valid),"procedencia":data.procedencia_etiqueta.value_counts().to_dict(),"distribucion_etiqueta_analisis":valid.etiqueta_analisis.value_counts().to_dict(),"reuniones":valid.meeting_id.nunique(),"actores":valid.actor.nunique(),"topicos":valid.topico_humano.nunique(),"topicos_humanos":valid.topico_humano.nunique(),"topicos_modelo_nmf":n_topics,"oraciones_ajuste_topicos_modelo":len(sentence_texts),"vocabulario_1_a_4_min_df_5":len(names),"actores_con_vocabulario_distintivo":len(set(x["actor"] for x in actor_vocab)),"decisiones_institucionales_proxy":len(decision_rows),"candidatos_votos_explicitos":len(votes),"pares_reunion_actor_con_candidato_voto":len(vote_matrix),"acuerdos_consejo_extraidos":len(agreements),"filas_base_votos_acta_actor":len(base_votes),"votos_con_accion_extraida":int(base_votes.voto_accion.ne("no_extraido").sum()),"votos_inferidos_por_unanimidad":int(base_votes.fuente_voto.eq("inferido_de_unanimidad_textual").sum()),"votos_revisados_textualmente":int(base_votes.fuente_voto_final.eq("revision_textual_asistida").sum()),"votos_no_extraidos":int(base_votes.voto_accion_final.eq("no_extraido").sum()),"votos_finales_con_magnitud_y_tpm":int((base_votes.voto_accion_final.ne("no_extraido") & base_votes.voto_magnitud_pb_final.notna() & base_votes.voto_tpm_objetivo_final.notna()).sum()),"casos_convergencia_proxy":len(convergence),"nota_convergencia":"Exploratoria: decisión institucional y postura son etiquetas/scores del sistema; candidatos de voto requieren validación textual humana.","nota_neutrales":"Se conservan en tono general y cobertura; balance direccional usa solo H/D.","embeddings_generados":False,"razon_embeddings":"No son parte de W+C+600; se reservan para una hipótesis temática posterior."}
     save_json(out / "resumen.json", summary); outputs.append("resumen.json")
     sources = [CLASSIFIED, CORPUS, TRAIN, GOLD, VOTE_REVIEW, Path(__file__)]
     save_json(out / "manifest.json", {"fuentes_sha256":{str(p.relative_to(ROOT)):sha(p) for p in sources},"sha256_salidas":{name:sha(out/name) for name in outputs}})
