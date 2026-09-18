@@ -21,6 +21,8 @@
   "oraciones_ajuste_topicos_modelo": 57452,
   "ejes_radar_tematico": 6,
   "actores_aptos_radar": 9,
+  "filas_evolucion_topicos_reunion": 792,
+  "filas_evolucion_topicos_anual": 66,
   "vocabulario_1_a_4_min_df_5": 127843,
   "actores_con_vocabulario_distintivo": 27,
   "decisiones_institucionales_proxy": 132,

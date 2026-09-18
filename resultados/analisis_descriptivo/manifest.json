@@ -5,7 +5,7 @@
     "data/entrenamiento_wc600.csv": "573bea960318d4e1a58cb92f69f93708385ac0166570c2be7cada01f2063d0a2",
     "data/evaluacion_ciega_gold.csv": "7bed0b10c13d94e3b54d85f3f6ab7c6da6686c0e2fb9212ebd88efad1879b9d4",
     "data/revision_votos_actores.csv": "99129ef26144683c1fb4a728160fac46f3517679e6e0c791db5ae1e5c4a80f8f",
-    "scripts/analisis_resultados.py": "67e35508b6c599421e92ca3c5b223f3b48eea8885eb316252e547a64d6c034a5"
+    "scripts/analisis_resultados.py": "dcbe64b299003c258a89d4d9c5c5b8537d217448266a2ff424eb76c59c490b77"
   },
   "sha256_salidas": {
     "acuerdo_consejo_por_reunion.csv": "51f994d51e44b9a17a4721a38e37b5bdb9172d46e49ce6c3ff1b434e58d037e9",
@@ -15,6 +15,10 @@
     "convergencia_actor_reunion_proxy.csv": "7324aaa6b9bcb31ed67a913c8b673dd96c658c3ac48a306136d9b293ae8ab8dc",
     "convergencia_resumen_actor_proxy.csv": "dc30544b1e081bcacb11092df233f578ab59b7a41b312f1566f27e2d50c4af26",
     "decision_institucional_proxy.csv": "28c0e5992cde714814d899002f4b799f724461f13110a4f2b56b0c4957badeaf",
+    "evolucion_topicos_modelo_anual.csv": "7ca2b7f7371b465c1702de4d59f2b7f58a6259f7c3e00dababfde5f33e035b3a",
+    "evolucion_topicos_modelo_metodo.json": "955705d03aad67ce4e13a9cbee8daff820d8e2c5b9220548922da5042b4a26ec",
+    "evolucion_topicos_modelo_por_reunion.csv": "fc209fefd1b6a6860ecc5fb7ed07eaa8ca933616f5e4cd7b0c055ac0cb8edb21",
+    "evolucion_topicos_modelo_resumen.csv": "8fd7d13720b2a61fe05cc91aaf77f8061429776c4542644e73e533b46bdd42cf",
     "indices_actor_por_anio.csv": "df4584b492f9cd8df2484adf4a4372475a754a72a5c11443584bbc0fac0f832f",
     "indices_por_actor.csv": "32b2864d24d11aa6fcb6b8ff80420b71896ee4ed2fb206d20e03625f1bdd2e8f",
     "indices_por_anio.csv": "ffa63af1e3e678b89c5ae515d4fe00280613958371d1d2df8aa45d8b77995cbc",
@@ -42,6 +46,6 @@
     "variacion_anual_por_actor.csv": "d83a57b345d25848643b81bcaeca5b115a77b2a3db30e18cb03bbe377664370c",
     "vocabulario_distintivo_por_actor.csv": "074d337bce841e1b5ea72960741b4408478dd76b8b21909cc150c2145b2b4ef6",
     "vocabulario_frecuente_por_actor.csv": "115dcb77a803bb4a5ed6383a7ad6a854b674cafe1cd1c04d63a1b599fc9157df",
-    "resumen.json": "768a35189672b06b876a6c431cadede6817d736bdc479b3dade59987bfca1cfb"
+    "resumen.json": "64e66fb6a738a123d228a6e24568aedc4906254d084ea25098a4c007ffba6eda"
   }
 }
