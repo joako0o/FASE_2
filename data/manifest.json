@@ -30,7 +30,7 @@
     "scripts/estabilidad_lineal.py": "acc3fadec7a06750328d526f0ae732ceb4f08098e5733c131caa31cac38f245b",
     "scripts/curvas_aprendizaje.py": "e46938037bcb1d767343ec1f43f48732e2c83d4127463b21e6901a098b005a8e",
     "scripts/piloto_encoder_dev.py": "49f1f584e7ddedd2ab95497cd112d7bafc0e5194dcc34ff93eff3d83e04efd46",
-    "notebooks/piloto_encoder_colab.ipynb": "badaad4916b9d9e444ca25174091191d510de1177fb43f5c87a4473b6adb02e4",
+    "notebooks/piloto_encoder_colab.ipynb": "f6604eb4a3adae7b5fff041341222241ae1a7c12985d822d58ec73a368f9cdce",
     "scripts/verificar_procedencia.py": "57e90437f695cd29951e65adac21b0893cb4aa8602c50a4e7259d606e515da31"
   },
   "verificaciones": {
