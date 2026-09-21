@@ -7,7 +7,7 @@
   ],
   "commit_historico_pre_condensacion": "7aa63cc",
   "sha256": {
-    "README.md": "f7c37a46c2f0fd9ae1ad1c407bedc4a5104db24ce93f8c71d374b81609dd44ec",
+    "README.md": "7973bcdceba5a83129d62ddd8bb95f85e9962cee177935db095a024b23074d11",
     "requirements.txt": "1f434dbc7b26cd8ba04295593753f98a6e1fc4808f624d3f04b46e411d2b8862",
     "scripts/modelo_final.py": "8a76abb1a9bdf262ee0d13ac6b9c7d196eee3b537058959174d3100f1c426db9",
     "data/analisis_factorial.json": "5a31991659b4af8664222b7ebb023741c3cad68239d51f7e4441ebbc03c8fa44",
@@ -25,7 +25,11 @@
     "scripts/preparar_datos_web.py": "3bb3f937bc15045accbb275f09f29446899e6d409df13ee5566df1908f827ab7",
     "docs/CODEBOOK.md": "c41cebf74ea73e57c48fae2c8606e5b555dc17ff1c65608fcf17d362dbbc39cf",
     "docs/METODOLOGIA_Y_BENCHMARK.md": "2cbe646434ed01913e7f29351dc10e406619c37b3241e16d89d995955ec505fe",
-    "docs/RESULTADOS_LIMITACIONES.md": "9df7b5447dbb2b9b51b7926420442ed6f148c5bf985fccade9448eb9f43d1a41"
+    "docs/RESULTADOS_LIMITACIONES.md": "9df7b5447dbb2b9b51b7926420442ed6f148c5bf985fccade9448eb9f43d1a41",
+    "scripts/bootstrap_ciega_pareado.py": "843044aebc346990b9f5340da57a3d2bae1382482c25c848c25dd4b7764f5d9b",
+    "scripts/estabilidad_lineal.py": "acc3fadec7a06750328d526f0ae732ceb4f08098e5733c131caa31cac38f245b",
+    "scripts/curvas_aprendizaje.py": "e46938037bcb1d767343ec1f43f48732e2c83d4127463b21e6901a098b005a8e",
+    "scripts/piloto_encoder_dev.py": "49f1f584e7ddedd2ab95497cd112d7bafc0e5194dcc34ff93eff3d83e04efd46"
   },
   "verificaciones": {
     "predicciones_ciegas_reproducidas_por_modelo_final": "300/300 en cada uno de los cinco miembros y voto final",

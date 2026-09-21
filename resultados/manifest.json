@@ -1,6 +1,8 @@
 {
   "sha256": {
     "clasificacion_wc600_9725.csv": "5382a00b92362e44d2d8e492d7080ffe6c1756a4d22c496dbcac8bf22ebb9ed8",
-    "resumen_clasificacion.json": "c8bcd902077d459f9a2206c88174c8b2cae4ec989e685dc06c100655272e526a"
+    "resumen_clasificacion.json": "c8bcd902077d459f9a2206c88174c8b2cae4ec989e685dc06c100655272e526a",
+    "robustez_supervisada/estabilidad_lineal.json": "a5de0ee16c908ce9ceecc239cf198e0067b5e7910c36a7e5bed0119bb6dc5ed3",
+    "robustez_supervisada/curvas_aprendizaje.json": "c166f34b8226ea7a16a8da04d035e642f435727c36886fbf517f74e386f3f87a"
   }
 }

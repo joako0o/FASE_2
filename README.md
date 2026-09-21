@@ -372,6 +372,36 @@ El explorador puede filtrar por reunión, actor, tipo de actor, relevancia, orie
 
 La estructura por quintiles describe la posición dentro del acta publicada, no duración ni tiempo de palabra. Las actas deben presentarse como **secuencias de intervenciones reconstruidas desde el registro institucional**, nunca como transcripciones estenográficas. El paquete tampoco autoriza inferencias de habilidad, personalidad permanente, persuasión, influencia o causalidad.
 
+## Robustez supervisada y comparación de arquitecturas (2026-09)
+
+Análisis agregados tras la condensación, en `resultados/robustez_supervisada/`, sin tocar la selección de modelos ni reabrir la ciega.
+
+**Δ pareado en la ciega** (`scripts/bootstrap_ciega_pareado.py`; Δ = W+C+600 − C+89, bootstrap de reuniones completas, 10.000 remuestras, semilla 20260917). Gold: 234 N / 44 H / 21 D; solo 12/33 reuniones contienen dovish, lo que limita toda métrica por clase de D:
+
+| Δ | punto | IC95 % | P(Δ>0) |
+|---|---:|---|---:|
+| macro-F1 | +0,116 | [0,054; 0,195] | 1,000 |
+| F1-HD | +0,149 | [0,062; 0,262] | 1,000 |
+| F1-D | +0,234 | [0,084; 0,437] | 0,998 |
+| recall-D | +0,190 | [0,000; 0,471] | 0,939 |
+
+La mejora interna es significativa en conjunto; **no** en recall-D. Una diferencia de ~5 puntos de F1 entre dos modelos cabe entera dentro del ruido de este diseño: todo claim futuro se escribe contra estos intervalos, no contra medias sueltas.
+
+**Estabilidad del lineal** (`scripts/estabilidad_lineal.py`): la arquitectura W+C de un miembro bajo GroupKFold(5) da macro-F1 0,761±0,053 y bajo GroupShuffleSplit×10 0,744±0,054; el F1-D oscila entre 0,31 y 0,87 siguiendo el soporte de D del test (6–35 filas). `lbfgs` es determinista: esta es la varianza por muestreo que un encoder debe superar antes de comparar medias.
+
+**Curvas de aprendizaje** (`scripts/curvas_aprendizaje.py`; evaluación fija de 24 reuniones/330 filas/23 D, muestreo de reuniones completas estratificado por presencia de D, 15 repeticiones):
+
+| N entrenamiento | macro-F1 | F1-D | recall-D |
+|---:|---|---|---|
+| ≈233 | 0,576±0,045 | 0,212 | 0,255 |
+| ≈433 | 0,642±0,044 | 0,351 | 0,490 |
+| ≈815 | 0,670±0,020 | 0,395 | 0,565 |
+| ≈1222 | 0,690±0,009 | 0,426 | 0,586 |
+
+Retornos marginales decrecientes tras ~400–800 etiquetas: con ≈433 el macro-F1 ya alcanza ~93 % del valor de ≈1222. Este es el insumo del argumento de costo de anotación.
+
+**Piloto encoder:** `scripts/piloto_encoder_dev.py` ejecuta en GPU la comparación pareada BETO vs. lineal en el mismo split agrupado, 5 semillas, tuning simétrico opcional (`--grid`) y bootstrap pareado por semilla. La evaluación ciega permanece cerrada: extenderla requiere decisión documentada. Requiere `torch` y `transformers` (no incluidos en `requirements.txt`); este entorno no tiene acceso a HuggingFace.
+
 ## Lectura recomendada
 
 1. [`docs/METODOLOGIA_MODELO.md`](docs/METODOLOGIA_MODELO.md)

@@ -12,7 +12,7 @@ class TestProyectoEsencial(unittest.TestCase):
     def test_inventario_reducido(self):
         scripts = list((ROOT / "scripts").glob("*.py"))
         tests = list((ROOT / "tests").glob("test_*.py"))
-        self.assertEqual({p.name for p in scripts}, {"modelo_final.py", "analisis_resultados.py", "preparar_datos_web.py"})
+        self.assertEqual({p.name for p in scripts}, {"modelo_final.py", "analisis_resultados.py", "preparar_datos_web.py", "bootstrap_ciega_pareado.py", "estabilidad_lineal.py", "curvas_aprendizaje.py", "piloto_encoder_dev.py"})
         self.assertEqual([p.name for p in tests], ["test_proyecto_esencial.py"])
         # Cuatro documentos principales en el repositorio: README.md en raíz + 3 en docs/
         self.assertEqual(len(list((ROOT / "docs").glob("*.md"))), 3)
